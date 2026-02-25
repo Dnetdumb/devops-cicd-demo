@@ -24,6 +24,7 @@ Local Ubuntu VM
    |__Create repo "devops-cicd-demo" 
       |__Push source app onto repo
       |__Update Dockerfile
+      |__Update Jenkinsfile
 
 
 4. On Jenkins Server
@@ -31,4 +32,5 @@ Local Ubuntu VM
    |__
 
 <img width="831" height="859" alt="image" src="https://github.com/user-attachments/assets/723bdfee-7b0f-48de-a05a-8a20982e316e" />
+
 
