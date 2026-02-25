@@ -23,10 +23,12 @@ Local Ubuntu VM
 2. On Github Repo
    |__Create repo "devops-cicd-demo" 
       |__Push source app onto repo
+      |__Update Dockerfile
 
 
-3. On Jenkins Server
+4. On Jenkins Server
    |__Create project "devops-cicd-demo"
    |__
 
 <img width="831" height="859" alt="image" src="https://github.com/user-attachments/assets/723bdfee-7b0f-48de-a05a-8a20982e316e" />
+
