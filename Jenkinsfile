@@ -32,7 +32,6 @@ pipeline {
                         sh '''
                         echo $DOCKER_PASS | docker login -u $DOCKER_USER --password-stdin
                         docker push peidhhn/devops-web-lab:${BUILD_NUMBER}
-                        docker push peidhhn/devops-web-lab:latest
                         '''
                 }
             }
