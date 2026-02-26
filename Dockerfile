@@ -1,4 +1,4 @@
-FROM alpine:3.23.3
+FROM nginx:alpine
 
 COPY app/ /usr/share/nginx/html
 
