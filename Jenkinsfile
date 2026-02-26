@@ -21,12 +21,19 @@ pipeline {
             }
         }
 
-        stage('Push to DockerHub') {
+       stage('Push to DockerHub') {
             steps {
-                script {
-                    docker.withRegistry('https://index.docker.io/v1/','docker_hub_id')
-                    app.push("$env.BUILD_NUMBER")
-                    app.push("latest")
+                withCredentials([usernamePassword(
+                credentialsId: 'docker_hub_id',
+                usernameVariable: 'DOCKER_USER',
+                passwordVariable: 'DOCKER_PASS'
+             )]) {
+
+                        sh '''
+                        echo $DOCKER_PASS | docker login -u $DOCKER_USER --password-stdin
+                        docker push peidhhn/devops-web-lab:${BUILD_NUMBER}
+                        docker push peidhhn/devops-web-lab:latest
+                        '''
                 }
             }
         }
