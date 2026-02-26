@@ -49,7 +49,8 @@ docker build -t jenkins-docker .
 
 <img width="999" height="431" alt="image" src="https://github.com/user-attachments/assets/38e61230-b41c-4078-af24-c6ff10b5355f" />
 
-- Open Jenkins: http://<instance-public-ip>:8080
+
+- Open Jenkins: http://URL:8080
 
 - Create a New Jenkins Project "devops-cicd-demo"
 
@@ -57,7 +58,11 @@ docker build -t jenkins-docker .
 
 Under Source Code Management, select Git and enter your GitHub repository URL.
 
+Generate new token: Personal access tokens (classic) on github and add credentials with this token on Jenkins server
 
+- Configure Build Triggers:
+
+Check GitHub hook trigger for GITScm polling.
 
 2. On Github Repo
 
@@ -66,11 +71,15 @@ Under Source Code Management, select Git and enter your GitHub repository URL.
 - Update Dockerfile
 - Update Jenkinsfile
 
-4. On Jenkins Server
-   |__Create project "devops-cicd-demo"
-   |__
+
+- Add Webhook:
+
+Payload URL: http://URL:8080/github-webhook/
+
+Content Type: application/json
 
 <img width="831" height="859" alt="image" src="https://github.com/user-attachments/assets/723bdfee-7b0f-48de-a05a-8a20982e316e" />
+
 
 
 
