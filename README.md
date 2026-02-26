@@ -49,19 +49,29 @@ docker build -t jenkins-docker .
 
 <img width="999" height="431" alt="image" src="https://github.com/user-attachments/assets/38e61230-b41c-4078-af24-c6ff10b5355f" />
 
+- Open Jenkins: http://<instance-public-ip>:8080
+
+- Create a New Jenkins Project "devops-cicd-demo"
+
+- Configure GitHub Integration:
+
+Under Source Code Management, select Git and enter your GitHub repository URL.
+
+
 
 2. On Github Repo
-   |__Create repo "devops-cicd-demo" 
-      |__Push source app onto repo
-      |__Update Dockerfile
-      |__Update Jenkinsfile
 
+- Create project "devops-cicd-demo"
+- Push source app onto repo
+- Update Dockerfile
+- Update Jenkinsfile
 
 4. On Jenkins Server
    |__Create project "devops-cicd-demo"
    |__
 
 <img width="831" height="859" alt="image" src="https://github.com/user-attachments/assets/723bdfee-7b0f-48de-a05a-8a20982e316e" />
+
 
 
 
