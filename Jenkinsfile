@@ -1,11 +1,11 @@
 pipeline {
     agent any
-
-    stages {
-        
-        environment {
+    
+    environment {
             IMAGE_NAME = "peidhhn/devops-web-lab"
-        }
+    }
+    
+    stages { 
         
         stage('Checkout') {
             steps {
