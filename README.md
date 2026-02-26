@@ -18,9 +18,11 @@ Local Ubuntu VM
 1. On local VM (Ubuntu Server 22.04)
    
 - Install Docker:
+
 apt install docker.io
 
 - Create a Dockerfile to build jenkins server:
+
 FROM jenkins/jenkins:lts
 
 USER root
@@ -32,6 +34,7 @@ RUN apt update && \
 USER jenkins
 
 - Build:
+
 docker build -t jenkins-docker .
 
 <img width="583" height="62" alt="image" src="https://github.com/user-attachments/assets/264b6b62-6059-4dff-9cb2-3cc187043ea0" />
@@ -59,6 +62,7 @@ docker build -t jenkins-docker .
    |__
 
 <img width="831" height="859" alt="image" src="https://github.com/user-attachments/assets/723bdfee-7b0f-48de-a05a-8a20982e316e" />
+
 
 
 
