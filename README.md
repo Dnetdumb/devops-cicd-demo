@@ -54,11 +54,21 @@ docker build -t jenkins-docker .
 
 - Create a New Jenkins Project "devops-cicd-demo"
 
+<img width="831" height="859" alt="image" src="https://github.com/user-attachments/assets/723bdfee-7b0f-48de-a05a-8a20982e316e" />
+
 - Configure GitHub Integration:
 
-Under Source Code Management, select Git and enter your GitHub repository URL.
-
 Generate new token: Personal access tokens (classic) on github and add credentials with this token on Jenkins server
+
+<img width="1251" height="276" alt="image" src="https://github.com/user-attachments/assets/0805e56f-6990-4224-90e1-416f5b59772d" />
+
+
+- Configure DockerHub Integration:
+
+Generate new token: Personal access tokens on docker hub and add credentials with this token on Jenkins server
+
+<img width="960" height="203" alt="image" src="https://github.com/user-attachments/assets/9230b105-ecda-4594-a371-4099ff25fcc8" />
+
 
 - Configure Build Triggers:
 
@@ -78,10 +88,12 @@ Payload URL: http://URL:8080/github-webhook/
 
 Content Type: application/json
 
-<img width="831" height="859" alt="image" src="https://github.com/user-attachments/assets/723bdfee-7b0f-48de-a05a-8a20982e316e" />
+- DEMO: ...
+
+<img width="1272" height="416" alt="image" src="https://github.com/user-attachments/assets/e40e328e-3fba-4b8b-b859-dc659605cd52" />
 
 
-
+<img width="1272" height="747" alt="image" src="https://github.com/user-attachments/assets/e6f49e3d-24f7-4a05-8529-9a93960d6f25" />
 
 
 
