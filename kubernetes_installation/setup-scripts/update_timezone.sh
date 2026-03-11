@@ -1,6 +1,6 @@
 #!/bin/bash
 
-## Cài chrony Sync time và update timezone
+## Install chrony Sync time and update timezone
 
 apt install chrony -y
 

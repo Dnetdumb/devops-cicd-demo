@@ -1,8 +1,8 @@
-# Mô hình cài đặt gồm 1 master và 2 worker có cấu hình IP như sau:
+# The setup consists of 1 master and 2 workers with the following IP configuration:
 ```bash
-Master-CP1 192.168.1.199
-Master-CP2 192.168.1.99 
-Master-CP3 192.168.1.98
+Master-CP1 192.168.1.199	# "Leader" role
+Master-CP2 192.168.1.99		# Assume it already exists as "Follower" role
+Master-CP3 192.168.1.98		# Assume it already exists as "Follower" role
 Worker-Node1 192.168.1.101
 Worker-Node2 192.168.1.102
 Jenkins-Server 192.168.1.200
