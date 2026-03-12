@@ -148,5 +148,19 @@ sudo systemctl daemon-reload
 sudo systemctl start ngrok.service
 ```
 Add webhook on repo Github:
+```bash
+Repo
+→ Settings
+  → Webhooks
+
+Payload URL:
+https://YOUR_PUBLIC_URL_WITH_NGROK/github-webhook/
+
+Content type:
+application/json
+
+Event:
+Just the push event
+```
 
 
