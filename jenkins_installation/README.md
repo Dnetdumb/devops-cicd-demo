@@ -103,7 +103,15 @@ Manage Jenkins
 ```
 <img width="1266" height="402" alt="image" src="https://github.com/user-attachments/assets/368f2657-c424-4489-a3a9-aa8bfedf0faf" />
 
+## Add a project to Jenkins
 
+<img width="1277" height="326" alt="image" src="https://github.com/user-attachments/assets/9ae32905-a305-4ff5-b2ed-97530f995a66" />
+
+Turn on trigger GitHub Webhook:
+
+<img width="907" height="291" alt="image" src="https://github.com/user-attachments/assets/8b0c992f-eefc-4010-900d-15e377ce9c33" />
+
+Change Pipeline Definition:
 
 
 
