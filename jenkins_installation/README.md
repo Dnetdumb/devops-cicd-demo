@@ -5,7 +5,6 @@
 sudo apt update
 sudo apt install fontconfig openjdk-21-jre
 ```
-
 ## Add Jenkins Repository
 
 #### Import Jenkins GPG key:
@@ -57,7 +56,7 @@ Docker Pipeline 	#Optional
 ```
 ## Install kubectl
 ```bash
-
+sudo snap install kubectl --classic
 ```
 ## Add credentials to Jenkins
 Get GitHub Personal Access Token:
