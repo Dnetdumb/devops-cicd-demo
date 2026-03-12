@@ -55,3 +55,60 @@ Kubernetes
 Kubernetes CLI
 Docker Pipeline 	#Optional
 ```
+## Install kubectl
+```bash
+
+```
+## Add credentials to Jenkins
+Get GitHub Personal Access Token:
+```bash
+Settings
+→ Developer Settings
+→ Personal access tokens
+→ Tokens (classic)
+→ Generate token
+ → Copy the token
+```
+Add credentials with this token to Jenkins:
+```bash
+Manage Jenkins
+→ Credentials
+→ Global
+→ Add Credentials
+  → Kind: Secret text
+  → ID: github-token
+  → Secret: ghp_xxxxxx
+```
+On Master Node:
+```bash
+cat ~/.kube/config    # Copy file kubeconfig
+```
+Add kubernetes credential with kubeconfig to Jenkins:
+```bash
+Manage Jenkins
+→ Credentials
+→ Global
+→ Add Credentials
+  → Kind: Secret file
+  → ID: kubeconfig
+  → file: kubeconfig
+```
+Add Docker registry credential to Jenkins:
+```bash
+Manage Jenkins
+→ Credentials
+→ Global
+→ Add Credentials
+  → Kind: Username + Password
+  → ID: docker-hub
+```
+<img width="1266" height="402" alt="image" src="https://github.com/user-attachments/assets/368f2657-c424-4489-a3a9-aa8bfedf0faf" />
+
+
+
+
+
+
+
+
+
