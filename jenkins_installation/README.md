@@ -162,5 +162,13 @@ application/json
 Event:
 Just the push event
 ```
+Test webhook triggers
+```bash
+git commit -m "Feat: Test webhook trigger"
+```
+<img width="997" height="76" alt="image" src="https://github.com/user-attachments/assets/09a1965e-1999-4437-88cc-213dcea36be3" />
 
+and check Jenkins Server on the same time:
+
+<img width="1265" height="279" alt="image" src="https://github.com/user-attachments/assets/b186ca22-6f99-4ae4-a86f-6353e4e0307c" />
 
