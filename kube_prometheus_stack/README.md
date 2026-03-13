@@ -97,5 +97,5 @@ Credentials to login grafana:
 ```bash
 # User: admin
 # Password:
-kubectl get secrets prometheus-grafana -n monitoring -oyaml | grep -e "admin-password" | awk '{print $2}' | base64 -d
+kubectl get secrets prometheus-grafana -n monitoring -oyaml | grep -e "admin-password" | awk '{print $2}' | base64 -d ; echo
 ```
