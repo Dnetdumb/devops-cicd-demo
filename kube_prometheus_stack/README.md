@@ -46,11 +46,7 @@ kubectl apply -f metallb-config.yaml
 ```
 Install ingress-nginx
 ```bash
-kubectl create namespace ingress-nginx
-
-helm install ingress-nginx ingress-nginx/ingress-nginx \
-  --namespace ingress-nginx \
-  --set controller.service.type=LoadBalancer
+helm install ingress-nginx ingress-nginx/ingress-nginx --namespace ingress-nginx --set controller.service.type=LoadBalancer --create-namespace
 ```
 Verify VIP assignment:
 ```bash
@@ -63,13 +59,9 @@ ingress-nginx-controller-admission   ClusterIP      10.107.75.254   <none>      
 ```bash
 helm search repo kube-prometheus-stack
 ```
-## Create namespace "monitoring"
-```bash
-kubectl create namespace monitoring
-```
 ## Install kube-prometheus-stack with namespace "monitoring" and custom file "values.yaml"
 ```bash
-helm install prometheus prometheus-community/kube-prometheus-stack --namespace monitoring -f values.yaml
+helm install prometheus prometheus-community/kube-prometheus-stack --namespace monitoring -f values.yaml --create-namespace
 ```
 Check:
 ```bash
