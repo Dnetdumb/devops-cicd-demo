@@ -92,3 +92,18 @@ If Worker-Node1 down, ingress will not work because no pod left handle traffic:
 ```bash
 kubectl scale deploy ingress-nginx-controller -n ingress-nginx --replicas=2
 ```
+## Final, update the DNS record (/etc/hosts) and access the browser
+```bash
+192.168.1.253	prometheus.lab.local
+192.168.1.253   alert.lab.local
+192.168.1.253   metrics-app.lab.local
+```
+<img width="2558" height="1385" alt="image" src="https://github.com/user-attachments/assets/e91860ef-ff66-4e1a-ada9-de9901d2a69d" />
+
+Credentials to login grafana:
+
+```bash
+# User: admin
+# Password:
+kubectl get secrets prometheus-grafana -n monitoring -oyaml | grep -e "admin-password" | awk '{print $2}' | base64 -d
+```
