@@ -14,7 +14,7 @@ pipeline{
 			steps {
 				git branch: 'main', url: 'https://github.com/Dnetdumb/devops-cicd-demo.git'
 			}
-		{
+		}
 		
 		stage('Build Docker Images') {
 			parallel {
@@ -30,8 +30,8 @@ pipeline{
 				stage ('Build client-app') {
 					steps {
 						sh """
-                                                docker build -t $DOCKER_HUB/client-app:$TAG_VER -f Dockerfile.client .
-                                                """
+						docker build -t $DOCKER_HUB/client-app:$TAG_VER -f Dockerfile.client .
+						"""
 					}
 				}
 			}
@@ -57,6 +57,7 @@ pipeline{
 					sh """
 					echo $DOCKER_PASS | docker login -u $DOCKER_USER --password-stdin
 					"""
+				}
 			}	
 		}
 
@@ -103,7 +104,7 @@ pipeline{
 				-n $NAMESPACE
 
 				kubectl set image deployment/client-app \
-                                client-app=$DOCKER_HUB/metrics-app:$TAG_VER \
+                                client-app=$DOCKER_HUB/client-app:$TAG_VER \
                                 -n $NAMESPACE
 				"""
 			}
@@ -122,7 +123,7 @@ pipeline{
 			steps {
 				sh """
 				kubectl get pods -n $NAMESPACE
-				kubect; get svc -n $NAMESPACE
+				kubectl get svc -n $NAMESPACE
 				"""
 			}
 		}
@@ -130,7 +131,7 @@ pipeline{
 	
 	post {
 		success {
-			echo "Pipeline compeleted successfully"
+			echo "Pipeline completed successfully"
 		}
 		
 		failure {
@@ -138,12 +139,3 @@ pipeline{
 		}
 	}
 }
-
-
-
-
-
-
-
-
-

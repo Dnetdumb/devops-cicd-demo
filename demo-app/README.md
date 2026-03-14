@@ -57,6 +57,9 @@ Checkout Code
 Build Docker Images
       │
       ▼
+Trivy security scan	← Optional
+      │
+      ▼
 Push DockerHub
       │
       ▼
@@ -69,10 +72,10 @@ Deploy Kubernetes
 Update Images
       │
       ▼
-Verify Rollout  ← make sure pod running
+Verify Rollout		← make sure pod running
       │
       ▼
-Endpoint Test      ← check service/pod
+Endpoint Test		← check service/pod
       │
       ▼
 Pipeline Success
