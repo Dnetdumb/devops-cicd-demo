@@ -58,6 +58,22 @@ Docker Pipeline 	#Optional
 ```bash
 sudo snap install kubectl --classic
 ```
+## Install trivy (for security scan) 
+#### Install dependencies:
+```bash
+sudo apt install wget apt-transport-https gnupg lsb-release -y
+```
+#### Add trivy's GPG Key and Repo 
+```bash
+wget -qO - https://aquasecurity.github.io/trivy-repo/deb/public.key | gpg --dearmor | sudo tee /usr/share/keyrings/trivy.gpg > /dev/null
+
+echo "deb [signed-by=/usr/share/keyrings/trivy.gpg] https://aquasecurity.github.io/trivy-repo/deb $(lsb_release -sc) main" | sudo tee -a /etc/apt/sources.list.d/trivy.list
+```
+#### Update and install trivy 
+```bash
+sudo apt-get update
+sudo apt-get install trivy -y
+```
 ## Add credentials to Jenkins
 Get GitHub Personal Access Token:
 ```bash

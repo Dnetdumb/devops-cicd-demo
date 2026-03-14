@@ -1,0 +1,149 @@
+pipeline{
+	agent any
+	
+	environment {
+		DOCKER_HUB = "peidhhn"
+		IMAGE_VER = "v1"
+		TAG_VER = "${IMAGE_VER}-${BUILD_NUMBER}"
+		NAMESPACE = "appteam1"
+	}
+	
+	stages {
+		
+		stage('Checkout code') {
+			steps {
+				git branch: 'main', url: 'https://github.com/Dnetdumb/devops-cicd-demo.git'
+			}
+		{
+		
+		stage('Build Docker Images') {
+			parallel {
+
+				stage('Build metric-app') {
+					steps {
+						sh """
+						docker build -t $DOCKER_HUB/metrics-app:$TAG_VER -f Dockerfile.main .
+						"""
+					}		
+				}
+
+				stage ('Build client-app') {
+					steps {
+						sh """
+                                                docker build -t $DOCKER_HUB/client-app:$TAG_VER -f Dockerfile.client .
+                                                """
+					}
+				}
+			}
+		}
+		
+		## Optional
+		stage('Security scan image with trivy') {
+			steps {
+				sh """
+				trivy image --severity HIGH,CRITICAL --exit-code 1 $DOCKER_HUB/metrics-app:$TAG_VER
+				trivy image --severity HIGH,CRITICAL --exit-code 1 $DOCKER_HUB/client-app:$TAG_VER
+				"""
+			}
+		}
+
+		stage('Dockerhub login') {
+			steps {
+				withCredentials([usernamePassword(
+					credentialsId: 'docker-hub',
+					usernameVariable: 'DOCKER_USER',
+					passwordVariable: 'DOCKER_PASS'
+				)]) {
+					sh """
+					echo $DOCKER_PASS | docker login -u $DOCKER_USER --password-stdin
+					"""
+			}	
+		}
+
+		stage('Push images') {
+			parallel {
+				
+				stage('Push metrics-app') {
+					steps {
+						sh "docker push $DOCKER_HUB/metrics-app:$TAG_VER"
+					}
+				}
+
+				stage('Push client-app') {
+					steps {
+						sh "docker push $DOCKER_HUB/client-app:$TAG_VER"
+					}
+				}
+			}
+		}
+		
+		stage('Approve Deployment') {
+			steps {
+				input message: "Approve deployment to K8s ?",
+					ok: "Deploy"
+			}
+		}
+
+		stage('Deploy to K8s') {
+			steps {
+				sh """
+				kubectl create ns $NAMESPACE --dry-run=client -oyaml | kubectl apply -f -
+
+				kubectl apply -f main.deployment.yaml -n $NAMESPACE
+				kubectl apply -f client.deployment.yaml -n $NAMESPACE
+				"""
+			}
+		}
+		
+		stage('Update Images') {
+			steps {
+				sh """
+				kubectl set image deployment/metrics-app \
+				metrics-app=$DOCKER_HUB/metrics-app:$TAG_VER \
+				-n $NAMESPACE
+
+				kubectl set image deployment/client-app \
+                                client-app=$DOCKER_HUB/metrics-app:$TAG_VER \
+                                -n $NAMESPACE
+				"""
+			}
+		}
+
+		stage('Verify rollout status') {
+			steps {
+				sh """
+				kubectl rollout status deployment/metrics-app -n $NAMESPACE
+				kubectl rollout status deployment/client-app -n $NAMESPACE
+				"""
+			}
+		}
+
+		stage('Test Endpoint status') {
+			steps {
+				sh """
+				kubectl get pods -n $NAMESPACE
+				kubect; get svc -n $NAMESPACE
+				"""
+			}
+		}
+	}
+	
+	post {
+		success {
+			echo "Pipeline compeleted successfully"
+		}
+		
+		failure {
+			echo "Pipeline failed"
+		}
+	}
+}
+
+
+
+
+
+
+
+
+
