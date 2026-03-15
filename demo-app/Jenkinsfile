@@ -12,7 +12,7 @@ pipeline{
 		
 		stage('Checkout code') {
 			steps {
-				git branch: 'main', 
+				git branch: 'master', 
 				credentialsId: 'github-token',
 				url: 'https://github.com/Dnetdumb/devops-cicd-demo.git'
 			}
