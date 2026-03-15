@@ -91,9 +91,9 @@ pipeline{
 		stage('Deploy to K8s') {
 			steps {
 				sh """
-				helm upgrade --install metrics-app demo-app/charts --namespace $NAMESPACE --create-namespace --set image.tag=$TAG_VER --wait --timeout 120s --atomic
+				helm upgrade --install metrics-app demo-app/charts/metrics-app --namespace $NAMESPACE --create-namespace --set image.tag=$TAG_VER --wait --timeout 120s --atomic
 
-				helm upgrade --install client-app demo-app/charts --namespace $NAMESPACE --create-namespace --set image.tag=$TAG_VER --wait --timeout 120s --atomic
+				helm upgrade --install client-app demo-app/charts/client-app --namespace $NAMESPACE --create-namespace --set image.tag=$TAG_VER --wait --timeout 120s --atomic
 				
 				# kubectl apply -f main.deployment.yaml -n $NAMESPACE
 				# kubectl apply -f client.deployment.yaml -n $NAMESPACE
@@ -109,8 +109,8 @@ pipeline{
 				-n $NAMESPACE
 
 				kubectl set image deployment/client-app \
-                                client-app=$DOCKER_HUB/client-app:$TAG_VER \
-                                -n $NAMESPACE
+                client-app=$DOCKER_HUB/client-app:$TAG_VER \
+                -n $NAMESPACE
 				"""
 			}
 		}
