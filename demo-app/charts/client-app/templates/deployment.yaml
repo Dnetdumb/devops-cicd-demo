@@ -1,26 +1,29 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: metrics-client
+  name: {{ .Values.app.name }}
+  labels:
+    app: {{ .Values.app.name }}
 spec:
-  replicas: 1
+  replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
-      app: metrics-client
+      app: {{ .Values.app.name }}
   template:
     metadata:
       labels:
-        app: metrics-client
+        app: {{ .Values.app.name }}
     spec:
       containers:
-      - name: client
-        image: peidhhn/client-app:latest
-        env:
-        - name: API_HOST
-          value: http://metrics-app
-        - name: USER_INTERVAL
-          value: "2"
-        - name: ORDER_INTERVAL
-          value: "3"
-        - name: PAYMENT_INTERVAL
-          value: "5"
+        - name: client
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          env:
+            - name: API_HOST
+              value: {{ .Values.env.apiHost | quote }}
+            - name: USER_INTERVAL
+              value: {{ .Values.env.userInterval | quote }}
+            - name: ORDER_INTERVAL
+              value: {{ .Values.env.orderInterval | quote }}
+            - name: PAYMENT_INTERVAL
+              value: {{ .Values.env.paymentInterval | quote }}

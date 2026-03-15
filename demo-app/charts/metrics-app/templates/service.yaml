@@ -1,15 +1,14 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ include "metrics-app.fullname" . }}
+  name: metrics-app
   labels:
-    {{- include "metrics-app.labels" . | nindent 4 }}
+    app: metrics-app
 spec:
+  selector:
+    app: metrics-app
   type: {{ .Values.service.type }}
   ports:
-    - port: {{ .Values.service.port }}
-      targetPort: http
-      protocol: TCP
-      name: http
-  selector:
-    {{- include "metrics-app.selectorLabels" . | nindent 4 }}
+    - name: http
+      port: {{ .Values.service.port }}
+      targetPort: {{ .Values.service.targetPort }}
