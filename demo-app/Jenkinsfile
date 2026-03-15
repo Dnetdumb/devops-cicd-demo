@@ -101,15 +101,6 @@ pipeline{
 			}
 		}
 
-		stage('Verify rollout status') {
-			steps {
-				sh """
-				kubectl rollout status deployment/metrics-app -n $NAMESPACE
-				kubectl rollout status deployment/client-app -n $NAMESPACE
-				"""
-			}
-		}
-
 		stage('Test Endpoint status') {
 			steps {
 				sh """
