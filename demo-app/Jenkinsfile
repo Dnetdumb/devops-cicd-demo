@@ -24,7 +24,7 @@ pipeline{
 				stage('Build metric-app') {
 					steps {
 						sh """
-						docker build -t $DOCKER_HUB/metrics-app:$TAG_VER -f Dockerfile.main .
+						docker build -t $DOCKER_HUB/metrics-app:$TAG_VER -f demo-app/Dockerfile.main .
 						"""
 					}		
 				}
@@ -32,7 +32,7 @@ pipeline{
 				stage ('Build client-app') {
 					steps {
 						sh """
-						docker build -t $DOCKER_HUB/client-app:$TAG_VER -f Dockerfile.client .
+						docker build -t $DOCKER_HUB/client-app:$TAG_VER -f demo-app/Dockerfile.client .
 						"""
 					}
 				}
@@ -89,10 +89,12 @@ pipeline{
 		stage('Deploy to K8s') {
 			steps {
 				sh """
-				kubectl create ns $NAMESPACE --dry-run=client -oyaml | kubectl apply -f -
+				helm upgrade --install metrics-app demo-app/charts --namespace $NAMESPACE --create-namespace --set image.tag=$TAG_VER --wait --timeout 120s --atomic
 
-				kubectl apply -f main.deployment.yaml -n $NAMESPACE
-				kubectl apply -f client.deployment.yaml -n $NAMESPACE
+				helm upgrade --install client-app demo-app/charts --namespace $NAMESPACE --create-namespace --set image.tag=$TAG_VER --wait --timeout 120s --atomic
+				
+				# kubectl apply -f main.deployment.yaml -n $NAMESPACE
+				# kubectl apply -f client.deployment.yaml -n $NAMESPACE
 				"""
 			}
 		}
