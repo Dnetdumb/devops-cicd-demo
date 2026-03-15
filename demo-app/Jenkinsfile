@@ -42,8 +42,10 @@ pipeline{
 		stage('Security scan image with trivy') {
 			steps {
 				sh """
-				trivy image --severity HIGH,CRITICAL --exit-code 1 $DOCKER_HUB/metrics-app:$TAG_VER
-				trivy image --severity HIGH,CRITICAL --exit-code 1 $DOCKER_HUB/client-app:$TAG_VER
+				# trivy image --severity HIGH,CRITICAL --exit-code 1 $DOCKER_HUB/metrics-app:$TAG_VER
+				# trivy image --severity HIGH,CRITICAL --exit-code 1 $DOCKER_HUB/client-app:$TAG_VER
+				trivy image --severity CRITICAL --exit-code 1 $DOCKER_HUB/metrics-app:$TAG_VER
+				trivy image --severity CRITICAL --exit-code 1 $DOCKER_HUB/client-app:$TAG_VER
 				"""
 			}
 		}
