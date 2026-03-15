@@ -37,7 +37,6 @@ pipeline{
 			}
 		}
 		
-		# Optional
 		stage('Security scan image with trivy') {
 			steps {
 				sh """
