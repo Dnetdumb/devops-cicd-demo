@@ -1,6 +1,6 @@
-# Create an App to Generate Metrics
+# Full Demo
 
-### Idea:
+## Idea:
 
 The application metrics-app is the main service. It provides the following APIs:
 ```bash
@@ -44,9 +44,6 @@ Deploy it to the same namespace `appteam1`
 kubectl apply -f client.deployment.yaml -n appteam1 --create-namespace
 ```
 
-#### Create a Dashboard to Monitor Metrics
-We can import the file "main.dashboard.exported.json" directly into Grafana to create a dashboard for monitoring the application's metrics.
-
 #### Update "prometheusrule" for metrics-app 
 ```bash
 kubectl apply -f prometheus-rule.yaml
@@ -56,6 +53,40 @@ Check:
 get prometheusrule -n appteam1
 NAME                AGE
 metrics-app-rules   31s
+```
+<img width="2525" height="502" alt="image" src="https://github.com/user-attachments/assets/73f042cd-e631-4f7b-8294-25bef8d020b7" />
+
+#### Create a Dashboard to Monitor Metrics
+We can import the file "main.dashboard.exported.json" directly into Grafana to create a dashboard for monitoring the application's metrics.
+
+<img width="2544" height="969" alt="image" src="https://github.com/user-attachments/assets/c74118d7-08e7-4c6c-a138-34b4c2edc753" />
+
+## Config auto send slack message if match NAMESPACE with values.yaml
+Create channel:
+```bash
+Create channel: 'alert-appteam1'
+Create channel: 'alert-appteam2'
+```
+Install and config "incoming webhook"
+```bash
+Select "Edit settings" -> Intergation -> Add an app -> search "incoming webhook" and install -> Add to slack -> Post to channel "alert-team1" -> Copy "Webhook URL"
+```
+Update "channel" and "Webhook URL" to values.yaml 
+```bash
+ - name: "appteam2"
+      slack_configs:
+      - api_url: "$Webhook URL"
+        channel: '#alert-appteam2'
+...
+- name: "appteam1"
+      slack_configs:
+      - api_url: "$Webhook URL"
+        channel: '#alert-appteam1'
+...
+```
+Upgrade helm:
+```bash
+helm upgrade prometheus prometheus-community/kube-prometheus-stack -n monitoring -f values.yaml --reuse-values
 ```
 
 ## Demo with Jenkinsfiles:
@@ -91,4 +122,6 @@ Endpoint Test		← check service/pod
       ▼
 Pipeline Success
 ```
+
+Check result:
 
