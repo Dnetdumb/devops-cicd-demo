@@ -28,4 +28,4 @@ serviceMonitor:
   interval: 15s
   scrapeTimeout: 10s
   path: /metrics
-  releaseLabel: monitoring
+  releaseLabel: prometheus

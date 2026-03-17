@@ -34,7 +34,7 @@ alertmanager:
       - receiver: 'null'
         matchers:
           - alertname =~ "InfoInhibitor|Watchdog"
-      - receiver: 'platform'
+      - receiver: 'appteam2'
         matchers:
           - namespace =~ "argocd|ingress-controller|monitoring"
       - receiver: 'appteam1'
@@ -42,10 +42,10 @@ alertmanager:
           - namespace =~ "appteam1"
     receivers:
     - name: 'null'
-    - name: "platform"
+    - name: "appteam2"
       slack_configs:
-      - api_url: "https://hooks.slack.com/services/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"
-        channel: '#alert-platform'
+      - api_url: "API_SLACK_URL"
+        channel: '#alert-appteam2'
         color: '{{ template "slack.color" . }}'
         title: '{{ template "slack.title" . }}'
         text: '<@U0AK8AXHNTC> {{ template "slack.text" . }}'
@@ -65,7 +65,7 @@ alertmanager:
             url: '{{ template "__alert_silence_link" . }}'
     - name: "appteam1"
       slack_configs:
-      - api_url: "https://hooks.slack.com/services/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"
+      - api_url: "API_SLACK_URL"
         channel: '#alert-appteam1'
         color: '{{ template "slack.color" . }}'
         title: '{{ template "slack.title" . }}'
