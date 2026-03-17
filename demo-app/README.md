@@ -111,9 +111,6 @@ Manual Approval
 Deploy Kubernetes
       │
       ▼
-Update Images
-      │
-      ▼
 Verify Rollout		← make sure pod running
       │
       ▼
@@ -124,4 +121,14 @@ Pipeline Success
 ```
 
 Check result:
+
+<img width="2555" height="940" alt="image" src="https://github.com/user-attachments/assets/af2b71d8-436c-4b5c-ab69-dd8bc85c3f8f" />
+
+<img width="2559" height="1087" alt="image" src="https://github.com/user-attachments/assets/cf930827-2558-4f43-9bbb-41f545de83d5" />
+
+<img width="1853" height="765" alt="image" src="https://github.com/user-attachments/assets/d483b8af-0fac-43d4-9080-77e1035fb537" />
+
+<img width="2476" height="814" alt="image" src="https://github.com/user-attachments/assets/00f95304-1e3e-4156-93e1-09581bb40bee" />
+
+<img width="2557" height="990" alt="image" src="https://github.com/user-attachments/assets/b870348c-5f0c-4fa0-a70a-17757549e3ea" />
 
