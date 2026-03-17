@@ -4,7 +4,7 @@ metadata:
   name: metrics-app-rules
   namespace: appteam1
   labels:
-    release: prometheus
+    release: monitoring
 spec:
   groups:
     - name: metrics-app.rules

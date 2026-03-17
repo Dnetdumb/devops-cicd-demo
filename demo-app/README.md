@@ -47,6 +47,17 @@ kubectl apply -f client.deployment.yaml -n appteam1 --create-namespace
 #### Create a Dashboard to Monitor Metrics
 We can import the file "main.dashboard.exported.json" directly into Grafana to create a dashboard for monitoring the application's metrics.
 
+#### Update "prometheusrule" for metrics-app 
+```bash
+kubectl apply -f prometheus-rule.yaml
+```
+Check:
+```bash
+get prometheusrule -n appteam1
+NAME                AGE
+metrics-app-rules   31s
+```
+
 ## Demo with Jenkinsfiles:
 
 #### Jenkins Pipeline Flow:

@@ -1,0 +1,31 @@
+replicaCount: 1
+
+image:
+  repository: peidhhn/metrics-app
+  tag: latest
+  pullPolicy: IfNotPresent
+
+service:
+  type: ClusterIP
+  port: 80
+  targetPort: 8000
+
+ingress:
+  enabled: true
+  className: nginx
+  host: metrics-app.lab.local
+
+env:
+  userMin: "0.4"
+  userMax: "0.6"
+  orderMin: "0.1"
+  orderMax: "0.6"
+  paymentMin: "0.2"
+  paymentMax: "0.5"
+
+serviceMonitor:
+  enabled: true
+  interval: 15s
+  scrapeTimeout: 10s
+  path: /metrics
+  releaseLabel: prometheus
