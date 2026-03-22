@@ -49,6 +49,9 @@ kubectl apply -f cert.yaml
 ```bash
 global:
   domain: argocd.lab.local
+configs:
+  params:
+    server.insecure: true
 server:
   ingress:
     enabled: true
@@ -61,15 +64,17 @@ server:
     tls:
       - hosts:
           - argocd.lab.local
-        secretName: argocd-tls
+        secretName: argocd-server-tls
     annotations:
       cert-manager.io/cluster-issuer: selfsigned
+      nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+      nginx.ingress.kubernetes.io/backend-protocol: "HTTP"
 ```
 Apply:
 ```bash
 helm upgrade argocd argo/argo-cd -n argocd -f values.yaml
 ```
-#### Check ArgoCD status
+#### Check ArgoCD status:
 Check:
 ```bash
 kubectl get clusterissuer
@@ -79,4 +84,14 @@ Check Cert & Ingress status:
 kubectl get certificate -n argocd
 kubectl get ingress -n argocd
 ```
-
+#### Understand Workflow:
+```
+User
+ ↓
+Browser
+ | (HTTP -> 301 -> HTTPS)						# force-ssl-redirect: "true"
+ ↓ (HTTPS - port 443)							
+NGINX Ingress (TLS terminate with cert "self-signed")
+ ↓ (HTTP - port 80, internal cluster communication)			# backend-protocol: "HTTP" 
+ArgoCD Server 
+(Accept traffic HTTP)							# server.insecure: true			

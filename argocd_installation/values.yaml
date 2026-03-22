@@ -1,5 +1,8 @@
 global:
   domain: argocd.lab.local
+configs:
+  params:
+    server.insecure: true
 server:
   ingress:
     enabled: true
@@ -12,6 +15,8 @@ server:
     tls:
       - hosts:
           - argocd.lab.local
-        secretName: argocd-tls
+        secretName: argocd-server-tls
     annotations:
       cert-manager.io/cluster-issuer: selfsigned
+      nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+      nginx.ingress.kubernetes.io/backend-protocol: "HTTP"
