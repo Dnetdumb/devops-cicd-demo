@@ -1,0 +1,17 @@
+global:
+  domain: argocd.lab.local
+server:
+  ingress:
+    enabled: true
+    ingressClassName: nginx
+    hosts:
+      - host: argocd.lab.local
+        paths:
+          - path: /
+            pathType: Prefix
+    tls:
+      - hosts:
+          - argocd.lab.local
+        secretName: argocd-tls
+    annotations:
+      cert-manager.io/cluster-issuer: selfsigned
