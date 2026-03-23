@@ -84,14 +84,19 @@ Check Cert & Ingress status:
 kubectl get certificate -n argocd
 kubectl get ingress -n argocd
 ```
-#### Understand Workflow:
+#### Workflow:
 ```
 User
  ↓
 Browser
- | (HTTP -> 301 -> HTTPS)						# force-ssl-redirect: "true"
+ | (HTTP -> 301 -> HTTPS)							# force-ssl-redirect: "true"
  ↓ (HTTPS - port 443)							
 NGINX Ingress (TLS terminate with cert "self-signed")
- ↓ (HTTP - port 80, internal cluster communication)			# backend-protocol: "HTTP" 
+ ↓ (HTTP - port 80, internal cluster communication)				# backend-protocol: "HTTP" 
 ArgoCD Server 
-(Accept traffic HTTP)							# server.insecure: true			
+(Accept traffic HTTP)								# server.insecure: true			
+
+#### Get admin secret and access the web UI 
+```bash
+kubectl get secret argocd-initial-admin-secret -n argocd -oyaml | grep "password" | awk '{print $2}' | base64 -d ; echo
+```

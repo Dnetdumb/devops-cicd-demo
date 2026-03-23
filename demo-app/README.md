@@ -132,3 +132,7 @@ Check result:
 
 <img width="2557" height="990" alt="image" src="https://github.com/user-attachments/assets/b870348c-5f0c-4fa0-a70a-17757549e3ea" />
 
+## Jenkins pipeline with ArgoCD
+
+#### Workflow:
+
