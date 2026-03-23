@@ -1,18 +1,18 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ .Release.Name }}-metrics-app
+  name: {{ .Values.app.name }}
   labels:
-    app: metrics-app
+    app: {{ .Values.app.name }}
 spec:
   replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
-      app: metrics-app
+      app: {{ .Values.app.name }}
   template:
     metadata:
       labels:
-        app: metrics-app
+        app: {{ .Values.app.name }}
     spec:
       containers:
         - name: app

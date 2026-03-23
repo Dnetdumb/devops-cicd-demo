@@ -8,7 +8,7 @@ metadata:
 spec:
   selector:
     matchLabels:
-      app: metrics-app
+      app: {{ .Values.app.name }}
   endpoints:
     - port: http
       path: {{ .Values.serviceMonitor.path }}

@@ -126,7 +126,7 @@ Check result:
 
 <img width="2559" height="1087" alt="image" src="https://github.com/user-attachments/assets/cf930827-2558-4f43-9bbb-41f545de83d5" />
 
-<img width="1853" height="765" alt="image" src="https://github.com/user-attachments/assets/d483b8af-0fac-43d4-9080-77e1035fb537" />
+7<img width="1853" height="765" alt="image" src="https://github.com/user-attachments/assets/d483b8af-0fac-43d4-9080-77e1035fb537" />
 
 <img width="2476" height="814" alt="image" src="https://github.com/user-attachments/assets/00f95304-1e3e-4156-93e1-09581bb40bee" />
 
@@ -134,5 +134,137 @@ Check result:
 
 ## Jenkins pipeline with ArgoCD
 
-#### Workflow:
+### Workflow:
+
+Checkout Code
+      │
+      ▼
+Build Docker Images
+      │
+      ▼
+Trivy security scan     ← Optional
+      │
+      ▼
+Push DockerHub
+      │
+      ▼
+Manual Approval
+      │
+      ▼
+Update K8s Manifest (new image tag)
+      │
+      ▼
+Push Manifest to Git (CD-Repo)
+      │
+      ▼
+ArgoCD Sync (auto/manual)
+      │
+      ▼
+Deploy Kubernetes (ArgoCD handle)
+      │
+      ▼
+Verify Rollout
+      │
+      ▼
+Endpoint Test
+      │
+      ▼
+Pipeline Success
+
+### First, push code, connect "CD-Repo" and create an application on ArgoCD web UI
+
+```bash
+root@Master-CP1:/home/admin/CD-Repo/appteam1# pwd
+/home/admin/CD-Repo/appteam1
+
+root@Master-CP1:/home/admin/CD-Repo/appteam1# tree -L 3.
+.
+└── helm
+    ├── client-app
+    │   ├── charts
+    │   ├── Chart.yaml
+    │   ├── templates
+    │   └── values.yaml
+    └── metrics-app
+        ├── charts
+        ├── Chart.yaml
+        ├── templates
+        └── values.yaml
+
+7 directories, 4 files
+```
+#### Connect CD-Repo
+First: Create a key-pair 
+```bash
+ssh-keygen -t ed25519 -f argocd-github
+
+ls | grep argocd-github
+argocd-github
+argocd-github.pub
+```
+Copy "argocd-github.pub" to GitHub Repo
+```bash
+Select "CD-Repo" -> Settings -> Deploy keys -> Add deploy key:
+- Title: "ArgoCD auth"
+- Key: "ssh-ed25519 ... "
+- Allow write access: "Enabled"
+```
+Copy "argocd-github" to "SSH private key data":
+```bash
+Settings -> Repositories -> + CONNECT REPO
+- Connection method: "VIA SSH"
+- Name: "CD-Repo"
+- ProjectL :"default"
+- Repository URL: "git@github.com:Dnetdumb/CD-Repo.git"
+- SSH private key data: 
+-----BEGIN OPENSSH PRIVATE KEY-----
+...
+-----END OPENSSH PRIVATE KEY-----
+CONNECT 
+```
+#### Create application.yaml cho metrics-app và client-app
+```bash
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: metrics-app | client-app
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: git@github.com:Dnetdumb/CD-Repo.git
+    targetRevision: main
+    path: appteam1/helm/metrics-app | appteam1/helm/client-app
+    helm:
+      valueFiles:
+        - values.yaml
+
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: appteam1
+
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
+```
+Apply:
+```bash
+kubectl apply -f argo-client-app.yaml -n argocd
+kubectl apply -f argo-metrics-app.yaml -n argocd
+```
+#### Reconfigure "Script Path" and add new github-token for CD-Repo
+```bash
+Script Path: "demo-app/Jenkinsfile_update_ArgoCD"
+
+Manage Jenkins
+→ Credentials
+→ Global
+→ Add Credentials
+  → Kind: Username + Password
+  → ID: github-CD-Repo
+  → Password: ghp_xxxxxx
+```
 

@@ -1,0 +1,156 @@
+pipeline{
+	agent any
+	
+	environment {
+		DOCKER_HUB = "peidhhn"
+		IMAGE_VER = "v2"
+		TAG_VER = "${IMAGE_VER}-${BUILD_NUMBER}"
+		NAMESPACE = "appteam1"
+	}
+	
+	stages {
+		
+		stage('Checkout code') {
+			steps {
+				git branch: 'master', 
+				credentialsId: 'github-token',
+				url: 'https://github.com/Dnetdumb/devops-cicd-demo.git'
+			}
+		}
+		
+		stage('Build Docker Images') {
+			parallel {
+
+				stage('Build metric-app') {
+					steps {
+						sh """
+						docker build -t $DOCKER_HUB/metrics-app:$TAG_VER -f demo-app/Dockerfile.main .
+						"""
+					}		
+				}
+
+				stage ('Build client-app') {
+					steps {
+						sh """
+						docker build -t $DOCKER_HUB/client-app:$TAG_VER -f demo-app/Dockerfile.client .
+						"""
+					}
+				}
+			}
+		}
+		
+		stage('Security scan image with trivy') {
+			steps {
+				sh """
+				# trivy image --severity HIGH,CRITICAL --exit-code 1 $DOCKER_HUB/metrics-app:$TAG_VER
+				# trivy image --severity HIGH,CRITICAL --exit-code 1 $DOCKER_HUB/client-app:$TAG_VER
+				trivy image --severity CRITICAL --exit-code 1 $DOCKER_HUB/metrics-app:$TAG_VER
+				trivy image --severity CRITICAL --exit-code 1 $DOCKER_HUB/client-app:$TAG_VER
+				"""
+			}
+		}
+
+		stage('Dockerhub login') {
+			steps {
+				withCredentials([usernamePassword(
+					credentialsId: 'docker-hub',
+					usernameVariable: 'DOCKER_USER',
+					passwordVariable: 'DOCKER_PASS'
+				)]) {
+					sh """
+					echo $DOCKER_PASS | docker login -u $DOCKER_USER --password-stdin
+					"""
+				}
+			}	
+		}
+
+		stage('Push images') {
+			parallel {
+				
+				stage('Push metrics-app') {
+					steps {
+						sh "docker push $DOCKER_HUB/metrics-app:$TAG_VER"
+					}
+				}
+
+				stage('Push client-app') {
+					steps {
+						sh "docker push $DOCKER_HUB/client-app:$TAG_VER"
+					}
+				}
+			}
+		}
+		
+		stage('Approve Deployment') {
+			steps {
+				input message: "Approve deployment to K8s ?",
+					ok: "Deploy"
+			}
+		}
+
+		stage('Update Helm values & push to GitOps') {
+			environment {
+				GIT_REPO_URL = 'https://github.com/Dnetdumb/CD-Repo.git'
+				GIT_BRANCH = 'main'
+				GIT_REPO = 'CD-Repo'
+				PATH_client = "CD-Repo/appteam1/helm/client-app"
+				PATH_metrics = "CD-Repo/appteam1/helm/metrics-app"
+				
+			}
+			
+			steps {
+				script {
+					sh """
+					#helm upgrade --install metrics-app demo-app/charts/metrics-app --namespace $NAMESPACE --create-namespace --set image.tag=$TAG_VER --wait --timeout 120s --atomic
+					#helm upgrade --install client-app demo-app/charts/client-app --namespace $NAMESPACE --create-namespace --set image.tag=$TAG_VER --wait --timeout 120s --atomic
+				
+					# Clone repo
+					if [ ! -d "$GIT_REPO" ]; then
+						git clone -b ${GIT_BRANCH} ${GIT_REPO_URL}
+					fi
+					
+					# Update image tag 
+					cd $PATH_client
+					sed -i "s|tag:.*|tag: \"${TAG_VER}\"|g" values.yaml >/dev/null 2>&1
+					
+					cd ../metrics-app
+					sed -i "s|tag:.*|tag: \"${TAG_VER}\"|g" values.yaml >/dev/null 2>&1
+					
+					# Config git
+					cd ../../../
+					git config user.email "ci@jenkins"
+					git config user.name "jenkins"
+
+					# Check any changes
+					if git diff --quiet; then
+						echo "No changes to commit"
+					else
+						git add .
+						git commit -m "Jenkins: Update image tag to $TAG_VER"	
+						git push origin $GIT_BRANCH
+					fi
+					"""
+				}	
+			}
+		}
+
+		stage('Test Endpoint status') {
+			steps {
+				sh """
+				kubectl get pods -n $NAMESPACE
+				kubectl get svc -n $NAMESPACE
+				"""
+			}
+		}
+	}
+	
+	post {
+		success {
+			echo "Pipeline completed successfully"
+		}
+		
+		failure {
+			echo "Pipeline failed"
+		}
+	}
+}

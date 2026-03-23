@@ -1,5 +1,8 @@
 replicaCount: 1
 
+app:
+  name: metrics-app
+
 image:
   repository: peidhhn/metrics-app
   tag: latest

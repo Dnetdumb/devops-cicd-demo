@@ -1,0 +1,26 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: client-app
+  namespace: argocd
+spec:
+  project: default
+
+  source:
+    repoURL: git@github.com:Dnetdumb/CD-Repo.git
+    targetRevision: main
+    path: appteam1/helm/client-app
+    helm:
+      valueFiles:
+        - values.yaml
+
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: appteam1
+
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true

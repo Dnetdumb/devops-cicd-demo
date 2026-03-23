@@ -100,3 +100,6 @@ ArgoCD Server
 ```bash
 kubectl get secret argocd-initial-admin-secret -n argocd -oyaml | grep "password" | awk '{print $2}' | base64 -d ; echo
 ```
+```bash
+Browser -> https://argocd.lab.local/
+```
