@@ -132,10 +132,10 @@ Check result:
 
 <img width="2557" height="990" alt="image" src="https://github.com/user-attachments/assets/b870348c-5f0c-4fa0-a70a-17757549e3ea" />
 
-## Jenkins pipeline with ArgoCD
+## Jenkins pipeline with ArgoCD + ImageUpdater
 
 ### Workflow:
-
+```bash
 Checkout Code
       │
       ▼
@@ -170,7 +170,7 @@ Endpoint Test
       │
       ▼
 Pipeline Success
-
+```
 ### First, push code, connect "CD-Repo" and create an application on ArgoCD web UI
 
 ```bash
