@@ -1,6 +1,6 @@
 # Full Demo
 
-## Idea:
+#### Brief:
 
 The application metrics-app is the main service. It provides the following APIs:
 ```bash
@@ -17,31 +17,6 @@ Response status
 The application exposes metrics at the endpoint:
 ```bash
 /metrics
-```
-#### Build and Run the Main App (`metrics-app`)
-Build the Docker image and push it to Docker Hub
-```bash
-docker build -t peidhhn/metrics-app:latest -f Dockerfile.main .
-docker push -t peidhhn/metrics-app:latest
-```
-
-#### Deploy the Main App
-Deploy it to the namespace `appteam1`:
-```
-kubectl apply -f main.deployment.yaml -n appteam1 --create-namspace
-```
-
-#### Build and Run the Client App
-Build docker image and push to docker hub
-```bash
-docker build -t peidhhn/client-app:latest -f Dockerfile.client .
-docker push -t peidhhn/client-app:latest
-```
-
-#### Deploy the Client App
-Deploy it to the same namespace `appteam1`
-```bash 
-kubectl apply -f client.deployment.yaml -n appteam1 --create-namespace
 ```
 
 #### Update "prometheusrule" for metrics-app 
@@ -136,42 +111,40 @@ Check result:
 
 ### Workflow:
 ```bash
-Checkout Code
+Dev push code
       │
       ▼
-Build Docker Images
+Jenkins (CI)
+  - Checkout code
+  - Build Docker images
+  - Trivy scan
+  - Push DockerHub
       │
       ▼
-Trivy security scan     ← Optional
+Image Registry (DockerHub)
       │
       ▼
-Push DockerHub
+ArgoCD Image Updater
+  - Detect new tag ver
+  - Update Helm values on Git 
       │
       ▼
-Manual Approval
+GitOps Repo (CD-Repo)
       │
       ▼
-Update K8s Manifest (new image tag)
+ArgoCD
+  - Detect Git change
+  - Auto sync
       │
       ▼
-Push Manifest to Git (CD-Repo)
+Deploy Kubernetes
       │
       ▼
-ArgoCD Sync (auto/manual)
-      │
-      ▼
-Deploy Kubernetes (ArgoCD handle)
-      │
-      ▼
-Verify Rollout
-      │
-      ▼
-Endpoint Test
-      │
-      ▼
-Pipeline Success
+Verify Rollout (ArgoCD UI / health)
+
+Benefit: enhance security from Jenkins impact on K8s (Only dev Repo)
 ```
-### First, push code, connect "CD-Repo" and create an application on ArgoCD web UI
+### Prepare codes following Helm structure
 
 ```bash
 root@Master-CP1:/home/admin/CD-Repo/appteam1# pwd
@@ -193,8 +166,9 @@ root@Master-CP1:/home/admin/CD-Repo/appteam1# tree -L 3.
 
 7 directories, 4 files
 ```
-#### Connect CD-Repo
-First: Create a key-pair 
+### Connect CD-Repo on ArgoCD web UI
+
+#### Create a key-pair 
 ```bash
 ssh-keygen -t ed25519 -f argocd-github
 
@@ -202,14 +176,14 @@ ls | grep argocd-github
 argocd-github
 argocd-github.pub
 ```
-Copy "argocd-github.pub" to GitHub Repo
+#### Copy "argocd-github.pub" to GitHub Repo
 ```bash
 Select "CD-Repo" -> Settings -> Deploy keys -> Add deploy key:
 - Title: "ArgoCD auth"
 - Key: "ssh-ed25519 ... "
 - Allow write access: "Enabled"
 ```
-Copy "argocd-github" to "SSH private key data":
+#### Copy "argocd-github" to "SSH private key data":
 ```bash
 Settings -> Repositories -> + CONNECT REPO
 - Connection method: "VIA SSH"
@@ -222,7 +196,7 @@ Settings -> Repositories -> + CONNECT REPO
 -----END OPENSSH PRIVATE KEY-----
 CONNECT 
 ```
-#### Create application.yaml cho metrics-app và client-app
+### Create application.yaml cho metrics-app và client-app
 ```bash
 apiVersion: argoproj.io/v1alpha1
 kind: Application
@@ -255,7 +229,7 @@ Apply:
 kubectl apply -f argo-client-app.yaml -n argocd
 kubectl apply -f argo-metrics-app.yaml -n argocd
 ```
-#### Reconfigure "Script Path" and add new github-token for CD-Repo
+### Setup on Jenkins server (in case not using ArgoCD ImageUpdater)
 ```bash
 Script Path: "demo-app/Jenkinsfile_update_ArgoCD"
 
@@ -267,4 +241,3 @@ Manage Jenkins
   → ID: github-CD-Repo
   → Password: ghp_xxxxxx
 ```
-
