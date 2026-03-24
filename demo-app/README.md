@@ -142,7 +142,11 @@ Deploy Kubernetes
       ▼
 Verify Rollout (ArgoCD UI / health)
 
-Benefit: enhance security from Jenkins impact on K8s (Only dev Repo)
+Key Benefit: 
+1. Enhance security from Jenkins impact on K8s 
+2. GIT is Source of Truth
+3. Easy Audit and rollback
+4. Separate CI and CD
 ```
 ### Prepare codes following Helm structure
 
@@ -165,6 +169,43 @@ root@Master-CP1:/home/admin/CD-Repo/appteam1# tree -L 3.
         └── values.yaml
 
 7 directories, 4 files
+```
+### Add secret on K8s for pulling image (namespace appteam1)
+```bash
+kubectl create secret docker-registry regcred \
+  --docker-server=https://login.docker.com/ \
+  --docker-username=<username> \
+  --docker-password=<token-read-write-execution> \
+  --docker-email=<email> \
+  -n appteam1
+```
+### Add secret on K8s for "ArgoCD Image Updater" watching new tag version:
+```bash
+kubectl create secret docker-registry regcred_ro \
+  --docker-server=https://login.docker.com/ \
+  --docker-username=<username> \
+  --docker-password=<token-readonly-execution> \
+  --docker-email=<email> \
+  -n appteam1
+```
+### Add secret on K8s for "ArgoCD Image Updater" update tag version on GitOps Repo (CD-Repo)
+```bash
+kubectl create secret generic regcred-gitops-repo \
+  --from-literal=username=<your-github-username> \
+  --from-literal=token=<your-github-personal-access-token> \
+  -n appteam1
+```
+### Upgrade helm for "ArgoCD Image Updater" (configmap update)
+```bash
+helm upgrade argocd-image-updater argo/argocd-image-updater \
+  --namespace argocd \
+  --set config.git.username=<your-github-username> \
+  --set config.git.token=<your-github-personal-access-token> \
+  --set config.dockerRegistries[0].name=dockerhub \
+  --set config.dockerRegistries[0].username=<dockerhub-username> \
+  --set config.dockerRegistries[0].password=<dockerhub-token> \
+  --set config.imagePullSecrets[0].name=regcred_ro \
+  --set config.log.level=info
 ```
 ### Connect CD-Repo on ArgoCD web UI
 
@@ -229,16 +270,3 @@ Apply:
 kubectl apply -f argo-client-app.yaml -n argocd
 kubectl apply -f argo-metrics-app.yaml -n argocd
 ```
-### Setup on Jenkins server (in case not using ArgoCD ImageUpdater)
-```bash
-Script Path: "demo-app/Jenkinsfile_update_ArgoCD"
-
-Manage Jenkins
-→ Credentials
-→ Global
-→ Add Credentials
-  → Kind: Username + Password
-  → ID: github-CD-Repo
-  → Password: ghp_xxxxxx
-```
-### 

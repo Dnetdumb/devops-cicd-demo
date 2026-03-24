@@ -1,13 +1,14 @@
-# ArgoCD installation guide
+# ArgoCD + Argocd-image updater installation guide
 
 #### Add repo
 ```bash
 helm repo add argo https://argoproj.github.io/argo-helm
 helm repo update
 ```
-#### Install ArgoCD
+#### Install ArgoCD + Argocd-image updater
 ```bash
 helm install argocd argo/argo-cd -n argocd --create-namespace
+helm install argocd-image-updater argo/argocd-image-updater -n argocd --create-namespace
 ```
 #### Install Cert-Manager
 ```bash
