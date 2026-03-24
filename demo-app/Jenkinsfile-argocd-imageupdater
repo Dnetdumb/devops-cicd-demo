@@ -4,7 +4,7 @@ pipeline{
 	environment {
 		DOCKER_HUB = "peidhhn"
 		IMAGE_VER = "v2"
-		TAG_VER = "${IMAGE_VER}-${BUILD_NUMBER}-${GIT_COMMIT_SHORT}"
+
 	}
 	
 	stages {
@@ -17,6 +17,19 @@ pipeline{
 			}
 		}
 		
+		stage('Get commit tag') {
+			steps {
+				script {
+					env.GIT_COMMIT_SHORT = sh(
+						script: "git rev-parse --short HEAD"
+						returnStdout: true
+					).trim()
+	
+					env.TAG_VER = "${IMAGE_VER}-${BUILD_NUMBER}-${GIT_COMMIT_SHORT}"
+				}	
+			}
+
+		}
 		stage('Build Docker Images') {
 			parallel {
 
@@ -79,6 +92,7 @@ pipeline{
 				}
 			}
 		}
+	}
 		
 	
 	post {

@@ -125,7 +125,7 @@ Image Registry (DockerHub)
       │
       ▼
 ArgoCD Image Updater
-  - Detect new tag ver
+  - Detect new tag version
   - Update Helm values on Git 
       │
       ▼
@@ -241,3 +241,4 @@ Manage Jenkins
   → ID: github-CD-Repo
   → Password: ghp_xxxxxx
 ```
+### 
