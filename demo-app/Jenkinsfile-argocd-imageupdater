@@ -1,0 +1,93 @@
+pipeline{
+	agent any
+	
+	environment {
+		DOCKER_HUB = "peidhhn"
+		IMAGE_VER = "v2"
+		TAG_VER = "${IMAGE_VER}-${BUILD_NUMBER}-${GIT_COMMIT_SHORT}"
+	}
+	
+	stages {
+		
+		stage('Checkout code') {
+			steps {
+				git branch: 'master', 
+				credentialsId: 'github-token',
+				url: 'https://github.com/Dnetdumb/devops-cicd-demo.git'
+			}
+		}
+		
+		stage('Build Docker Images') {
+			parallel {
+
+				stage('Build metric-app') {
+					steps {
+						sh """
+						docker build -t $DOCKER_HUB/metrics-app:$TAG_VER -f demo-app/Dockerfile.main .
+						"""
+					}		
+				}
+
+				stage ('Build client-app') {
+					steps {
+						sh """
+						docker build -t $DOCKER_HUB/client-app:$TAG_VER -f demo-app/Dockerfile.client .
+						"""
+					}
+				}
+			}
+		}
+		
+		stage('Security scan image with trivy') {
+			steps {
+				sh """
+				# trivy image --severity HIGH,CRITICAL --exit-code 1 $DOCKER_HUB/metrics-app:$TAG_VER
+				# trivy image --severity HIGH,CRITICAL --exit-code 1 $DOCKER_HUB/client-app:$TAG_VER
+				trivy image --severity CRITICAL --exit-code 1 $DOCKER_HUB/metrics-app:$TAG_VER
+				trivy image --severity CRITICAL --exit-code 1 $DOCKER_HUB/client-app:$TAG_VER
+				"""
+			}
+		}
+
+		stage('Dockerhub login') {
+			steps {
+				withCredentials([usernamePassword(
+					credentialsId: 'docker-hub',
+					usernameVariable: 'DOCKER_USER',
+					passwordVariable: 'DOCKER_PASS'
+				)]) {
+					sh """
+					echo $DOCKER_PASS | docker login -u $DOCKER_USER --password-stdin
+					"""
+				}
+			}	
+		}
+
+		stage('Push images') {
+			parallel {
+				
+				stage('Push metrics-app') {
+					steps {
+						sh "docker push $DOCKER_HUB/metrics-app:$TAG_VER"
+					}
+				}
+
+				stage('Push client-app') {
+					steps {
+						sh "docker push $DOCKER_HUB/client-app:$TAG_VER"
+					}
+				}
+			}
+		}
+		
+	
+	post {
+		success {
+			echo "Pipeline completed successfully"
+		}
+		
+		failure {
+			echo "Pipeline failed"
+		}
+	}
+}
