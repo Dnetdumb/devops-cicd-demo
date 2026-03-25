@@ -280,3 +280,5 @@ kubectl apply -f argo-metrics-app.yaml
 
 
 ```
+Check:
+<img width="1268" height="1263" alt="image" src="https://github.com/user-attachments/assets/e87eb14d-823b-42e6-b44c-c8c3bfaad6a6" />
