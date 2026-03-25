@@ -3,9 +3,13 @@ kind: Application
 metadata:
   name: client-app
   namespace: argocd
+annotations:
+  argocd-image-updater.argoproj.io/image-list: clientapp=peidhhn/client-app
+  argocd-image-updater.argoproj.io/clientapp.update.strategy: newest-build
+  argocd-image-updater.argoproj.io/clientapp.allow-tags: regexp:^v[0-9]+-[0-9]+-[a-f0-9]+$
+  argocd-image-updater.argoproj.io/clientapp.write-back-method: git
 spec:
   project: default
-
   source:
     repoURL: git@github.com:Dnetdumb/CD-Repo.git
     targetRevision: main

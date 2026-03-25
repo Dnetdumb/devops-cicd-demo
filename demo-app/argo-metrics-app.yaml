@@ -3,13 +3,17 @@ kind: Application
 metadata:
   name: metrics-app
   namespace: argocd
+annotations:
+  argocd-image-updater.argoproj.io/image-list: metricsapp=peidhhn/metrics-app
+  argocd-image-updater.argoproj.io/metricsapp.update.strategy: newest-build
+  argocd-image-updater.argoproj.io/metricsapp.allow-tags: regexp:^v[0-9]+-[0-9]+-[a-f0-9]+$
+  argocd-image-updater.argoproj.io/metricsapp.write-back-method: git
 spec:
   project: default
-
   source:
     repoURL: git@github.com:Dnetdumb/CD-Repo.git
     targetRevision: main
-    path: appteam1/helm/metrics-app
+    path: appteam1/helm/client-app
     helm:
       valueFiles:
         - values.yaml

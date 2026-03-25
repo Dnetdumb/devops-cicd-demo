@@ -237,13 +237,18 @@ Settings -> Repositories -> + CONNECT REPO
 -----END OPENSSH PRIVATE KEY-----
 CONNECT 
 ```
-### Create application.yaml cho metrics-app và client-app
+### Create application.yaml cho metrics-app và client-app 
 ```bash
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: metrics-app | client-app
   namespace: argocd
+annotations:
+  argocd-image-updater.argoproj.io/image-list: metricsapp=peidhhn/metrics-app | clientapp=peidhhn/client-app
+  argocd-image-updater.argoproj.io/metricsapp.update.strategy: newest-build   | clientapp.
+  argocd-image-updater.argoproj.io/metricsapp.allow-tags: regexp:^v[0-9]+-[0-9]+-[a-f0-9]+$ | clientapp.
+  argocd-image-updater.argoproj.io/metricsapp.write-back-method: git | clientapp. 
 spec:
   project: default
   source:
