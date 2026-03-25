@@ -244,11 +244,14 @@ kind: Application
 metadata:
   name: metrics-app | client-app
   namespace: argocd
-annotations:
-  argocd-image-updater.argoproj.io/image-list: metricsapp=peidhhn/metrics-app | clientapp=peidhhn/client-app
-  argocd-image-updater.argoproj.io/metricsapp.update.strategy: newest-build   | clientapp.
-  argocd-image-updater.argoproj.io/metricsapp.allow-tags: regexp:^v[0-9]+-[0-9]+-[a-f0-9]+$ | clientapp.
-  argocd-image-updater.argoproj.io/metricsapp.write-back-method: git | clientapp. 
+  annotations:
+    argocd-image-updater.argoproj.io/image-list: metricsapp=peidhhn/metrics-app		| 	clientapp=peidhhn/client-app
+    argocd-image-updater.argoproj.io/metricsapp.update.strategy: newest-build				
+    argocd-image-updater.argoproj.io/metricsapp.allow-tags: regexp:^v[0-9]+-[0-9]+-[a-f0-9]+$
+    argocd-image-updater.argoproj.io/metricsapp.write-back-method: git 
+    argocd-image-updater.argoproj.io/metricsapp.helm.image-tag: image.tag
+    argocd-image-updater.argoproj.io/metricsapp.write-back-method: git
+    argocd-image-updater.argoproj.io/git-branch: main
 spec:
   project: default
   source:
@@ -272,6 +275,8 @@ spec:
 ```
 Apply:
 ```bash
-kubectl apply -f argo-client-app.yaml -n argocd
-kubectl apply -f argo-metrics-app.yaml -n argocd
+kubectl apply -f argo-client-app.yaml
+kubectl apply -f argo-metrics-app.yaml
+
+
 ```
