@@ -207,5 +207,28 @@ kubectl apply -f client-app-updater.yaml
 kubectl apply -f metrics-app-updater.yaml
 ```
 ## Demo full:
+#### Jenkins webhook trigger when dev push code to run pipeline 
 
+<img width="1257" height="527" alt="image" src="https://github.com/user-attachments/assets/47b96fa4-243b-46da-ba35-fd39261b80fd" />
 
+#### Pipeline
+
+<img width="1269" height="1039" alt="image" src="https://github.com/user-attachments/assets/49084f91-4b44-4892-bee9-ca85e24baa54" />
+
+<img width="1266" height="569" alt="image" src="https://github.com/user-attachments/assets/ab813e78-88f6-4d49-abbb-4f2aaa2aee46" />
+
+#### ArgoCD Image Updater update on GitOps Repo (CD-Repo) 
+
+<img width="1271" height="463" alt="image" src="https://github.com/user-attachments/assets/1245c8a1-0470-40b2-88fe-a7d26a71fd9d" />
+
+<img width="1271" height="806" alt="image" src="https://github.com/user-attachments/assets/68593eea-86a7-4fbf-93f0-60c4ef419daf" />
+
+<img width="1265" height="703" alt="image" src="https://github.com/user-attachments/assets/77858085-9757-4ba1-ba4b-99d5ac9e977e" />
+
+#### ArgoCD detect and sync deploy to K8s
+
+<img width="1269" height="458" alt="image" src="https://github.com/user-attachments/assets/39c68fe4-3eca-4eb2-aff7-2065c4f6a1e5" />
+
+<img width="1263" height="705" alt="image" src="https://github.com/user-attachments/assets/48a29864-a0fc-4f83-947f-910772bb92d2" />
+
+<img width="1270" height="723" alt="image" src="https://github.com/user-attachments/assets/c0b35cff-32ea-4149-9720-abd7169152f6" />
