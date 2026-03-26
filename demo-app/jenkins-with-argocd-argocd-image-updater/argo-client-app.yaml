@@ -1,0 +1,49 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: client-app
+  namespace: argocd
+  annotations:
+    # Enable image updater for this application
+    argocd-image-updater.argoproj.io/image-list: clientapp=peidhhn/client-app
+    argocd-image-updater.argoproj.io/clientapp.pull-secret: argocd/regcred-ro
+    # Update strategy: use the latest semver tag
+    argocd-image-updater.argoproj.io/clientapp.update-strategy: semver
+    # Ignore specific tag
+    argocd-image-updater.argoproj.io/clientapp.ignore-tags: "latest"
+    # Only consider tags matching this regex
+    argocd-image-updater.argoproj.io/clientapp.allow-tags: regexp:^v[0-9]+-[0-9]+-[a-f0-9]+$
+    # Updat if using helm values path 
+    argocd-image-updater.argoproj.io/clientapp.helm.image-name: image.repository
+    argocd-image-updater.argoproj.io/clientapp.helm.image-tag: image.tag
+    # Write back method: git
+    argocd-image-updater.argoproj.io/write-back-method: git
+    argocd-image-updater.argoproj.io/git-secret: argocd/regcred-gitops-repo
+    # Branch to write updates to
+    argocd-image-updater.argoproj.io/git-branch: main
+    # Custom commit message
+    argocd-image-updater.argoproj.io/git-commit-message: |
+      chore: update image {{range .Updated}}{{.Name}}={{.NewTag}} {{end}}
+
+      Signed-off-by: ArgoCD Image Updater
+
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/Dnetdumb/CD-Repo.git
+    targetRevision: main
+    path: appteam1/helm/client-app
+    helm:
+      valueFiles:
+        - values.yaml
+
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: appteam1
+
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
