@@ -67,32 +67,10 @@ sudo apt install -y kubelet kubeadm kubectl -y
 
 sudo apt-mark hold kubelet kubeadm kubectl containerd
 ```
-## Perform these commands on Master Node:
-
-#### Get source yaml and output default config file to ClusterConfiguration.yaml
+## Perform these commands on Master nodes:
+#### Generate cluster k8s with kubeadm init
 ```bash
-wget https://raw.githubusercontent.com/projectcalico/calico/v3.27.0/manifests/calico.yaml
-
-kubeadm config print init-defaults | tee ClusterConfiguration.yaml
-```
-#### Change the address of advertiseAddress to Control Plan nodes IP address
-```bash
-sed -i 's/  advertiseAddress: 1.2.3.4/  advertiseAddress: 192.168.1.199/' ClusterConfiguration.yaml
-```
-#### Update hostname configuration to the control plan node hostname
-```bash
-sed -i 's/  name: node/  name: Master-CP1/' ClusterConfiguration.yaml
-```
-#### Update to correct 'kubernetesVersion' and update the subnet that you want setup for "calico" subnet
-```bash
-...
-kubernetesVersion: 1.29.0
-...
-serviceSubnet: 192.168.0.0/16
-```
-#### Run this command to initialize control-plan node
-```bash
-sudo kubeadm init --config=ClusterConfiguration.yaml
+ kubeadm init --pod-network-cidr=192.168.0.0/16 --apiserver-advertise-address=192.168.1.199
 ```
 #### Configure account on the Control-Plan node to have admin access to the API server from non-priviledge account 
 ```bash
@@ -100,15 +78,16 @@ mkdir -p $HOME/.kube
 sudo cp -i /etc/Kubernetes/admin.conf $HOME/.kube/config
 sudo chown $(id -u):$(id -g) $HOME/.kube/config
 ```
-
-## Join a node to the Kubernetes cluster
-
+####  Install Calico CNI
+```bash
+kubectl apply -f https://raw.githubusercontent.com/projectcalico/calico/v3.27.0/manifests/calico.yaml
+```
 #### Get join command from Master Node
 ```bash
 kubeadm token create --print-join-command
 ```
+## Perform these commands on Worker nodes to join K8s cluster:
 
-#### Perform joins from nodes
 ```bash
 kubeadm join k8s-api.lab.local:6443 --token 9n4qda.2y2supcehmdmi1k9 --discovery-token-ca-cert-hash sha256:b2be7c68c4e5d5688765c562443274442fd769d7573578d6fc89fccf656730b5
 ```
