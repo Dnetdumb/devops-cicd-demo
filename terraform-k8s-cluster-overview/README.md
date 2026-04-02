@@ -18,9 +18,11 @@ Proxmox Server:
 	         
 ```
 ## First, we have to build a Proxmox Server and prapare a cloud image (UbuntuServer2204)
-Reference source:
+```bash
+Reference sources:
 https://www.proxmox.com/en/downloads (Proxmox)
 https://cloud-images.ubuntu.com/jammy/current/jammy-server-cloudimg-amd64.img (qcow2 format)
+```
 #### Config DHCP for vmbr0
 ```bash
 apt install dnsmasq -y
@@ -78,7 +80,7 @@ users:
 ssh_pwauth: true
 chpasswd:
   list: |
-    ubuntu:123456
+    ubuntu:P@ss!sMySecret123
   expire: False
 
 runcmd:
@@ -102,6 +104,23 @@ qm set 9000 --onboot 1
 qm template 9000
 # check:
 qm config 9000
+boot: c
+bootdisk: scsi0
+cicustom: user=local:snippets/custom-cloudinit.yaml
+ide2: local-lvm:vm-9000-cloudinit,media=cdrom
+ipconfig0: ip=dhcp
+memory: 1024
+meta: creation-qemu=9.2.0,ctime=1774872190
+name: ubuntu-template
+net0: virtio=BC:24:11:E7:00:7A,bridge=vmbr0
+onboot: 1
+scsi0: local-lvm:base-9000-disk-0,size=2252M
+scsihw: virtio-scsi-pci
+serial0: socket
+smbios1: uuid=58f92c4e-b87d-45dc-8084-81498366e030
+template: 1
+vga: serial0
+vmgenid: e9bdd442-509c-4fed-90cf-eefb8888dab9
 ```
 
 ## Install Terraform on host
@@ -133,17 +152,86 @@ sudo apt install ansible -y
 ## Change dir (CD) to terraform folder 
 #### First, terraform init
 ```bash
-terraform init
+root@Control-Node:/home/admin/terraform-setup-overview/terraform-vbox-cluster# terraform init
+Initializing the backend...
+Initializing provider plugins...
+- Finding latest version of hashicorp/local...
+- Finding latest version of hashicorp/null...
+- Finding telmate/proxmox versions matching "3.0.2-rc06"...
+- Finding latest version of hashicorp/time...
+- Installing hashicorp/local v2.7.0...
+- Installed hashicorp/local v2.7.0 (signed by HashiCorp)
+- Installing hashicorp/null v3.2.4...
+- Installed hashicorp/null v3.2.4 (signed by HashiCorp)
+- Installing telmate/proxmox v3.0.2-rc06...
+- Installed telmate/proxmox v3.0.2-rc06 (self-signed, key ID A9EBBE091B35AFCE)
+- Installing hashicorp/time v0.13.1...
+- Installed hashicorp/time v0.13.1 (signed by HashiCorp)
+Partner and community providers are signed by their developers.
+If you'd like to know more about provider signing, you can read about it here:
+https://developer.hashicorp.com/terraform/cli/plugins/signing
+Terraform has created a lock file .terraform.lock.hcl to record the provider
+selections it made above. Include this file in your version control repository
+so that Terraform can guarantee to make the same selections by default when
+you run "terraform init" in the future.
+
+Terraform has been successfully initialized!
+
+You may now begin working with Terraform. Try running "terraform plan" to see
+any changes that are required for your infrastructure. All Terraform commands
+should now work.
+
+If you ever set or change modules or backend configuration for Terraform,
+rerun this command to reinitialize your working directory. If you forget, other
+commands will detect it and remind you to do so if necessary.
 ```
 #### Check syntax code with terraform validate
 ```bash
-terraform validate
+root@Control-Node:/home/admin/terraform-setup-overview/terraform-vbox-cluster# terraform validate
+Success! The configuration is valid.
 ```
-#### If no error, check resource and then apply
+#### If no error, check resource with terraform plan
 ```bash
 #Check resource again
 terraform plan
+symbols:
+  + create
 
-#Apply config and setup
-terraform apply 
+Terraform will perform the following actions:
+
+  # local_file.ansible_inventory will be created
+  + resource "local_file" "ansible_inventory" {
+      + content              = <<-EOT
+            [masters]
+            master-cp1 ansible_host=10.10.0.199
+
+            [workers]
+            worker-node1 ansible_host=10.10.0.101
+            worker-node2 ansible_host=10.10.0.102
+            worker-node3 ansible_host=10.10.0.103
+
+
+            [all:vars]
+            ansible_user=ubuntu
+            ansible_ssh_private_key_file=~/.ssh/id_rsa
+        EOT
+      + content_base64sha256 = (known after apply)
+      + content_base64sha512 = (known after apply)
+      + content_md5          = (known after apply)
+      + content_sha1         = (known after apply)
+      + content_sha256       = (known after apply)
+      + content_sha512       = (known after apply)
+      + directory_permission = "0777"
+      + file_permission      = "0777"
+      + filename             = "./k8s-ansible/inventory/hosts.ini"
+      + id                   = (known after apply)
+    }
+....
+Plan: 9 to add, 0 to change, 0 to destroy.
 ```
+#### Final, execure terraform apply
+```bash
+terraform apply -parallelism=1
+```
+<img width="2558" height="1394" alt="image" src="https://github.com/user-attachments/assets/477e656b-c12c-42b0-ba06-e317d9c3f3d5" />
+
