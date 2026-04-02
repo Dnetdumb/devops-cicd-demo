@@ -1,0 +1,385 @@
+  Enter a value: yes
+
+proxmox_vm_qemu.masters[0]: Creating...
+proxmox_vm_qemu.masters[0]: Still creating... [00m10s elapsed]
+proxmox_vm_qemu.masters[0]: Still creating... [00m20s elapsed]
+proxmox_vm_qemu.masters[0]: Still creating... [00m30s elapsed]
+proxmox_vm_qemu.masters[0]: Still creating... [00m40s elapsed]
+proxmox_vm_qemu.masters[0]: Creation complete after 40s [id=pve/qemu/100]
+proxmox_vm_qemu.workers[1]: Creating...
+proxmox_vm_qemu.workers[1]: Still creating... [00m10s elapsed]
+proxmox_vm_qemu.workers[1]: Still creating... [00m20s elapsed]
+proxmox_vm_qemu.workers[1]: Still creating... [00m30s elapsed]
+proxmox_vm_qemu.workers[1]: Still creating... [00m40s elapsed]
+proxmox_vm_qemu.workers[1]: Creation complete after 42s [id=pve/qemu/101]
+proxmox_vm_qemu.workers[0]: Creating...
+proxmox_vm_qemu.workers[0]: Still creating... [00m10s elapsed]
+proxmox_vm_qemu.workers[0]: Still creating... [00m20s elapsed]
+proxmox_vm_qemu.workers[0]: Still creating... [00m30s elapsed]
+proxmox_vm_qemu.workers[0]: Still creating... [00m40s elapsed]
+proxmox_vm_qemu.workers[0]: Creation complete after 45s [id=pve/qemu/102]
+proxmox_vm_qemu.workers[2]: Creating...
+proxmox_vm_qemu.workers[2]: Still creating... [00m10s elapsed]
+proxmox_vm_qemu.workers[2]: Still creating... [00m20s elapsed]
+proxmox_vm_qemu.workers[2]: Still creating... [00m30s elapsed]
+proxmox_vm_qemu.workers[2]: Still creating... [00m40s elapsed]
+proxmox_vm_qemu.workers[2]: Creation complete after 45s [id=pve/qemu/103]
+time_sleep.wait_for_boot: Creating...
+time_sleep.wait_for_boot: Still creating... [00m10s elapsed]
+time_sleep.wait_for_boot: Still creating... [00m20s elapsed]
+time_sleep.wait_for_boot: Still creating... [00m30s elapsed]
+time_sleep.wait_for_boot: Still creating... [00m40s elapsed]
+time_sleep.wait_for_boot: Still creating... [00m50s elapsed]
+time_sleep.wait_for_boot: Still creating... [01m00s elapsed]
+time_sleep.wait_for_boot: Still creating... [01m10s elapsed]
+time_sleep.wait_for_boot: Still creating... [01m20s elapsed]
+time_sleep.wait_for_boot: Still creating... [01m30s elapsed]
+time_sleep.wait_for_boot: Still creating... [01m40s elapsed]
+time_sleep.wait_for_boot: Still creating... [01m50s elapsed]
+time_sleep.wait_for_boot: Creation complete after 2m0s [id=2026-04-02T07:04:27Z]
+local_file.ansible_inventory: Creating...
+local_file.ansible_inventory: Creation complete after 0s [id=252843f44315c1539380052837d6a7aa174d5474]
+null_resource.ansible-k8s: Creating...
+null_resource.ansible-k8s: Provisioning with 'local-exec'...
+null_resource.ansible-k8s (local-exec): Executing: ["/bin/sh" "-c" "ansible-playbook -i ./k8s-ansible/inventory/hosts.ini ./k8s-ansible/site.yml"]
+
+null_resource.ansible-k8s (local-exec): PLAY [Config for all nodes] ****************************************************
+
+null_resource.ansible-k8s (local-exec): TASK [Gathering Facts] *********************************************************
+null_resource.ansible-k8s (local-exec): [WARNING]: Platform linux on host master-cp1 is using the discovered Python
+null_resource.ansible-k8s (local-exec): interpreter at /usr/bin/python3.10, but future installation of another Python
+null_resource.ansible-k8s (local-exec): interpreter could change the meaning of that path. See
+null_resource.ansible-k8s (local-exec): https://docs.ansible.com/ansible-
+null_resource.ansible-k8s (local-exec): core/2.17/reference_appendices/interpreter_discovery.html for more information.
+null_resource.ansible-k8s (local-exec): [WARNING]: Platform linux on host worker-node1 is using the discovered Python
+null_resource.ansible-k8s (local-exec): interpreter at /usr/bin/python3.10, but future installation of another Python
+null_resource.ansible-k8s (local-exec): interpreter could change the meaning of that path. See
+null_resource.ansible-k8s (local-exec): https://docs.ansible.com/ansible-
+null_resource.ansible-k8s (local-exec): core/2.17/reference_appendices/interpreter_discovery.html for more information.
+null_resource.ansible-k8s (local-exec): [WARNING]: Platform linux on host worker-node2 is using the discovered Python
+null_resource.ansible-k8s (local-exec): interpreter at /usr/bin/python3.10, but future installation of another Python
+null_resource.ansible-k8s (local-exec): interpreter could change the meaning of that path. See
+null_resource.ansible-k8s (local-exec): https://docs.ansible.com/ansible-
+null_resource.ansible-k8s (local-exec): core/2.17/reference_appendices/interpreter_discovery.html for more information.
+null_resource.ansible-k8s (local-exec): [WARNING]: Platform linux on host worker-node3 is using the discovered Python
+null_resource.ansible-k8s (local-exec): interpreter at /usr/bin/python3.10, but future installation of another Python
+null_resource.ansible-k8s (local-exec): interpreter could change the meaning of that path. See
+null_resource.ansible-k8s (local-exec): https://docs.ansible.com/ansible-
+null_resource.ansible-k8s (local-exec): core/2.17/reference_appendices/interpreter_discovery.html for more information.
+null_resource.ansible-k8s (local-exec): ok: [master-cp1]
+null_resource.ansible-k8s (local-exec): ok: [worker-node1]
+null_resource.ansible-k8s (local-exec): ok: [worker-node2]
+null_resource.ansible-k8s (local-exec): ok: [worker-node3]
+
+null_resource.ansible-k8s (local-exec): TASK [common : Set hostname based on inventory name] ***************************
+null_resource.ansible-k8s (local-exec): changed: [worker-node1]
+null_resource.ansible-k8s (local-exec): changed: [worker-node2]
+null_resource.ansible-k8s (local-exec): changed: [master-cp1]
+null_resource.ansible-k8s (local-exec): changed: [worker-node3]
+
+null_resource.ansible-k8s (local-exec): TASK [common : Update /etc/hosts with all nodes] *******************************
+null_resource.ansible-k8s (local-exec): changed: [worker-node2] => (item=master-cp1)
+null_resource.ansible-k8s (local-exec): changed: [master-cp1] => (item=master-cp1)
+null_resource.ansible-k8s (local-exec): changed: [worker-node1] => (item=master-cp1)
+null_resource.ansible-k8s (local-exec): changed: [worker-node3] => (item=master-cp1)
+null_resource.ansible-k8s (local-exec): changed: [worker-node2] => (item=worker-node1)
+null_resource.ansible-k8s (local-exec): changed: [master-cp1] => (item=worker-node1)
+null_resource.ansible-k8s (local-exec): changed: [worker-node1] => (item=worker-node1)
+null_resource.ansible-k8s (local-exec): changed: [worker-node3] => (item=worker-node1)
+null_resource.ansible-k8s (local-exec): changed: [worker-node2] => (item=worker-node2)
+null_resource.ansible-k8s (local-exec): changed: [worker-node3] => (item=worker-node2)
+null_resource.ansible-k8s (local-exec): changed: [master-cp1] => (item=worker-node2)
+null_resource.ansible-k8s (local-exec): changed: [worker-node2] => (item=worker-node3)
+null_resource.ansible-k8s (local-exec): changed: [master-cp1] => (item=worker-node3)
+null_resource.ansible-k8s (local-exec): changed: [worker-node1] => (item=worker-node2)
+null_resource.ansible-k8s (local-exec): changed: [worker-node3] => (item=worker-node3)
+null_resource.ansible-k8s (local-exec): changed: [worker-node1] => (item=worker-node3)
+
+null_resource.ansible-k8s (local-exec): TASK [common : Change timezone] ************************************************
+null_resource.ansible-k8s (local-exec): ok: [worker-node1]
+null_resource.ansible-k8s (local-exec): ok: [worker-node2]
+null_resource.ansible-k8s (local-exec): ok: [master-cp1]
+null_resource.ansible-k8s (local-exec): ok: [worker-node3]
+
+null_resource.ansible-k8s (local-exec): TASK [common : Restart cron service] *******************************************
+null_resource.ansible-k8s (local-exec): skipping: [master-cp1]
+null_resource.ansible-k8s (local-exec): skipping: [worker-node1]
+null_resource.ansible-k8s (local-exec): skipping: [worker-node2]
+null_resource.ansible-k8s (local-exec): skipping: [worker-node3]
+
+null_resource.ansible-k8s (local-exec): TASK [common : Install dependencies for all nodes] *****************************
+null_resource.ansible-k8s: Still creating... [00m10s elapsed]
+null_resource.ansible-k8s: Still creating... [00m20s elapsed]
+null_resource.ansible-k8s: Still creating... [00m30s elapsed]
+null_resource.ansible-k8s: Still creating... [00m40s elapsed]
+null_resource.ansible-k8s: Still creating... [00m50s elapsed]
+null_resource.ansible-k8s: Still creating... [01m00s elapsed]
+null_resource.ansible-k8s: Still creating... [01m10s elapsed]
+null_resource.ansible-k8s (local-exec): changed: [worker-node2]
+null_resource.ansible-k8s (local-exec): changed: [master-cp1]
+null_resource.ansible-k8s (local-exec): changed: [worker-node1]
+null_resource.ansible-k8s (local-exec): changed: [worker-node3]
+
+null_resource.ansible-k8s (local-exec): TASK [common : Disable swap] ***************************************************
+null_resource.ansible-k8s (local-exec): changed: [worker-node1]
+null_resource.ansible-k8s (local-exec): changed: [worker-node3]
+null_resource.ansible-k8s (local-exec): changed: [master-cp1]
+null_resource.ansible-k8s (local-exec): changed: [worker-node2]
+
+null_resource.ansible-k8s (local-exec): TASK [common : Load kernel modules for K8s] ************************************
+null_resource.ansible-k8s (local-exec): changed: [master-cp1] => (item=overlay)
+null_resource.ansible-k8s (local-exec): changed: [worker-node3] => (item=overlay)
+null_resource.ansible-k8s (local-exec): changed: [worker-node2] => (item=overlay)
+null_resource.ansible-k8s (local-exec): changed: [worker-node1] => (item=overlay)
+null_resource.ansible-k8s (local-exec): changed: [master-cp1] => (item=br_netfilter)
+null_resource.ansible-k8s (local-exec): changed: [worker-node1] => (item=br_netfilter)
+null_resource.ansible-k8s (local-exec): changed: [worker-node3] => (item=br_netfilter)
+null_resource.ansible-k8s (local-exec): changed: [worker-node2] => (item=br_netfilter)
+
+null_resource.ansible-k8s (local-exec): TASK [common : Config Sysctl network settings] *********************************
+null_resource.ansible-k8s (local-exec): changed: [worker-node3] => (item=net.bridge.bridge-nf-call-iptables)
+null_resource.ansible-k8s (local-exec): changed: [master-cp1] => (item=net.bridge.bridge-nf-call-iptables)
+null_resource.ansible-k8s (local-exec): changed: [worker-node2] => (item=net.bridge.bridge-nf-call-iptables)
+null_resource.ansible-k8s (local-exec): changed: [worker-node1] => (item=net.bridge.bridge-nf-call-iptables)
+null_resource.ansible-k8s (local-exec): changed: [worker-node3] => (item=net.bridge.bridge-nf-call-ip6tables)
+null_resource.ansible-k8s (local-exec): changed: [master-cp1] => (item=net.bridge.bridge-nf-call-ip6tables)
+null_resource.ansible-k8s (local-exec): changed: [worker-node2] => (item=net.bridge.bridge-nf-call-ip6tables)
+null_resource.ansible-k8s (local-exec): changed: [worker-node1] => (item=net.bridge.bridge-nf-call-ip6tables)
+null_resource.ansible-k8s (local-exec): changed: [worker-node3] => (item=net.ipv4.ip_forward)
+null_resource.ansible-k8s (local-exec): changed: [master-cp1] => (item=net.ipv4.ip_forward)
+null_resource.ansible-k8s (local-exec): changed: [worker-node2] => (item=net.ipv4.ip_forward)
+null_resource.ansible-k8s (local-exec): changed: [worker-node1] => (item=net.ipv4.ip_forward)
+
+null_resource.ansible-k8s (local-exec): TASK [common : Install container runtime] **************************************
+null_resource.ansible-k8s: Still creating... [01m20s elapsed]
+null_resource.ansible-k8s: Still creating... [01m30s elapsed]
+null_resource.ansible-k8s: Still creating... [01m40s elapsed]
+null_resource.ansible-k8s: Still creating... [01m50s elapsed]
+null_resource.ansible-k8s (local-exec): changed: [worker-node3]
+null_resource.ansible-k8s (local-exec): changed: [master-cp1]
+null_resource.ansible-k8s (local-exec): changed: [worker-node1]
+null_resource.ansible-k8s (local-exec): changed: [worker-node2]
+
+null_resource.ansible-k8s (local-exec): TASK [common : Create default containerd config file] **************************
+null_resource.ansible-k8s (local-exec): changed: [master-cp1]
+null_resource.ansible-k8s (local-exec): changed: [worker-node2]
+null_resource.ansible-k8s (local-exec): changed: [worker-node1]
+null_resource.ansible-k8s (local-exec): changed: [worker-node3]
+
+null_resource.ansible-k8s (local-exec): TASK [common : Config containerd use SystemdCgroup] ****************************
+null_resource.ansible-k8s: Still creating... [02m00s elapsed]
+null_resource.ansible-k8s (local-exec): changed: [worker-node3]
+null_resource.ansible-k8s (local-exec): changed: [worker-node1]
+null_resource.ansible-k8s (local-exec): changed: [master-cp1]
+null_resource.ansible-k8s (local-exec): changed: [worker-node2]
+
+null_resource.ansible-k8s (local-exec): TASK [common : Restart containerd to apply config] *****************************
+null_resource.ansible-k8s (local-exec): changed: [worker-node3]
+null_resource.ansible-k8s (local-exec): changed: [master-cp1]
+null_resource.ansible-k8s (local-exec): changed: [worker-node2]
+null_resource.ansible-k8s (local-exec): changed: [worker-node1]
+
+null_resource.ansible-k8s (local-exec): TASK [common : Download and dearmor Kubernetes GPG key] ************************
+null_resource.ansible-k8s (local-exec): changed: [master-cp1]
+null_resource.ansible-k8s (local-exec): changed: [worker-node3]
+null_resource.ansible-k8s (local-exec): changed: [worker-node1]
+null_resource.ansible-k8s (local-exec): changed: [worker-node2]
+
+null_resource.ansible-k8s (local-exec): TASK [common : Add Kubernetes repo] ********************************************
+null_resource.ansible-k8s: Still creating... [02m10s elapsed]
+null_resource.ansible-k8s (local-exec): changed: [worker-node3]
+null_resource.ansible-k8s (local-exec): changed: [worker-node2]
+null_resource.ansible-k8s (local-exec): changed: [worker-node1]
+null_resource.ansible-k8s (local-exec): changed: [master-cp1]
+
+null_resource.ansible-k8s (local-exec): TASK [common : Install k8s tools] **********************************************
+null_resource.ansible-k8s: Still creating... [02m20s elapsed]
+null_resource.ansible-k8s: Still creating... [02m30s elapsed]
+null_resource.ansible-k8s: Still creating... [02m40s elapsed]
+null_resource.ansible-k8s (local-exec): changed: [worker-node3]
+null_resource.ansible-k8s (local-exec): changed: [master-cp1]
+null_resource.ansible-k8s (local-exec): changed: [worker-node2]
+null_resource.ansible-k8s (local-exec): changed: [worker-node1]
+
+null_resource.ansible-k8s (local-exec): TASK [common : Prevent K8s from being update] **********************************
+null_resource.ansible-k8s (local-exec): changed: [worker-node3] => (item=kubelet)
+null_resource.ansible-k8s (local-exec): changed: [master-cp1] => (item=kubelet)
+null_resource.ansible-k8s (local-exec): changed: [worker-node1] => (item=kubelet)
+null_resource.ansible-k8s (local-exec): changed: [worker-node2] => (item=kubelet)
+null_resource.ansible-k8s (local-exec): changed: [worker-node3] => (item=kubectl)
+null_resource.ansible-k8s (local-exec): changed: [worker-node2] => (item=kubectl)
+null_resource.ansible-k8s (local-exec): changed: [worker-node1] => (item=kubectl)
+null_resource.ansible-k8s (local-exec): changed: [master-cp1] => (item=kubectl)
+null_resource.ansible-k8s (local-exec): changed: [worker-node3] => (item=kubeadm)
+null_resource.ansible-k8s (local-exec): changed: [worker-node2] => (item=kubeadm)
+null_resource.ansible-k8s (local-exec): changed: [worker-node1] => (item=kubeadm)
+null_resource.ansible-k8s (local-exec): changed: [master-cp1] => (item=kubeadm)
+null_resource.ansible-k8s (local-exec): changed: [worker-node3] => (item=containerd)
+null_resource.ansible-k8s (local-exec): changed: [worker-node2] => (item=containerd)
+null_resource.ansible-k8s (local-exec): changed: [master-cp1] => (item=containerd)
+null_resource.ansible-k8s (local-exec): changed: [worker-node1] => (item=containerd)
+
+null_resource.ansible-k8s (local-exec): PLAY [Config for all master nodes] *********************************************
+
+null_resource.ansible-k8s (local-exec): TASK [Gathering Facts] *********************************************************
+null_resource.ansible-k8s (local-exec): ok: [master-cp1]
+
+null_resource.ansible-k8s (local-exec): TASK [masters : Generate cluster k8s with kubeadm init] ************************
+null_resource.ansible-k8s: Still creating... [02m50s elapsed]
+null_resource.ansible-k8s: Still creating... [03m00s elapsed]
+null_resource.ansible-k8s: Still creating... [03m10s elapsed]
+null_resource.ansible-k8s: Still creating... [03m20s elapsed]
+null_resource.ansible-k8s: Still creating... [03m30s elapsed]
+null_resource.ansible-k8s: Still creating... [03m40s elapsed]
+null_resource.ansible-k8s: Still creating... [03m50s elapsed]
+null_resource.ansible-k8s: Still creating... [04m00s elapsed]
+null_resource.ansible-k8s (local-exec): changed: [master-cp1]
+
+null_resource.ansible-k8s (local-exec): TASK [masters : Create to config kubectl for root] *****************************
+null_resource.ansible-k8s (local-exec): changed: [master-cp1]
+
+null_resource.ansible-k8s (local-exec): TASK [masters : Copy admin.conf] ***********************************************
+null_resource.ansible-k8s (local-exec): changed: [master-cp1]
+
+null_resource.ansible-k8s (local-exec): TASK [masters : Install Calico CNI] ********************************************
+null_resource.ansible-k8s (local-exec): changed: [master-cp1]
+
+null_resource.ansible-k8s (local-exec): TASK [masters : Get join command] **********************************************
+null_resource.ansible-k8s (local-exec): changed: [master-cp1]
+
+null_resource.ansible-k8s (local-exec): TASK [masters : Set join command as a fact] ************************************
+null_resource.ansible-k8s (local-exec): ok: [master-cp1]
+
+null_resource.ansible-k8s (local-exec): PLAY [config for all worker nodes] *********************************************
+
+null_resource.ansible-k8s (local-exec): TASK [Gathering Facts] *********************************************************
+null_resource.ansible-k8s (local-exec): ok: [worker-node1]
+null_resource.ansible-k8s (local-exec): ok: [worker-node2]
+null_resource.ansible-k8s (local-exec): ok: [worker-node3]
+
+null_resource.ansible-k8s (local-exec): TASK [workers : Join Workers to K8s Cluster] ***********************************
+null_resource.ansible-k8s: Still creating... [04m10s elapsed]
+null_resource.ansible-k8s: Still creating... [04m20s elapsed]
+null_resource.ansible-k8s (local-exec): changed: [worker-node2]
+null_resource.ansible-k8s (local-exec): changed: [worker-node3]
+null_resource.ansible-k8s (local-exec): changed: [worker-node1]
+
+null_resource.ansible-k8s (local-exec): TASK [workers : Print join result] *********************************************
+null_resource.ansible-k8s (local-exec): ok: [worker-node1] => {
+null_resource.ansible-k8s (local-exec):     "msg": "Node joined successfully or joined already in cluster!"
+null_resource.ansible-k8s (local-exec): }
+null_resource.ansible-k8s (local-exec): ok: [worker-node2] => {
+null_resource.ansible-k8s (local-exec):     "msg": "Node joined successfully or joined already in cluster!"
+null_resource.ansible-k8s (local-exec): }
+null_resource.ansible-k8s (local-exec): ok: [worker-node3] => {
+null_resource.ansible-k8s (local-exec):     "msg": "Node joined successfully or joined already in cluster!"
+null_resource.ansible-k8s (local-exec): }
+
+null_resource.ansible-k8s (local-exec): PLAY RECAP *********************************************************************
+null_resource.ansible-k8s (local-exec): master-cp1                 : ok=23   changed=19   unreachable=0    failed=0    skipped=1    rescued=0    ignored=0
+null_resource.ansible-k8s (local-exec): worker-node1               : ok=19   changed=15   unreachable=0    failed=0    skipped=1    rescued=0    ignored=0
+null_resource.ansible-k8s (local-exec): worker-node2               : ok=19   changed=15   unreachable=0    failed=0    skipped=1    rescued=0    ignored=0
+null_resource.ansible-k8s (local-exec): worker-node3               : ok=19   changed=15   unreachable=0    failed=0    skipped=1    rescued=0    ignored=0
+
+null_resource.ansible-k8s: Creation complete after 4m21s [id=3654698201030007093]
+time_sleep.wait_for_APIserver: Creating...
+time_sleep.wait_for_APIserver: Still creating... [00m10s elapsed]
+time_sleep.wait_for_APIserver: Still creating... [00m20s elapsed]
+time_sleep.wait_for_APIserver: Still creating... [00m30s elapsed]
+time_sleep.wait_for_APIserver: Still creating... [00m40s elapsed]
+time_sleep.wait_for_APIserver: Still creating... [00m50s elapsed]
+time_sleep.wait_for_APIserver: Still creating... [01m00s elapsed]
+time_sleep.wait_for_APIserver: Still creating... [01m10s elapsed]
+time_sleep.wait_for_APIserver: Still creating... [01m20s elapsed]
+time_sleep.wait_for_APIserver: Still creating... [01m30s elapsed]
+time_sleep.wait_for_APIserver: Creation complete after 1m30s [id=2026-04-02T07:10:18Z]
+null_resource.k8s-state: Creating...
+null_resource.k8s-state: Provisioning with 'local-exec'...
+null_resource.k8s-state (local-exec): Executing: ["/bin/sh" "-c" "ansible-playbook -i ./k8s-ansible/inventory/hosts.ini ./k8s-ansible/k8s-state.yml"]
+
+null_resource.k8s-state (local-exec): PLAY [Get Kubernetes Cluster State] ********************************************
+
+null_resource.k8s-state (local-exec): TASK [Gathering Facts] *********************************************************
+null_resource.k8s-state (local-exec): [WARNING]: Platform linux on host master-cp1 is using the discovered Python
+null_resource.k8s-state (local-exec): interpreter at /usr/bin/python3.10, but future installation of another Python
+null_resource.k8s-state (local-exec): interpreter could change the meaning of that path. See
+null_resource.k8s-state (local-exec): https://docs.ansible.com/ansible-
+null_resource.k8s-state (local-exec): core/2.17/reference_appendices/interpreter_discovery.html for more information.
+null_resource.k8s-state (local-exec): ok: [master-cp1]
+
+null_resource.k8s-state (local-exec): TASK [Get Nodes status] ********************************************************
+null_resource.k8s-state (local-exec): changed: [master-cp1]
+
+null_resource.k8s-state (local-exec): TASK [Get All Pods status] *****************************************************
+null_resource.k8s-state (local-exec): changed: [master-cp1]
+
+null_resource.k8s-state (local-exec): TASK [Get Services status] *****************************************************
+null_resource.k8s-state (local-exec): changed: [master-cp1]
+
+null_resource.k8s-state (local-exec): TASK [Create Cluster State Report locally on Master] ***************************
+null_resource.k8s-state (local-exec): changed: [master-cp1]
+
+null_resource.k8s-state (local-exec): TASK [Fetch report back to control node] ***************************************
+null_resource.k8s-state (local-exec): changed: [master-cp1]
+
+null_resource.k8s-state (local-exec): PLAY RECAP *********************************************************************
+null_resource.k8s-state (local-exec): master-cp1                 : ok=6    changed=5    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+
+null_resource.k8s-state: Provisioning with 'local-exec'...
+null_resource.k8s-state (local-exec): Executing: ["/bin/sh" "-c" "cat ./k8s-cluster-output.txt"]
+null_resource.k8s-state (local-exec): cat: ./k8s-cluster-output.txt: No such file or directory
+╷
+│ Warning: slot: ide2 size is ignored when type = cloudinit
+│
+│   with proxmox_vm_qemu.masters[0],
+│   on main.tf line 33, in resource "proxmox_vm_qemu" "masters":
+│   33: resource "proxmox_vm_qemu" "masters" {
+│
+│ (and 3 more similar warnings elsewhere)
+╵
+╷
+│ Error: local-exec provisioner error
+│
+│   with null_resource.k8s-state,
+│   on main.tf line 188, in resource "null_resource" "k8s-state":
+│  188:   provisioner "local-exec" {
+│
+│ Error running command 'cat ./k8s-cluster-output.txt': exit status 1. Output: cat: ./k8s-cluster-output.txt: No such file or directory
+│
+╵
+root@Control-Node:/home/admin/terraform-setup-overview/terraform-vbox-cluster# cat ./k8s-ansible/
+group_vars/             inventory/              k8s-cluster-output.txt  k8s-state.yml           roles/                  site.yml
+root@Control-Node:/home/admin/terraform-setup-overview/terraform-vbox-cluster# cat ./k8s-ansible/
+group_vars/             inventory/              k8s-cluster-output.txt  k8s-state.yml           roles/                  site.yml
+root@Control-Node:/home/admin/terraform-setup-overview/terraform-vbox-cluster# cat ./k8s-ansible/k8s-cluster-output.txt
+============= KUBERNETES CLUSTER STATE REPORT ===============
+[ NODES ]
+NAME           STATUS   ROLES           AGE    VERSION    INTERNAL-IP   EXTERNAL-IP   OS-IMAGE             KERNEL-VERSION       CONTAINER-RUNTIME
+master-cp1     Ready    control-plane   118s   v1.29.15   10.10.0.199   <none>        Ubuntu 22.04.5 LTS   5.15.0-173-generic   containerd://1.7.28
+worker-node1   Ready    <none>          94s    v1.29.15   10.10.0.101   <none>        Ubuntu 22.04.5 LTS   5.15.0-173-generic   containerd://1.7.28
+worker-node2   Ready    <none>          96s    v1.29.15   10.10.0.102   <none>        Ubuntu 22.04.5 LTS   5.15.0-173-generic   containerd://1.7.28
+worker-node3   Ready    <none>          96s    v1.29.15   10.10.0.103   <none>        Ubuntu 22.04.5 LTS   5.15.0-173-generic   containerd://1.7.28
+
+[ PODS ]
+NAMESPACE     NAME                                       READY   STATUS    RESTARTS   AGE
+kube-system   calico-kube-controllers-5fc7d6cf67-l4x5d   1/1     Running   0          101s
+kube-system   calico-node-49gpt                          1/1     Running   0          96s
+kube-system   calico-node-lxs7l                          1/1     Running   0          101s
+kube-system   calico-node-pwt7z                          1/1     Running   0          96s
+kube-system   calico-node-zh5pl                          1/1     Running   0          94s
+kube-system   coredns-76f75df574-crtjh                   1/1     Running   0          101s
+kube-system   coredns-76f75df574-khmqx                   1/1     Running   0          101s
+kube-system   etcd-master-cp1                            1/1     Running   0          116s
+kube-system   kube-apiserver-master-cp1                  1/1     Running   0          114s
+kube-system   kube-controller-manager-master-cp1         1/1     Running   0          114s
+kube-system   kube-proxy-gvxp7                           1/1     Running   0          94s
+kube-system   kube-proxy-kpcnf                           1/1     Running   0          96s
+kube-system   kube-proxy-l4t9r                           1/1     Running   0          101s
+kube-system   kube-proxy-vd4b5                           1/1     Running   0          96s
+kube-system   kube-scheduler-master-cp1                  1/1     Running   0          114s
+
+[ SERVICES ]
+NAMESPACE     NAME         TYPE        CLUSTER-IP   EXTERNAL-IP   PORT(S)                  AGE
+default       kubernetes   ClusterIP   10.96.0.1    <none>        443/TCP                  117s
+kube-system   kube-dns     ClusterIP   10.96.0.10   <none>        53/UDP,53/TCP,9153/TCP   115s
+root@Control-Node:/home/admin/terraform-setup-overview/terraform-vbox-cluster#

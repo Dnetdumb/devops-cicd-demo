@@ -1,0 +1,30 @@
+============= KUBERNETES CLUSTER STATE REPORT ===============
+[ NODES ]
+NAME           STATUS   ROLES           AGE    VERSION    INTERNAL-IP   EXTERNAL-IP   OS-IMAGE             KERNEL-VERSION       CONTAINER-RUNTIME
+master-cp1     Ready    control-plane   118s   v1.29.15   10.10.0.199   <none>        Ubuntu 22.04.5 LTS   5.15.0-173-generic   containerd://1.7.28
+worker-node1   Ready    <none>          94s    v1.29.15   10.10.0.101   <none>        Ubuntu 22.04.5 LTS   5.15.0-173-generic   containerd://1.7.28
+worker-node2   Ready    <none>          96s    v1.29.15   10.10.0.102   <none>        Ubuntu 22.04.5 LTS   5.15.0-173-generic   containerd://1.7.28
+worker-node3   Ready    <none>          96s    v1.29.15   10.10.0.103   <none>        Ubuntu 22.04.5 LTS   5.15.0-173-generic   containerd://1.7.28
+
+[ PODS ]
+NAMESPACE     NAME                                       READY   STATUS    RESTARTS   AGE
+kube-system   calico-kube-controllers-5fc7d6cf67-l4x5d   1/1     Running   0          101s
+kube-system   calico-node-49gpt                          1/1     Running   0          96s
+kube-system   calico-node-lxs7l                          1/1     Running   0          101s
+kube-system   calico-node-pwt7z                          1/1     Running   0          96s
+kube-system   calico-node-zh5pl                          1/1     Running   0          94s
+kube-system   coredns-76f75df574-crtjh                   1/1     Running   0          101s
+kube-system   coredns-76f75df574-khmqx                   1/1     Running   0          101s
+kube-system   etcd-master-cp1                            1/1     Running   0          116s
+kube-system   kube-apiserver-master-cp1                  1/1     Running   0          114s
+kube-system   kube-controller-manager-master-cp1         1/1     Running   0          114s
+kube-system   kube-proxy-gvxp7                           1/1     Running   0          94s
+kube-system   kube-proxy-kpcnf                           1/1     Running   0          96s
+kube-system   kube-proxy-l4t9r                           1/1     Running   0          101s
+kube-system   kube-proxy-vd4b5                           1/1     Running   0          96s
+kube-system   kube-scheduler-master-cp1                  1/1     Running   0          114s
+
+[ SERVICES ]
+NAMESPACE     NAME         TYPE        CLUSTER-IP   EXTERNAL-IP   PORT(S)                  AGE
+default       kubernetes   ClusterIP   10.96.0.1    <none>        443/TCP                  117s
+kube-system   kube-dns     ClusterIP   10.96.0.10   <none>        53/UDP,53/TCP,9153/TCP   115s

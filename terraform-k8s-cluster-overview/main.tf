@@ -186,7 +186,7 @@ resource "null_resource" "k8s-state" {
   }
  
   provisioner "local-exec" {
-    command = "cat ./k8s-cluster-output.txt"
+    command = "cat ./k8s-ansible/k8s-cluster-output.txt"
   } 
 }
 

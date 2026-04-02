@@ -239,3 +239,4 @@ terraform apply -parallelism=1
 
 <img width="1418" height="1275" alt="image" src="https://github.com/user-attachments/assets/1e062d04-b2ea-4981-bbd0-6232934bdee9" />
 
+Already fix final errors, read full process log here: https://github.com/Dnetdumb/devops-cicd-demo/tree/master/terraform-k8s-cluster-overview/terraform-process.log

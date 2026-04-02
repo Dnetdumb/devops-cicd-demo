@@ -1,0 +1,2534 @@
+[90mThu, 02 Apr 2026 06:56:43 +0000[0m [32mINF[0m [1mgithub.com/Telmate/terraform-provider-proxmox/v2/proxmox/util.go:153[0m[36m >[0m [1mEnabling the capture of log-library logs as ithe _capturelog flag was detected[0m
+[90mThu, 02 Apr 2026 06:56:43 +0000[0m [32mINF[0m [1mgithub.com/Telmate/terraform-provider-proxmox/v2/proxmox/util.go:186[0m[36m >[0m [1mLogging Started. Root Logger Set to level debug[0m
+[90mThu, 02 Apr 2026 06:59:31 +0000[0m [32mINF[0m [1mgithub.com/Telmate/terraform-provider-proxmox/v2/proxmox/util.go:153[0m[36m >[0m [1mEnabling the capture of log-library logs as ithe _capturelog flag was detected[0m
+[90mThu, 02 Apr 2026 06:59:31 +0000[0m [32mINF[0m [1mgithub.com/Telmate/terraform-provider-proxmox/v2/proxmox/util.go:186[0m[36m >[0m [1mLogging Started. Root Logger Set to level debug[0m
+[90mThu, 02 Apr 2026 06:59:33 +0000[0m [32mINF[0m [1mgithub.com/Telmate/terraform-provider-proxmox/v2/proxmox/util.go:153[0m[36m >[0m [1mEnabling the capture of log-library logs as ithe _capturelog flag was detected[0m
+[90mThu, 02 Apr 2026 06:59:33 +0000[0m [32mINF[0m [1mgithub.com/Telmate/terraform-provider-proxmox/v2/proxmox/util.go:186[0m[36m >[0m [1mLogging Started. Root Logger Set to level debug[0m
+2026/04/02 06:59:34 [DEBUG] setting computed for "unused_disk" from ComputedKeys
+2026/04/02 06:59:34 [DEBUG] setting computed for "smbios" from ComputedKeys
+[90mThu, 02 Apr 2026 06:59:34 +0000[0m [32mINF[0m [1mgithub.com/Telmate/terraform-provider-proxmox/v2/proxmox/resource_vm_qemu.go:534[0m[36m >[0m [1mVM creation[0m [36mloggerName=[0mresource_vm_create [36mvmid=[0m
+[90mThu, 02 Apr 2026 06:59:34 +0000[0m DBG [1mgithub.com/Telmate/terraform-provider-proxmox/v2/proxmox/resource_vm_qemu.go:535[0m[36m >[0m VM creation resource data: '' [36mloggerName=[0mresource_vm_create [36mvmid=[0m
+2026/04/02 06:59:34 >>>>>>>>>> REQUEST:
+GET /api2/json/cluster/resources?type=vm HTTP/1.1
+Host: 192.168.2.150:8006
+User-Agent: Go-http-client/1.1
+Accept: application/json
+Authorization: PVEAuthCookie=PVE:root@pam:69CE13D5::eKVvWUGVdLRgxkaMlMUPI+Vqjl5Rb6RLk4bqOaFyncDslHg3zhI/qUJmNqRrPDZA3pAaI9Vl+GfAIp1gkqvgwFk+fQ/7PmlXs2hh3x49Z7SqlmJtVn3KzsYy5HEODxKJDwW7Qh5m6ak+uoJ1PcRgu+RRCr8g1imF8HppmvZPolYbP2mX69D+EMLin/7JLpHeWidioP2Ynqs6T3eL9Myg02DhImVRxCPRvSH1OT8Jw16r4wb2AYUxlAKr7xfk/ZT7/tXJVSj2Oi4npEaXe7LnK0+8V2a9EbQyARMRKIQ6eFWq70UGn4oDHCLdGspX1Gg+0oPr5MO196Io+n9DTSLaNA==
+CSRFPreventionToken: 69CE13D5:BKF8hSOtlG6TT8roaVc5DcH6jejUC/9+KCsodFRcMpc
+Accept-Encoding: gzip
+
+2026/04/02 06:59:34 <<<<<<<<<< RESULT:
+HTTP/1.1 200 OK
+Content-Length: 261
+Cache-Control: max-age=0
+Connection: Keep-Alive
+Content-Type: application/json;charset=UTF-8
+Date: Thu, 02 Apr 2026 06:59:34 GMT
+Expires: Thu, 02 Apr 2026 06:59:34 GMT
+Pragma: no-cache
+Server: pve-api-daemon/3.0
+
+{"data":[{"netin":0,"node":"pve","type":"qemu","maxmem":1073741824,"diskwrite":0,"diskread":0,"netout":0,"id":"qemu/9000","status":"stopped","vmid":9000,"template":1,"mem":0,"uptime":0,"disk":0,"maxcpu":1,"cpu":0,"name":"ubuntu-template","maxdisk":2361393152}]}
+2026/04/02 06:59:34 [DEBUG][QemuVmCreate] cloning VM
+[90mThu, 02 Apr 2026 06:59:34 +0000[0m DBG [1mgithub.com/Telmate/terraform-provider-proxmox/v2/proxmox/resource_vm_qemu.go:672[0m[36m >[0m Cloning VM [36mloggerName=[0mresource_vm_create [36mvmid=[0m
+2026/04/02 06:59:34 >>>>>>>>>> REQUEST:
+GET /api2/json/cluster/nextid HTTP/1.1
+Host: 192.168.2.150:8006
+User-Agent: Go-http-client/1.1
+Accept: application/json
+Authorization: PVEAuthCookie=PVE:root@pam:69CE13D5::eKVvWUGVdLRgxkaMlMUPI+Vqjl5Rb6RLk4bqOaFyncDslHg3zhI/qUJmNqRrPDZA3pAaI9Vl+GfAIp1gkqvgwFk+fQ/7PmlXs2hh3x49Z7SqlmJtVn3KzsYy5HEODxKJDwW7Qh5m6ak+uoJ1PcRgu+RRCr8g1imF8HppmvZPolYbP2mX69D+EMLin/7JLpHeWidioP2Ynqs6T3eL9Myg02DhImVRxCPRvSH1OT8Jw16r4wb2AYUxlAKr7xfk/ZT7/tXJVSj2Oi4npEaXe7LnK0+8V2a9EbQyARMRKIQ6eFWq70UGn4oDHCLdGspX1Gg+0oPr5MO196Io+n9DTSLaNA==
+CSRFPreventionToken: 69CE13D5:BKF8hSOtlG6TT8roaVc5DcH6jejUC/9+KCsodFRcMpc
+Accept-Encoding: gzip
+
+2026/04/02 06:59:34 <<<<<<<<<< RESULT:
+HTTP/1.1 200 OK
+Content-Length: 14
+Cache-Control: max-age=0
+Connection: Keep-Alive
+Content-Type: application/json;charset=UTF-8
+Date: Thu, 02 Apr 2026 06:59:34 GMT
+Expires: Thu, 02 Apr 2026 06:59:34 GMT
+Pragma: no-cache
+Server: pve-api-daemon/3.0
+
+{"data":"100"}
+2026/04/02 06:59:34 >>>>>>>>>> REQUEST:
+POST /api2/json/nodes/pve/qemu/9000/clone HTTP/1.1
+Host: 192.168.2.150:8006
+User-Agent: Go-http-client/1.1
+Content-Length: 43
+Accept: application/json
+Authorization: PVEAuthCookie=PVE:root@pam:69CE13D5::eKVvWUGVdLRgxkaMlMUPI+Vqjl5Rb6RLk4bqOaFyncDslHg3zhI/qUJmNqRrPDZA3pAaI9Vl+GfAIp1gkqvgwFk+fQ/7PmlXs2hh3x49Z7SqlmJtVn3KzsYy5HEODxKJDwW7Qh5m6ak+uoJ1PcRgu+RRCr8g1imF8HppmvZPolYbP2mX69D+EMLin/7JLpHeWidioP2Ynqs6T3eL9Myg02DhImVRxCPRvSH1OT8Jw16r4wb2AYUxlAKr7xfk/ZT7/tXJVSj2Oi4npEaXe7LnK0+8V2a9EbQyARMRKIQ6eFWq70UGn4oDHCLdGspX1Gg+0oPr5MO196Io+n9DTSLaNA==
+CSRFPreventionToken: 69CE13D5:BKF8hSOtlG6TT8roaVc5DcH6jejUC/9+KCsodFRcMpc
+Content-Type: application/x-www-form-urlencoded
+Accept-Encoding: gzip
+
+full=1&name=VM-MASTER1&newid=100&target=pve
+2026/04/02 06:59:34 <<<<<<<<<< RESULT:
+HTTP/1.1 200 OK
+Connection: close
+Content-Length: 69
+Cache-Control: max-age=0
+Content-Type: application/json;charset=UTF-8
+Date: Thu, 02 Apr 2026 06:59:34 GMT
+Expires: Thu, 02 Apr 2026 06:59:34 GMT
+Pragma: no-cache
+Server: pve-api-daemon/3.0
+
+{"data":"UPID:pve:00008A12:00116F60:69CE13D6:qmclone:9000:root@pam:"}
+2026/04/02 06:59:34 >>>>>>>>>> REQUEST:
+GET /api2/json/nodes/pve/tasks/UPID:pve:00008A12:00116F60:69CE13D6:qmclone:9000:root@pam:/status HTTP/1.1
+Host: 192.168.2.150:8006
+User-Agent: Go-http-client/1.1
+Accept: application/json
+Authorization: PVEAuthCookie=PVE:root@pam:69CE13D5::eKVvWUGVdLRgxkaMlMUPI+Vqjl5Rb6RLk4bqOaFyncDslHg3zhI/qUJmNqRrPDZA3pAaI9Vl+GfAIp1gkqvgwFk+fQ/7PmlXs2hh3x49Z7SqlmJtVn3KzsYy5HEODxKJDwW7Qh5m6ak+uoJ1PcRgu+RRCr8g1imF8HppmvZPolYbP2mX69D+EMLin/7JLpHeWidioP2Ynqs6T3eL9Myg02DhImVRxCPRvSH1OT8Jw16r4wb2AYUxlAKr7xfk/ZT7/tXJVSj2Oi4npEaXe7LnK0+8V2a9EbQyARMRKIQ6eFWq70UGn4oDHCLdGspX1Gg+0oPr5MO196Io+n9DTSLaNA==
+CSRFPreventionToken: 69CE13D5:BKF8hSOtlG6TT8roaVc5DcH6jejUC/9+KCsodFRcMpc
+Accept-Encoding: gzip
+
+2026/04/02 06:59:34 <<<<<<<<<< RESULT:
+HTTP/1.1 200 OK
+Connection: close
+Content-Length: 209
+Cache-Control: max-age=0
+Content-Type: application/json;charset=UTF-8
+Date: Thu, 02 Apr 2026 06:59:34 GMT
+Expires: Thu, 02 Apr 2026 06:59:34 GMT
+Pragma: no-cache
+Server: pve-api-daemon/3.0
+
+{"data":{"pstart":1142624,"id":"9000","starttime":1775113174,"pid":35346,"node":"pve","user":"root@pam","status":"running","type":"qmclone","upid":"UPID:pve:00008A12:00116F60:69CE13D6:qmclone:9000:root@pam:"}}
+2026/04/02 06:59:36 >>>>>>>>>> REQUEST:
+GET /api2/json/nodes/pve/tasks/UPID:pve:00008A12:00116F60:69CE13D6:qmclone:9000:root@pam:/status HTTP/1.1
+Host: 192.168.2.150:8006
+User-Agent: Go-http-client/1.1
+Accept: application/json
+Authorization: PVEAuthCookie=PVE:root@pam:69CE13D5::eKVvWUGVdLRgxkaMlMUPI+Vqjl5Rb6RLk4bqOaFyncDslHg3zhI/qUJmNqRrPDZA3pAaI9Vl+GfAIp1gkqvgwFk+fQ/7PmlXs2hh3x49Z7SqlmJtVn3KzsYy5HEODxKJDwW7Qh5m6ak+uoJ1PcRgu+RRCr8g1imF8HppmvZPolYbP2mX69D+EMLin/7JLpHeWidioP2Ynqs6T3eL9Myg02DhImVRxCPRvSH1OT8Jw16r4wb2AYUxlAKr7xfk/ZT7/tXJVSj2Oi4npEaXe7LnK0+8V2a9EbQyARMRKIQ6eFWq70UGn4oDHCLdGspX1Gg+0oPr5MO196Io+n9DTSLaNA==
+CSRFPreventionToken: 69CE13D5:BKF8hSOtlG6TT8roaVc5DcH6jejUC/9+KCsodFRcMpc
+Accept-Encoding: gzip
+
+2026/04/02 06:59:36 <<<<<<<<<< RESULT:
+HTTP/1.1 200 OK
+Connection: close
+Content-Length: 209
+Cache-Control: max-age=0
+Content-Type: application/json;charset=UTF-8
+Date: Thu, 02 Apr 2026 06:59:36 GMT
+Expires: Thu, 02 Apr 2026 06:59:36 GMT
+Pragma: no-cache
+Server: pve-api-daemon/3.0
+
+{"data":{"type":"qmclone","upid":"UPID:pve:00008A12:00116F60:69CE13D6:qmclone:9000:root@pam:","status":"running","user":"root@pam","pid":35346,"node":"pve","id":"9000","starttime":1775113174,"pstart":1142624}}
+2026/04/02 06:59:38 >>>>>>>>>> REQUEST:
+GET /api2/json/nodes/pve/tasks/UPID:pve:00008A12:00116F60:69CE13D6:qmclone:9000:root@pam:/status HTTP/1.1
+Host: 192.168.2.150:8006
+User-Agent: Go-http-client/1.1
+Accept: application/json
+Authorization: PVEAuthCookie=PVE:root@pam:69CE13D5::eKVvWUGVdLRgxkaMlMUPI+Vqjl5Rb6RLk4bqOaFyncDslHg3zhI/qUJmNqRrPDZA3pAaI9Vl+GfAIp1gkqvgwFk+fQ/7PmlXs2hh3x49Z7SqlmJtVn3KzsYy5HEODxKJDwW7Qh5m6ak+uoJ1PcRgu+RRCr8g1imF8HppmvZPolYbP2mX69D+EMLin/7JLpHeWidioP2Ynqs6T3eL9Myg02DhImVRxCPRvSH1OT8Jw16r4wb2AYUxlAKr7xfk/ZT7/tXJVSj2Oi4npEaXe7LnK0+8V2a9EbQyARMRKIQ6eFWq70UGn4oDHCLdGspX1Gg+0oPr5MO196Io+n9DTSLaNA==
+CSRFPreventionToken: 69CE13D5:BKF8hSOtlG6TT8roaVc5DcH6jejUC/9+KCsodFRcMpc
+Accept-Encoding: gzip
+
+2026/04/02 06:59:38 <<<<<<<<<< RESULT:
+HTTP/1.1 200 OK
+Connection: close
+Content-Length: 209
+Cache-Control: max-age=0
+Content-Type: application/json;charset=UTF-8
+Date: Thu, 02 Apr 2026 06:59:38 GMT
+Expires: Thu, 02 Apr 2026 06:59:38 GMT
+Pragma: no-cache
+Server: pve-api-daemon/3.0
+
+{"data":{"user":"root@pam","status":"running","type":"qmclone","upid":"UPID:pve:00008A12:00116F60:69CE13D6:qmclone:9000:root@pam:","starttime":1775113174,"id":"9000","pid":35346,"node":"pve","pstart":1142624}}
+2026/04/02 06:59:40 >>>>>>>>>> REQUEST:
+GET /api2/json/nodes/pve/tasks/UPID:pve:00008A12:00116F60:69CE13D6:qmclone:9000:root@pam:/status HTTP/1.1
+Host: 192.168.2.150:8006
+User-Agent: Go-http-client/1.1
+Accept: application/json
+Authorization: PVEAuthCookie=PVE:root@pam:69CE13D5::eKVvWUGVdLRgxkaMlMUPI+Vqjl5Rb6RLk4bqOaFyncDslHg3zhI/qUJmNqRrPDZA3pAaI9Vl+GfAIp1gkqvgwFk+fQ/7PmlXs2hh3x49Z7SqlmJtVn3KzsYy5HEODxKJDwW7Qh5m6ak+uoJ1PcRgu+RRCr8g1imF8HppmvZPolYbP2mX69D+EMLin/7JLpHeWidioP2Ynqs6T3eL9Myg02DhImVRxCPRvSH1OT8Jw16r4wb2AYUxlAKr7xfk/ZT7/tXJVSj2Oi4npEaXe7LnK0+8V2a9EbQyARMRKIQ6eFWq70UGn4oDHCLdGspX1Gg+0oPr5MO196Io+n9DTSLaNA==
+CSRFPreventionToken: 69CE13D5:BKF8hSOtlG6TT8roaVc5DcH6jejUC/9+KCsodFRcMpc
+Accept-Encoding: gzip
+
+2026/04/02 06:59:40 <<<<<<<<<< RESULT:
+HTTP/1.1 200 OK
+Connection: close
+Content-Length: 209
+Cache-Control: max-age=0
+Content-Type: application/json;charset=UTF-8
+Date: Thu, 02 Apr 2026 06:59:40 GMT
+Expires: Thu, 02 Apr 2026 06:59:40 GMT
+Pragma: no-cache
+Server: pve-api-daemon/3.0
+
+{"data":{"pstart":1142624,"id":"9000","starttime":1775113174,"pid":35346,"node":"pve","user":"root@pam","status":"running","type":"qmclone","upid":"UPID:pve:00008A12:00116F60:69CE13D6:qmclone:9000:root@pam:"}}
+2026/04/02 06:59:42 >>>>>>>>>> REQUEST:
+GET /api2/json/nodes/pve/tasks/UPID:pve:00008A12:00116F60:69CE13D6:qmclone:9000:root@pam:/status HTTP/1.1
+Host: 192.168.2.150:8006
+User-Agent: Go-http-client/1.1
+Accept: application/json
+Authorization: PVEAuthCookie=PVE:root@pam:69CE13D5::eKVvWUGVdLRgxkaMlMUPI+Vqjl5Rb6RLk4bqOaFyncDslHg3zhI/qUJmNqRrPDZA3pAaI9Vl+GfAIp1gkqvgwFk+fQ/7PmlXs2hh3x49Z7SqlmJtVn3KzsYy5HEODxKJDwW7Qh5m6ak+uoJ1PcRgu+RRCr8g1imF8HppmvZPolYbP2mX69D+EMLin/7JLpHeWidioP2Ynqs6T3eL9Myg02DhImVRxCPRvSH1OT8Jw16r4wb2AYUxlAKr7xfk/ZT7/tXJVSj2Oi4npEaXe7LnK0+8V2a9EbQyARMRKIQ6eFWq70UGn4oDHCLdGspX1Gg+0oPr5MO196Io+n9DTSLaNA==
+CSRFPreventionToken: 69CE13D5:BKF8hSOtlG6TT8roaVc5DcH6jejUC/9+KCsodFRcMpc
+Accept-Encoding: gzip
+
+2026/04/02 06:59:42 <<<<<<<<<< RESULT:
+HTTP/1.1 200 OK
+Connection: close
+Content-Length: 209
+Cache-Control: max-age=0
+Content-Type: application/json;charset=UTF-8
+Date: Thu, 02 Apr 2026 06:59:42 GMT
+Expires: Thu, 02 Apr 2026 06:59:42 GMT
+Pragma: no-cache
+Server: pve-api-daemon/3.0
+
+{"data":{"upid":"UPID:pve:00008A12:00116F60:69CE13D6:qmclone:9000:root@pam:","type":"qmclone","user":"root@pam","status":"running","pstart":1142624,"id":"9000","starttime":1775113174,"pid":35346,"node":"pve"}}
+2026/04/02 06:59:44 >>>>>>>>>> REQUEST:
+GET /api2/json/nodes/pve/tasks/UPID:pve:00008A12:00116F60:69CE13D6:qmclone:9000:root@pam:/status HTTP/1.1
+Host: 192.168.2.150:8006
+User-Agent: Go-http-client/1.1
+Accept: application/json
+Authorization: PVEAuthCookie=PVE:root@pam:69CE13D5::eKVvWUGVdLRgxkaMlMUPI+Vqjl5Rb6RLk4bqOaFyncDslHg3zhI/qUJmNqRrPDZA3pAaI9Vl+GfAIp1gkqvgwFk+fQ/7PmlXs2hh3x49Z7SqlmJtVn3KzsYy5HEODxKJDwW7Qh5m6ak+uoJ1PcRgu+RRCr8g1imF8HppmvZPolYbP2mX69D+EMLin/7JLpHeWidioP2Ynqs6T3eL9Myg02DhImVRxCPRvSH1OT8Jw16r4wb2AYUxlAKr7xfk/ZT7/tXJVSj2Oi4npEaXe7LnK0+8V2a9EbQyARMRKIQ6eFWq70UGn4oDHCLdGspX1Gg+0oPr5MO196Io+n9DTSLaNA==
+CSRFPreventionToken: 69CE13D5:BKF8hSOtlG6TT8roaVc5DcH6jejUC/9+KCsodFRcMpc
+Accept-Encoding: gzip
+
+2026/04/02 06:59:44 <<<<<<<<<< RESULT:
+HTTP/1.1 200 OK
+Connection: close
+Content-Length: 209
+Cache-Control: max-age=0
+Content-Type: application/json;charset=UTF-8
+Date: Thu, 02 Apr 2026 06:59:44 GMT
+Expires: Thu, 02 Apr 2026 06:59:44 GMT
+Pragma: no-cache
+Server: pve-api-daemon/3.0
+
+{"data":{"type":"qmclone","upid":"UPID:pve:00008A12:00116F60:69CE13D6:qmclone:9000:root@pam:","user":"root@pam","status":"running","pstart":1142624,"id":"9000","starttime":1775113174,"node":"pve","pid":35346}}
+2026/04/02 06:59:46 >>>>>>>>>> REQUEST:
+GET /api2/json/nodes/pve/tasks/UPID:pve:00008A12:00116F60:69CE13D6:qmclone:9000:root@pam:/status HTTP/1.1
+Host: 192.168.2.150:8006
+User-Agent: Go-http-client/1.1
+Accept: application/json
+Authorization: PVEAuthCookie=PVE:root@pam:69CE13D5::eKVvWUGVdLRgxkaMlMUPI+Vqjl5Rb6RLk4bqOaFyncDslHg3zhI/qUJmNqRrPDZA3pAaI9Vl+GfAIp1gkqvgwFk+fQ/7PmlXs2hh3x49Z7SqlmJtVn3KzsYy5HEODxKJDwW7Qh5m6ak+uoJ1PcRgu+RRCr8g1imF8HppmvZPolYbP2mX69D+EMLin/7JLpHeWidioP2Ynqs6T3eL9Myg02DhImVRxCPRvSH1OT8Jw16r4wb2AYUxlAKr7xfk/ZT7/tXJVSj2Oi4npEaXe7LnK0+8V2a9EbQyARMRKIQ6eFWq70UGn4oDHCLdGspX1Gg+0oPr5MO196Io+n9DTSLaNA==
+CSRFPreventionToken: 69CE13D5:BKF8hSOtlG6TT8roaVc5DcH6jejUC/9+KCsodFRcMpc
+Accept-Encoding: gzip
+
+2026/04/02 06:59:46 <<<<<<<<<< RESULT:
+HTTP/1.1 200 OK
+Connection: close
+Content-Length: 209
+Cache-Control: max-age=0
+Content-Type: application/json;charset=UTF-8
+Date: Thu, 02 Apr 2026 06:59:46 GMT
+Expires: Thu, 02 Apr 2026 06:59:46 GMT
+Pragma: no-cache
+Server: pve-api-daemon/3.0
+
+{"data":{"starttime":1775113174,"id":"9000","pid":35346,"node":"pve","pstart":1142624,"user":"root@pam","status":"running","upid":"UPID:pve:00008A12:00116F60:69CE13D6:qmclone:9000:root@pam:","type":"qmclone"}}
+2026/04/02 06:59:48 >>>>>>>>>> REQUEST:
+GET /api2/json/nodes/pve/tasks/UPID:pve:00008A12:00116F60:69CE13D6:qmclone:9000:root@pam:/status HTTP/1.1
+Host: 192.168.2.150:8006
+User-Agent: Go-http-client/1.1
+Accept: application/json
+Authorization: PVEAuthCookie=PVE:root@pam:69CE13D5::eKVvWUGVdLRgxkaMlMUPI+Vqjl5Rb6RLk4bqOaFyncDslHg3zhI/qUJmNqRrPDZA3pAaI9Vl+GfAIp1gkqvgwFk+fQ/7PmlXs2hh3x49Z7SqlmJtVn3KzsYy5HEODxKJDwW7Qh5m6ak+uoJ1PcRgu+RRCr8g1imF8HppmvZPolYbP2mX69D+EMLin/7JLpHeWidioP2Ynqs6T3eL9Myg02DhImVRxCPRvSH1OT8Jw16r4wb2AYUxlAKr7xfk/ZT7/tXJVSj2Oi4npEaXe7LnK0+8V2a9EbQyARMRKIQ6eFWq70UGn4oDHCLdGspX1Gg+0oPr5MO196Io+n9DTSLaNA==
+CSRFPreventionToken: 69CE13D5:BKF8hSOtlG6TT8roaVc5DcH6jejUC/9+KCsodFRcMpc
+Accept-Encoding: gzip
+
+2026/04/02 06:59:48 <<<<<<<<<< RESULT:
+HTTP/1.1 200 OK
+Connection: close
+Content-Length: 209
+Cache-Control: max-age=0
+Content-Type: application/json;charset=UTF-8
+Date: Thu, 02 Apr 2026 06:59:48 GMT
+Expires: Thu, 02 Apr 2026 06:59:48 GMT
+Pragma: no-cache
+Server: pve-api-daemon/3.0
+
+{"data":{"starttime":1775113174,"id":"9000","node":"pve","pid":35346,"pstart":1142624,"upid":"UPID:pve:00008A12:00116F60:69CE13D6:qmclone:9000:root@pam:","type":"qmclone","user":"root@pam","status":"running"}}
+2026/04/02 06:59:50 >>>>>>>>>> REQUEST:
+GET /api2/json/nodes/pve/tasks/UPID:pve:00008A12:00116F60:69CE13D6:qmclone:9000:root@pam:/status HTTP/1.1
+Host: 192.168.2.150:8006
+User-Agent: Go-http-client/1.1
+Accept: application/json
+Authorization: PVEAuthCookie=PVE:root@pam:69CE13D5::eKVvWUGVdLRgxkaMlMUPI+Vqjl5Rb6RLk4bqOaFyncDslHg3zhI/qUJmNqRrPDZA3pAaI9Vl+GfAIp1gkqvgwFk+fQ/7PmlXs2hh3x49Z7SqlmJtVn3KzsYy5HEODxKJDwW7Qh5m6ak+uoJ1PcRgu+RRCr8g1imF8HppmvZPolYbP2mX69D+EMLin/7JLpHeWidioP2Ynqs6T3eL9Myg02DhImVRxCPRvSH1OT8Jw16r4wb2AYUxlAKr7xfk/ZT7/tXJVSj2Oi4npEaXe7LnK0+8V2a9EbQyARMRKIQ6eFWq70UGn4oDHCLdGspX1Gg+0oPr5MO196Io+n9DTSLaNA==
+CSRFPreventionToken: 69CE13D5:BKF8hSOtlG6TT8roaVc5DcH6jejUC/9+KCsodFRcMpc
+Accept-Encoding: gzip
+
+2026/04/02 06:59:50 <<<<<<<<<< RESULT:
+HTTP/1.1 200 OK
+Connection: close
+Content-Length: 209
+Cache-Control: max-age=0
+Content-Type: application/json;charset=UTF-8
+Date: Thu, 02 Apr 2026 06:59:50 GMT
+Expires: Thu, 02 Apr 2026 06:59:50 GMT
+Pragma: no-cache
+Server: pve-api-daemon/3.0
+
+{"data":{"user":"root@pam","status":"running","upid":"UPID:pve:00008A12:00116F60:69CE13D6:qmclone:9000:root@pam:","type":"qmclone","pstart":1142624,"id":"9000","starttime":1775113174,"node":"pve","pid":35346}}
+2026/04/02 06:59:52 >>>>>>>>>> REQUEST:
+GET /api2/json/nodes/pve/tasks/UPID:pve:00008A12:00116F60:69CE13D6:qmclone:9000:root@pam:/status HTTP/1.1
+Host: 192.168.2.150:8006
+User-Agent: Go-http-client/1.1
+Accept: application/json
+Authorization: PVEAuthCookie=PVE:root@pam:69CE13D5::eKVvWUGVdLRgxkaMlMUPI+Vqjl5Rb6RLk4bqOaFyncDslHg3zhI/qUJmNqRrPDZA3pAaI9Vl+GfAIp1gkqvgwFk+fQ/7PmlXs2hh3x49Z7SqlmJtVn3KzsYy5HEODxKJDwW7Qh5m6ak+uoJ1PcRgu+RRCr8g1imF8HppmvZPolYbP2mX69D+EMLin/7JLpHeWidioP2Ynqs6T3eL9Myg02DhImVRxCPRvSH1OT8Jw16r4wb2AYUxlAKr7xfk/ZT7/tXJVSj2Oi4npEaXe7LnK0+8V2a9EbQyARMRKIQ6eFWq70UGn4oDHCLdGspX1Gg+0oPr5MO196Io+n9DTSLaNA==
+CSRFPreventionToken: 69CE13D5:BKF8hSOtlG6TT8roaVc5DcH6jejUC/9+KCsodFRcMpc
+Accept-Encoding: gzip
+
+2026/04/02 06:59:52 <<<<<<<<<< RESULT:
+HTTP/1.1 200 OK
+Connection: close
+Content-Length: 227
+Cache-Control: max-age=0
+Content-Type: application/json;charset=UTF-8
+Date: Thu, 02 Apr 2026 06:59:52 GMT
+Expires: Thu, 02 Apr 2026 06:59:52 GMT
+Pragma: no-cache
+Server: pve-api-daemon/3.0
+
+{"data":{"starttime":1775113174,"id":"9000","pid":35346,"node":"pve","pstart":1142624,"type":"qmclone","upid":"UPID:pve:00008A12:00116F60:69CE13D6:qmclone:9000:root@pam:","exitstatus":"OK","user":"root@pam","status":"stopped"}}
+2026/04/02 07:00:02 [DEBUG][QemuVmCreate] update VM after clone
+2026/04/02 07:00:02 >>>>>>>>>> REQUEST:
+GET /api2/json/nodes/pve/qemu/100/config HTTP/1.1
+Host: 192.168.2.150:8006
+User-Agent: Go-http-client/1.1
+Accept: application/json
+Authorization: PVEAuthCookie=PVE:root@pam:69CE13D5::eKVvWUGVdLRgxkaMlMUPI+Vqjl5Rb6RLk4bqOaFyncDslHg3zhI/qUJmNqRrPDZA3pAaI9Vl+GfAIp1gkqvgwFk+fQ/7PmlXs2hh3x49Z7SqlmJtVn3KzsYy5HEODxKJDwW7Qh5m6ak+uoJ1PcRgu+RRCr8g1imF8HppmvZPolYbP2mX69D+EMLin/7JLpHeWidioP2Ynqs6T3eL9Myg02DhImVRxCPRvSH1OT8Jw16r4wb2AYUxlAKr7xfk/ZT7/tXJVSj2Oi4npEaXe7LnK0+8V2a9EbQyARMRKIQ6eFWq70UGn4oDHCLdGspX1Gg+0oPr5MO196Io+n9DTSLaNA==
+CSRFPreventionToken: 69CE13D5:BKF8hSOtlG6TT8roaVc5DcH6jejUC/9+KCsodFRcMpc
+Accept-Encoding: gzip
+
+2026/04/02 07:00:02 <<<<<<<<<< RESULT:
+HTTP/1.1 200 OK
+Content-Length: 575
+Cache-Control: max-age=0
+Connection: Keep-Alive
+Content-Type: application/json;charset=UTF-8
+Date: Thu, 02 Apr 2026 07:00:02 GMT
+Expires: Thu, 02 Apr 2026 07:00:02 GMT
+Pragma: no-cache
+Server: pve-api-daemon/3.0
+
+{"data":{"ide2":"local-lvm:vm-100-cloudinit,media=cdrom,size=4M","net0":"virtio=BC:24:11:71:FD:D2,bridge=vmbr0","memory":"1024","meta":"creation-qemu=9.2.0,ctime=1774872190","scsihw":"virtio-scsi-pci","bootdisk":"scsi0","name":"VM-MASTER1","ipconfig0":"ip=dhcp","cicustom":"user=local:snippets/custom-cloudinit.yaml","onboot":1,"scsi0":"local-lvm:vm-100-disk-0,size=2252M","vmgenid":"ae126c7e-a750-4e04-bb44-ad817fdd3442","smbios1":"uuid=d6445b9c-90ca-47f0-8708-3d3aa2930c78","serial0":"socket","digest":"f96a94fc7709ccd7c97329ce3356b6cc91b20859","vga":"serial0","boot":"c"}}
+2026/04/02 07:00:02 >>>>>>>>>> REQUEST:
+GET /api2/json/cluster/resources?type=vm HTTP/1.1
+Host: 192.168.2.150:8006
+User-Agent: Go-http-client/1.1
+Accept: application/json
+Authorization: PVEAuthCookie=PVE:root@pam:69CE13D5::eKVvWUGVdLRgxkaMlMUPI+Vqjl5Rb6RLk4bqOaFyncDslHg3zhI/qUJmNqRrPDZA3pAaI9Vl+GfAIp1gkqvgwFk+fQ/7PmlXs2hh3x49Z7SqlmJtVn3KzsYy5HEODxKJDwW7Qh5m6ak+uoJ1PcRgu+RRCr8g1imF8HppmvZPolYbP2mX69D+EMLin/7JLpHeWidioP2Ynqs6T3eL9Myg02DhImVRxCPRvSH1OT8Jw16r4wb2AYUxlAKr7xfk/ZT7/tXJVSj2Oi4npEaXe7LnK0+8V2a9EbQyARMRKIQ6eFWq70UGn4oDHCLdGspX1Gg+0oPr5MO196Io+n9DTSLaNA==
+CSRFPreventionToken: 69CE13D5:BKF8hSOtlG6TT8roaVc5DcH6jejUC/9+KCsodFRcMpc
+Accept-Encoding: gzip
+
+2026/04/02 07:00:02 <<<<<<<<<< RESULT:
+HTTP/1.1 200 OK
+Content-Length: 505
+Cache-Control: max-age=0
+Connection: Keep-Alive
+Content-Type: application/json;charset=UTF-8
+Date: Thu, 02 Apr 2026 07:00:02 GMT
+Expires: Thu, 02 Apr 2026 07:00:02 GMT
+Pragma: no-cache
+Server: pve-api-daemon/3.0
+
+{"data":[{"diskwrite":0,"node":"pve","type":"qemu","maxmem":1073741824,"netin":0,"diskread":0,"netout":0,"id":"qemu/100","vmid":100,"status":"stopped","template":0,"disk":0,"uptime":0,"mem":0,"cpu":0,"maxcpu":1,"name":"VM-MASTER1","maxdisk":2361393152},{"diskread":0,"node":"pve","type":"qemu","maxmem":1073741824,"diskwrite":0,"netin":0,"vmid":9000,"status":"stopped","netout":0,"id":"qemu/9000","disk":0,"mem":0,"uptime":0,"template":1,"maxdisk":2361393152,"name":"ubuntu-template","cpu":0,"maxcpu":1}]}
+2026/04/02 07:00:02 >>>>>>>>>> REQUEST:
+GET /api2/json/cluster/ha/resources/100 HTTP/1.1
+Host: 192.168.2.150:8006
+User-Agent: Go-http-client/1.1
+Accept: application/json
+Authorization: PVEAuthCookie=PVE:root@pam:69CE13D5::eKVvWUGVdLRgxkaMlMUPI+Vqjl5Rb6RLk4bqOaFyncDslHg3zhI/qUJmNqRrPDZA3pAaI9Vl+GfAIp1gkqvgwFk+fQ/7PmlXs2hh3x49Z7SqlmJtVn3KzsYy5HEODxKJDwW7Qh5m6ak+uoJ1PcRgu+RRCr8g1imF8HppmvZPolYbP2mX69D+EMLin/7JLpHeWidioP2Ynqs6T3eL9Myg02DhImVRxCPRvSH1OT8Jw16r4wb2AYUxlAKr7xfk/ZT7/tXJVSj2Oi4npEaXe7LnK0+8V2a9EbQyARMRKIQ6eFWq70UGn4oDHCLdGspX1Gg+0oPr5MO196Io+n9DTSLaNA==
+CSRFPreventionToken: 69CE13D5:BKF8hSOtlG6TT8roaVc5DcH6jejUC/9+KCsodFRcMpc
+Accept-Encoding: gzip
+
+2026/04/02 07:00:02 <<<<<<<<<< RESULT:
+HTTP/1.1 500 no such resource 'vm:100'
+Connection: close
+Content-Length: 53
+Cache-Control: max-age=0
+Content-Type: application/json;charset=UTF-8
+Date: Thu, 02 Apr 2026 07:00:02 GMT
+Expires: Thu, 02 Apr 2026 07:00:02 GMT
+Pragma: no-cache
+Server: pve-api-daemon/3.0
+
+{"data":null,"message":"no such resource 'vm:100'\n"}
+2026/04/02 07:00:02 >>>>>>>>>> REQUEST:
+GET /api2/json/version HTTP/1.1
+Host: 192.168.2.150:8006
+User-Agent: Go-http-client/1.1
+Accept: application/json
+Authorization: PVEAuthCookie=PVE:root@pam:69CE13D5::eKVvWUGVdLRgxkaMlMUPI+Vqjl5Rb6RLk4bqOaFyncDslHg3zhI/qUJmNqRrPDZA3pAaI9Vl+GfAIp1gkqvgwFk+fQ/7PmlXs2hh3x49Z7SqlmJtVn3KzsYy5HEODxKJDwW7Qh5m6ak+uoJ1PcRgu+RRCr8g1imF8HppmvZPolYbP2mX69D+EMLin/7JLpHeWidioP2Ynqs6T3eL9Myg02DhImVRxCPRvSH1OT8Jw16r4wb2AYUxlAKr7xfk/ZT7/tXJVSj2Oi4npEaXe7LnK0+8V2a9EbQyARMRKIQ6eFWq70UGn4oDHCLdGspX1Gg+0oPr5MO196Io+n9DTSLaNA==
+CSRFPreventionToken: 69CE13D5:BKF8hSOtlG6TT8roaVc5DcH6jejUC/9+KCsodFRcMpc
+Accept-Encoding: gzip
+
+2026/04/02 07:00:02 <<<<<<<<<< RESULT:
+HTTP/1.1 200 OK
+Content-Length: 72
+Cache-Control: max-age=0
+Connection: Keep-Alive
+Content-Type: application/json;charset=UTF-8
+Date: Thu, 02 Apr 2026 07:00:02 GMT
+Expires: Thu, 02 Apr 2026 07:00:02 GMT
+Pragma: no-cache
+Server: pve-api-daemon/3.0
+
+{"data":{"repoid":"ec58e45e1bcdf2ac","version":"8.4.0","release":"8.4"}}
+2026/04/02 07:00:02 >>>>>>>>>> REQUEST:
+PUT /api2/json/nodes/pve/qemu/100/resize HTTP/1.1
+Host: 192.168.2.150:8006
+User-Agent: Go-http-client/1.1
+Content-Length: 25
+Accept: application/json
+Authorization: PVEAuthCookie=PVE:root@pam:69CE13D5::eKVvWUGVdLRgxkaMlMUPI+Vqjl5Rb6RLk4bqOaFyncDslHg3zhI/qUJmNqRrPDZA3pAaI9Vl+GfAIp1gkqvgwFk+fQ/7PmlXs2hh3x49Z7SqlmJtVn3KzsYy5HEODxKJDwW7Qh5m6ak+uoJ1PcRgu+RRCr8g1imF8HppmvZPolYbP2mX69D+EMLin/7JLpHeWidioP2Ynqs6T3eL9Myg02DhImVRxCPRvSH1OT8Jw16r4wb2AYUxlAKr7xfk/ZT7/tXJVSj2Oi4npEaXe7LnK0+8V2a9EbQyARMRKIQ6eFWq70UGn4oDHCLdGspX1Gg+0oPr5MO196Io+n9DTSLaNA==
+CSRFPreventionToken: 69CE13D5:BKF8hSOtlG6TT8roaVc5DcH6jejUC/9+KCsodFRcMpc
+Content-Type: application/x-www-form-urlencoded
+Accept-Encoding: gzip
+
+disk=scsi0&size=20971520K
+2026/04/02 07:00:02 <<<<<<<<<< RESULT:
+HTTP/1.1 200 OK
+Connection: close
+Content-Length: 67
+Cache-Control: max-age=0
+Content-Type: application/json;charset=UTF-8
+Date: Thu, 02 Apr 2026 07:00:02 GMT
+Expires: Thu, 02 Apr 2026 07:00:02 GMT
+Pragma: no-cache
+Server: pve-api-daemon/3.0
+
+{"data":"UPID:pve:00008A9C:00117AA0:69CE13F2:resize:100:root@pam:"}
+2026/04/02 07:00:02 >>>>>>>>>> REQUEST:
+GET /api2/json/nodes/pve/tasks/UPID:pve:00008A9C:00117AA0:69CE13F2:resize:100:root@pam:/status HTTP/1.1
+Host: 192.168.2.150:8006
+User-Agent: Go-http-client/1.1
+Accept: application/json
+Authorization: PVEAuthCookie=PVE:root@pam:69CE13D5::eKVvWUGVdLRgxkaMlMUPI+Vqjl5Rb6RLk4bqOaFyncDslHg3zhI/qUJmNqRrPDZA3pAaI9Vl+GfAIp1gkqvgwFk+fQ/7PmlXs2hh3x49Z7SqlmJtVn3KzsYy5HEODxKJDwW7Qh5m6ak+uoJ1PcRgu+RRCr8g1imF8HppmvZPolYbP2mX69D+EMLin/7JLpHeWidioP2Ynqs6T3eL9Myg02DhImVRxCPRvSH1OT8Jw16r4wb2AYUxlAKr7xfk/ZT7/tXJVSj2Oi4npEaXe7LnK0+8V2a9EbQyARMRKIQ6eFWq70UGn4oDHCLdGspX1Gg+0oPr5MO196Io+n9DTSLaNA==
+CSRFPreventionToken: 69CE13D5:BKF8hSOtlG6TT8roaVc5DcH6jejUC/9+KCsodFRcMpc
+Accept-Encoding: gzip
+
+2026/04/02 07:00:02 <<<<<<<<<< RESULT:
+HTTP/1.1 200 OK
+Connection: close
+Content-Length: 205
+Cache-Control: max-age=0
+Content-Type: application/json;charset=UTF-8
+Date: Thu, 02 Apr 2026 07:00:02 GMT
+Expires: Thu, 02 Apr 2026 07:00:02 GMT
+Pragma: no-cache
+Server: pve-api-daemon/3.0
+
+{"data":{"type":"resize","upid":"UPID:pve:00008A9C:00117AA0:69CE13F2:resize:100:root@pam:","user":"root@pam","status":"running","id":"100","starttime":1775113202,"pid":35484,"node":"pve","pstart":1145504}}
+2026/04/02 07:00:04 >>>>>>>>>> REQUEST:
+GET /api2/json/nodes/pve/tasks/UPID:pve:00008A9C:00117AA0:69CE13F2:resize:100:root@pam:/status HTTP/1.1
+Host: 192.168.2.150:8006
+User-Agent: Go-http-client/1.1
+Accept: application/json
+Authorization: PVEAuthCookie=PVE:root@pam:69CE13D5::eKVvWUGVdLRgxkaMlMUPI+Vqjl5Rb6RLk4bqOaFyncDslHg3zhI/qUJmNqRrPDZA3pAaI9Vl+GfAIp1gkqvgwFk+fQ/7PmlXs2hh3x49Z7SqlmJtVn3KzsYy5HEODxKJDwW7Qh5m6ak+uoJ1PcRgu+RRCr8g1imF8HppmvZPolYbP2mX69D+EMLin/7JLpHeWidioP2Ynqs6T3eL9Myg02DhImVRxCPRvSH1OT8Jw16r4wb2AYUxlAKr7xfk/ZT7/tXJVSj2Oi4npEaXe7LnK0+8V2a9EbQyARMRKIQ6eFWq70UGn4oDHCLdGspX1Gg+0oPr5MO196Io+n9DTSLaNA==
+CSRFPreventionToken: 69CE13D5:BKF8hSOtlG6TT8roaVc5DcH6jejUC/9+KCsodFRcMpc
+Accept-Encoding: gzip
+
+2026/04/02 07:00:05 <<<<<<<<<< RESULT:
+HTTP/1.1 200 OK
+Connection: close
+Content-Length: 223
+Cache-Control: max-age=0
+Content-Type: application/json;charset=UTF-8
+Date: Thu, 02 Apr 2026 07:00:05 GMT
+Expires: Thu, 02 Apr 2026 07:00:05 GMT
+Pragma: no-cache
+Server: pve-api-daemon/3.0
+
+{"data":{"pstart":1145504,"node":"pve","pid":35484,"starttime":1775113202,"id":"100","type":"resize","upid":"UPID:pve:00008A9C:00117AA0:69CE13F2:resize:100:root@pam:","status":"stopped","user":"root@pam","exitstatus":"OK"}}
+2026/04/02 07:00:05 >>>>>>>>>> REQUEST:
+PUT /api2/json/nodes/pve/qemu/100/config HTTP/1.1
+Host: 192.168.2.150:8006
+User-Agent: Go-http-client/1.1
+Content-Length: 476
+Accept: application/json
+Authorization: PVEAuthCookie=PVE:root@pam:69CE13D5::eKVvWUGVdLRgxkaMlMUPI+Vqjl5Rb6RLk4bqOaFyncDslHg3zhI/qUJmNqRrPDZA3pAaI9Vl+GfAIp1gkqvgwFk+fQ/7PmlXs2hh3x49Z7SqlmJtVn3KzsYy5HEODxKJDwW7Qh5m6ak+uoJ1PcRgu+RRCr8g1imF8HppmvZPolYbP2mX69D+EMLin/7JLpHeWidioP2Ynqs6T3eL9Myg02DhImVRxCPRvSH1OT8Jw16r4wb2AYUxlAKr7xfk/ZT7/tXJVSj2Oi4npEaXe7LnK0+8V2a9EbQyARMRKIQ6eFWq70UGn4oDHCLdGspX1Gg+0oPr5MO196Io+n9DTSLaNA==
+CSRFPreventionToken: 69CE13D5:BKF8hSOtlG6TT8roaVc5DcH6jejUC/9+KCsodFRcMpc
+Content-Type: application/x-www-form-urlencoded
+Accept-Encoding: gzip
+
+agent=0&balloon=0&bios=seabios&cicustom=user%3Dlocal%3Asnippets%2Fcustom-cloudinit.yaml&ciupgrade=0&cores=2&cpu=host&delete=onboot%2Ccpuunits%2Cciuser%2Ccipassword%2Csshkeys%2Cshares&description=Managed+by+Terraform.&hotplug=network%2Cdisk%2Cusb&ipconfig0=ip%3D10.10.0.199%2F24%2Cgw%3D10.10.0.1&kvm=1&memory=2048&net0=virtio%2Cbridge%3Dvmbr0&numa=0&protection=0&scsi0=local-lvm%3Avm-100-disk-0%2Creplicate%3D0&scsihw=virtio-scsi-pci&sockets=1&tablet=1&tags=&vga=type%3Dserial0
+2026/04/02 07:00:05 <<<<<<<<<< RESULT:
+HTTP/1.1 200 OK
+Connection: close
+Content-Length: 13
+Cache-Control: max-age=0
+Content-Type: application/json;charset=UTF-8
+Date: Thu, 02 Apr 2026 07:00:05 GMT
+Expires: Thu, 02 Apr 2026 07:00:05 GMT
+Pragma: no-cache
+Server: pve-api-daemon/3.0
+
+{"data":null}
+2026/04/02 07:00:05 >>>>>>>>>> REQUEST:
+GET /api2/json/nodes/pve/qemu/100/pending HTTP/1.1
+Host: 192.168.2.150:8006
+User-Agent: Go-http-client/1.1
+Accept: application/json
+Authorization: PVEAuthCookie=PVE:root@pam:69CE13D5::eKVvWUGVdLRgxkaMlMUPI+Vqjl5Rb6RLk4bqOaFyncDslHg3zhI/qUJmNqRrPDZA3pAaI9Vl+GfAIp1gkqvgwFk+fQ/7PmlXs2hh3x49Z7SqlmJtVn3KzsYy5HEODxKJDwW7Qh5m6ak+uoJ1PcRgu+RRCr8g1imF8HppmvZPolYbP2mX69D+EMLin/7JLpHeWidioP2Ynqs6T3eL9Myg02DhImVRxCPRvSH1OT8Jw16r4wb2AYUxlAKr7xfk/ZT7/tXJVSj2Oi4npEaXe7LnK0+8V2a9EbQyARMRKIQ6eFWq70UGn4oDHCLdGspX1Gg+0oPr5MO196Io+n9DTSLaNA==
+CSRFPreventionToken: 69CE13D5:BKF8hSOtlG6TT8roaVc5DcH6jejUC/9+KCsodFRcMpc
+Accept-Encoding: gzip
+
+2026/04/02 07:00:05 <<<<<<<<<< RESULT:
+HTTP/1.1 200 OK
+Content-Length: 1293
+Cache-Control: max-age=0
+Connection: Keep-Alive
+Content-Type: application/json;charset=UTF-8
+Date: Thu, 02 Apr 2026 07:00:05 GMT
+Expires: Thu, 02 Apr 2026 07:00:05 GMT
+Pragma: no-cache
+Server: pve-api-daemon/3.0
+
+{"data":[{"value":"user=local:snippets/custom-cloudinit.yaml","key":"cicustom"},{"value":1,"key":"kvm"},{"key":"name","value":"VM-MASTER1"},{"key":"scsihw","value":"virtio-scsi-pci"},{"value":"0","key":"agent"},{"value":"local-lvm:vm-100-cloudinit,media=cdrom,size=4M","key":"ide2"},{"value":"virtio=BC:24:11:C0:A3:82,bridge=vmbr0","key":"net0"},{"value":2,"key":"cores"},{"key":"vga","value":"type=serial0"},{"value":"dd6414a3e220b99b9560eba3a9a839021304ed90","key":"digest"},{"value":" ","key":"tags"},{"value":"local-lvm:vm-100-disk-0,replicate=0,size=20G","key":"scsi0"},{"key":"hotplug","value":"network,disk,usb"},{"key":"ciupgrade","value":0},{"key":"balloon","value":0},{"key":"cpu","value":"host"},{"value":"ip=10.10.0.199/24,gw=10.10.0.1","key":"ipconfig0"},{"value":1,"key":"sockets"},{"key":"memory","value":"2048"},{"value":0,"key":"protection"},{"key":"bootdisk","value":"scsi0"},{"value":"creation-qemu=9.2.0,ctime=1774872190","key":"meta"},{"value":"c","key":"boot"},{"value":1,"key":"tablet"},{"value":"uuid=d6445b9c-90ca-47f0-8708-3d3aa2930c78","key":"smbios1"},{"key":"vmgenid","value":"ae126c7e-a750-4e04-bb44-ad817fdd3442"},{"key":"serial0","value":"socket"},{"key":"bios","value":"seabios"},{"key":"description","value":"Managed by Terraform."},{"key":"numa","value":0}]}
+[90mThu, 02 Apr 2026 07:00:05 +0000[0m DBG [1mgithub.com/Telmate/terraform-provider-proxmox/v2/proxmox/resource_vm_qemu.go:751[0m[36m >[0m Set this vm (resource Id) to 'pve/qemu/100' [36mloggerName=[0mresource_vm_create [36mvmid=[0m100
+2026/04/02 07:00:10 [DEBUG][QemuVmCreate] starting VM
+2026/04/02 07:00:10 >>>>>>>>>> REQUEST:
+POST /api2/json/nodes/pve/qemu/100/status/start HTTP/1.1
+Host: 192.168.2.150:8006
+User-Agent: Go-http-client/1.1
+Content-Length: 0
+Accept: application/json
+Authorization: PVEAuthCookie=PVE:root@pam:69CE13D5::eKVvWUGVdLRgxkaMlMUPI+Vqjl5Rb6RLk4bqOaFyncDslHg3zhI/qUJmNqRrPDZA3pAaI9Vl+GfAIp1gkqvgwFk+fQ/7PmlXs2hh3x49Z7SqlmJtVn3KzsYy5HEODxKJDwW7Qh5m6ak+uoJ1PcRgu+RRCr8g1imF8HppmvZPolYbP2mX69D+EMLin/7JLpHeWidioP2Ynqs6T3eL9Myg02DhImVRxCPRvSH1OT8Jw16r4wb2AYUxlAKr7xfk/ZT7/tXJVSj2Oi4npEaXe7LnK0+8V2a9EbQyARMRKIQ6eFWq70UGn4oDHCLdGspX1Gg+0oPr5MO196Io+n9DTSLaNA==
+CSRFPreventionToken: 69CE13D5:BKF8hSOtlG6TT8roaVc5DcH6jejUC/9+KCsodFRcMpc
+Content-Type: application/x-www-form-urlencoded
+Accept-Encoding: gzip
+
+2026/04/02 07:00:12 >>>>>>>>>> REQUEST:
+POST /api2/json/nodes/pve/qemu/100/status/start HTTP/1.1
+Host: 192.168.2.150:8006
+User-Agent: Go-http-client/1.1
+Content-Length: 0
+Accept: application/json
+Authorization: PVEAuthCookie=PVE:root@pam:69CE13D5::eKVvWUGVdLRgxkaMlMUPI+Vqjl5Rb6RLk4bqOaFyncDslHg3zhI/qUJmNqRrPDZA3pAaI9Vl+GfAIp1gkqvgwFk+fQ/7PmlXs2hh3x49Z7SqlmJtVn3KzsYy5HEODxKJDwW7Qh5m6ak+uoJ1PcRgu+RRCr8g1imF8HppmvZPolYbP2mX69D+EMLin/7JLpHeWidioP2Ynqs6T3eL9Myg02DhImVRxCPRvSH1OT8Jw16r4wb2AYUxlAKr7xfk/ZT7/tXJVSj2Oi4npEaXe7LnK0+8V2a9EbQyARMRKIQ6eFWq70UGn4oDHCLdGspX1Gg+0oPr5MO196Io+n9DTSLaNA==
+CSRFPreventionToken: 69CE13D5:BKF8hSOtlG6TT8roaVc5DcH6jejUC/9+KCsodFRcMpc
+Content-Type: application/x-www-form-urlencoded
+Accept-Encoding: gzip
+
+2026/04/02 07:00:12 <<<<<<<<<< RESULT:
+HTTP/1.1 200 OK
+Connection: close
+Content-Length: 68
+Cache-Control: max-age=0
+Content-Type: application/json;charset=UTF-8
+Date: Thu, 02 Apr 2026 07:00:12 GMT
+Expires: Thu, 02 Apr 2026 07:00:12 GMT
+Pragma: no-cache
+Server: pve-api-daemon/3.0
+
+{"data":"UPID:pve:00008AD6:00117E4C:69CE13FC:qmstart:100:root@pam:"}
+2026/04/02 07:00:12 >>>>>>>>>> REQUEST:
+GET /api2/json/nodes/pve/tasks/UPID:pve:00008AD6:00117E4C:69CE13FC:qmstart:100:root@pam:/status HTTP/1.1
+Host: 192.168.2.150:8006
+User-Agent: Go-http-client/1.1
+Accept: application/json
+Authorization: PVEAuthCookie=PVE:root@pam:69CE13D5::eKVvWUGVdLRgxkaMlMUPI+Vqjl5Rb6RLk4bqOaFyncDslHg3zhI/qUJmNqRrPDZA3pAaI9Vl+GfAIp1gkqvgwFk+fQ/7PmlXs2hh3x49Z7SqlmJtVn3KzsYy5HEODxKJDwW7Qh5m6ak+uoJ1PcRgu+RRCr8g1imF8HppmvZPolYbP2mX69D+EMLin/7JLpHeWidioP2Ynqs6T3eL9Myg02DhImVRxCPRvSH1OT8Jw16r4wb2AYUxlAKr7xfk/ZT7/tXJVSj2Oi4npEaXe7LnK0+8V2a9EbQyARMRKIQ6eFWq70UGn4oDHCLdGspX1Gg+0oPr5MO196Io+n9DTSLaNA==
+CSRFPreventionToken: 69CE13D5:BKF8hSOtlG6TT8roaVc5DcH6jejUC/9+KCsodFRcMpc
+Accept-Encoding: gzip
+
+2026/04/02 07:00:12 <<<<<<<<<< RESULT:
+HTTP/1.1 200 OK
+Connection: close
+Content-Length: 207
+Cache-Control: max-age=0
+Content-Type: application/json;charset=UTF-8
+Date: Thu, 02 Apr 2026 07:00:12 GMT
+Expires: Thu, 02 Apr 2026 07:00:12 GMT
+Pragma: no-cache
+Server: pve-api-daemon/3.0
+
+{"data":{"type":"qmstart","upid":"UPID:pve:00008AD6:00117E4C:69CE13FC:qmstart:100:root@pam:","status":"running","user":"root@pam","pid":35542,"node":"pve","starttime":1775113212,"id":"100","pstart":1146444}}
+2026/04/02 07:00:14 >>>>>>>>>> REQUEST:
+GET /api2/json/nodes/pve/tasks/UPID:pve:00008AD6:00117E4C:69CE13FC:qmstart:100:root@pam:/status HTTP/1.1
+Host: 192.168.2.150:8006
+User-Agent: Go-http-client/1.1
+Accept: application/json
+Authorization: PVEAuthCookie=PVE:root@pam:69CE13D5::eKVvWUGVdLRgxkaMlMUPI+Vqjl5Rb6RLk4bqOaFyncDslHg3zhI/qUJmNqRrPDZA3pAaI9Vl+GfAIp1gkqvgwFk+fQ/7PmlXs2hh3x49Z7SqlmJtVn3KzsYy5HEODxKJDwW7Qh5m6ak+uoJ1PcRgu+RRCr8g1imF8HppmvZPolYbP2mX69D+EMLin/7JLpHeWidioP2Ynqs6T3eL9Myg02DhImVRxCPRvSH1OT8Jw16r4wb2AYUxlAKr7xfk/ZT7/tXJVSj2Oi4npEaXe7LnK0+8V2a9EbQyARMRKIQ6eFWq70UGn4oDHCLdGspX1Gg+0oPr5MO196Io+n9DTSLaNA==
+CSRFPreventionToken: 69CE13D5:BKF8hSOtlG6TT8roaVc5DcH6jejUC/9+KCsodFRcMpc
+Accept-Encoding: gzip
+
+2026/04/02 07:00:14 <<<<<<<<<< RESULT:
+HTTP/1.1 200 OK
+Connection: close
+Content-Length: 225
+Cache-Control: max-age=0
+Content-Type: application/json;charset=UTF-8
+Date: Thu, 02 Apr 2026 07:00:14 GMT
+Expires: Thu, 02 Apr 2026 07:00:14 GMT
+Pragma: no-cache
+Server: pve-api-daemon/3.0
+
+{"data":{"exitstatus":"OK","user":"root@pam","status":"stopped","type":"qmstart","upid":"UPID:pve:00008AD6:00117E4C:69CE13FC:qmstart:100:root@pam:","starttime":1775113212,"id":"100","pid":35542,"node":"pve","pstart":1146444}}
+2026/04/02 07:00:14 [DEBUG][QemuVmCreate] vm creation done!
+[90mThu, 02 Apr 2026 07:00:14 +0000[0m [32mINF[0m [1mgithub.com/Telmate/terraform-provider-proxmox/v2/proxmox/resource_vm_qemu.go:986[0m[36m >[0m [1mReading configuration for vmid[0m [36mloggerName=[0mresource_vm_read [36mvmid=[0m100
+2026/04/02 07:00:14 >>>>>>>>>> REQUEST:
+GET /api2/json/nodes/pve/qemu/100/pending HTTP/1.1
+Host: 192.168.2.150:8006
+User-Agent: Go-http-client/1.1
+Accept: application/json
+Authorization: PVEAuthCookie=PVE:root@pam:69CE13D5::eKVvWUGVdLRgxkaMlMUPI+Vqjl5Rb6RLk4bqOaFyncDslHg3zhI/qUJmNqRrPDZA3pAaI9Vl+GfAIp1gkqvgwFk+fQ/7PmlXs2hh3x49Z7SqlmJtVn3KzsYy5HEODxKJDwW7Qh5m6ak+uoJ1PcRgu+RRCr8g1imF8HppmvZPolYbP2mX69D+EMLin/7JLpHeWidioP2Ynqs6T3eL9Myg02DhImVRxCPRvSH1OT8Jw16r4wb2AYUxlAKr7xfk/ZT7/tXJVSj2Oi4npEaXe7LnK0+8V2a9EbQyARMRKIQ6eFWq70UGn4oDHCLdGspX1Gg+0oPr5MO196Io+n9DTSLaNA==
+CSRFPreventionToken: 69CE13D5:BKF8hSOtlG6TT8roaVc5DcH6jejUC/9+KCsodFRcMpc
+Accept-Encoding: gzip
+
+2026/04/02 07:00:14 <<<<<<<<<< RESULT:
+HTTP/1.1 200 OK
+Content-Length: 1293
+Cache-Control: max-age=0
+Connection: Keep-Alive
+Content-Type: application/json;charset=UTF-8
+Date: Thu, 02 Apr 2026 07:00:14 GMT
+Expires: Thu, 02 Apr 2026 07:00:14 GMT
+Pragma: no-cache
+Server: pve-api-daemon/3.0
+
+{"data":[{"value":1,"key":"sockets"},{"key":"memory","value":"2048"},{"value":0,"key":"protection"},{"key":"bootdisk","value":"scsi0"},{"value":"creation-qemu=9.2.0,ctime=1774872190","key":"meta"},{"key":"ipconfig0","value":"ip=10.10.0.199/24,gw=10.10.0.1"},{"value":"host","key":"cpu"},{"key":"balloon","value":0},{"key":"description","value":"Managed by Terraform."},{"key":"numa","value":0},{"key":"smbios1","value":"uuid=d6445b9c-90ca-47f0-8708-3d3aa2930c78"},{"value":"ae126c7e-a750-4e04-bb44-ad817fdd3442","key":"vmgenid"},{"value":"seabios","key":"bios"},{"value":"socket","key":"serial0"},{"key":"boot","value":"c"},{"value":1,"key":"tablet"},{"value":"local-lvm:vm-100-cloudinit,media=cdrom,size=4M","key":"ide2"},{"key":"agent","value":"0"},{"key":"net0","value":"virtio=BC:24:11:C0:A3:82,bridge=vmbr0"},{"key":"scsihw","value":"virtio-scsi-pci"},{"value":1,"key":"kvm"},{"key":"name","value":"VM-MASTER1"},{"value":"user=local:snippets/custom-cloudinit.yaml","key":"cicustom"},{"key":"hotplug","value":"network,disk,usb"},{"key":"ciupgrade","value":0},{"value":"local-lvm:vm-100-disk-0,replicate=0,size=20G","key":"scsi0"},{"key":"tags","value":" "},{"value":2,"key":"cores"},{"value":"type=serial0","key":"vga"},{"value":"dd6414a3e220b99b9560eba3a9a839021304ed90","key":"digest"}]}
+2026/04/02 07:00:14 >>>>>>>>>> REQUEST:
+GET /api2/json/nodes/pve/qemu/100/status/current HTTP/1.1
+Host: 192.168.2.150:8006
+User-Agent: Go-http-client/1.1
+Accept: application/json
+Authorization: PVEAuthCookie=PVE:root@pam:69CE13D5::eKVvWUGVdLRgxkaMlMUPI+Vqjl5Rb6RLk4bqOaFyncDslHg3zhI/qUJmNqRrPDZA3pAaI9Vl+GfAIp1gkqvgwFk+fQ/7PmlXs2hh3x49Z7SqlmJtVn3KzsYy5HEODxKJDwW7Qh5m6ak+uoJ1PcRgu+RRCr8g1imF8HppmvZPolYbP2mX69D+EMLin/7JLpHeWidioP2Ynqs6T3eL9Myg02DhImVRxCPRvSH1OT8Jw16r4wb2AYUxlAKr7xfk/ZT7/tXJVSj2Oi4npEaXe7LnK0+8V2a9EbQyARMRKIQ6eFWq70UGn4oDHCLdGspX1Gg+0oPr5MO196Io+n9DTSLaNA==
+CSRFPreventionToken: 69CE13D5:BKF8hSOtlG6TT8roaVc5DcH6jejUC/9+KCsodFRcMpc
+Accept-Encoding: gzip
+
+2026/04/02 07:00:14 <<<<<<<<<< RESULT:
+HTTP/1.1 200 OK
+Connection: close
+Content-Length: 2194
+Cache-Control: max-age=0
+Content-Type: application/json;charset=UTF-8
+Date: Thu, 02 Apr 2026 07:00:14 GMT
+Expires: Thu, 02 Apr 2026 07:00:14 GMT
+Pragma: no-cache
+Server: pve-api-daemon/3.0
+
+{"data":{"maxmem":2147483648,"disk":0,"serial":1,"qmpstatus":"running","running-qemu":"9.2.0","running-machine":"pc-i440fx-9.2+pve1","nics":{"tap100i0":{"netout":0,"netin":170}},"pid":35565,"uptime":1,"netin":170,"vmid":100,"clipboard":null,"cpus":2,"proxmox-support":{"backup-fleecing":true,"pbs-dirty-bitmap-migration":true,"backup-access-api":true,"pbs-masterkey":true,"backup-max-workers":true,"pbs-library-version":"1.5.1 (UNKNOWN)","pbs-dirty-bitmap-savevm":true,"query-bitmap-info":true,"pbs-dirty-bitmap":true},"netout":0,"diskread":2048,"blockstat":{"ide2":{"timed_stats":[],"wr_operations":0,"account_invalid":true,"failed_wr_operations":0,"rd_bytes":2048,"invalid_unmap_operations":0,"unmap_bytes":0,"idle_time_ns":1159460227,"failed_rd_operations":0,"flush_operations":0,"wr_merged":0,"account_failed":true,"rd_total_time_ns":283225,"zone_append_total_time_ns":0,"invalid_flush_operations":0,"unmap_operations":0,"failed_zone_append_operations":0,"zone_append_operations":0,"unmap_merged":0,"invalid_wr_operations":0,"wr_total_time_ns":0,"rd_merged":0,"failed_unmap_operations":0,"wr_highest_offset":0,"invalid_zone_append_operations":0,"zone_append_bytes":0,"unmap_total_time_ns":0,"wr_bytes":0,"invalid_rd_operations":0,"failed_flush_operations":0,"rd_operations":1,"zone_append_merged":0,"flush_total_time_ns":0},"scsi0":{"invalid_rd_operations":0,"wr_bytes":0,"unmap_total_time_ns":0,"zone_append_bytes":0,"flush_total_time_ns":0,"zone_append_merged":0,"rd_operations":0,"failed_flush_operations":0,"zone_append_operations":0,"failed_zone_append_operations":0,"invalid_zone_append_operations":0,"wr_highest_offset":0,"failed_unmap_operations":0,"rd_merged":0,"wr_total_time_ns":0,"invalid_wr_operations":0,"unmap_merged":0,"account_failed":true,"wr_merged":0,"rd_total_time_ns":0,"flush_operations":0,"failed_rd_operations":0,"unmap_operations":0,"invalid_flush_operations":0,"zone_append_total_time_ns":0,"wr_operations":0,"timed_stats":[],"account_invalid":true,"invalid_unmap_operations":0,"unmap_bytes":0,"rd_bytes":0,"failed_wr_operations":0}},"maxdisk":21474836480,"name":"VM-MASTER1","diskwrite":0,"cpu":0,"ha":{"managed":0},"tags":" ","status":"running","mem":29321860}}
+2026/04/02 07:00:14 [DEBUG] Getting VM staterunning
+2026/04/02 07:00:14 [DEBUG] VM is running, checking the IP
+2026/04/02 07:00:14 [INFO][initConnInfo] trying to get vm ip address for provisioner
+[90mThu, 02 Apr 2026 07:00:14 +0000[0m [32mINF[0m [1mgithub.com/Telmate/terraform-provider-proxmox/v2/proxmox/resource_vm_qemu.go:1340[0m[36m >[0m [1mtrying to get vm ip address for provisioner[0m [36mloggerName=[0minitConnInfo [36mvmid=[0m100
+2026/04/02 07:00:14 [INFO][getPrimaryIP] vm has a cloud-init configuration
+[90mThu, 02 Apr 2026 07:00:14 +0000[0m DBG [1mgithub.com/Telmate/terraform-provider-proxmox/v2/proxmox/resource_vm_qemu.go:1401[0m[36m >[0m  vm has a cloud-init configuration [36mloggerName=[0mgetPrimaryIP [36mvmid=[0m100
+2026/04/02 07:00:14 [DEBUG][initConnInfo] this is the vm configuration: 10.10.0.199 22
+[90mThu, 02 Apr 2026 07:00:14 +0000[0m DBG [1mgithub.com/Telmate/terraform-provider-proxmox/v2/proxmox/resource_vm_qemu.go:1366[0m[36m >[0m this is the vm configuration: 10.10.0.199 22 [36mloggerName=[0minitConnInfo [36mvmid=[0m100
+[90mThu, 02 Apr 2026 07:00:14 +0000[0m DBG [1mgithub.com/Telmate/terraform-provider-proxmox/v2/proxmox/resource_vm_qemu.go:1028[0m[36m >[0m [READ] Received Config from Proxmox API: {"id":100,"node":"pve","agent":{"enable":false},"bios":"seabios","boot":"c","bootdisk":"scsi0","cpu":{"cores":2,"numa":false,"sockets":1,"type":"host"},"cloudinit":{"cicustom":{"user":{"path":"snippets/custom-cloudinit.yaml","storage":"local"}},"ipconfig":{"0":{"ip4":{"address":"10.10.0.199/24","gateway":"10.10.0.1"}}},"ciupgrade":false},"description":"Managed by Terraform.","disks":{"ide":{"2":{"cloudinit":{"format":"raw","storage":"local-lvm"}}},"scsi":{"0":{"disk":{"bandwidth":{"mbps":{"read":{},"write":{}},"iops":{"read":{},"write":{}}},"format":"raw","id":0,"linked":null,"size":20971520,"storage":"local-lvm","wwn":"","backup":true,"discard":false,"emulatessd":false,"iothread":false,"readonly":false,"replicate":false}}}},"hotplug":"network,disk,usb","memory":{"capacity":2048,"balloon":0},"name":"VM-MASTER1","networks":{"0":{"bridge":"vmbr0","connected":true,"firewall":false,"mac":"vCQRwKOC","model":"virtio","tagged_vlans":[]}},"protection":false,"kvm":true,"ostype":"other","vga":{"type":"serial0"},"scsihw":"virtio-scsi-pci","serials":{"0":{"socket":true}},"smbios1":"uuid=d6445b9c-90ca-47f0-8708-3d3aa2930c78","start_at_node_boot":false,"tablet":true,"tags":[" "]} [36mloggerName=[0mresource_vm_read [36mvmid=[0m100
+[90mThu, 02 Apr 2026 07:00:14 +0000[0m DBG [1mgithub.com/Telmate/terraform-provider-proxmox/v2/proxmox/resource_vm_qemu.go:1087[0m[36m >[0m key 'force_create' is set to false [36mloggerName=[0mresource_vm_read [36mvmid=[0m100
+[90mThu, 02 Apr 2026 07:00:14 +0000[0m DBG [1mgithub.com/Telmate/terraform-provider-proxmox/v2/proxmox/resource_vm_qemu.go:1087[0m[36m >[0m key 'define_connection_info' is set to true [36mloggerName=[0mresource_vm_read [36mvmid=[0m100
+[90mThu, 02 Apr 2026 07:00:14 +0000[0m DBG [1mgithub.com/Telmate/terraform-provider-proxmox/v2/proxmox/resource_vm_qemu.go:1097[0m[36m >[0m Unused Disk Block Processed 'map[]' [36mloggerName=[0mresource_vm_read [36mvmid=[0m100
+2026/04/02 07:00:14 [ERROR] setting state: Invalid address to set: []string{"features"}
+[90mThu, 02 Apr 2026 07:00:14 +0000[0m DBG [1mgithub.com/Telmate/terraform-provider-proxmox/v2/proxmox/resource_vm_qemu.go:1113[0m[36m >[0m Finished VM read resulting in data: '' [36mloggerName=[0mresource_vm_read [36mvmid=[0m100
+2026/04/02 07:00:14 [DEBUG] setting computed for "smbios" from ComputedKeys
+2026/04/02 07:00:14 [DEBUG] setting computed for "unused_disk" from ComputedKeys
+[90mThu, 02 Apr 2026 07:00:14 +0000[0m [32mINF[0m [1mgithub.com/Telmate/terraform-provider-proxmox/v2/proxmox/resource_vm_qemu.go:534[0m[36m >[0m [1mVM creation[0m [36mloggerName=[0mresource_vm_create [36mvmid=[0m
+[90mThu, 02 Apr 2026 07:00:14 +0000[0m DBG [1mgithub.com/Telmate/terraform-provider-proxmox/v2/proxmox/resource_vm_qemu.go:535[0m[36m >[0m VM creation resource data: '' [36mloggerName=[0mresource_vm_create [36mvmid=[0m
+2026/04/02 07:00:14 >>>>>>>>>> REQUEST:
+GET /api2/json/cluster/resources?type=vm HTTP/1.1
+Host: 192.168.2.150:8006
+User-Agent: Go-http-client/1.1
+Accept: application/json
+Authorization: PVEAuthCookie=PVE:root@pam:69CE13D5::eKVvWUGVdLRgxkaMlMUPI+Vqjl5Rb6RLk4bqOaFyncDslHg3zhI/qUJmNqRrPDZA3pAaI9Vl+GfAIp1gkqvgwFk+fQ/7PmlXs2hh3x49Z7SqlmJtVn3KzsYy5HEODxKJDwW7Qh5m6ak+uoJ1PcRgu+RRCr8g1imF8HppmvZPolYbP2mX69D+EMLin/7JLpHeWidioP2Ynqs6T3eL9Myg02DhImVRxCPRvSH1OT8Jw16r4wb2AYUxlAKr7xfk/ZT7/tXJVSj2Oi4npEaXe7LnK0+8V2a9EbQyARMRKIQ6eFWq70UGn4oDHCLdGspX1Gg+0oPr5MO196Io+n9DTSLaNA==
+CSRFPreventionToken: 69CE13D5:BKF8hSOtlG6TT8roaVc5DcH6jejUC/9+KCsodFRcMpc
+Accept-Encoding: gzip
+
+2026/04/02 07:00:14 <<<<<<<<<< RESULT:
+HTTP/1.1 200 OK
+Content-Length: 517
+Cache-Control: max-age=0
+Connection: Keep-Alive
+Content-Type: application/json;charset=UTF-8
+Date: Thu, 02 Apr 2026 07:00:14 GMT
+Expires: Thu, 02 Apr 2026 07:00:14 GMT
+Pragma: no-cache
+Server: pve-api-daemon/3.0
+
+{"data":[{"type":"qemu","node":"pve","maxmem":2147483648,"diskwrite":0,"netin":0,"diskread":0,"id":"qemu/100","netout":0,"vmid":100,"status":"stopped","tags":" ","template":0,"disk":0,"mem":0,"uptime":0,"cpu":0,"maxcpu":2,"maxdisk":21474836480,"name":"VM-MASTER1"},{"node":"pve","type":"qemu","maxmem":1073741824,"diskwrite":0,"netin":0,"diskread":0,"id":"qemu/9000","netout":0,"vmid":9000,"status":"stopped","template":1,"disk":0,"mem":0,"uptime":0,"cpu":0,"maxcpu":1,"maxdisk":2361393152,"name":"ubuntu-template"}]}
+2026/04/02 07:00:14 [DEBUG][QemuVmCreate] cloning VM
+[90mThu, 02 Apr 2026 07:00:14 +0000[0m DBG [1mgithub.com/Telmate/terraform-provider-proxmox/v2/proxmox/resource_vm_qemu.go:672[0m[36m >[0m Cloning VM [36mloggerName=[0mresource_vm_create [36mvmid=[0m
+2026/04/02 07:00:14 >>>>>>>>>> REQUEST:
+GET /api2/json/cluster/nextid HTTP/1.1
+Host: 192.168.2.150:8006
+User-Agent: Go-http-client/1.1
+Accept: application/json
+Authorization: PVEAuthCookie=PVE:root@pam:69CE13D5::eKVvWUGVdLRgxkaMlMUPI+Vqjl5Rb6RLk4bqOaFyncDslHg3zhI/qUJmNqRrPDZA3pAaI9Vl+GfAIp1gkqvgwFk+fQ/7PmlXs2hh3x49Z7SqlmJtVn3KzsYy5HEODxKJDwW7Qh5m6ak+uoJ1PcRgu+RRCr8g1imF8HppmvZPolYbP2mX69D+EMLin/7JLpHeWidioP2Ynqs6T3eL9Myg02DhImVRxCPRvSH1OT8Jw16r4wb2AYUxlAKr7xfk/ZT7/tXJVSj2Oi4npEaXe7LnK0+8V2a9EbQyARMRKIQ6eFWq70UGn4oDHCLdGspX1Gg+0oPr5MO196Io+n9DTSLaNA==
+CSRFPreventionToken: 69CE13D5:BKF8hSOtlG6TT8roaVc5DcH6jejUC/9+KCsodFRcMpc
+Accept-Encoding: gzip
+
+2026/04/02 07:00:14 <<<<<<<<<< RESULT:
+HTTP/1.1 200 OK
+Content-Length: 14
+Cache-Control: max-age=0
+Connection: Keep-Alive
+Content-Type: application/json;charset=UTF-8
+Date: Thu, 02 Apr 2026 07:00:14 GMT
+Expires: Thu, 02 Apr 2026 07:00:14 GMT
+Pragma: no-cache
+Server: pve-api-daemon/3.0
+
+{"data":"101"}
+2026/04/02 07:00:14 >>>>>>>>>> REQUEST:
+POST /api2/json/nodes/pve/qemu/9000/clone HTTP/1.1
+Host: 192.168.2.150:8006
+User-Agent: Go-http-client/1.1
+Content-Length: 43
+Accept: application/json
+Authorization: PVEAuthCookie=PVE:root@pam:69CE13D5::eKVvWUGVdLRgxkaMlMUPI+Vqjl5Rb6RLk4bqOaFyncDslHg3zhI/qUJmNqRrPDZA3pAaI9Vl+GfAIp1gkqvgwFk+fQ/7PmlXs2hh3x49Z7SqlmJtVn3KzsYy5HEODxKJDwW7Qh5m6ak+uoJ1PcRgu+RRCr8g1imF8HppmvZPolYbP2mX69D+EMLin/7JLpHeWidioP2Ynqs6T3eL9Myg02DhImVRxCPRvSH1OT8Jw16r4wb2AYUxlAKr7xfk/ZT7/tXJVSj2Oi4npEaXe7LnK0+8V2a9EbQyARMRKIQ6eFWq70UGn4oDHCLdGspX1Gg+0oPr5MO196Io+n9DTSLaNA==
+CSRFPreventionToken: 69CE13D5:BKF8hSOtlG6TT8roaVc5DcH6jejUC/9+KCsodFRcMpc
+Content-Type: application/x-www-form-urlencoded
+Accept-Encoding: gzip
+
+full=1&name=VM-WORKER2&newid=101&target=pve
+2026/04/02 07:00:14 <<<<<<<<<< RESULT:
+HTTP/1.1 200 OK
+Connection: close
+Content-Length: 69
+Cache-Control: max-age=0
+Content-Type: application/json;charset=UTF-8
+Date: Thu, 02 Apr 2026 07:00:14 GMT
+Expires: Thu, 02 Apr 2026 07:00:14 GMT
+Pragma: no-cache
+Server: pve-api-daemon/3.0
+
+{"data":"UPID:pve:00008B08:00117F2E:69CE13FE:qmclone:9000:root@pam:"}
+2026/04/02 07:00:14 >>>>>>>>>> REQUEST:
+GET /api2/json/nodes/pve/tasks/UPID:pve:00008B08:00117F2E:69CE13FE:qmclone:9000:root@pam:/status HTTP/1.1
+Host: 192.168.2.150:8006
+User-Agent: Go-http-client/1.1
+Accept: application/json
+Authorization: PVEAuthCookie=PVE:root@pam:69CE13D5::eKVvWUGVdLRgxkaMlMUPI+Vqjl5Rb6RLk4bqOaFyncDslHg3zhI/qUJmNqRrPDZA3pAaI9Vl+GfAIp1gkqvgwFk+fQ/7PmlXs2hh3x49Z7SqlmJtVn3KzsYy5HEODxKJDwW7Qh5m6ak+uoJ1PcRgu+RRCr8g1imF8HppmvZPolYbP2mX69D+EMLin/7JLpHeWidioP2Ynqs6T3eL9Myg02DhImVRxCPRvSH1OT8Jw16r4wb2AYUxlAKr7xfk/ZT7/tXJVSj2Oi4npEaXe7LnK0+8V2a9EbQyARMRKIQ6eFWq70UGn4oDHCLdGspX1Gg+0oPr5MO196Io+n9DTSLaNA==
+CSRFPreventionToken: 69CE13D5:BKF8hSOtlG6TT8roaVc5DcH6jejUC/9+KCsodFRcMpc
+Accept-Encoding: gzip
+
+2026/04/02 07:00:14 <<<<<<<<<< RESULT:
+HTTP/1.1 200 OK
+Connection: close
+Content-Length: 209
+Cache-Control: max-age=0
+Content-Type: application/json;charset=UTF-8
+Date: Thu, 02 Apr 2026 07:00:14 GMT
+Expires: Thu, 02 Apr 2026 07:00:14 GMT
+Pragma: no-cache
+Server: pve-api-daemon/3.0
+
+{"data":{"node":"pve","pid":35592,"id":"9000","starttime":1775113214,"pstart":1146670,"upid":"UPID:pve:00008B08:00117F2E:69CE13FE:qmclone:9000:root@pam:","type":"qmclone","status":"running","user":"root@pam"}}
+2026/04/02 07:00:16 >>>>>>>>>> REQUEST:
+GET /api2/json/nodes/pve/tasks/UPID:pve:00008B08:00117F2E:69CE13FE:qmclone:9000:root@pam:/status HTTP/1.1
+Host: 192.168.2.150:8006
+User-Agent: Go-http-client/1.1
+Accept: application/json
+Authorization: PVEAuthCookie=PVE:root@pam:69CE13D5::eKVvWUGVdLRgxkaMlMUPI+Vqjl5Rb6RLk4bqOaFyncDslHg3zhI/qUJmNqRrPDZA3pAaI9Vl+GfAIp1gkqvgwFk+fQ/7PmlXs2hh3x49Z7SqlmJtVn3KzsYy5HEODxKJDwW7Qh5m6ak+uoJ1PcRgu+RRCr8g1imF8HppmvZPolYbP2mX69D+EMLin/7JLpHeWidioP2Ynqs6T3eL9Myg02DhImVRxCPRvSH1OT8Jw16r4wb2AYUxlAKr7xfk/ZT7/tXJVSj2Oi4npEaXe7LnK0+8V2a9EbQyARMRKIQ6eFWq70UGn4oDHCLdGspX1Gg+0oPr5MO196Io+n9DTSLaNA==
+CSRFPreventionToken: 69CE13D5:BKF8hSOtlG6TT8roaVc5DcH6jejUC/9+KCsodFRcMpc
+Accept-Encoding: gzip
+
+2026/04/02 07:00:16 <<<<<<<<<< RESULT:
+HTTP/1.1 200 OK
+Connection: close
+Content-Length: 209
+Cache-Control: max-age=0
+Content-Type: application/json;charset=UTF-8
+Date: Thu, 02 Apr 2026 07:00:16 GMT
+Expires: Thu, 02 Apr 2026 07:00:16 GMT
+Pragma: no-cache
+Server: pve-api-daemon/3.0
+
+{"data":{"id":"9000","starttime":1775113214,"node":"pve","pid":35592,"pstart":1146670,"type":"qmclone","upid":"UPID:pve:00008B08:00117F2E:69CE13FE:qmclone:9000:root@pam:","user":"root@pam","status":"running"}}
+2026/04/02 07:00:18 >>>>>>>>>> REQUEST:
+GET /api2/json/nodes/pve/tasks/UPID:pve:00008B08:00117F2E:69CE13FE:qmclone:9000:root@pam:/status HTTP/1.1
+Host: 192.168.2.150:8006
+User-Agent: Go-http-client/1.1
+Accept: application/json
+Authorization: PVEAuthCookie=PVE:root@pam:69CE13D5::eKVvWUGVdLRgxkaMlMUPI+Vqjl5Rb6RLk4bqOaFyncDslHg3zhI/qUJmNqRrPDZA3pAaI9Vl+GfAIp1gkqvgwFk+fQ/7PmlXs2hh3x49Z7SqlmJtVn3KzsYy5HEODxKJDwW7Qh5m6ak+uoJ1PcRgu+RRCr8g1imF8HppmvZPolYbP2mX69D+EMLin/7JLpHeWidioP2Ynqs6T3eL9Myg02DhImVRxCPRvSH1OT8Jw16r4wb2AYUxlAKr7xfk/ZT7/tXJVSj2Oi4npEaXe7LnK0+8V2a9EbQyARMRKIQ6eFWq70UGn4oDHCLdGspX1Gg+0oPr5MO196Io+n9DTSLaNA==
+CSRFPreventionToken: 69CE13D5:BKF8hSOtlG6TT8roaVc5DcH6jejUC/9+KCsodFRcMpc
+Accept-Encoding: gzip
+
+2026/04/02 07:00:18 <<<<<<<<<< RESULT:
+HTTP/1.1 200 OK
+Connection: close
+Content-Length: 209
+Cache-Control: max-age=0
+Content-Type: application/json;charset=UTF-8
+Date: Thu, 02 Apr 2026 07:00:18 GMT
+Expires: Thu, 02 Apr 2026 07:00:18 GMT
+Pragma: no-cache
+Server: pve-api-daemon/3.0
+
+{"data":{"status":"running","user":"root@pam","type":"qmclone","upid":"UPID:pve:00008B08:00117F2E:69CE13FE:qmclone:9000:root@pam:","node":"pve","pid":35592,"starttime":1775113214,"id":"9000","pstart":1146670}}
+2026/04/02 07:00:21 >>>>>>>>>> REQUEST:
+GET /api2/json/nodes/pve/tasks/UPID:pve:00008B08:00117F2E:69CE13FE:qmclone:9000:root@pam:/status HTTP/1.1
+Host: 192.168.2.150:8006
+User-Agent: Go-http-client/1.1
+Accept: application/json
+Authorization: PVEAuthCookie=PVE:root@pam:69CE13D5::eKVvWUGVdLRgxkaMlMUPI+Vqjl5Rb6RLk4bqOaFyncDslHg3zhI/qUJmNqRrPDZA3pAaI9Vl+GfAIp1gkqvgwFk+fQ/7PmlXs2hh3x49Z7SqlmJtVn3KzsYy5HEODxKJDwW7Qh5m6ak+uoJ1PcRgu+RRCr8g1imF8HppmvZPolYbP2mX69D+EMLin/7JLpHeWidioP2Ynqs6T3eL9Myg02DhImVRxCPRvSH1OT8Jw16r4wb2AYUxlAKr7xfk/ZT7/tXJVSj2Oi4npEaXe7LnK0+8V2a9EbQyARMRKIQ6eFWq70UGn4oDHCLdGspX1Gg+0oPr5MO196Io+n9DTSLaNA==
+CSRFPreventionToken: 69CE13D5:BKF8hSOtlG6TT8roaVc5DcH6jejUC/9+KCsodFRcMpc
+Accept-Encoding: gzip
+
+2026/04/02 07:00:21 <<<<<<<<<< RESULT:
+HTTP/1.1 200 OK
+Connection: close
+Content-Length: 209
+Cache-Control: max-age=0
+Content-Type: application/json;charset=UTF-8
+Date: Thu, 02 Apr 2026 07:00:21 GMT
+Expires: Thu, 02 Apr 2026 07:00:21 GMT
+Pragma: no-cache
+Server: pve-api-daemon/3.0
+
+{"data":{"id":"9000","starttime":1775113214,"node":"pve","pid":35592,"pstart":1146670,"upid":"UPID:pve:00008B08:00117F2E:69CE13FE:qmclone:9000:root@pam:","type":"qmclone","user":"root@pam","status":"running"}}
+2026/04/02 07:00:23 >>>>>>>>>> REQUEST:
+GET /api2/json/nodes/pve/tasks/UPID:pve:00008B08:00117F2E:69CE13FE:qmclone:9000:root@pam:/status HTTP/1.1
+Host: 192.168.2.150:8006
+User-Agent: Go-http-client/1.1
+Accept: application/json
+Authorization: PVEAuthCookie=PVE:root@pam:69CE13D5::eKVvWUGVdLRgxkaMlMUPI+Vqjl5Rb6RLk4bqOaFyncDslHg3zhI/qUJmNqRrPDZA3pAaI9Vl+GfAIp1gkqvgwFk+fQ/7PmlXs2hh3x49Z7SqlmJtVn3KzsYy5HEODxKJDwW7Qh5m6ak+uoJ1PcRgu+RRCr8g1imF8HppmvZPolYbP2mX69D+EMLin/7JLpHeWidioP2Ynqs6T3eL9Myg02DhImVRxCPRvSH1OT8Jw16r4wb2AYUxlAKr7xfk/ZT7/tXJVSj2Oi4npEaXe7LnK0+8V2a9EbQyARMRKIQ6eFWq70UGn4oDHCLdGspX1Gg+0oPr5MO196Io+n9DTSLaNA==
+CSRFPreventionToken: 69CE13D5:BKF8hSOtlG6TT8roaVc5DcH6jejUC/9+KCsodFRcMpc
+Accept-Encoding: gzip
+
+2026/04/02 07:00:23 <<<<<<<<<< RESULT:
+HTTP/1.1 200 OK
+Connection: close
+Content-Length: 209
+Cache-Control: max-age=0
+Content-Type: application/json;charset=UTF-8
+Date: Thu, 02 Apr 2026 07:00:23 GMT
+Expires: Thu, 02 Apr 2026 07:00:23 GMT
+Pragma: no-cache
+Server: pve-api-daemon/3.0
+
+{"data":{"starttime":1775113214,"id":"9000","pid":35592,"node":"pve","pstart":1146670,"upid":"UPID:pve:00008B08:00117F2E:69CE13FE:qmclone:9000:root@pam:","type":"qmclone","user":"root@pam","status":"running"}}
+2026/04/02 07:00:25 >>>>>>>>>> REQUEST:
+GET /api2/json/nodes/pve/tasks/UPID:pve:00008B08:00117F2E:69CE13FE:qmclone:9000:root@pam:/status HTTP/1.1
+Host: 192.168.2.150:8006
+User-Agent: Go-http-client/1.1
+Accept: application/json
+Authorization: PVEAuthCookie=PVE:root@pam:69CE13D5::eKVvWUGVdLRgxkaMlMUPI+Vqjl5Rb6RLk4bqOaFyncDslHg3zhI/qUJmNqRrPDZA3pAaI9Vl+GfAIp1gkqvgwFk+fQ/7PmlXs2hh3x49Z7SqlmJtVn3KzsYy5HEODxKJDwW7Qh5m6ak+uoJ1PcRgu+RRCr8g1imF8HppmvZPolYbP2mX69D+EMLin/7JLpHeWidioP2Ynqs6T3eL9Myg02DhImVRxCPRvSH1OT8Jw16r4wb2AYUxlAKr7xfk/ZT7/tXJVSj2Oi4npEaXe7LnK0+8V2a9EbQyARMRKIQ6eFWq70UGn4oDHCLdGspX1Gg+0oPr5MO196Io+n9DTSLaNA==
+CSRFPreventionToken: 69CE13D5:BKF8hSOtlG6TT8roaVc5DcH6jejUC/9+KCsodFRcMpc
+Accept-Encoding: gzip
+
+2026/04/02 07:00:25 <<<<<<<<<< RESULT:
+HTTP/1.1 200 OK
+Connection: close
+Content-Length: 209
+Cache-Control: max-age=0
+Content-Type: application/json;charset=UTF-8
+Date: Thu, 02 Apr 2026 07:00:25 GMT
+Expires: Thu, 02 Apr 2026 07:00:25 GMT
+Pragma: no-cache
+Server: pve-api-daemon/3.0
+
+{"data":{"pstart":1146670,"starttime":1775113214,"id":"9000","pid":35592,"node":"pve","user":"root@pam","status":"running","type":"qmclone","upid":"UPID:pve:00008B08:00117F2E:69CE13FE:qmclone:9000:root@pam:"}}
+2026/04/02 07:00:27 >>>>>>>>>> REQUEST:
+GET /api2/json/nodes/pve/tasks/UPID:pve:00008B08:00117F2E:69CE13FE:qmclone:9000:root@pam:/status HTTP/1.1
+Host: 192.168.2.150:8006
+User-Agent: Go-http-client/1.1
+Accept: application/json
+Authorization: PVEAuthCookie=PVE:root@pam:69CE13D5::eKVvWUGVdLRgxkaMlMUPI+Vqjl5Rb6RLk4bqOaFyncDslHg3zhI/qUJmNqRrPDZA3pAaI9Vl+GfAIp1gkqvgwFk+fQ/7PmlXs2hh3x49Z7SqlmJtVn3KzsYy5HEODxKJDwW7Qh5m6ak+uoJ1PcRgu+RRCr8g1imF8HppmvZPolYbP2mX69D+EMLin/7JLpHeWidioP2Ynqs6T3eL9Myg02DhImVRxCPRvSH1OT8Jw16r4wb2AYUxlAKr7xfk/ZT7/tXJVSj2Oi4npEaXe7LnK0+8V2a9EbQyARMRKIQ6eFWq70UGn4oDHCLdGspX1Gg+0oPr5MO196Io+n9DTSLaNA==
+CSRFPreventionToken: 69CE13D5:BKF8hSOtlG6TT8roaVc5DcH6jejUC/9+KCsodFRcMpc
+Accept-Encoding: gzip
+
+2026/04/02 07:00:27 <<<<<<<<<< RESULT:
+HTTP/1.1 200 OK
+Connection: close
+Content-Length: 209
+Cache-Control: max-age=0
+Content-Type: application/json;charset=UTF-8
+Date: Thu, 02 Apr 2026 07:00:27 GMT
+Expires: Thu, 02 Apr 2026 07:00:27 GMT
+Pragma: no-cache
+Server: pve-api-daemon/3.0
+
+{"data":{"status":"running","user":"root@pam","type":"qmclone","upid":"UPID:pve:00008B08:00117F2E:69CE13FE:qmclone:9000:root@pam:","pstart":1146670,"pid":35592,"node":"pve","starttime":1775113214,"id":"9000"}}
+2026/04/02 07:00:29 >>>>>>>>>> REQUEST:
+GET /api2/json/nodes/pve/tasks/UPID:pve:00008B08:00117F2E:69CE13FE:qmclone:9000:root@pam:/status HTTP/1.1
+Host: 192.168.2.150:8006
+User-Agent: Go-http-client/1.1
+Accept: application/json
+Authorization: PVEAuthCookie=PVE:root@pam:69CE13D5::eKVvWUGVdLRgxkaMlMUPI+Vqjl5Rb6RLk4bqOaFyncDslHg3zhI/qUJmNqRrPDZA3pAaI9Vl+GfAIp1gkqvgwFk+fQ/7PmlXs2hh3x49Z7SqlmJtVn3KzsYy5HEODxKJDwW7Qh5m6ak+uoJ1PcRgu+RRCr8g1imF8HppmvZPolYbP2mX69D+EMLin/7JLpHeWidioP2Ynqs6T3eL9Myg02DhImVRxCPRvSH1OT8Jw16r4wb2AYUxlAKr7xfk/ZT7/tXJVSj2Oi4npEaXe7LnK0+8V2a9EbQyARMRKIQ6eFWq70UGn4oDHCLdGspX1Gg+0oPr5MO196Io+n9DTSLaNA==
+CSRFPreventionToken: 69CE13D5:BKF8hSOtlG6TT8roaVc5DcH6jejUC/9+KCsodFRcMpc
+Accept-Encoding: gzip
+
+2026/04/02 07:00:29 <<<<<<<<<< RESULT:
+HTTP/1.1 200 OK
+Connection: close
+Content-Length: 209
+Cache-Control: max-age=0
+Content-Type: application/json;charset=UTF-8
+Date: Thu, 02 Apr 2026 07:00:29 GMT
+Expires: Thu, 02 Apr 2026 07:00:29 GMT
+Pragma: no-cache
+Server: pve-api-daemon/3.0
+
+{"data":{"pid":35592,"node":"pve","id":"9000","starttime":1775113214,"pstart":1146670,"status":"running","user":"root@pam","type":"qmclone","upid":"UPID:pve:00008B08:00117F2E:69CE13FE:qmclone:9000:root@pam:"}}
+2026/04/02 07:00:31 >>>>>>>>>> REQUEST:
+GET /api2/json/nodes/pve/tasks/UPID:pve:00008B08:00117F2E:69CE13FE:qmclone:9000:root@pam:/status HTTP/1.1
+Host: 192.168.2.150:8006
+User-Agent: Go-http-client/1.1
+Accept: application/json
+Authorization: PVEAuthCookie=PVE:root@pam:69CE13D5::eKVvWUGVdLRgxkaMlMUPI+Vqjl5Rb6RLk4bqOaFyncDslHg3zhI/qUJmNqRrPDZA3pAaI9Vl+GfAIp1gkqvgwFk+fQ/7PmlXs2hh3x49Z7SqlmJtVn3KzsYy5HEODxKJDwW7Qh5m6ak+uoJ1PcRgu+RRCr8g1imF8HppmvZPolYbP2mX69D+EMLin/7JLpHeWidioP2Ynqs6T3eL9Myg02DhImVRxCPRvSH1OT8Jw16r4wb2AYUxlAKr7xfk/ZT7/tXJVSj2Oi4npEaXe7LnK0+8V2a9EbQyARMRKIQ6eFWq70UGn4oDHCLdGspX1Gg+0oPr5MO196Io+n9DTSLaNA==
+CSRFPreventionToken: 69CE13D5:BKF8hSOtlG6TT8roaVc5DcH6jejUC/9+KCsodFRcMpc
+Accept-Encoding: gzip
+
+2026/04/02 07:00:31 <<<<<<<<<< RESULT:
+HTTP/1.1 200 OK
+Connection: close
+Content-Length: 209
+Cache-Control: max-age=0
+Content-Type: application/json;charset=UTF-8
+Date: Thu, 02 Apr 2026 07:00:31 GMT
+Expires: Thu, 02 Apr 2026 07:00:31 GMT
+Pragma: no-cache
+Server: pve-api-daemon/3.0
+
+{"data":{"type":"qmclone","upid":"UPID:pve:00008B08:00117F2E:69CE13FE:qmclone:9000:root@pam:","status":"running","user":"root@pam","node":"pve","pid":35592,"id":"9000","starttime":1775113214,"pstart":1146670}}
+2026/04/02 07:00:33 >>>>>>>>>> REQUEST:
+GET /api2/json/nodes/pve/tasks/UPID:pve:00008B08:00117F2E:69CE13FE:qmclone:9000:root@pam:/status HTTP/1.1
+Host: 192.168.2.150:8006
+User-Agent: Go-http-client/1.1
+Accept: application/json
+Authorization: PVEAuthCookie=PVE:root@pam:69CE13D5::eKVvWUGVdLRgxkaMlMUPI+Vqjl5Rb6RLk4bqOaFyncDslHg3zhI/qUJmNqRrPDZA3pAaI9Vl+GfAIp1gkqvgwFk+fQ/7PmlXs2hh3x49Z7SqlmJtVn3KzsYy5HEODxKJDwW7Qh5m6ak+uoJ1PcRgu+RRCr8g1imF8HppmvZPolYbP2mX69D+EMLin/7JLpHeWidioP2Ynqs6T3eL9Myg02DhImVRxCPRvSH1OT8Jw16r4wb2AYUxlAKr7xfk/ZT7/tXJVSj2Oi4npEaXe7LnK0+8V2a9EbQyARMRKIQ6eFWq70UGn4oDHCLdGspX1Gg+0oPr5MO196Io+n9DTSLaNA==
+CSRFPreventionToken: 69CE13D5:BKF8hSOtlG6TT8roaVc5DcH6jejUC/9+KCsodFRcMpc
+Accept-Encoding: gzip
+
+2026/04/02 07:00:33 <<<<<<<<<< RESULT:
+HTTP/1.1 200 OK
+Connection: close
+Content-Length: 209
+Cache-Control: max-age=0
+Content-Type: application/json;charset=UTF-8
+Date: Thu, 02 Apr 2026 07:00:33 GMT
+Expires: Thu, 02 Apr 2026 07:00:33 GMT
+Pragma: no-cache
+Server: pve-api-daemon/3.0
+
+{"data":{"type":"qmclone","upid":"UPID:pve:00008B08:00117F2E:69CE13FE:qmclone:9000:root@pam:","status":"running","user":"root@pam","pstart":1146670,"pid":35592,"node":"pve","id":"9000","starttime":1775113214}}
+2026/04/02 07:00:35 >>>>>>>>>> REQUEST:
+GET /api2/json/nodes/pve/tasks/UPID:pve:00008B08:00117F2E:69CE13FE:qmclone:9000:root@pam:/status HTTP/1.1
+Host: 192.168.2.150:8006
+User-Agent: Go-http-client/1.1
+Accept: application/json
+Authorization: PVEAuthCookie=PVE:root@pam:69CE13D5::eKVvWUGVdLRgxkaMlMUPI+Vqjl5Rb6RLk4bqOaFyncDslHg3zhI/qUJmNqRrPDZA3pAaI9Vl+GfAIp1gkqvgwFk+fQ/7PmlXs2hh3x49Z7SqlmJtVn3KzsYy5HEODxKJDwW7Qh5m6ak+uoJ1PcRgu+RRCr8g1imF8HppmvZPolYbP2mX69D+EMLin/7JLpHeWidioP2Ynqs6T3eL9Myg02DhImVRxCPRvSH1OT8Jw16r4wb2AYUxlAKr7xfk/ZT7/tXJVSj2Oi4npEaXe7LnK0+8V2a9EbQyARMRKIQ6eFWq70UGn4oDHCLdGspX1Gg+0oPr5MO196Io+n9DTSLaNA==
+CSRFPreventionToken: 69CE13D5:BKF8hSOtlG6TT8roaVc5DcH6jejUC/9+KCsodFRcMpc
+Accept-Encoding: gzip
+
+2026/04/02 07:00:35 <<<<<<<<<< RESULT:
+HTTP/1.1 200 OK
+Connection: close
+Content-Length: 209
+Cache-Control: max-age=0
+Content-Type: application/json;charset=UTF-8
+Date: Thu, 02 Apr 2026 07:00:35 GMT
+Expires: Thu, 02 Apr 2026 07:00:35 GMT
+Pragma: no-cache
+Server: pve-api-daemon/3.0
+
+{"data":{"pstart":1146670,"starttime":1775113214,"id":"9000","node":"pve","pid":35592,"upid":"UPID:pve:00008B08:00117F2E:69CE13FE:qmclone:9000:root@pam:","type":"qmclone","user":"root@pam","status":"running"}}
+2026/04/02 07:00:37 >>>>>>>>>> REQUEST:
+GET /api2/json/nodes/pve/tasks/UPID:pve:00008B08:00117F2E:69CE13FE:qmclone:9000:root@pam:/status HTTP/1.1
+Host: 192.168.2.150:8006
+User-Agent: Go-http-client/1.1
+Accept: application/json
+Authorization: PVEAuthCookie=PVE:root@pam:69CE13D5::eKVvWUGVdLRgxkaMlMUPI+Vqjl5Rb6RLk4bqOaFyncDslHg3zhI/qUJmNqRrPDZA3pAaI9Vl+GfAIp1gkqvgwFk+fQ/7PmlXs2hh3x49Z7SqlmJtVn3KzsYy5HEODxKJDwW7Qh5m6ak+uoJ1PcRgu+RRCr8g1imF8HppmvZPolYbP2mX69D+EMLin/7JLpHeWidioP2Ynqs6T3eL9Myg02DhImVRxCPRvSH1OT8Jw16r4wb2AYUxlAKr7xfk/ZT7/tXJVSj2Oi4npEaXe7LnK0+8V2a9EbQyARMRKIQ6eFWq70UGn4oDHCLdGspX1Gg+0oPr5MO196Io+n9DTSLaNA==
+CSRFPreventionToken: 69CE13D5:BKF8hSOtlG6TT8roaVc5DcH6jejUC/9+KCsodFRcMpc
+Accept-Encoding: gzip
+
+2026/04/02 07:00:37 <<<<<<<<<< RESULT:
+HTTP/1.1 200 OK
+Connection: close
+Content-Length: 227
+Cache-Control: max-age=0
+Content-Type: application/json;charset=UTF-8
+Date: Thu, 02 Apr 2026 07:00:37 GMT
+Expires: Thu, 02 Apr 2026 07:00:37 GMT
+Pragma: no-cache
+Server: pve-api-daemon/3.0
+
+{"data":{"starttime":1775113214,"id":"9000","pid":35592,"node":"pve","pstart":1146670,"exitstatus":"OK","user":"root@pam","status":"stopped","upid":"UPID:pve:00008B08:00117F2E:69CE13FE:qmclone:9000:root@pam:","type":"qmclone"}}
+2026/04/02 07:00:47 [DEBUG][QemuVmCreate] update VM after clone
+2026/04/02 07:00:47 >>>>>>>>>> REQUEST:
+GET /api2/json/nodes/pve/qemu/101/config HTTP/1.1
+Host: 192.168.2.150:8006
+User-Agent: Go-http-client/1.1
+Accept: application/json
+Authorization: PVEAuthCookie=PVE:root@pam:69CE13D5::eKVvWUGVdLRgxkaMlMUPI+Vqjl5Rb6RLk4bqOaFyncDslHg3zhI/qUJmNqRrPDZA3pAaI9Vl+GfAIp1gkqvgwFk+fQ/7PmlXs2hh3x49Z7SqlmJtVn3KzsYy5HEODxKJDwW7Qh5m6ak+uoJ1PcRgu+RRCr8g1imF8HppmvZPolYbP2mX69D+EMLin/7JLpHeWidioP2Ynqs6T3eL9Myg02DhImVRxCPRvSH1OT8Jw16r4wb2AYUxlAKr7xfk/ZT7/tXJVSj2Oi4npEaXe7LnK0+8V2a9EbQyARMRKIQ6eFWq70UGn4oDHCLdGspX1Gg+0oPr5MO196Io+n9DTSLaNA==
+CSRFPreventionToken: 69CE13D5:BKF8hSOtlG6TT8roaVc5DcH6jejUC/9+KCsodFRcMpc
+Accept-Encoding: gzip
+
+2026/04/02 07:00:47 <<<<<<<<<< RESULT:
+HTTP/1.1 200 OK
+Content-Length: 575
+Cache-Control: max-age=0
+Connection: Keep-Alive
+Content-Type: application/json;charset=UTF-8
+Date: Thu, 02 Apr 2026 07:00:47 GMT
+Expires: Thu, 02 Apr 2026 07:00:47 GMT
+Pragma: no-cache
+Server: pve-api-daemon/3.0
+
+{"data":{"net0":"virtio=BC:24:11:28:C8:C9,bridge=vmbr0","ide2":"local-lvm:vm-101-cloudinit,media=cdrom,size=4M","bootdisk":"scsi0","scsihw":"virtio-scsi-pci","meta":"creation-qemu=9.2.0,ctime=1774872190","memory":"1024","ipconfig0":"ip=dhcp","name":"VM-WORKER2","cicustom":"user=local:snippets/custom-cloudinit.yaml","onboot":1,"scsi0":"local-lvm:vm-101-disk-0,size=2252M","serial0":"socket","smbios1":"uuid=855ca99c-8c2f-4479-aa6f-d04f943b179b","vmgenid":"f28f870f-a6c3-4b86-b742-c30e4cb162bc","boot":"c","vga":"serial0","digest":"7f4b203e8857d42e77bdfd8105c4107799e84ab2"}}
+2026/04/02 07:00:47 >>>>>>>>>> REQUEST:
+GET /api2/json/cluster/resources?type=vm HTTP/1.1
+Host: 192.168.2.150:8006
+User-Agent: Go-http-client/1.1
+Accept: application/json
+Authorization: PVEAuthCookie=PVE:root@pam:69CE13D5::eKVvWUGVdLRgxkaMlMUPI+Vqjl5Rb6RLk4bqOaFyncDslHg3zhI/qUJmNqRrPDZA3pAaI9Vl+GfAIp1gkqvgwFk+fQ/7PmlXs2hh3x49Z7SqlmJtVn3KzsYy5HEODxKJDwW7Qh5m6ak+uoJ1PcRgu+RRCr8g1imF8HppmvZPolYbP2mX69D+EMLin/7JLpHeWidioP2Ynqs6T3eL9Myg02DhImVRxCPRvSH1OT8Jw16r4wb2AYUxlAKr7xfk/ZT7/tXJVSj2Oi4npEaXe7LnK0+8V2a9EbQyARMRKIQ6eFWq70UGn4oDHCLdGspX1Gg+0oPr5MO196Io+n9DTSLaNA==
+CSRFPreventionToken: 69CE13D5:BKF8hSOtlG6TT8roaVc5DcH6jejUC/9+KCsodFRcMpc
+Accept-Encoding: gzip
+
+2026/04/02 07:00:47 <<<<<<<<<< RESULT:
+HTTP/1.1 200 OK
+Content-Length: 804
+Cache-Control: max-age=0
+Connection: Keep-Alive
+Content-Type: application/json;charset=UTF-8
+Date: Thu, 02 Apr 2026 07:00:47 GMT
+Expires: Thu, 02 Apr 2026 07:00:47 GMT
+Pragma: no-cache
+Server: pve-api-daemon/3.0
+
+{"data":[{"vmid":100,"status":"running","tags":" ","netout":516,"id":"qemu/100","diskread":147735250,"node":"pve","maxmem":2147483648,"type":"qemu","diskwrite":5724672,"netin":340,"maxdisk":21474836480,"name":"VM-MASTER1","cpu":0.329453526490111,"maxcpu":2,"disk":0,"mem":397248236,"uptime":32,"template":0},{"template":0,"disk":0,"uptime":0,"mem":0,"cpu":0,"maxcpu":1,"name":"VM-WORKER2","maxdisk":2361393152,"diskwrite":0,"node":"pve","type":"qemu","maxmem":1073741824,"netin":0,"diskread":0,"id":"qemu/101","netout":0,"vmid":101,"status":"stopped"},{"name":"ubuntu-template","maxdisk":2361393152,"cpu":0,"maxcpu":1,"disk":0,"uptime":0,"mem":0,"template":1,"vmid":9000,"status":"stopped","id":"qemu/9000","netout":0,"diskread":0,"diskwrite":0,"type":"qemu","maxmem":1073741824,"node":"pve","netin":0}]}
+2026/04/02 07:00:47 >>>>>>>>>> REQUEST:
+GET /api2/json/cluster/ha/resources/101 HTTP/1.1
+Host: 192.168.2.150:8006
+User-Agent: Go-http-client/1.1
+Accept: application/json
+Authorization: PVEAuthCookie=PVE:root@pam:69CE13D5::eKVvWUGVdLRgxkaMlMUPI+Vqjl5Rb6RLk4bqOaFyncDslHg3zhI/qUJmNqRrPDZA3pAaI9Vl+GfAIp1gkqvgwFk+fQ/7PmlXs2hh3x49Z7SqlmJtVn3KzsYy5HEODxKJDwW7Qh5m6ak+uoJ1PcRgu+RRCr8g1imF8HppmvZPolYbP2mX69D+EMLin/7JLpHeWidioP2Ynqs6T3eL9Myg02DhImVRxCPRvSH1OT8Jw16r4wb2AYUxlAKr7xfk/ZT7/tXJVSj2Oi4npEaXe7LnK0+8V2a9EbQyARMRKIQ6eFWq70UGn4oDHCLdGspX1Gg+0oPr5MO196Io+n9DTSLaNA==
+CSRFPreventionToken: 69CE13D5:BKF8hSOtlG6TT8roaVc5DcH6jejUC/9+KCsodFRcMpc
+Accept-Encoding: gzip
+
+2026/04/02 07:00:47 <<<<<<<<<< RESULT:
+HTTP/1.1 500 no such resource 'vm:101'
+Connection: close
+Content-Length: 53
+Cache-Control: max-age=0
+Content-Type: application/json;charset=UTF-8
+Date: Thu, 02 Apr 2026 07:00:47 GMT
+Expires: Thu, 02 Apr 2026 07:00:47 GMT
+Pragma: no-cache
+Server: pve-api-daemon/3.0
+
+{"message":"no such resource 'vm:101'\n","data":null}
+2026/04/02 07:00:47 >>>>>>>>>> REQUEST:
+PUT /api2/json/nodes/pve/qemu/101/resize HTTP/1.1
+Host: 192.168.2.150:8006
+User-Agent: Go-http-client/1.1
+Content-Length: 25
+Accept: application/json
+Authorization: PVEAuthCookie=PVE:root@pam:69CE13D5::eKVvWUGVdLRgxkaMlMUPI+Vqjl5Rb6RLk4bqOaFyncDslHg3zhI/qUJmNqRrPDZA3pAaI9Vl+GfAIp1gkqvgwFk+fQ/7PmlXs2hh3x49Z7SqlmJtVn3KzsYy5HEODxKJDwW7Qh5m6ak+uoJ1PcRgu+RRCr8g1imF8HppmvZPolYbP2mX69D+EMLin/7JLpHeWidioP2Ynqs6T3eL9Myg02DhImVRxCPRvSH1OT8Jw16r4wb2AYUxlAKr7xfk/ZT7/tXJVSj2Oi4npEaXe7LnK0+8V2a9EbQyARMRKIQ6eFWq70UGn4oDHCLdGspX1Gg+0oPr5MO196Io+n9DTSLaNA==
+CSRFPreventionToken: 69CE13D5:BKF8hSOtlG6TT8roaVc5DcH6jejUC/9+KCsodFRcMpc
+Content-Type: application/x-www-form-urlencoded
+Accept-Encoding: gzip
+
+disk=scsi0&size=20971520K
+2026/04/02 07:00:47 <<<<<<<<<< RESULT:
+HTTP/1.1 200 OK
+Connection: close
+Content-Length: 67
+Cache-Control: max-age=0
+Content-Type: application/json;charset=UTF-8
+Date: Thu, 02 Apr 2026 07:00:47 GMT
+Expires: Thu, 02 Apr 2026 07:00:47 GMT
+Pragma: no-cache
+Server: pve-api-daemon/3.0
+
+{"data":"UPID:pve:00008BCE:00118C1A:69CE141F:resize:101:root@pam:"}
+2026/04/02 07:00:47 >>>>>>>>>> REQUEST:
+GET /api2/json/nodes/pve/tasks/UPID:pve:00008BCE:00118C1A:69CE141F:resize:101:root@pam:/status HTTP/1.1
+Host: 192.168.2.150:8006
+User-Agent: Go-http-client/1.1
+Accept: application/json
+Authorization: PVEAuthCookie=PVE:root@pam:69CE13D5::eKVvWUGVdLRgxkaMlMUPI+Vqjl5Rb6RLk4bqOaFyncDslHg3zhI/qUJmNqRrPDZA3pAaI9Vl+GfAIp1gkqvgwFk+fQ/7PmlXs2hh3x49Z7SqlmJtVn3KzsYy5HEODxKJDwW7Qh5m6ak+uoJ1PcRgu+RRCr8g1imF8HppmvZPolYbP2mX69D+EMLin/7JLpHeWidioP2Ynqs6T3eL9Myg02DhImVRxCPRvSH1OT8Jw16r4wb2AYUxlAKr7xfk/ZT7/tXJVSj2Oi4npEaXe7LnK0+8V2a9EbQyARMRKIQ6eFWq70UGn4oDHCLdGspX1Gg+0oPr5MO196Io+n9DTSLaNA==
+CSRFPreventionToken: 69CE13D5:BKF8hSOtlG6TT8roaVc5DcH6jejUC/9+KCsodFRcMpc
+Accept-Encoding: gzip
+
+2026/04/02 07:00:47 <<<<<<<<<< RESULT:
+HTTP/1.1 200 OK
+Connection: close
+Content-Length: 205
+Cache-Control: max-age=0
+Content-Type: application/json;charset=UTF-8
+Date: Thu, 02 Apr 2026 07:00:47 GMT
+Expires: Thu, 02 Apr 2026 07:00:47 GMT
+Pragma: no-cache
+Server: pve-api-daemon/3.0
+
+{"data":{"pstart":1149978,"id":"101","starttime":1775113247,"pid":35790,"node":"pve","user":"root@pam","status":"running","upid":"UPID:pve:00008BCE:00118C1A:69CE141F:resize:101:root@pam:","type":"resize"}}
+2026/04/02 07:00:49 >>>>>>>>>> REQUEST:
+GET /api2/json/nodes/pve/tasks/UPID:pve:00008BCE:00118C1A:69CE141F:resize:101:root@pam:/status HTTP/1.1
+Host: 192.168.2.150:8006
+User-Agent: Go-http-client/1.1
+Accept: application/json
+Authorization: PVEAuthCookie=PVE:root@pam:69CE13D5::eKVvWUGVdLRgxkaMlMUPI+Vqjl5Rb6RLk4bqOaFyncDslHg3zhI/qUJmNqRrPDZA3pAaI9Vl+GfAIp1gkqvgwFk+fQ/7PmlXs2hh3x49Z7SqlmJtVn3KzsYy5HEODxKJDwW7Qh5m6ak+uoJ1PcRgu+RRCr8g1imF8HppmvZPolYbP2mX69D+EMLin/7JLpHeWidioP2Ynqs6T3eL9Myg02DhImVRxCPRvSH1OT8Jw16r4wb2AYUxlAKr7xfk/ZT7/tXJVSj2Oi4npEaXe7LnK0+8V2a9EbQyARMRKIQ6eFWq70UGn4oDHCLdGspX1Gg+0oPr5MO196Io+n9DTSLaNA==
+CSRFPreventionToken: 69CE13D5:BKF8hSOtlG6TT8roaVc5DcH6jejUC/9+KCsodFRcMpc
+Accept-Encoding: gzip
+
+2026/04/02 07:00:49 <<<<<<<<<< RESULT:
+HTTP/1.1 200 OK
+Connection: close
+Content-Length: 223
+Cache-Control: max-age=0
+Content-Type: application/json;charset=UTF-8
+Date: Thu, 02 Apr 2026 07:00:49 GMT
+Expires: Thu, 02 Apr 2026 07:00:49 GMT
+Pragma: no-cache
+Server: pve-api-daemon/3.0
+
+{"data":{"pid":35790,"node":"pve","id":"101","starttime":1775113247,"pstart":1149978,"exitstatus":"OK","status":"stopped","user":"root@pam","upid":"UPID:pve:00008BCE:00118C1A:69CE141F:resize:101:root@pam:","type":"resize"}}
+2026/04/02 07:00:49 >>>>>>>>>> REQUEST:
+PUT /api2/json/nodes/pve/qemu/101/config HTTP/1.1
+Host: 192.168.2.150:8006
+User-Agent: Go-http-client/1.1
+Content-Length: 476
+Accept: application/json
+Authorization: PVEAuthCookie=PVE:root@pam:69CE13D5::eKVvWUGVdLRgxkaMlMUPI+Vqjl5Rb6RLk4bqOaFyncDslHg3zhI/qUJmNqRrPDZA3pAaI9Vl+GfAIp1gkqvgwFk+fQ/7PmlXs2hh3x49Z7SqlmJtVn3KzsYy5HEODxKJDwW7Qh5m6ak+uoJ1PcRgu+RRCr8g1imF8HppmvZPolYbP2mX69D+EMLin/7JLpHeWidioP2Ynqs6T3eL9Myg02DhImVRxCPRvSH1OT8Jw16r4wb2AYUxlAKr7xfk/ZT7/tXJVSj2Oi4npEaXe7LnK0+8V2a9EbQyARMRKIQ6eFWq70UGn4oDHCLdGspX1Gg+0oPr5MO196Io+n9DTSLaNA==
+CSRFPreventionToken: 69CE13D5:BKF8hSOtlG6TT8roaVc5DcH6jejUC/9+KCsodFRcMpc
+Content-Type: application/x-www-form-urlencoded
+Accept-Encoding: gzip
+
+agent=0&balloon=0&bios=seabios&cicustom=user%3Dlocal%3Asnippets%2Fcustom-cloudinit.yaml&ciupgrade=0&cores=2&cpu=host&delete=onboot%2Ccpuunits%2Cciuser%2Ccipassword%2Csshkeys%2Cshares&description=Managed+by+Terraform.&hotplug=network%2Cdisk%2Cusb&ipconfig0=ip%3D10.10.0.102%2F24%2Cgw%3D10.10.0.1&kvm=1&memory=2048&net0=virtio%2Cbridge%3Dvmbr0&numa=0&protection=0&scsi0=local-lvm%3Avm-101-disk-0%2Creplicate%3D0&scsihw=virtio-scsi-pci&sockets=1&tablet=1&tags=&vga=type%3Dserial0
+2026/04/02 07:00:49 <<<<<<<<<< RESULT:
+HTTP/1.1 200 OK
+Connection: close
+Content-Length: 13
+Cache-Control: max-age=0
+Content-Type: application/json;charset=UTF-8
+Date: Thu, 02 Apr 2026 07:00:49 GMT
+Expires: Thu, 02 Apr 2026 07:00:49 GMT
+Pragma: no-cache
+Server: pve-api-daemon/3.0
+
+{"data":null}
+2026/04/02 07:00:49 >>>>>>>>>> REQUEST:
+GET /api2/json/nodes/pve/qemu/101/pending HTTP/1.1
+Host: 192.168.2.150:8006
+User-Agent: Go-http-client/1.1
+Accept: application/json
+Authorization: PVEAuthCookie=PVE:root@pam:69CE13D5::eKVvWUGVdLRgxkaMlMUPI+Vqjl5Rb6RLk4bqOaFyncDslHg3zhI/qUJmNqRrPDZA3pAaI9Vl+GfAIp1gkqvgwFk+fQ/7PmlXs2hh3x49Z7SqlmJtVn3KzsYy5HEODxKJDwW7Qh5m6ak+uoJ1PcRgu+RRCr8g1imF8HppmvZPolYbP2mX69D+EMLin/7JLpHeWidioP2Ynqs6T3eL9Myg02DhImVRxCPRvSH1OT8Jw16r4wb2AYUxlAKr7xfk/ZT7/tXJVSj2Oi4npEaXe7LnK0+8V2a9EbQyARMRKIQ6eFWq70UGn4oDHCLdGspX1Gg+0oPr5MO196Io+n9DTSLaNA==
+CSRFPreventionToken: 69CE13D5:BKF8hSOtlG6TT8roaVc5DcH6jejUC/9+KCsodFRcMpc
+Accept-Encoding: gzip
+
+2026/04/02 07:00:49 <<<<<<<<<< RESULT:
+HTTP/1.1 200 OK
+Content-Length: 1293
+Cache-Control: max-age=0
+Connection: Keep-Alive
+Content-Type: application/json;charset=UTF-8
+Date: Thu, 02 Apr 2026 07:00:49 GMT
+Expires: Thu, 02 Apr 2026 07:00:49 GMT
+Pragma: no-cache
+Server: pve-api-daemon/3.0
+
+{"data":[{"key":"scsihw","value":"virtio-scsi-pci"},{"value":"virtio=BC:24:11:17:9F:FC,bridge=vmbr0","key":"net0"},{"key":"ide2","value":"local-lvm:vm-101-cloudinit,media=cdrom,size=4M"},{"key":"agent","value":"0"},{"key":"cicustom","value":"user=local:snippets/custom-cloudinit.yaml"},{"value":"VM-WORKER2","key":"name"},{"key":"kvm","value":1},{"key":"scsi0","value":"local-lvm:vm-101-disk-0,replicate=0,size=20G"},{"value":0,"key":"ciupgrade"},{"key":"hotplug","value":"network,disk,usb"},{"value":"7b989fe96964f1d44dfbeadcd75da6dacdae33f3","key":"digest"},{"key":"vga","value":"type=serial0"},{"key":"cores","value":2},{"value":" ","key":"tags"},{"key":"meta","value":"creation-qemu=9.2.0,ctime=1774872190"},{"value":"scsi0","key":"bootdisk"},{"value":0,"key":"protection"},{"value":"2048","key":"memory"},{"value":1,"key":"sockets"},{"value":"host","key":"cpu"},{"value":0,"key":"balloon"},{"value":"ip=10.10.0.102/24,gw=10.10.0.1","key":"ipconfig0"},{"key":"numa","value":0},{"key":"description","value":"Managed by Terraform."},{"key":"tablet","value":1},{"key":"boot","value":"c"},{"value":"socket","key":"serial0"},{"key":"bios","value":"seabios"},{"key":"vmgenid","value":"f28f870f-a6c3-4b86-b742-c30e4cb162bc"},{"value":"uuid=855ca99c-8c2f-4479-aa6f-d04f943b179b","key":"smbios1"}]}
+[90mThu, 02 Apr 2026 07:00:49 +0000[0m DBG [1mgithub.com/Telmate/terraform-provider-proxmox/v2/proxmox/resource_vm_qemu.go:751[0m[36m >[0m Set this vm (resource Id) to 'pve/qemu/101' [36mloggerName=[0mresource_vm_create [36mvmid=[0m101
+2026/04/02 07:00:54 [DEBUG][QemuVmCreate] starting VM
+2026/04/02 07:00:54 >>>>>>>>>> REQUEST:
+POST /api2/json/nodes/pve/qemu/101/status/start HTTP/1.1
+Host: 192.168.2.150:8006
+User-Agent: Go-http-client/1.1
+Content-Length: 0
+Accept: application/json
+Authorization: PVEAuthCookie=PVE:root@pam:69CE13D5::eKVvWUGVdLRgxkaMlMUPI+Vqjl5Rb6RLk4bqOaFyncDslHg3zhI/qUJmNqRrPDZA3pAaI9Vl+GfAIp1gkqvgwFk+fQ/7PmlXs2hh3x49Z7SqlmJtVn3KzsYy5HEODxKJDwW7Qh5m6ak+uoJ1PcRgu+RRCr8g1imF8HppmvZPolYbP2mX69D+EMLin/7JLpHeWidioP2Ynqs6T3eL9Myg02DhImVRxCPRvSH1OT8Jw16r4wb2AYUxlAKr7xfk/ZT7/tXJVSj2Oi4npEaXe7LnK0+8V2a9EbQyARMRKIQ6eFWq70UGn4oDHCLdGspX1Gg+0oPr5MO196Io+n9DTSLaNA==
+CSRFPreventionToken: 69CE13D5:BKF8hSOtlG6TT8roaVc5DcH6jejUC/9+KCsodFRcMpc
+Content-Type: application/x-www-form-urlencoded
+Accept-Encoding: gzip
+
+2026/04/02 07:00:54 <<<<<<<<<< RESULT:
+HTTP/1.1 200 OK
+Connection: close
+Content-Length: 68
+Cache-Control: max-age=0
+Content-Type: application/json;charset=UTF-8
+Date: Thu, 02 Apr 2026 07:00:54 GMT
+Expires: Thu, 02 Apr 2026 07:00:54 GMT
+Pragma: no-cache
+Server: pve-api-daemon/3.0
+
+{"data":"UPID:pve:00008BF0:00118EEF:69CE1426:qmstart:101:root@pam:"}
+2026/04/02 07:00:54 >>>>>>>>>> REQUEST:
+GET /api2/json/nodes/pve/tasks/UPID:pve:00008BF0:00118EEF:69CE1426:qmstart:101:root@pam:/status HTTP/1.1
+Host: 192.168.2.150:8006
+User-Agent: Go-http-client/1.1
+Accept: application/json
+Authorization: PVEAuthCookie=PVE:root@pam:69CE13D5::eKVvWUGVdLRgxkaMlMUPI+Vqjl5Rb6RLk4bqOaFyncDslHg3zhI/qUJmNqRrPDZA3pAaI9Vl+GfAIp1gkqvgwFk+fQ/7PmlXs2hh3x49Z7SqlmJtVn3KzsYy5HEODxKJDwW7Qh5m6ak+uoJ1PcRgu+RRCr8g1imF8HppmvZPolYbP2mX69D+EMLin/7JLpHeWidioP2Ynqs6T3eL9Myg02DhImVRxCPRvSH1OT8Jw16r4wb2AYUxlAKr7xfk/ZT7/tXJVSj2Oi4npEaXe7LnK0+8V2a9EbQyARMRKIQ6eFWq70UGn4oDHCLdGspX1Gg+0oPr5MO196Io+n9DTSLaNA==
+CSRFPreventionToken: 69CE13D5:BKF8hSOtlG6TT8roaVc5DcH6jejUC/9+KCsodFRcMpc
+Accept-Encoding: gzip
+
+2026/04/02 07:00:54 <<<<<<<<<< RESULT:
+HTTP/1.1 200 OK
+Connection: close
+Content-Length: 207
+Cache-Control: max-age=0
+Content-Type: application/json;charset=UTF-8
+Date: Thu, 02 Apr 2026 07:00:54 GMT
+Expires: Thu, 02 Apr 2026 07:00:54 GMT
+Pragma: no-cache
+Server: pve-api-daemon/3.0
+
+{"data":{"pstart":1150703,"node":"pve","pid":35824,"starttime":1775113254,"id":"101","type":"qmstart","upid":"UPID:pve:00008BF0:00118EEF:69CE1426:qmstart:101:root@pam:","status":"running","user":"root@pam"}}
+2026/04/02 07:00:56 >>>>>>>>>> REQUEST:
+GET /api2/json/nodes/pve/tasks/UPID:pve:00008BF0:00118EEF:69CE1426:qmstart:101:root@pam:/status HTTP/1.1
+Host: 192.168.2.150:8006
+User-Agent: Go-http-client/1.1
+Accept: application/json
+Authorization: PVEAuthCookie=PVE:root@pam:69CE13D5::eKVvWUGVdLRgxkaMlMUPI+Vqjl5Rb6RLk4bqOaFyncDslHg3zhI/qUJmNqRrPDZA3pAaI9Vl+GfAIp1gkqvgwFk+fQ/7PmlXs2hh3x49Z7SqlmJtVn3KzsYy5HEODxKJDwW7Qh5m6ak+uoJ1PcRgu+RRCr8g1imF8HppmvZPolYbP2mX69D+EMLin/7JLpHeWidioP2Ynqs6T3eL9Myg02DhImVRxCPRvSH1OT8Jw16r4wb2AYUxlAKr7xfk/ZT7/tXJVSj2Oi4npEaXe7LnK0+8V2a9EbQyARMRKIQ6eFWq70UGn4oDHCLdGspX1Gg+0oPr5MO196Io+n9DTSLaNA==
+CSRFPreventionToken: 69CE13D5:BKF8hSOtlG6TT8roaVc5DcH6jejUC/9+KCsodFRcMpc
+Accept-Encoding: gzip
+
+2026/04/02 07:00:56 <<<<<<<<<< RESULT:
+HTTP/1.1 200 OK
+Connection: close
+Content-Length: 225
+Cache-Control: max-age=0
+Content-Type: application/json;charset=UTF-8
+Date: Thu, 02 Apr 2026 07:00:56 GMT
+Expires: Thu, 02 Apr 2026 07:00:56 GMT
+Pragma: no-cache
+Server: pve-api-daemon/3.0
+
+{"data":{"starttime":1775113254,"id":"101","pid":35824,"node":"pve","pstart":1150703,"upid":"UPID:pve:00008BF0:00118EEF:69CE1426:qmstart:101:root@pam:","type":"qmstart","exitstatus":"OK","user":"root@pam","status":"stopped"}}
+2026/04/02 07:00:56 [DEBUG][QemuVmCreate] vm creation done!
+[90mThu, 02 Apr 2026 07:00:56 +0000[0m [32mINF[0m [1mgithub.com/Telmate/terraform-provider-proxmox/v2/proxmox/resource_vm_qemu.go:986[0m[36m >[0m [1mReading configuration for vmid[0m [36mloggerName=[0mresource_vm_read [36mvmid=[0m101
+2026/04/02 07:00:56 >>>>>>>>>> REQUEST:
+GET /api2/json/nodes/pve/qemu/101/pending HTTP/1.1
+Host: 192.168.2.150:8006
+User-Agent: Go-http-client/1.1
+Accept: application/json
+Authorization: PVEAuthCookie=PVE:root@pam:69CE13D5::eKVvWUGVdLRgxkaMlMUPI+Vqjl5Rb6RLk4bqOaFyncDslHg3zhI/qUJmNqRrPDZA3pAaI9Vl+GfAIp1gkqvgwFk+fQ/7PmlXs2hh3x49Z7SqlmJtVn3KzsYy5HEODxKJDwW7Qh5m6ak+uoJ1PcRgu+RRCr8g1imF8HppmvZPolYbP2mX69D+EMLin/7JLpHeWidioP2Ynqs6T3eL9Myg02DhImVRxCPRvSH1OT8Jw16r4wb2AYUxlAKr7xfk/ZT7/tXJVSj2Oi4npEaXe7LnK0+8V2a9EbQyARMRKIQ6eFWq70UGn4oDHCLdGspX1Gg+0oPr5MO196Io+n9DTSLaNA==
+CSRFPreventionToken: 69CE13D5:BKF8hSOtlG6TT8roaVc5DcH6jejUC/9+KCsodFRcMpc
+Accept-Encoding: gzip
+
+2026/04/02 07:00:56 <<<<<<<<<< RESULT:
+HTTP/1.1 200 OK
+Content-Length: 1293
+Cache-Control: max-age=0
+Connection: Keep-Alive
+Content-Type: application/json;charset=UTF-8
+Date: Thu, 02 Apr 2026 07:00:56 GMT
+Expires: Thu, 02 Apr 2026 07:00:56 GMT
+Pragma: no-cache
+Server: pve-api-daemon/3.0
+
+{"data":[{"key":"cicustom","value":"user=local:snippets/custom-cloudinit.yaml"},{"key":"name","value":"VM-WORKER2"},{"value":1,"key":"kvm"},{"key":"scsihw","value":"virtio-scsi-pci"},{"key":"ide2","value":"local-lvm:vm-101-cloudinit,media=cdrom,size=4M"},{"key":"agent","value":"0"},{"key":"net0","value":"virtio=BC:24:11:17:9F:FC,bridge=vmbr0"},{"value":"7b989fe96964f1d44dfbeadcd75da6dacdae33f3","key":"digest"},{"key":"vga","value":"type=serial0"},{"key":"cores","value":2},{"key":"tags","value":" "},{"value":"local-lvm:vm-101-disk-0,replicate=0,size=20G","key":"scsi0"},{"key":"ciupgrade","value":0},{"value":"network,disk,usb","key":"hotplug"},{"key":"cpu","value":"host"},{"key":"balloon","value":0},{"value":"ip=10.10.0.102/24,gw=10.10.0.1","key":"ipconfig0"},{"value":0,"key":"protection"},{"value":"2048","key":"memory"},{"key":"sockets","value":1},{"key":"meta","value":"creation-qemu=9.2.0,ctime=1774872190"},{"value":"scsi0","key":"bootdisk"},{"value":"c","key":"boot"},{"value":1,"key":"tablet"},{"value":"f28f870f-a6c3-4b86-b742-c30e4cb162bc","key":"vmgenid"},{"value":"uuid=855ca99c-8c2f-4479-aa6f-d04f943b179b","key":"smbios1"},{"value":"seabios","key":"bios"},{"value":"socket","key":"serial0"},{"key":"description","value":"Managed by Terraform."},{"value":0,"key":"numa"}]}
+2026/04/02 07:00:56 >>>>>>>>>> REQUEST:
+GET /api2/json/nodes/pve/qemu/101/status/current HTTP/1.1
+Host: 192.168.2.150:8006
+User-Agent: Go-http-client/1.1
+Accept: application/json
+Authorization: PVEAuthCookie=PVE:root@pam:69CE13D5::eKVvWUGVdLRgxkaMlMUPI+Vqjl5Rb6RLk4bqOaFyncDslHg3zhI/qUJmNqRrPDZA3pAaI9Vl+GfAIp1gkqvgwFk+fQ/7PmlXs2hh3x49Z7SqlmJtVn3KzsYy5HEODxKJDwW7Qh5m6ak+uoJ1PcRgu+RRCr8g1imF8HppmvZPolYbP2mX69D+EMLin/7JLpHeWidioP2Ynqs6T3eL9Myg02DhImVRxCPRvSH1OT8Jw16r4wb2AYUxlAKr7xfk/ZT7/tXJVSj2Oi4npEaXe7LnK0+8V2a9EbQyARMRKIQ6eFWq70UGn4oDHCLdGspX1Gg+0oPr5MO196Io+n9DTSLaNA==
+CSRFPreventionToken: 69CE13D5:BKF8hSOtlG6TT8roaVc5DcH6jejUC/9+KCsodFRcMpc
+Accept-Encoding: gzip
+
+2026/04/02 07:00:56 <<<<<<<<<< RESULT:
+HTTP/1.1 200 OK
+Connection: close
+Content-Length: 2192
+Cache-Control: max-age=0
+Content-Type: application/json;charset=UTF-8
+Date: Thu, 02 Apr 2026 07:00:56 GMT
+Expires: Thu, 02 Apr 2026 07:00:56 GMT
+Pragma: no-cache
+Server: pve-api-daemon/3.0
+
+{"data":{"proxmox-support":{"pbs-dirty-bitmap-savevm":true,"query-bitmap-info":true,"pbs-dirty-bitmap":true,"pbs-library-version":"1.5.1 (UNKNOWN)","backup-access-api":true,"pbs-masterkey":true,"backup-max-workers":true,"pbs-dirty-bitmap-migration":true,"backup-fleecing":true},"cpus":2,"clipboard":null,"uptime":1,"netin":70,"vmid":101,"pid":35857,"running-qemu":"9.2.0","running-machine":"pc-i440fx-9.2+pve1","nics":{"tap101i0":{"netin":70,"netout":0}},"qmpstatus":"running","serial":1,"disk":0,"maxmem":2147483648,"mem":29735751,"status":"running","tags":" ","ha":{"managed":0},"cpu":0,"diskwrite":0,"maxdisk":21474836480,"name":"VM-WORKER2","blockstat":{"scsi0":{"zone_append_operations":0,"failed_zone_append_operations":0,"failed_unmap_operations":0,"rd_merged":0,"wr_total_time_ns":0,"invalid_zone_append_operations":0,"wr_highest_offset":0,"unmap_merged":0,"invalid_wr_operations":0,"invalid_rd_operations":0,"unmap_total_time_ns":0,"zone_append_bytes":0,"wr_bytes":0,"flush_total_time_ns":0,"failed_flush_operations":0,"zone_append_merged":0,"rd_operations":0,"account_invalid":true,"wr_operations":0,"timed_stats":[],"rd_bytes":0,"invalid_unmap_operations":0,"unmap_bytes":0,"failed_wr_operations":0,"flush_operations":0,"failed_rd_operations":0,"account_failed":true,"rd_total_time_ns":0,"wr_merged":0,"unmap_operations":0,"zone_append_total_time_ns":0,"invalid_flush_operations":0},"ide2":{"account_failed":true,"rd_total_time_ns":892700,"wr_merged":0,"idle_time_ns":1127054258,"failed_rd_operations":0,"flush_operations":0,"unmap_operations":0,"invalid_flush_operations":0,"zone_append_total_time_ns":0,"wr_operations":0,"account_invalid":true,"timed_stats":[],"unmap_bytes":0,"invalid_unmap_operations":0,"rd_bytes":2048,"failed_wr_operations":0,"invalid_rd_operations":0,"wr_bytes":0,"zone_append_bytes":0,"unmap_total_time_ns":0,"flush_total_time_ns":0,"rd_operations":1,"zone_append_merged":0,"failed_flush_operations":0,"zone_append_operations":0,"failed_zone_append_operations":0,"invalid_zone_append_operations":0,"wr_highest_offset":0,"rd_merged":0,"wr_total_time_ns":0,"failed_unmap_operations":0,"invalid_wr_operations":0,"unmap_merged":0}},"diskread":2048,"netout":0}}
+2026/04/02 07:00:56 [DEBUG] Getting VM staterunning
+2026/04/02 07:00:56 [DEBUG] VM is running, checking the IP
+2026/04/02 07:00:56 [INFO][initConnInfo] trying to get vm ip address for provisioner
+[90mThu, 02 Apr 2026 07:00:56 +0000[0m [32mINF[0m [1mgithub.com/Telmate/terraform-provider-proxmox/v2/proxmox/resource_vm_qemu.go:1340[0m[36m >[0m [1mtrying to get vm ip address for provisioner[0m [36mloggerName=[0minitConnInfo [36mvmid=[0m101
+2026/04/02 07:00:56 [INFO][getPrimaryIP] vm has a cloud-init configuration
+[90mThu, 02 Apr 2026 07:00:56 +0000[0m DBG [1mgithub.com/Telmate/terraform-provider-proxmox/v2/proxmox/resource_vm_qemu.go:1401[0m[36m >[0m  vm has a cloud-init configuration [36mloggerName=[0mgetPrimaryIP [36mvmid=[0m101
+2026/04/02 07:00:56 [DEBUG][initConnInfo] this is the vm configuration: 10.10.0.102 22
+[90mThu, 02 Apr 2026 07:00:56 +0000[0m DBG [1mgithub.com/Telmate/terraform-provider-proxmox/v2/proxmox/resource_vm_qemu.go:1366[0m[36m >[0m this is the vm configuration: 10.10.0.102 22 [36mloggerName=[0minitConnInfo [36mvmid=[0m101
+[90mThu, 02 Apr 2026 07:00:56 +0000[0m DBG [1mgithub.com/Telmate/terraform-provider-proxmox/v2/proxmox/resource_vm_qemu.go:1028[0m[36m >[0m [READ] Received Config from Proxmox API: {"id":101,"node":"pve","agent":{"enable":false},"bios":"seabios","boot":"c","bootdisk":"scsi0","cpu":{"cores":2,"numa":false,"sockets":1,"type":"host"},"cloudinit":{"cicustom":{"user":{"path":"snippets/custom-cloudinit.yaml","storage":"local"}},"ipconfig":{"0":{"ip4":{"address":"10.10.0.102/24","gateway":"10.10.0.1"}}},"ciupgrade":false},"description":"Managed by Terraform.","disks":{"ide":{"2":{"cloudinit":{"format":"raw","storage":"local-lvm"}}},"scsi":{"0":{"disk":{"bandwidth":{"mbps":{"read":{},"write":{}},"iops":{"read":{},"write":{}}},"format":"raw","id":0,"linked":null,"size":20971520,"storage":"local-lvm","wwn":"","backup":true,"discard":false,"emulatessd":false,"iothread":false,"readonly":false,"replicate":false}}}},"hotplug":"network,disk,usb","memory":{"capacity":2048,"balloon":0},"name":"VM-WORKER2","networks":{"0":{"bridge":"vmbr0","connected":true,"firewall":false,"mac":"vCQRF5/8","model":"virtio","tagged_vlans":[]}},"protection":false,"kvm":true,"ostype":"other","vga":{"type":"serial0"},"scsihw":"virtio-scsi-pci","serials":{"0":{"socket":true}},"smbios1":"uuid=855ca99c-8c2f-4479-aa6f-d04f943b179b","start_at_node_boot":false,"tablet":true,"tags":[" "]} [36mloggerName=[0mresource_vm_read [36mvmid=[0m101
+[90mThu, 02 Apr 2026 07:00:56 +0000[0m DBG [1mgithub.com/Telmate/terraform-provider-proxmox/v2/proxmox/resource_vm_qemu.go:1087[0m[36m >[0m key 'force_create' is set to false [36mloggerName=[0mresource_vm_read [36mvmid=[0m101
+[90mThu, 02 Apr 2026 07:00:56 +0000[0m DBG [1mgithub.com/Telmate/terraform-provider-proxmox/v2/proxmox/resource_vm_qemu.go:1087[0m[36m >[0m key 'define_connection_info' is set to true [36mloggerName=[0mresource_vm_read [36mvmid=[0m101
+[90mThu, 02 Apr 2026 07:00:56 +0000[0m DBG [1mgithub.com/Telmate/terraform-provider-proxmox/v2/proxmox/resource_vm_qemu.go:1097[0m[36m >[0m Unused Disk Block Processed 'map[]' [36mloggerName=[0mresource_vm_read [36mvmid=[0m101
+2026/04/02 07:00:56 [ERROR] setting state: Invalid address to set: []string{"features"}
+[90mThu, 02 Apr 2026 07:00:56 +0000[0m DBG [1mgithub.com/Telmate/terraform-provider-proxmox/v2/proxmox/resource_vm_qemu.go:1113[0m[36m >[0m Finished VM read resulting in data: '' [36mloggerName=[0mresource_vm_read [36mvmid=[0m101
+2026/04/02 07:00:57 [DEBUG] setting computed for "unused_disk" from ComputedKeys
+2026/04/02 07:00:57 [DEBUG] setting computed for "smbios" from ComputedKeys
+[90mThu, 02 Apr 2026 07:00:57 +0000[0m [32mINF[0m [1mgithub.com/Telmate/terraform-provider-proxmox/v2/proxmox/resource_vm_qemu.go:534[0m[36m >[0m [1mVM creation[0m [36mloggerName=[0mresource_vm_create [36mvmid=[0m
+[90mThu, 02 Apr 2026 07:00:57 +0000[0m DBG [1mgithub.com/Telmate/terraform-provider-proxmox/v2/proxmox/resource_vm_qemu.go:535[0m[36m >[0m VM creation resource data: '' [36mloggerName=[0mresource_vm_create [36mvmid=[0m
+2026/04/02 07:00:57 >>>>>>>>>> REQUEST:
+GET /api2/json/cluster/resources?type=vm HTTP/1.1
+Host: 192.168.2.150:8006
+User-Agent: Go-http-client/1.1
+Accept: application/json
+Authorization: PVEAuthCookie=PVE:root@pam:69CE13D5::eKVvWUGVdLRgxkaMlMUPI+Vqjl5Rb6RLk4bqOaFyncDslHg3zhI/qUJmNqRrPDZA3pAaI9Vl+GfAIp1gkqvgwFk+fQ/7PmlXs2hh3x49Z7SqlmJtVn3KzsYy5HEODxKJDwW7Qh5m6ak+uoJ1PcRgu+RRCr8g1imF8HppmvZPolYbP2mX69D+EMLin/7JLpHeWidioP2Ynqs6T3eL9Myg02DhImVRxCPRvSH1OT8Jw16r4wb2AYUxlAKr7xfk/ZT7/tXJVSj2Oi4npEaXe7LnK0+8V2a9EbQyARMRKIQ6eFWq70UGn4oDHCLdGspX1Gg+0oPr5MO196Io+n9DTSLaNA==
+CSRFPreventionToken: 69CE13D5:BKF8hSOtlG6TT8roaVc5DcH6jejUC/9+KCsodFRcMpc
+Accept-Encoding: gzip
+
+2026/04/02 07:00:57 <<<<<<<<<< RESULT:
+HTTP/1.1 200 OK
+Content-Length: 818
+Cache-Control: max-age=0
+Connection: Keep-Alive
+Content-Type: application/json;charset=UTF-8
+Date: Thu, 02 Apr 2026 07:00:57 GMT
+Expires: Thu, 02 Apr 2026 07:00:57 GMT
+Pragma: no-cache
+Server: pve-api-daemon/3.0
+
+{"data":[{"diskread":151982290,"netin":790,"node":"pve","maxmem":2147483648,"type":"qemu","diskwrite":10013184,"status":"running","tags":" ","vmid":100,"netout":888,"id":"qemu/100","mem":397093019,"uptime":42,"disk":0,"template":0,"maxdisk":21474836480,"name":"VM-MASTER1","maxcpu":2,"cpu":0.0223003692710353},{"template":0,"disk":0,"uptime":0,"mem":0,"cpu":0,"maxcpu":2,"maxdisk":21474836480,"name":"VM-WORKER2","diskwrite":0,"node":"pve","type":"qemu","maxmem":2147483648,"netin":0,"diskread":0,"netout":0,"id":"qemu/101","vmid":101,"tags":" ","status":"stopped"},{"netin":0,"type":"qemu","maxmem":1073741824,"node":"pve","diskwrite":0,"diskread":0,"netout":0,"id":"qemu/9000","status":"stopped","vmid":9000,"template":1,"mem":0,"uptime":0,"disk":0,"maxcpu":1,"cpu":0,"maxdisk":2361393152,"name":"ubuntu-template"}]}
+2026/04/02 07:00:57 [DEBUG][QemuVmCreate] cloning VM
+[90mThu, 02 Apr 2026 07:00:57 +0000[0m DBG [1mgithub.com/Telmate/terraform-provider-proxmox/v2/proxmox/resource_vm_qemu.go:672[0m[36m >[0m Cloning VM [36mloggerName=[0mresource_vm_create [36mvmid=[0m
+2026/04/02 07:00:57 >>>>>>>>>> REQUEST:
+GET /api2/json/cluster/nextid HTTP/1.1
+Host: 192.168.2.150:8006
+User-Agent: Go-http-client/1.1
+Accept: application/json
+Authorization: PVEAuthCookie=PVE:root@pam:69CE13D5::eKVvWUGVdLRgxkaMlMUPI+Vqjl5Rb6RLk4bqOaFyncDslHg3zhI/qUJmNqRrPDZA3pAaI9Vl+GfAIp1gkqvgwFk+fQ/7PmlXs2hh3x49Z7SqlmJtVn3KzsYy5HEODxKJDwW7Qh5m6ak+uoJ1PcRgu+RRCr8g1imF8HppmvZPolYbP2mX69D+EMLin/7JLpHeWidioP2Ynqs6T3eL9Myg02DhImVRxCPRvSH1OT8Jw16r4wb2AYUxlAKr7xfk/ZT7/tXJVSj2Oi4npEaXe7LnK0+8V2a9EbQyARMRKIQ6eFWq70UGn4oDHCLdGspX1Gg+0oPr5MO196Io+n9DTSLaNA==
+CSRFPreventionToken: 69CE13D5:BKF8hSOtlG6TT8roaVc5DcH6jejUC/9+KCsodFRcMpc
+Accept-Encoding: gzip
+
+2026/04/02 07:00:57 <<<<<<<<<< RESULT:
+HTTP/1.1 200 OK
+Content-Length: 14
+Cache-Control: max-age=0
+Connection: Keep-Alive
+Content-Type: application/json;charset=UTF-8
+Date: Thu, 02 Apr 2026 07:00:57 GMT
+Expires: Thu, 02 Apr 2026 07:00:57 GMT
+Pragma: no-cache
+Server: pve-api-daemon/3.0
+
+{"data":"102"}
+2026/04/02 07:00:57 >>>>>>>>>> REQUEST:
+POST /api2/json/nodes/pve/qemu/9000/clone HTTP/1.1
+Host: 192.168.2.150:8006
+User-Agent: Go-http-client/1.1
+Content-Length: 43
+Accept: application/json
+Authorization: PVEAuthCookie=PVE:root@pam:69CE13D5::eKVvWUGVdLRgxkaMlMUPI+Vqjl5Rb6RLk4bqOaFyncDslHg3zhI/qUJmNqRrPDZA3pAaI9Vl+GfAIp1gkqvgwFk+fQ/7PmlXs2hh3x49Z7SqlmJtVn3KzsYy5HEODxKJDwW7Qh5m6ak+uoJ1PcRgu+RRCr8g1imF8HppmvZPolYbP2mX69D+EMLin/7JLpHeWidioP2Ynqs6T3eL9Myg02DhImVRxCPRvSH1OT8Jw16r4wb2AYUxlAKr7xfk/ZT7/tXJVSj2Oi4npEaXe7LnK0+8V2a9EbQyARMRKIQ6eFWq70UGn4oDHCLdGspX1Gg+0oPr5MO196Io+n9DTSLaNA==
+CSRFPreventionToken: 69CE13D5:BKF8hSOtlG6TT8roaVc5DcH6jejUC/9+KCsodFRcMpc
+Content-Type: application/x-www-form-urlencoded
+Accept-Encoding: gzip
+
+full=1&name=VM-WORKER1&newid=102&target=pve
+2026/04/02 07:00:57 <<<<<<<<<< RESULT:
+HTTP/1.1 200 OK
+Connection: close
+Content-Length: 69
+Cache-Control: max-age=0
+Content-Type: application/json;charset=UTF-8
+Date: Thu, 02 Apr 2026 07:00:57 GMT
+Expires: Thu, 02 Apr 2026 07:00:57 GMT
+Pragma: no-cache
+Server: pve-api-daemon/3.0
+
+{"data":"UPID:pve:00008C40:00118FDC:69CE1429:qmclone:9000:root@pam:"}
+2026/04/02 07:00:57 >>>>>>>>>> REQUEST:
+GET /api2/json/nodes/pve/tasks/UPID:pve:00008C40:00118FDC:69CE1429:qmclone:9000:root@pam:/status HTTP/1.1
+Host: 192.168.2.150:8006
+User-Agent: Go-http-client/1.1
+Accept: application/json
+Authorization: PVEAuthCookie=PVE:root@pam:69CE13D5::eKVvWUGVdLRgxkaMlMUPI+Vqjl5Rb6RLk4bqOaFyncDslHg3zhI/qUJmNqRrPDZA3pAaI9Vl+GfAIp1gkqvgwFk+fQ/7PmlXs2hh3x49Z7SqlmJtVn3KzsYy5HEODxKJDwW7Qh5m6ak+uoJ1PcRgu+RRCr8g1imF8HppmvZPolYbP2mX69D+EMLin/7JLpHeWidioP2Ynqs6T3eL9Myg02DhImVRxCPRvSH1OT8Jw16r4wb2AYUxlAKr7xfk/ZT7/tXJVSj2Oi4npEaXe7LnK0+8V2a9EbQyARMRKIQ6eFWq70UGn4oDHCLdGspX1Gg+0oPr5MO196Io+n9DTSLaNA==
+CSRFPreventionToken: 69CE13D5:BKF8hSOtlG6TT8roaVc5DcH6jejUC/9+KCsodFRcMpc
+Accept-Encoding: gzip
+
+2026/04/02 07:00:57 <<<<<<<<<< RESULT:
+HTTP/1.1 200 OK
+Connection: close
+Content-Length: 209
+Cache-Control: max-age=0
+Content-Type: application/json;charset=UTF-8
+Date: Thu, 02 Apr 2026 07:00:57 GMT
+Expires: Thu, 02 Apr 2026 07:00:57 GMT
+Pragma: no-cache
+Server: pve-api-daemon/3.0
+
+{"data":{"pstart":1150940,"node":"pve","pid":35904,"starttime":1775113257,"id":"9000","upid":"UPID:pve:00008C40:00118FDC:69CE1429:qmclone:9000:root@pam:","type":"qmclone","status":"running","user":"root@pam"}}
+2026/04/02 07:00:59 >>>>>>>>>> REQUEST:
+GET /api2/json/nodes/pve/tasks/UPID:pve:00008C40:00118FDC:69CE1429:qmclone:9000:root@pam:/status HTTP/1.1
+Host: 192.168.2.150:8006
+User-Agent: Go-http-client/1.1
+Accept: application/json
+Authorization: PVEAuthCookie=PVE:root@pam:69CE13D5::eKVvWUGVdLRgxkaMlMUPI+Vqjl5Rb6RLk4bqOaFyncDslHg3zhI/qUJmNqRrPDZA3pAaI9Vl+GfAIp1gkqvgwFk+fQ/7PmlXs2hh3x49Z7SqlmJtVn3KzsYy5HEODxKJDwW7Qh5m6ak+uoJ1PcRgu+RRCr8g1imF8HppmvZPolYbP2mX69D+EMLin/7JLpHeWidioP2Ynqs6T3eL9Myg02DhImVRxCPRvSH1OT8Jw16r4wb2AYUxlAKr7xfk/ZT7/tXJVSj2Oi4npEaXe7LnK0+8V2a9EbQyARMRKIQ6eFWq70UGn4oDHCLdGspX1Gg+0oPr5MO196Io+n9DTSLaNA==
+CSRFPreventionToken: 69CE13D5:BKF8hSOtlG6TT8roaVc5DcH6jejUC/9+KCsodFRcMpc
+Accept-Encoding: gzip
+
+2026/04/02 07:00:59 <<<<<<<<<< RESULT:
+HTTP/1.1 200 OK
+Connection: close
+Content-Length: 209
+Cache-Control: max-age=0
+Content-Type: application/json;charset=UTF-8
+Date: Thu, 02 Apr 2026 07:00:59 GMT
+Expires: Thu, 02 Apr 2026 07:00:59 GMT
+Pragma: no-cache
+Server: pve-api-daemon/3.0
+
+{"data":{"id":"9000","starttime":1775113257,"pid":35904,"node":"pve","pstart":1150940,"user":"root@pam","status":"running","upid":"UPID:pve:00008C40:00118FDC:69CE1429:qmclone:9000:root@pam:","type":"qmclone"}}
+2026/04/02 07:01:01 >>>>>>>>>> REQUEST:
+GET /api2/json/nodes/pve/tasks/UPID:pve:00008C40:00118FDC:69CE1429:qmclone:9000:root@pam:/status HTTP/1.1
+Host: 192.168.2.150:8006
+User-Agent: Go-http-client/1.1
+Accept: application/json
+Authorization: PVEAuthCookie=PVE:root@pam:69CE13D5::eKVvWUGVdLRgxkaMlMUPI+Vqjl5Rb6RLk4bqOaFyncDslHg3zhI/qUJmNqRrPDZA3pAaI9Vl+GfAIp1gkqvgwFk+fQ/7PmlXs2hh3x49Z7SqlmJtVn3KzsYy5HEODxKJDwW7Qh5m6ak+uoJ1PcRgu+RRCr8g1imF8HppmvZPolYbP2mX69D+EMLin/7JLpHeWidioP2Ynqs6T3eL9Myg02DhImVRxCPRvSH1OT8Jw16r4wb2AYUxlAKr7xfk/ZT7/tXJVSj2Oi4npEaXe7LnK0+8V2a9EbQyARMRKIQ6eFWq70UGn4oDHCLdGspX1Gg+0oPr5MO196Io+n9DTSLaNA==
+CSRFPreventionToken: 69CE13D5:BKF8hSOtlG6TT8roaVc5DcH6jejUC/9+KCsodFRcMpc
+Accept-Encoding: gzip
+
+2026/04/02 07:01:01 <<<<<<<<<< RESULT:
+HTTP/1.1 200 OK
+Connection: close
+Content-Length: 209
+Cache-Control: max-age=0
+Content-Type: application/json;charset=UTF-8
+Date: Thu, 02 Apr 2026 07:01:01 GMT
+Expires: Thu, 02 Apr 2026 07:01:01 GMT
+Pragma: no-cache
+Server: pve-api-daemon/3.0
+
+{"data":{"type":"qmclone","upid":"UPID:pve:00008C40:00118FDC:69CE1429:qmclone:9000:root@pam:","user":"root@pam","status":"running","starttime":1775113257,"id":"9000","pid":35904,"node":"pve","pstart":1150940}}
+2026/04/02 07:01:03 >>>>>>>>>> REQUEST:
+GET /api2/json/nodes/pve/tasks/UPID:pve:00008C40:00118FDC:69CE1429:qmclone:9000:root@pam:/status HTTP/1.1
+Host: 192.168.2.150:8006
+User-Agent: Go-http-client/1.1
+Accept: application/json
+Authorization: PVEAuthCookie=PVE:root@pam:69CE13D5::eKVvWUGVdLRgxkaMlMUPI+Vqjl5Rb6RLk4bqOaFyncDslHg3zhI/qUJmNqRrPDZA3pAaI9Vl+GfAIp1gkqvgwFk+fQ/7PmlXs2hh3x49Z7SqlmJtVn3KzsYy5HEODxKJDwW7Qh5m6ak+uoJ1PcRgu+RRCr8g1imF8HppmvZPolYbP2mX69D+EMLin/7JLpHeWidioP2Ynqs6T3eL9Myg02DhImVRxCPRvSH1OT8Jw16r4wb2AYUxlAKr7xfk/ZT7/tXJVSj2Oi4npEaXe7LnK0+8V2a9EbQyARMRKIQ6eFWq70UGn4oDHCLdGspX1Gg+0oPr5MO196Io+n9DTSLaNA==
+CSRFPreventionToken: 69CE13D5:BKF8hSOtlG6TT8roaVc5DcH6jejUC/9+KCsodFRcMpc
+Accept-Encoding: gzip
+
+2026/04/02 07:01:03 <<<<<<<<<< RESULT:
+HTTP/1.1 200 OK
+Connection: close
+Content-Length: 209
+Cache-Control: max-age=0
+Content-Type: application/json;charset=UTF-8
+Date: Thu, 02 Apr 2026 07:01:03 GMT
+Expires: Thu, 02 Apr 2026 07:01:03 GMT
+Pragma: no-cache
+Server: pve-api-daemon/3.0
+
+{"data":{"status":"running","user":"root@pam","type":"qmclone","upid":"UPID:pve:00008C40:00118FDC:69CE1429:qmclone:9000:root@pam:","pstart":1150940,"node":"pve","pid":35904,"id":"9000","starttime":1775113257}}
+2026/04/02 07:01:05 >>>>>>>>>> REQUEST:
+GET /api2/json/nodes/pve/tasks/UPID:pve:00008C40:00118FDC:69CE1429:qmclone:9000:root@pam:/status HTTP/1.1
+Host: 192.168.2.150:8006
+User-Agent: Go-http-client/1.1
+Accept: application/json
+Authorization: PVEAuthCookie=PVE:root@pam:69CE13D5::eKVvWUGVdLRgxkaMlMUPI+Vqjl5Rb6RLk4bqOaFyncDslHg3zhI/qUJmNqRrPDZA3pAaI9Vl+GfAIp1gkqvgwFk+fQ/7PmlXs2hh3x49Z7SqlmJtVn3KzsYy5HEODxKJDwW7Qh5m6ak+uoJ1PcRgu+RRCr8g1imF8HppmvZPolYbP2mX69D+EMLin/7JLpHeWidioP2Ynqs6T3eL9Myg02DhImVRxCPRvSH1OT8Jw16r4wb2AYUxlAKr7xfk/ZT7/tXJVSj2Oi4npEaXe7LnK0+8V2a9EbQyARMRKIQ6eFWq70UGn4oDHCLdGspX1Gg+0oPr5MO196Io+n9DTSLaNA==
+CSRFPreventionToken: 69CE13D5:BKF8hSOtlG6TT8roaVc5DcH6jejUC/9+KCsodFRcMpc
+Accept-Encoding: gzip
+
+2026/04/02 07:01:05 <<<<<<<<<< RESULT:
+HTTP/1.1 200 OK
+Connection: close
+Content-Length: 209
+Cache-Control: max-age=0
+Content-Type: application/json;charset=UTF-8
+Date: Thu, 02 Apr 2026 07:01:05 GMT
+Expires: Thu, 02 Apr 2026 07:01:05 GMT
+Pragma: no-cache
+Server: pve-api-daemon/3.0
+
+{"data":{"id":"9000","starttime":1775113257,"pid":35904,"node":"pve","pstart":1150940,"upid":"UPID:pve:00008C40:00118FDC:69CE1429:qmclone:9000:root@pam:","type":"qmclone","user":"root@pam","status":"running"}}
+2026/04/02 07:01:07 >>>>>>>>>> REQUEST:
+GET /api2/json/nodes/pve/tasks/UPID:pve:00008C40:00118FDC:69CE1429:qmclone:9000:root@pam:/status HTTP/1.1
+Host: 192.168.2.150:8006
+User-Agent: Go-http-client/1.1
+Accept: application/json
+Authorization: PVEAuthCookie=PVE:root@pam:69CE13D5::eKVvWUGVdLRgxkaMlMUPI+Vqjl5Rb6RLk4bqOaFyncDslHg3zhI/qUJmNqRrPDZA3pAaI9Vl+GfAIp1gkqvgwFk+fQ/7PmlXs2hh3x49Z7SqlmJtVn3KzsYy5HEODxKJDwW7Qh5m6ak+uoJ1PcRgu+RRCr8g1imF8HppmvZPolYbP2mX69D+EMLin/7JLpHeWidioP2Ynqs6T3eL9Myg02DhImVRxCPRvSH1OT8Jw16r4wb2AYUxlAKr7xfk/ZT7/tXJVSj2Oi4npEaXe7LnK0+8V2a9EbQyARMRKIQ6eFWq70UGn4oDHCLdGspX1Gg+0oPr5MO196Io+n9DTSLaNA==
+CSRFPreventionToken: 69CE13D5:BKF8hSOtlG6TT8roaVc5DcH6jejUC/9+KCsodFRcMpc
+Accept-Encoding: gzip
+
+2026/04/02 07:01:07 <<<<<<<<<< RESULT:
+HTTP/1.1 200 OK
+Connection: close
+Content-Length: 209
+Cache-Control: max-age=0
+Content-Type: application/json;charset=UTF-8
+Date: Thu, 02 Apr 2026 07:01:07 GMT
+Expires: Thu, 02 Apr 2026 07:01:07 GMT
+Pragma: no-cache
+Server: pve-api-daemon/3.0
+
+{"data":{"type":"qmclone","upid":"UPID:pve:00008C40:00118FDC:69CE1429:qmclone:9000:root@pam:","status":"running","user":"root@pam","node":"pve","pid":35904,"id":"9000","starttime":1775113257,"pstart":1150940}}
+2026/04/02 07:01:09 >>>>>>>>>> REQUEST:
+GET /api2/json/nodes/pve/tasks/UPID:pve:00008C40:00118FDC:69CE1429:qmclone:9000:root@pam:/status HTTP/1.1
+Host: 192.168.2.150:8006
+User-Agent: Go-http-client/1.1
+Accept: application/json
+Authorization: PVEAuthCookie=PVE:root@pam:69CE13D5::eKVvWUGVdLRgxkaMlMUPI+Vqjl5Rb6RLk4bqOaFyncDslHg3zhI/qUJmNqRrPDZA3pAaI9Vl+GfAIp1gkqvgwFk+fQ/7PmlXs2hh3x49Z7SqlmJtVn3KzsYy5HEODxKJDwW7Qh5m6ak+uoJ1PcRgu+RRCr8g1imF8HppmvZPolYbP2mX69D+EMLin/7JLpHeWidioP2Ynqs6T3eL9Myg02DhImVRxCPRvSH1OT8Jw16r4wb2AYUxlAKr7xfk/ZT7/tXJVSj2Oi4npEaXe7LnK0+8V2a9EbQyARMRKIQ6eFWq70UGn4oDHCLdGspX1Gg+0oPr5MO196Io+n9DTSLaNA==
+CSRFPreventionToken: 69CE13D5:BKF8hSOtlG6TT8roaVc5DcH6jejUC/9+KCsodFRcMpc
+Accept-Encoding: gzip
+
+2026/04/02 07:01:09 <<<<<<<<<< RESULT:
+HTTP/1.1 200 OK
+Connection: close
+Content-Length: 209
+Cache-Control: max-age=0
+Content-Type: application/json;charset=UTF-8
+Date: Thu, 02 Apr 2026 07:01:09 GMT
+Expires: Thu, 02 Apr 2026 07:01:09 GMT
+Pragma: no-cache
+Server: pve-api-daemon/3.0
+
+{"data":{"pstart":1150940,"starttime":1775113257,"id":"9000","pid":35904,"node":"pve","upid":"UPID:pve:00008C40:00118FDC:69CE1429:qmclone:9000:root@pam:","type":"qmclone","user":"root@pam","status":"running"}}
+2026/04/02 07:01:11 >>>>>>>>>> REQUEST:
+GET /api2/json/nodes/pve/tasks/UPID:pve:00008C40:00118FDC:69CE1429:qmclone:9000:root@pam:/status HTTP/1.1
+Host: 192.168.2.150:8006
+User-Agent: Go-http-client/1.1
+Accept: application/json
+Authorization: PVEAuthCookie=PVE:root@pam:69CE13D5::eKVvWUGVdLRgxkaMlMUPI+Vqjl5Rb6RLk4bqOaFyncDslHg3zhI/qUJmNqRrPDZA3pAaI9Vl+GfAIp1gkqvgwFk+fQ/7PmlXs2hh3x49Z7SqlmJtVn3KzsYy5HEODxKJDwW7Qh5m6ak+uoJ1PcRgu+RRCr8g1imF8HppmvZPolYbP2mX69D+EMLin/7JLpHeWidioP2Ynqs6T3eL9Myg02DhImVRxCPRvSH1OT8Jw16r4wb2AYUxlAKr7xfk/ZT7/tXJVSj2Oi4npEaXe7LnK0+8V2a9EbQyARMRKIQ6eFWq70UGn4oDHCLdGspX1Gg+0oPr5MO196Io+n9DTSLaNA==
+CSRFPreventionToken: 69CE13D5:BKF8hSOtlG6TT8roaVc5DcH6jejUC/9+KCsodFRcMpc
+Accept-Encoding: gzip
+
+2026/04/02 07:01:11 <<<<<<<<<< RESULT:
+HTTP/1.1 200 OK
+Connection: close
+Content-Length: 209
+Cache-Control: max-age=0
+Content-Type: application/json;charset=UTF-8
+Date: Thu, 02 Apr 2026 07:01:11 GMT
+Expires: Thu, 02 Apr 2026 07:01:11 GMT
+Pragma: no-cache
+Server: pve-api-daemon/3.0
+
+{"data":{"node":"pve","pid":35904,"starttime":1775113257,"id":"9000","pstart":1150940,"upid":"UPID:pve:00008C40:00118FDC:69CE1429:qmclone:9000:root@pam:","type":"qmclone","status":"running","user":"root@pam"}}
+2026/04/02 07:01:13 >>>>>>>>>> REQUEST:
+GET /api2/json/nodes/pve/tasks/UPID:pve:00008C40:00118FDC:69CE1429:qmclone:9000:root@pam:/status HTTP/1.1
+Host: 192.168.2.150:8006
+User-Agent: Go-http-client/1.1
+Accept: application/json
+Authorization: PVEAuthCookie=PVE:root@pam:69CE13D5::eKVvWUGVdLRgxkaMlMUPI+Vqjl5Rb6RLk4bqOaFyncDslHg3zhI/qUJmNqRrPDZA3pAaI9Vl+GfAIp1gkqvgwFk+fQ/7PmlXs2hh3x49Z7SqlmJtVn3KzsYy5HEODxKJDwW7Qh5m6ak+uoJ1PcRgu+RRCr8g1imF8HppmvZPolYbP2mX69D+EMLin/7JLpHeWidioP2Ynqs6T3eL9Myg02DhImVRxCPRvSH1OT8Jw16r4wb2AYUxlAKr7xfk/ZT7/tXJVSj2Oi4npEaXe7LnK0+8V2a9EbQyARMRKIQ6eFWq70UGn4oDHCLdGspX1Gg+0oPr5MO196Io+n9DTSLaNA==
+CSRFPreventionToken: 69CE13D5:BKF8hSOtlG6TT8roaVc5DcH6jejUC/9+KCsodFRcMpc
+Accept-Encoding: gzip
+
+2026/04/02 07:01:13 <<<<<<<<<< RESULT:
+HTTP/1.1 200 OK
+Connection: close
+Content-Length: 209
+Cache-Control: max-age=0
+Content-Type: application/json;charset=UTF-8
+Date: Thu, 02 Apr 2026 07:01:13 GMT
+Expires: Thu, 02 Apr 2026 07:01:13 GMT
+Pragma: no-cache
+Server: pve-api-daemon/3.0
+
+{"data":{"node":"pve","pid":35904,"starttime":1775113257,"id":"9000","pstart":1150940,"type":"qmclone","upid":"UPID:pve:00008C40:00118FDC:69CE1429:qmclone:9000:root@pam:","status":"running","user":"root@pam"}}
+2026/04/02 07:01:15 >>>>>>>>>> REQUEST:
+GET /api2/json/nodes/pve/tasks/UPID:pve:00008C40:00118FDC:69CE1429:qmclone:9000:root@pam:/status HTTP/1.1
+Host: 192.168.2.150:8006
+User-Agent: Go-http-client/1.1
+Accept: application/json
+Authorization: PVEAuthCookie=PVE:root@pam:69CE13D5::eKVvWUGVdLRgxkaMlMUPI+Vqjl5Rb6RLk4bqOaFyncDslHg3zhI/qUJmNqRrPDZA3pAaI9Vl+GfAIp1gkqvgwFk+fQ/7PmlXs2hh3x49Z7SqlmJtVn3KzsYy5HEODxKJDwW7Qh5m6ak+uoJ1PcRgu+RRCr8g1imF8HppmvZPolYbP2mX69D+EMLin/7JLpHeWidioP2Ynqs6T3eL9Myg02DhImVRxCPRvSH1OT8Jw16r4wb2AYUxlAKr7xfk/ZT7/tXJVSj2Oi4npEaXe7LnK0+8V2a9EbQyARMRKIQ6eFWq70UGn4oDHCLdGspX1Gg+0oPr5MO196Io+n9DTSLaNA==
+CSRFPreventionToken: 69CE13D5:BKF8hSOtlG6TT8roaVc5DcH6jejUC/9+KCsodFRcMpc
+Accept-Encoding: gzip
+
+2026/04/02 07:01:16 <<<<<<<<<< RESULT:
+HTTP/1.1 200 OK
+Connection: close
+Content-Length: 209
+Cache-Control: max-age=0
+Content-Type: application/json;charset=UTF-8
+Date: Thu, 02 Apr 2026 07:01:16 GMT
+Expires: Thu, 02 Apr 2026 07:01:16 GMT
+Pragma: no-cache
+Server: pve-api-daemon/3.0
+
+{"data":{"upid":"UPID:pve:00008C40:00118FDC:69CE1429:qmclone:9000:root@pam:","type":"qmclone","status":"running","user":"root@pam","pid":35904,"node":"pve","starttime":1775113257,"id":"9000","pstart":1150940}}
+2026/04/02 07:01:18 >>>>>>>>>> REQUEST:
+GET /api2/json/nodes/pve/tasks/UPID:pve:00008C40:00118FDC:69CE1429:qmclone:9000:root@pam:/status HTTP/1.1
+Host: 192.168.2.150:8006
+User-Agent: Go-http-client/1.1
+Accept: application/json
+Authorization: PVEAuthCookie=PVE:root@pam:69CE13D5::eKVvWUGVdLRgxkaMlMUPI+Vqjl5Rb6RLk4bqOaFyncDslHg3zhI/qUJmNqRrPDZA3pAaI9Vl+GfAIp1gkqvgwFk+fQ/7PmlXs2hh3x49Z7SqlmJtVn3KzsYy5HEODxKJDwW7Qh5m6ak+uoJ1PcRgu+RRCr8g1imF8HppmvZPolYbP2mX69D+EMLin/7JLpHeWidioP2Ynqs6T3eL9Myg02DhImVRxCPRvSH1OT8Jw16r4wb2AYUxlAKr7xfk/ZT7/tXJVSj2Oi4npEaXe7LnK0+8V2a9EbQyARMRKIQ6eFWq70UGn4oDHCLdGspX1Gg+0oPr5MO196Io+n9DTSLaNA==
+CSRFPreventionToken: 69CE13D5:BKF8hSOtlG6TT8roaVc5DcH6jejUC/9+KCsodFRcMpc
+Accept-Encoding: gzip
+
+2026/04/02 07:01:18 <<<<<<<<<< RESULT:
+HTTP/1.1 200 OK
+Connection: close
+Content-Length: 209
+Cache-Control: max-age=0
+Content-Type: application/json;charset=UTF-8
+Date: Thu, 02 Apr 2026 07:01:18 GMT
+Expires: Thu, 02 Apr 2026 07:01:18 GMT
+Pragma: no-cache
+Server: pve-api-daemon/3.0
+
+{"data":{"user":"root@pam","status":"running","type":"qmclone","upid":"UPID:pve:00008C40:00118FDC:69CE1429:qmclone:9000:root@pam:","pstart":1150940,"id":"9000","starttime":1775113257,"node":"pve","pid":35904}}
+2026/04/02 07:01:20 >>>>>>>>>> REQUEST:
+GET /api2/json/nodes/pve/tasks/UPID:pve:00008C40:00118FDC:69CE1429:qmclone:9000:root@pam:/status HTTP/1.1
+Host: 192.168.2.150:8006
+User-Agent: Go-http-client/1.1
+Accept: application/json
+Authorization: PVEAuthCookie=PVE:root@pam:69CE13D5::eKVvWUGVdLRgxkaMlMUPI+Vqjl5Rb6RLk4bqOaFyncDslHg3zhI/qUJmNqRrPDZA3pAaI9Vl+GfAIp1gkqvgwFk+fQ/7PmlXs2hh3x49Z7SqlmJtVn3KzsYy5HEODxKJDwW7Qh5m6ak+uoJ1PcRgu+RRCr8g1imF8HppmvZPolYbP2mX69D+EMLin/7JLpHeWidioP2Ynqs6T3eL9Myg02DhImVRxCPRvSH1OT8Jw16r4wb2AYUxlAKr7xfk/ZT7/tXJVSj2Oi4npEaXe7LnK0+8V2a9EbQyARMRKIQ6eFWq70UGn4oDHCLdGspX1Gg+0oPr5MO196Io+n9DTSLaNA==
+CSRFPreventionToken: 69CE13D5:BKF8hSOtlG6TT8roaVc5DcH6jejUC/9+KCsodFRcMpc
+Accept-Encoding: gzip
+
+2026/04/02 07:01:20 <<<<<<<<<< RESULT:
+HTTP/1.1 200 OK
+Connection: close
+Content-Length: 209
+Cache-Control: max-age=0
+Content-Type: application/json;charset=UTF-8
+Date: Thu, 02 Apr 2026 07:01:20 GMT
+Expires: Thu, 02 Apr 2026 07:01:20 GMT
+Pragma: no-cache
+Server: pve-api-daemon/3.0
+
+{"data":{"pid":35904,"node":"pve","id":"9000","starttime":1775113257,"pstart":1150940,"type":"qmclone","upid":"UPID:pve:00008C40:00118FDC:69CE1429:qmclone:9000:root@pam:","status":"running","user":"root@pam"}}
+2026/04/02 07:01:22 >>>>>>>>>> REQUEST:
+GET /api2/json/nodes/pve/tasks/UPID:pve:00008C40:00118FDC:69CE1429:qmclone:9000:root@pam:/status HTTP/1.1
+Host: 192.168.2.150:8006
+User-Agent: Go-http-client/1.1
+Accept: application/json
+Authorization: PVEAuthCookie=PVE:root@pam:69CE13D5::eKVvWUGVdLRgxkaMlMUPI+Vqjl5Rb6RLk4bqOaFyncDslHg3zhI/qUJmNqRrPDZA3pAaI9Vl+GfAIp1gkqvgwFk+fQ/7PmlXs2hh3x49Z7SqlmJtVn3KzsYy5HEODxKJDwW7Qh5m6ak+uoJ1PcRgu+RRCr8g1imF8HppmvZPolYbP2mX69D+EMLin/7JLpHeWidioP2Ynqs6T3eL9Myg02DhImVRxCPRvSH1OT8Jw16r4wb2AYUxlAKr7xfk/ZT7/tXJVSj2Oi4npEaXe7LnK0+8V2a9EbQyARMRKIQ6eFWq70UGn4oDHCLdGspX1Gg+0oPr5MO196Io+n9DTSLaNA==
+CSRFPreventionToken: 69CE13D5:BKF8hSOtlG6TT8roaVc5DcH6jejUC/9+KCsodFRcMpc
+Accept-Encoding: gzip
+
+2026/04/02 07:01:22 <<<<<<<<<< RESULT:
+HTTP/1.1 200 OK
+Connection: close
+Content-Length: 227
+Cache-Control: max-age=0
+Content-Type: application/json;charset=UTF-8
+Date: Thu, 02 Apr 2026 07:01:22 GMT
+Expires: Thu, 02 Apr 2026 07:01:22 GMT
+Pragma: no-cache
+Server: pve-api-daemon/3.0
+
+{"data":{"status":"stopped","user":"root@pam","exitstatus":"OK","upid":"UPID:pve:00008C40:00118FDC:69CE1429:qmclone:9000:root@pam:","type":"qmclone","pstart":1150940,"node":"pve","pid":35904,"starttime":1775113257,"id":"9000"}}
+2026/04/02 07:01:32 [DEBUG][QemuVmCreate] update VM after clone
+2026/04/02 07:01:32 >>>>>>>>>> REQUEST:
+GET /api2/json/nodes/pve/qemu/102/config HTTP/1.1
+Host: 192.168.2.150:8006
+User-Agent: Go-http-client/1.1
+Accept: application/json
+Authorization: PVEAuthCookie=PVE:root@pam:69CE13D5::eKVvWUGVdLRgxkaMlMUPI+Vqjl5Rb6RLk4bqOaFyncDslHg3zhI/qUJmNqRrPDZA3pAaI9Vl+GfAIp1gkqvgwFk+fQ/7PmlXs2hh3x49Z7SqlmJtVn3KzsYy5HEODxKJDwW7Qh5m6ak+uoJ1PcRgu+RRCr8g1imF8HppmvZPolYbP2mX69D+EMLin/7JLpHeWidioP2Ynqs6T3eL9Myg02DhImVRxCPRvSH1OT8Jw16r4wb2AYUxlAKr7xfk/ZT7/tXJVSj2Oi4npEaXe7LnK0+8V2a9EbQyARMRKIQ6eFWq70UGn4oDHCLdGspX1Gg+0oPr5MO196Io+n9DTSLaNA==
+CSRFPreventionToken: 69CE13D5:BKF8hSOtlG6TT8roaVc5DcH6jejUC/9+KCsodFRcMpc
+Accept-Encoding: gzip
+
+2026/04/02 07:01:32 <<<<<<<<<< RESULT:
+HTTP/1.1 200 OK
+Content-Length: 575
+Cache-Control: max-age=0
+Connection: Keep-Alive
+Content-Type: application/json;charset=UTF-8
+Date: Thu, 02 Apr 2026 07:01:32 GMT
+Expires: Thu, 02 Apr 2026 07:01:32 GMT
+Pragma: no-cache
+Server: pve-api-daemon/3.0
+
+{"data":{"cicustom":"user=local:snippets/custom-cloudinit.yaml","ipconfig0":"ip=dhcp","name":"VM-WORKER1","memory":"1024","bootdisk":"scsi0","scsihw":"virtio-scsi-pci","meta":"creation-qemu=9.2.0,ctime=1774872190","ide2":"local-lvm:vm-102-cloudinit,media=cdrom,size=4M","net0":"virtio=BC:24:11:FD:6A:1F,bridge=vmbr0","vga":"serial0","digest":"fdba7fb099e681944a09c3e397cce108fd351f4e","boot":"c","smbios1":"uuid=cbbde086-e5e2-41db-854c-4f0d17500151","vmgenid":"028d9a66-22ce-4aac-b4db-acda2763484b","serial0":"socket","scsi0":"local-lvm:vm-102-disk-0,size=2252M","onboot":1}}
+2026/04/02 07:01:32 >>>>>>>>>> REQUEST:
+GET /api2/json/cluster/resources?type=vm HTTP/1.1
+Host: 192.168.2.150:8006
+User-Agent: Go-http-client/1.1
+Accept: application/json
+Authorization: PVEAuthCookie=PVE:root@pam:69CE13D5::eKVvWUGVdLRgxkaMlMUPI+Vqjl5Rb6RLk4bqOaFyncDslHg3zhI/qUJmNqRrPDZA3pAaI9Vl+GfAIp1gkqvgwFk+fQ/7PmlXs2hh3x49Z7SqlmJtVn3KzsYy5HEODxKJDwW7Qh5m6ak+uoJ1PcRgu+RRCr8g1imF8HppmvZPolYbP2mX69D+EMLin/7JLpHeWidioP2Ynqs6T3eL9Myg02DhImVRxCPRvSH1OT8Jw16r4wb2AYUxlAKr7xfk/ZT7/tXJVSj2Oi4npEaXe7LnK0+8V2a9EbQyARMRKIQ6eFWq70UGn4oDHCLdGspX1Gg+0oPr5MO196Io+n9DTSLaNA==
+CSRFPreventionToken: 69CE13D5:BKF8hSOtlG6TT8roaVc5DcH6jejUC/9+KCsodFRcMpc
+Accept-Encoding: gzip
+
+2026/04/02 07:01:32 <<<<<<<<<< RESULT:
+HTTP/1.1 200 OK
+Content-Length: 1106
+Cache-Control: max-age=0
+Connection: Keep-Alive
+Content-Type: application/json;charset=UTF-8
+Date: Thu, 02 Apr 2026 07:01:32 GMT
+Expires: Thu, 02 Apr 2026 07:01:32 GMT
+Pragma: no-cache
+Server: pve-api-daemon/3.0
+
+{"data":[{"maxcpu":2,"cpu":0.172018479036411,"maxdisk":21474836480,"name":"VM-MASTER1","template":0,"mem":544321466,"uptime":72,"disk":0,"id":"qemu/100","netout":14516,"status":"running","tags":" ","vmid":100,"netin":18545,"node":"pve","maxmem":2147483648,"type":"qemu","diskwrite":125897216,"diskread":243082450},{"id":"qemu/101","netout":0,"vmid":101,"status":"running","tags":" ","maxmem":2147483648,"node":"pve","type":"qemu","diskwrite":4114944,"netin":70,"diskread":125170366,"cpu":0.233136792504935,"maxcpu":2,"maxdisk":21474836480,"name":"VM-WORKER2","template":0,"disk":0,"mem":345934773,"uptime":30},{"template":0,"mem":0,"uptime":0,"disk":0,"maxcpu":1,"cpu":0,"name":"VM-WORKER1","maxdisk":2361393152,"netin":0,"node":"pve","type":"qemu","maxmem":1073741824,"diskwrite":0,"diskread":0,"id":"qemu/102","netout":0,"status":"stopped","vmid":102},{"name":"ubuntu-template","maxdisk":2361393152,"cpu":0,"maxcpu":1,"disk":0,"uptime":0,"mem":0,"template":1,"vmid":9000,"status":"stopped","id":"qemu/9000","netout":0,"diskread":0,"diskwrite":0,"maxmem":1073741824,"node":"pve","type":"qemu","netin":0}]}
+2026/04/02 07:01:32 >>>>>>>>>> REQUEST:
+GET /api2/json/cluster/ha/resources/102 HTTP/1.1
+Host: 192.168.2.150:8006
+User-Agent: Go-http-client/1.1
+Accept: application/json
+Authorization: PVEAuthCookie=PVE:root@pam:69CE13D5::eKVvWUGVdLRgxkaMlMUPI+Vqjl5Rb6RLk4bqOaFyncDslHg3zhI/qUJmNqRrPDZA3pAaI9Vl+GfAIp1gkqvgwFk+fQ/7PmlXs2hh3x49Z7SqlmJtVn3KzsYy5HEODxKJDwW7Qh5m6ak+uoJ1PcRgu+RRCr8g1imF8HppmvZPolYbP2mX69D+EMLin/7JLpHeWidioP2Ynqs6T3eL9Myg02DhImVRxCPRvSH1OT8Jw16r4wb2AYUxlAKr7xfk/ZT7/tXJVSj2Oi4npEaXe7LnK0+8V2a9EbQyARMRKIQ6eFWq70UGn4oDHCLdGspX1Gg+0oPr5MO196Io+n9DTSLaNA==
+CSRFPreventionToken: 69CE13D5:BKF8hSOtlG6TT8roaVc5DcH6jejUC/9+KCsodFRcMpc
+Accept-Encoding: gzip
+
+2026/04/02 07:01:32 <<<<<<<<<< RESULT:
+HTTP/1.1 500 no such resource 'vm:102'
+Connection: close
+Content-Length: 53
+Cache-Control: max-age=0
+Content-Type: application/json;charset=UTF-8
+Date: Thu, 02 Apr 2026 07:01:32 GMT
+Expires: Thu, 02 Apr 2026 07:01:32 GMT
+Pragma: no-cache
+Server: pve-api-daemon/3.0
+
+{"message":"no such resource 'vm:102'\n","data":null}
+2026/04/02 07:01:32 >>>>>>>>>> REQUEST:
+PUT /api2/json/nodes/pve/qemu/102/resize HTTP/1.1
+Host: 192.168.2.150:8006
+User-Agent: Go-http-client/1.1
+Content-Length: 25
+Accept: application/json
+Authorization: PVEAuthCookie=PVE:root@pam:69CE13D5::eKVvWUGVdLRgxkaMlMUPI+Vqjl5Rb6RLk4bqOaFyncDslHg3zhI/qUJmNqRrPDZA3pAaI9Vl+GfAIp1gkqvgwFk+fQ/7PmlXs2hh3x49Z7SqlmJtVn3KzsYy5HEODxKJDwW7Qh5m6ak+uoJ1PcRgu+RRCr8g1imF8HppmvZPolYbP2mX69D+EMLin/7JLpHeWidioP2Ynqs6T3eL9Myg02DhImVRxCPRvSH1OT8Jw16r4wb2AYUxlAKr7xfk/ZT7/tXJVSj2Oi4npEaXe7LnK0+8V2a9EbQyARMRKIQ6eFWq70UGn4oDHCLdGspX1Gg+0oPr5MO196Io+n9DTSLaNA==
+CSRFPreventionToken: 69CE13D5:BKF8hSOtlG6TT8roaVc5DcH6jejUC/9+KCsodFRcMpc
+Content-Type: application/x-www-form-urlencoded
+Accept-Encoding: gzip
+
+disk=scsi0&size=20971520K
+2026/04/02 07:01:32 <<<<<<<<<< RESULT:
+HTTP/1.1 200 OK
+Connection: close
+Content-Length: 67
+Cache-Control: max-age=0
+Content-Type: application/json;charset=UTF-8
+Date: Thu, 02 Apr 2026 07:01:32 GMT
+Expires: Thu, 02 Apr 2026 07:01:32 GMT
+Pragma: no-cache
+Server: pve-api-daemon/3.0
+
+{"data":"UPID:pve:00008CE3:00119D9F:69CE144C:resize:102:root@pam:"}
+2026/04/02 07:01:32 >>>>>>>>>> REQUEST:
+GET /api2/json/nodes/pve/tasks/UPID:pve:00008CE3:00119D9F:69CE144C:resize:102:root@pam:/status HTTP/1.1
+Host: 192.168.2.150:8006
+User-Agent: Go-http-client/1.1
+Accept: application/json
+Authorization: PVEAuthCookie=PVE:root@pam:69CE13D5::eKVvWUGVdLRgxkaMlMUPI+Vqjl5Rb6RLk4bqOaFyncDslHg3zhI/qUJmNqRrPDZA3pAaI9Vl+GfAIp1gkqvgwFk+fQ/7PmlXs2hh3x49Z7SqlmJtVn3KzsYy5HEODxKJDwW7Qh5m6ak+uoJ1PcRgu+RRCr8g1imF8HppmvZPolYbP2mX69D+EMLin/7JLpHeWidioP2Ynqs6T3eL9Myg02DhImVRxCPRvSH1OT8Jw16r4wb2AYUxlAKr7xfk/ZT7/tXJVSj2Oi4npEaXe7LnK0+8V2a9EbQyARMRKIQ6eFWq70UGn4oDHCLdGspX1Gg+0oPr5MO196Io+n9DTSLaNA==
+CSRFPreventionToken: 69CE13D5:BKF8hSOtlG6TT8roaVc5DcH6jejUC/9+KCsodFRcMpc
+Accept-Encoding: gzip
+
+2026/04/02 07:01:32 <<<<<<<<<< RESULT:
+HTTP/1.1 200 OK
+Connection: close
+Content-Length: 205
+Cache-Control: max-age=0
+Content-Type: application/json;charset=UTF-8
+Date: Thu, 02 Apr 2026 07:01:32 GMT
+Expires: Thu, 02 Apr 2026 07:01:32 GMT
+Pragma: no-cache
+Server: pve-api-daemon/3.0
+
+{"data":{"pstart":1154463,"id":"102","starttime":1775113292,"node":"pve","pid":36067,"user":"root@pam","status":"running","upid":"UPID:pve:00008CE3:00119D9F:69CE144C:resize:102:root@pam:","type":"resize"}}
+2026/04/02 07:01:34 >>>>>>>>>> REQUEST:
+GET /api2/json/nodes/pve/tasks/UPID:pve:00008CE3:00119D9F:69CE144C:resize:102:root@pam:/status HTTP/1.1
+Host: 192.168.2.150:8006
+User-Agent: Go-http-client/1.1
+Accept: application/json
+Authorization: PVEAuthCookie=PVE:root@pam:69CE13D5::eKVvWUGVdLRgxkaMlMUPI+Vqjl5Rb6RLk4bqOaFyncDslHg3zhI/qUJmNqRrPDZA3pAaI9Vl+GfAIp1gkqvgwFk+fQ/7PmlXs2hh3x49Z7SqlmJtVn3KzsYy5HEODxKJDwW7Qh5m6ak+uoJ1PcRgu+RRCr8g1imF8HppmvZPolYbP2mX69D+EMLin/7JLpHeWidioP2Ynqs6T3eL9Myg02DhImVRxCPRvSH1OT8Jw16r4wb2AYUxlAKr7xfk/ZT7/tXJVSj2Oi4npEaXe7LnK0+8V2a9EbQyARMRKIQ6eFWq70UGn4oDHCLdGspX1Gg+0oPr5MO196Io+n9DTSLaNA==
+CSRFPreventionToken: 69CE13D5:BKF8hSOtlG6TT8roaVc5DcH6jejUC/9+KCsodFRcMpc
+Accept-Encoding: gzip
+
+2026/04/02 07:01:34 <<<<<<<<<< RESULT:
+HTTP/1.1 200 OK
+Connection: close
+Content-Length: 223
+Cache-Control: max-age=0
+Content-Type: application/json;charset=UTF-8
+Date: Thu, 02 Apr 2026 07:01:34 GMT
+Expires: Thu, 02 Apr 2026 07:01:34 GMT
+Pragma: no-cache
+Server: pve-api-daemon/3.0
+
+{"data":{"pid":36067,"node":"pve","starttime":1775113292,"id":"102","pstart":1154463,"type":"resize","upid":"UPID:pve:00008CE3:00119D9F:69CE144C:resize:102:root@pam:","exitstatus":"OK","status":"stopped","user":"root@pam"}}
+2026/04/02 07:01:34 >>>>>>>>>> REQUEST:
+PUT /api2/json/nodes/pve/qemu/102/config HTTP/1.1
+Host: 192.168.2.150:8006
+User-Agent: Go-http-client/1.1
+Content-Length: 476
+Accept: application/json
+Authorization: PVEAuthCookie=PVE:root@pam:69CE13D5::eKVvWUGVdLRgxkaMlMUPI+Vqjl5Rb6RLk4bqOaFyncDslHg3zhI/qUJmNqRrPDZA3pAaI9Vl+GfAIp1gkqvgwFk+fQ/7PmlXs2hh3x49Z7SqlmJtVn3KzsYy5HEODxKJDwW7Qh5m6ak+uoJ1PcRgu+RRCr8g1imF8HppmvZPolYbP2mX69D+EMLin/7JLpHeWidioP2Ynqs6T3eL9Myg02DhImVRxCPRvSH1OT8Jw16r4wb2AYUxlAKr7xfk/ZT7/tXJVSj2Oi4npEaXe7LnK0+8V2a9EbQyARMRKIQ6eFWq70UGn4oDHCLdGspX1Gg+0oPr5MO196Io+n9DTSLaNA==
+CSRFPreventionToken: 69CE13D5:BKF8hSOtlG6TT8roaVc5DcH6jejUC/9+KCsodFRcMpc
+Content-Type: application/x-www-form-urlencoded
+Accept-Encoding: gzip
+
+agent=0&balloon=0&bios=seabios&cicustom=user%3Dlocal%3Asnippets%2Fcustom-cloudinit.yaml&ciupgrade=0&cores=2&cpu=host&delete=onboot%2Ccpuunits%2Cciuser%2Ccipassword%2Csshkeys%2Cshares&description=Managed+by+Terraform.&hotplug=network%2Cdisk%2Cusb&ipconfig0=ip%3D10.10.0.101%2F24%2Cgw%3D10.10.0.1&kvm=1&memory=2048&net0=virtio%2Cbridge%3Dvmbr0&numa=0&protection=0&scsi0=local-lvm%3Avm-102-disk-0%2Creplicate%3D0&scsihw=virtio-scsi-pci&sockets=1&tablet=1&tags=&vga=type%3Dserial0
+2026/04/02 07:01:34 <<<<<<<<<< RESULT:
+HTTP/1.1 200 OK
+Connection: close
+Content-Length: 13
+Cache-Control: max-age=0
+Content-Type: application/json;charset=UTF-8
+Date: Thu, 02 Apr 2026 07:01:34 GMT
+Expires: Thu, 02 Apr 2026 07:01:34 GMT
+Pragma: no-cache
+Server: pve-api-daemon/3.0
+
+{"data":null}
+2026/04/02 07:01:34 >>>>>>>>>> REQUEST:
+GET /api2/json/nodes/pve/qemu/102/pending HTTP/1.1
+Host: 192.168.2.150:8006
+User-Agent: Go-http-client/1.1
+Accept: application/json
+Authorization: PVEAuthCookie=PVE:root@pam:69CE13D5::eKVvWUGVdLRgxkaMlMUPI+Vqjl5Rb6RLk4bqOaFyncDslHg3zhI/qUJmNqRrPDZA3pAaI9Vl+GfAIp1gkqvgwFk+fQ/7PmlXs2hh3x49Z7SqlmJtVn3KzsYy5HEODxKJDwW7Qh5m6ak+uoJ1PcRgu+RRCr8g1imF8HppmvZPolYbP2mX69D+EMLin/7JLpHeWidioP2Ynqs6T3eL9Myg02DhImVRxCPRvSH1OT8Jw16r4wb2AYUxlAKr7xfk/ZT7/tXJVSj2Oi4npEaXe7LnK0+8V2a9EbQyARMRKIQ6eFWq70UGn4oDHCLdGspX1Gg+0oPr5MO196Io+n9DTSLaNA==
+CSRFPreventionToken: 69CE13D5:BKF8hSOtlG6TT8roaVc5DcH6jejUC/9+KCsodFRcMpc
+Accept-Encoding: gzip
+
+2026/04/02 07:01:34 <<<<<<<<<< RESULT:
+HTTP/1.1 200 OK
+Content-Length: 1293
+Cache-Control: max-age=0
+Connection: Keep-Alive
+Content-Type: application/json;charset=UTF-8
+Date: Thu, 02 Apr 2026 07:01:34 GMT
+Expires: Thu, 02 Apr 2026 07:01:34 GMT
+Pragma: no-cache
+Server: pve-api-daemon/3.0
+
+{"data":[{"value":"host","key":"cpu"},{"key":"balloon","value":0},{"key":"ipconfig0","value":"ip=10.10.0.101/24,gw=10.10.0.1"},{"key":"bootdisk","value":"scsi0"},{"key":"meta","value":"creation-qemu=9.2.0,ctime=1774872190"},{"key":"sockets","value":1},{"value":"2048","key":"memory"},{"value":0,"key":"protection"},{"value":"c","key":"boot"},{"key":"tablet","value":1},{"key":"bios","value":"seabios"},{"value":"socket","key":"serial0"},{"key":"smbios1","value":"uuid=cbbde086-e5e2-41db-854c-4f0d17500151"},{"value":"028d9a66-22ce-4aac-b4db-acda2763484b","key":"vmgenid"},{"value":0,"key":"numa"},{"key":"description","value":"Managed by Terraform."},{"key":"cicustom","value":"user=local:snippets/custom-cloudinit.yaml"},{"key":"kvm","value":1},{"key":"name","value":"VM-WORKER1"},{"value":"virtio-scsi-pci","key":"scsihw"},{"value":"virtio=BC:24:11:CB:D3:F6,bridge=vmbr0","key":"net0"},{"value":"local-lvm:vm-102-cloudinit,media=cdrom,size=4M","key":"ide2"},{"value":"0","key":"agent"},{"key":"vga","value":"type=serial0"},{"key":"cores","value":2},{"value":"e225c75474c84f2a9d89cec77680aa4eb3c56c96","key":"digest"},{"key":"tags","value":" "},{"key":"scsi0","value":"local-lvm:vm-102-disk-0,replicate=0,size=20G"},{"key":"hotplug","value":"network,disk,usb"},{"value":0,"key":"ciupgrade"}]}
+[90mThu, 02 Apr 2026 07:01:34 +0000[0m DBG [1mgithub.com/Telmate/terraform-provider-proxmox/v2/proxmox/resource_vm_qemu.go:751[0m[36m >[0m Set this vm (resource Id) to 'pve/qemu/102' [36mloggerName=[0mresource_vm_create [36mvmid=[0m102
+2026/04/02 07:01:39 [DEBUG][QemuVmCreate] starting VM
+2026/04/02 07:01:39 >>>>>>>>>> REQUEST:
+POST /api2/json/nodes/pve/qemu/102/status/start HTTP/1.1
+Host: 192.168.2.150:8006
+User-Agent: Go-http-client/1.1
+Content-Length: 0
+Accept: application/json
+Authorization: PVEAuthCookie=PVE:root@pam:69CE13D5::eKVvWUGVdLRgxkaMlMUPI+Vqjl5Rb6RLk4bqOaFyncDslHg3zhI/qUJmNqRrPDZA3pAaI9Vl+GfAIp1gkqvgwFk+fQ/7PmlXs2hh3x49Z7SqlmJtVn3KzsYy5HEODxKJDwW7Qh5m6ak+uoJ1PcRgu+RRCr8g1imF8HppmvZPolYbP2mX69D+EMLin/7JLpHeWidioP2Ynqs6T3eL9Myg02DhImVRxCPRvSH1OT8Jw16r4wb2AYUxlAKr7xfk/ZT7/tXJVSj2Oi4npEaXe7LnK0+8V2a9EbQyARMRKIQ6eFWq70UGn4oDHCLdGspX1Gg+0oPr5MO196Io+n9DTSLaNA==
+CSRFPreventionToken: 69CE13D5:BKF8hSOtlG6TT8roaVc5DcH6jejUC/9+KCsodFRcMpc
+Content-Type: application/x-www-form-urlencoded
+Accept-Encoding: gzip
+
+2026/04/02 07:01:39 <<<<<<<<<< RESULT:
+HTTP/1.1 200 OK
+Connection: close
+Content-Length: 68
+Cache-Control: max-age=0
+Content-Type: application/json;charset=UTF-8
+Date: Thu, 02 Apr 2026 07:01:39 GMT
+Expires: Thu, 02 Apr 2026 07:01:39 GMT
+Pragma: no-cache
+Server: pve-api-daemon/3.0
+
+{"data":"UPID:pve:00008D1B:0011A080:69CE1453:qmstart:102:root@pam:"}
+2026/04/02 07:01:39 >>>>>>>>>> REQUEST:
+GET /api2/json/nodes/pve/tasks/UPID:pve:00008D1B:0011A080:69CE1453:qmstart:102:root@pam:/status HTTP/1.1
+Host: 192.168.2.150:8006
+User-Agent: Go-http-client/1.1
+Accept: application/json
+Authorization: PVEAuthCookie=PVE:root@pam:69CE13D5::eKVvWUGVdLRgxkaMlMUPI+Vqjl5Rb6RLk4bqOaFyncDslHg3zhI/qUJmNqRrPDZA3pAaI9Vl+GfAIp1gkqvgwFk+fQ/7PmlXs2hh3x49Z7SqlmJtVn3KzsYy5HEODxKJDwW7Qh5m6ak+uoJ1PcRgu+RRCr8g1imF8HppmvZPolYbP2mX69D+EMLin/7JLpHeWidioP2Ynqs6T3eL9Myg02DhImVRxCPRvSH1OT8Jw16r4wb2AYUxlAKr7xfk/ZT7/tXJVSj2Oi4npEaXe7LnK0+8V2a9EbQyARMRKIQ6eFWq70UGn4oDHCLdGspX1Gg+0oPr5MO196Io+n9DTSLaNA==
+CSRFPreventionToken: 69CE13D5:BKF8hSOtlG6TT8roaVc5DcH6jejUC/9+KCsodFRcMpc
+Accept-Encoding: gzip
+
+2026/04/02 07:01:39 <<<<<<<<<< RESULT:
+HTTP/1.1 200 OK
+Connection: close
+Content-Length: 207
+Cache-Control: max-age=0
+Content-Type: application/json;charset=UTF-8
+Date: Thu, 02 Apr 2026 07:01:39 GMT
+Expires: Thu, 02 Apr 2026 07:01:39 GMT
+Pragma: no-cache
+Server: pve-api-daemon/3.0
+
+{"data":{"status":"running","user":"root@pam","upid":"UPID:pve:00008D1B:0011A080:69CE1453:qmstart:102:root@pam:","type":"qmstart","pstart":1155200,"node":"pve","pid":36123,"starttime":1775113299,"id":"102"}}
+2026/04/02 07:01:41 >>>>>>>>>> REQUEST:
+GET /api2/json/nodes/pve/tasks/UPID:pve:00008D1B:0011A080:69CE1453:qmstart:102:root@pam:/status HTTP/1.1
+Host: 192.168.2.150:8006
+User-Agent: Go-http-client/1.1
+Accept: application/json
+Authorization: PVEAuthCookie=PVE:root@pam:69CE13D5::eKVvWUGVdLRgxkaMlMUPI+Vqjl5Rb6RLk4bqOaFyncDslHg3zhI/qUJmNqRrPDZA3pAaI9Vl+GfAIp1gkqvgwFk+fQ/7PmlXs2hh3x49Z7SqlmJtVn3KzsYy5HEODxKJDwW7Qh5m6ak+uoJ1PcRgu+RRCr8g1imF8HppmvZPolYbP2mX69D+EMLin/7JLpHeWidioP2Ynqs6T3eL9Myg02DhImVRxCPRvSH1OT8Jw16r4wb2AYUxlAKr7xfk/ZT7/tXJVSj2Oi4npEaXe7LnK0+8V2a9EbQyARMRKIQ6eFWq70UGn4oDHCLdGspX1Gg+0oPr5MO196Io+n9DTSLaNA==
+CSRFPreventionToken: 69CE13D5:BKF8hSOtlG6TT8roaVc5DcH6jejUC/9+KCsodFRcMpc
+Accept-Encoding: gzip
+
+2026/04/02 07:01:41 <<<<<<<<<< RESULT:
+HTTP/1.1 200 OK
+Connection: close
+Content-Length: 225
+Cache-Control: max-age=0
+Content-Type: application/json;charset=UTF-8
+Date: Thu, 02 Apr 2026 07:01:41 GMT
+Expires: Thu, 02 Apr 2026 07:01:41 GMT
+Pragma: no-cache
+Server: pve-api-daemon/3.0
+
+{"data":{"status":"stopped","user":"root@pam","exitstatus":"OK","upid":"UPID:pve:00008D1B:0011A080:69CE1453:qmstart:102:root@pam:","type":"qmstart","pstart":1155200,"node":"pve","pid":36123,"starttime":1775113299,"id":"102"}}
+2026/04/02 07:01:41 [DEBUG][QemuVmCreate] vm creation done!
+[90mThu, 02 Apr 2026 07:01:41 +0000[0m [32mINF[0m [1mgithub.com/Telmate/terraform-provider-proxmox/v2/proxmox/resource_vm_qemu.go:986[0m[36m >[0m [1mReading configuration for vmid[0m [36mloggerName=[0mresource_vm_read [36mvmid=[0m102
+2026/04/02 07:01:41 >>>>>>>>>> REQUEST:
+GET /api2/json/nodes/pve/qemu/102/pending HTTP/1.1
+Host: 192.168.2.150:8006
+User-Agent: Go-http-client/1.1
+Accept: application/json
+Authorization: PVEAuthCookie=PVE:root@pam:69CE13D5::eKVvWUGVdLRgxkaMlMUPI+Vqjl5Rb6RLk4bqOaFyncDslHg3zhI/qUJmNqRrPDZA3pAaI9Vl+GfAIp1gkqvgwFk+fQ/7PmlXs2hh3x49Z7SqlmJtVn3KzsYy5HEODxKJDwW7Qh5m6ak+uoJ1PcRgu+RRCr8g1imF8HppmvZPolYbP2mX69D+EMLin/7JLpHeWidioP2Ynqs6T3eL9Myg02DhImVRxCPRvSH1OT8Jw16r4wb2AYUxlAKr7xfk/ZT7/tXJVSj2Oi4npEaXe7LnK0+8V2a9EbQyARMRKIQ6eFWq70UGn4oDHCLdGspX1Gg+0oPr5MO196Io+n9DTSLaNA==
+CSRFPreventionToken: 69CE13D5:BKF8hSOtlG6TT8roaVc5DcH6jejUC/9+KCsodFRcMpc
+Accept-Encoding: gzip
+
+2026/04/02 07:01:41 <<<<<<<<<< RESULT:
+HTTP/1.1 200 OK
+Content-Length: 1293
+Cache-Control: max-age=0
+Connection: Keep-Alive
+Content-Type: application/json;charset=UTF-8
+Date: Thu, 02 Apr 2026 07:01:41 GMT
+Expires: Thu, 02 Apr 2026 07:01:41 GMT
+Pragma: no-cache
+Server: pve-api-daemon/3.0
+
+{"data":[{"key":"ipconfig0","value":"ip=10.10.0.101/24,gw=10.10.0.1"},{"key":"cpu","value":"host"},{"key":"balloon","value":0},{"key":"bootdisk","value":"scsi0"},{"value":"creation-qemu=9.2.0,ctime=1774872190","key":"meta"},{"value":1,"key":"sockets"},{"key":"protection","value":0},{"value":"2048","key":"memory"},{"key":"serial0","value":"socket"},{"key":"bios","value":"seabios"},{"key":"smbios1","value":"uuid=cbbde086-e5e2-41db-854c-4f0d17500151"},{"key":"vmgenid","value":"028d9a66-22ce-4aac-b4db-acda2763484b"},{"value":"c","key":"boot"},{"key":"tablet","value":1},{"value":0,"key":"numa"},{"key":"description","value":"Managed by Terraform."},{"value":1,"key":"kvm"},{"key":"name","value":"VM-WORKER1"},{"value":"user=local:snippets/custom-cloudinit.yaml","key":"cicustom"},{"value":"virtio=BC:24:11:CB:D3:F6,bridge=vmbr0","key":"net0"},{"key":"ide2","value":"local-lvm:vm-102-cloudinit,media=cdrom,size=4M"},{"key":"agent","value":"0"},{"value":"virtio-scsi-pci","key":"scsihw"},{"key":"tags","value":" "},{"value":"type=serial0","key":"vga"},{"key":"cores","value":2},{"value":"e225c75474c84f2a9d89cec77680aa4eb3c56c96","key":"digest"},{"value":"network,disk,usb","key":"hotplug"},{"value":0,"key":"ciupgrade"},{"key":"scsi0","value":"local-lvm:vm-102-disk-0,replicate=0,size=20G"}]}
+2026/04/02 07:01:41 >>>>>>>>>> REQUEST:
+GET /api2/json/nodes/pve/qemu/102/status/current HTTP/1.1
+Host: 192.168.2.150:8006
+User-Agent: Go-http-client/1.1
+Accept: application/json
+Authorization: PVEAuthCookie=PVE:root@pam:69CE13D5::eKVvWUGVdLRgxkaMlMUPI+Vqjl5Rb6RLk4bqOaFyncDslHg3zhI/qUJmNqRrPDZA3pAaI9Vl+GfAIp1gkqvgwFk+fQ/7PmlXs2hh3x49Z7SqlmJtVn3KzsYy5HEODxKJDwW7Qh5m6ak+uoJ1PcRgu+RRCr8g1imF8HppmvZPolYbP2mX69D+EMLin/7JLpHeWidioP2Ynqs6T3eL9Myg02DhImVRxCPRvSH1OT8Jw16r4wb2AYUxlAKr7xfk/ZT7/tXJVSj2Oi4npEaXe7LnK0+8V2a9EbQyARMRKIQ6eFWq70UGn4oDHCLdGspX1Gg+0oPr5MO196Io+n9DTSLaNA==
+CSRFPreventionToken: 69CE13D5:BKF8hSOtlG6TT8roaVc5DcH6jejUC/9+KCsodFRcMpc
+Accept-Encoding: gzip
+
+2026/04/02 07:01:41 <<<<<<<<<< RESULT:
+HTTP/1.1 200 OK
+Connection: close
+Content-Length: 2191
+Cache-Control: max-age=0
+Content-Type: application/json;charset=UTF-8
+Date: Thu, 02 Apr 2026 07:01:41 GMT
+Expires: Thu, 02 Apr 2026 07:01:41 GMT
+Pragma: no-cache
+Server: pve-api-daemon/3.0
+
+{"data":{"qmpstatus":"running","disk":0,"serial":1,"maxmem":2147483648,"proxmox-support":{"backup-max-workers":true,"pbs-masterkey":true,"backup-access-api":true,"pbs-dirty-bitmap-migration":true,"backup-fleecing":true,"query-bitmap-info":true,"pbs-dirty-bitmap":true,"pbs-dirty-bitmap-savevm":true,"pbs-library-version":"1.5.1 (UNKNOWN)"},"clipboard":null,"cpus":2,"vmid":102,"netin":0,"uptime":1,"nics":{"tap102i0":{"netin":0,"netout":0}},"running-qemu":"9.2.0","running-machine":"pc-i440fx-9.2+pve1","pid":36144,"blockstat":{"scsi0":{"flush_total_time_ns":0,"failed_flush_operations":0,"rd_operations":0,"zone_append_merged":0,"invalid_rd_operations":0,"zone_append_bytes":0,"unmap_total_time_ns":0,"wr_bytes":0,"rd_merged":0,"wr_total_time_ns":0,"failed_unmap_operations":0,"invalid_zone_append_operations":0,"wr_highest_offset":0,"invalid_wr_operations":0,"unmap_merged":0,"zone_append_operations":0,"failed_zone_append_operations":0,"unmap_operations":0,"zone_append_total_time_ns":0,"invalid_flush_operations":0,"failed_rd_operations":0,"flush_operations":0,"wr_merged":0,"account_failed":true,"rd_total_time_ns":0,"rd_bytes":0,"invalid_unmap_operations":0,"unmap_bytes":0,"failed_wr_operations":0,"wr_operations":0,"account_invalid":true,"timed_stats":[]},"ide2":{"zone_append_total_time_ns":0,"invalid_flush_operations":0,"unmap_operations":0,"failed_rd_operations":0,"idle_time_ns":1161327621,"flush_operations":0,"rd_total_time_ns":5706430,"account_failed":true,"wr_merged":0,"failed_wr_operations":0,"rd_bytes":2048,"unmap_bytes":0,"invalid_unmap_operations":0,"timed_stats":[],"wr_operations":0,"account_invalid":true,"failed_flush_operations":0,"rd_operations":1,"zone_append_merged":0,"flush_total_time_ns":0,"zone_append_bytes":0,"unmap_total_time_ns":0,"wr_bytes":0,"invalid_rd_operations":0,"unmap_merged":0,"invalid_wr_operations":0,"rd_merged":0,"wr_total_time_ns":0,"failed_unmap_operations":0,"invalid_zone_append_operations":0,"wr_highest_offset":0,"failed_zone_append_operations":0,"zone_append_operations":0}},"diskread":2048,"netout":0,"status":"running","mem":29308337,"tags":" ","ha":{"managed":0},"maxdisk":21474836480,"name":"VM-WORKER1","diskwrite":0,"cpu":0}}
+2026/04/02 07:01:41 [DEBUG] Getting VM staterunning
+2026/04/02 07:01:41 [DEBUG] VM is running, checking the IP
+2026/04/02 07:01:41 [INFO][initConnInfo] trying to get vm ip address for provisioner
+[90mThu, 02 Apr 2026 07:01:41 +0000[0m [32mINF[0m [1mgithub.com/Telmate/terraform-provider-proxmox/v2/proxmox/resource_vm_qemu.go:1340[0m[36m >[0m [1mtrying to get vm ip address for provisioner[0m [36mloggerName=[0minitConnInfo [36mvmid=[0m102
+2026/04/02 07:01:41 [INFO][getPrimaryIP] vm has a cloud-init configuration
+[90mThu, 02 Apr 2026 07:01:41 +0000[0m DBG [1mgithub.com/Telmate/terraform-provider-proxmox/v2/proxmox/resource_vm_qemu.go:1401[0m[36m >[0m  vm has a cloud-init configuration [36mloggerName=[0mgetPrimaryIP [36mvmid=[0m102
+2026/04/02 07:01:41 [DEBUG][initConnInfo] this is the vm configuration: 10.10.0.101 22
+[90mThu, 02 Apr 2026 07:01:41 +0000[0m DBG [1mgithub.com/Telmate/terraform-provider-proxmox/v2/proxmox/resource_vm_qemu.go:1366[0m[36m >[0m this is the vm configuration: 10.10.0.101 22 [36mloggerName=[0minitConnInfo [36mvmid=[0m102
+[90mThu, 02 Apr 2026 07:01:41 +0000[0m DBG [1mgithub.com/Telmate/terraform-provider-proxmox/v2/proxmox/resource_vm_qemu.go:1028[0m[36m >[0m [READ] Received Config from Proxmox API: {"id":102,"node":"pve","agent":{"enable":false},"bios":"seabios","boot":"c","bootdisk":"scsi0","cpu":{"cores":2,"numa":false,"sockets":1,"type":"host"},"cloudinit":{"cicustom":{"user":{"path":"snippets/custom-cloudinit.yaml","storage":"local"}},"ipconfig":{"0":{"ip4":{"address":"10.10.0.101/24","gateway":"10.10.0.1"}}},"ciupgrade":false},"description":"Managed by Terraform.","disks":{"ide":{"2":{"cloudinit":{"format":"raw","storage":"local-lvm"}}},"scsi":{"0":{"disk":{"bandwidth":{"mbps":{"read":{},"write":{}},"iops":{"read":{},"write":{}}},"format":"raw","id":0,"linked":null,"size":20971520,"storage":"local-lvm","wwn":"","backup":true,"discard":false,"emulatessd":false,"iothread":false,"readonly":false,"replicate":false}}}},"hotplug":"network,disk,usb","memory":{"capacity":2048,"balloon":0},"name":"VM-WORKER1","networks":{"0":{"bridge":"vmbr0","connected":true,"firewall":false,"mac":"vCQRy9P2","model":"virtio","tagged_vlans":[]}},"protection":false,"kvm":true,"ostype":"other","vga":{"type":"serial0"},"scsihw":"virtio-scsi-pci","serials":{"0":{"socket":true}},"smbios1":"uuid=cbbde086-e5e2-41db-854c-4f0d17500151","start_at_node_boot":false,"tablet":true,"tags":[" "]} [36mloggerName=[0mresource_vm_read [36mvmid=[0m102
+[90mThu, 02 Apr 2026 07:01:41 +0000[0m DBG [1mgithub.com/Telmate/terraform-provider-proxmox/v2/proxmox/resource_vm_qemu.go:1087[0m[36m >[0m key 'force_create' is set to false [36mloggerName=[0mresource_vm_read [36mvmid=[0m102
+[90mThu, 02 Apr 2026 07:01:41 +0000[0m DBG [1mgithub.com/Telmate/terraform-provider-proxmox/v2/proxmox/resource_vm_qemu.go:1087[0m[36m >[0m key 'define_connection_info' is set to true [36mloggerName=[0mresource_vm_read [36mvmid=[0m102
+[90mThu, 02 Apr 2026 07:01:41 +0000[0m DBG [1mgithub.com/Telmate/terraform-provider-proxmox/v2/proxmox/resource_vm_qemu.go:1097[0m[36m >[0m Unused Disk Block Processed 'map[]' [36mloggerName=[0mresource_vm_read [36mvmid=[0m102
+2026/04/02 07:01:41 [ERROR] setting state: Invalid address to set: []string{"features"}
+[90mThu, 02 Apr 2026 07:01:41 +0000[0m DBG [1mgithub.com/Telmate/terraform-provider-proxmox/v2/proxmox/resource_vm_qemu.go:1113[0m[36m >[0m Finished VM read resulting in data: '' [36mloggerName=[0mresource_vm_read [36mvmid=[0m102
+2026/04/02 07:01:42 [DEBUG] setting computed for "unused_disk" from ComputedKeys
+2026/04/02 07:01:42 [DEBUG] setting computed for "smbios" from ComputedKeys
+[90mThu, 02 Apr 2026 07:01:42 +0000[0m [32mINF[0m [1mgithub.com/Telmate/terraform-provider-proxmox/v2/proxmox/resource_vm_qemu.go:534[0m[36m >[0m [1mVM creation[0m [36mloggerName=[0mresource_vm_create [36mvmid=[0m
+[90mThu, 02 Apr 2026 07:01:42 +0000[0m DBG [1mgithub.com/Telmate/terraform-provider-proxmox/v2/proxmox/resource_vm_qemu.go:535[0m[36m >[0m VM creation resource data: '' [36mloggerName=[0mresource_vm_create [36mvmid=[0m
+2026/04/02 07:01:42 >>>>>>>>>> REQUEST:
+GET /api2/json/cluster/resources?type=vm HTTP/1.1
+Host: 192.168.2.150:8006
+User-Agent: Go-http-client/1.1
+Accept: application/json
+Authorization: PVEAuthCookie=PVE:root@pam:69CE13D5::eKVvWUGVdLRgxkaMlMUPI+Vqjl5Rb6RLk4bqOaFyncDslHg3zhI/qUJmNqRrPDZA3pAaI9Vl+GfAIp1gkqvgwFk+fQ/7PmlXs2hh3x49Z7SqlmJtVn3KzsYy5HEODxKJDwW7Qh5m6ak+uoJ1PcRgu+RRCr8g1imF8HppmvZPolYbP2mX69D+EMLin/7JLpHeWidioP2Ynqs6T3eL9Myg02DhImVRxCPRvSH1OT8Jw16r4wb2AYUxlAKr7xfk/ZT7/tXJVSj2Oi4npEaXe7LnK0+8V2a9EbQyARMRKIQ6eFWq70UGn4oDHCLdGspX1Gg+0oPr5MO196Io+n9DTSLaNA==
+CSRFPreventionToken: 69CE13D5:BKF8hSOtlG6TT8roaVc5DcH6jejUC/9+KCsodFRcMpc
+Accept-Encoding: gzip
+
+2026/04/02 07:01:42 <<<<<<<<<< RESULT:
+HTTP/1.1 200 OK
+Content-Length: 1122
+Cache-Control: max-age=0
+Connection: Keep-Alive
+Content-Type: application/json;charset=UTF-8
+Date: Thu, 02 Apr 2026 07:01:42 GMT
+Expires: Thu, 02 Apr 2026 07:01:42 GMT
+Pragma: no-cache
+Server: pve-api-daemon/3.0
+
+{"data":[{"maxcpu":2,"cpu":0.0445565868006483,"name":"VM-MASTER1","maxdisk":21474836480,"template":0,"mem":562742163,"uptime":82,"disk":0,"id":"qemu/100","netout":18874,"status":"running","tags":" ","vmid":100,"netin":34047,"type":"qemu","maxmem":2147483648,"node":"pve","diskwrite":231782912,"diskread":252429522},{"diskread":147890898,"node":"pve","type":"qemu","maxmem":2147483648,"diskwrite":7682560,"netin":140,"vmid":101,"status":"running","tags":" ","id":"qemu/101","netout":586,"disk":0,"mem":394434704,"uptime":40,"template":0,"name":"VM-WORKER2","maxdisk":21474836480,"cpu":0.121788003921772,"maxcpu":2},{"name":"VM-WORKER1","maxdisk":21474836480,"cpu":0,"maxcpu":2,"disk":0,"mem":0,"uptime":0,"template":0,"vmid":102,"status":"stopped","tags":" ","netout":0,"id":"qemu/102","diskread":0,"node":"pve","type":"qemu","maxmem":2147483648,"diskwrite":0,"netin":0},{"type":"qemu","node":"pve","maxmem":1073741824,"diskwrite":0,"netin":0,"diskread":0,"netout":0,"id":"qemu/9000","vmid":9000,"status":"stopped","template":1,"disk":0,"mem":0,"uptime":0,"cpu":0,"maxcpu":1,"maxdisk":2361393152,"name":"ubuntu-template"}]}
+2026/04/02 07:01:42 [DEBUG][QemuVmCreate] cloning VM
+[90mThu, 02 Apr 2026 07:01:42 +0000[0m DBG [1mgithub.com/Telmate/terraform-provider-proxmox/v2/proxmox/resource_vm_qemu.go:672[0m[36m >[0m Cloning VM [36mloggerName=[0mresource_vm_create [36mvmid=[0m
+2026/04/02 07:01:42 >>>>>>>>>> REQUEST:
+GET /api2/json/cluster/nextid HTTP/1.1
+Host: 192.168.2.150:8006
+User-Agent: Go-http-client/1.1
+Accept: application/json
+Authorization: PVEAuthCookie=PVE:root@pam:69CE13D5::eKVvWUGVdLRgxkaMlMUPI+Vqjl5Rb6RLk4bqOaFyncDslHg3zhI/qUJmNqRrPDZA3pAaI9Vl+GfAIp1gkqvgwFk+fQ/7PmlXs2hh3x49Z7SqlmJtVn3KzsYy5HEODxKJDwW7Qh5m6ak+uoJ1PcRgu+RRCr8g1imF8HppmvZPolYbP2mX69D+EMLin/7JLpHeWidioP2Ynqs6T3eL9Myg02DhImVRxCPRvSH1OT8Jw16r4wb2AYUxlAKr7xfk/ZT7/tXJVSj2Oi4npEaXe7LnK0+8V2a9EbQyARMRKIQ6eFWq70UGn4oDHCLdGspX1Gg+0oPr5MO196Io+n9DTSLaNA==
+CSRFPreventionToken: 69CE13D5:BKF8hSOtlG6TT8roaVc5DcH6jejUC/9+KCsodFRcMpc
+Accept-Encoding: gzip
+
+2026/04/02 07:01:42 <<<<<<<<<< RESULT:
+HTTP/1.1 200 OK
+Content-Length: 14
+Cache-Control: max-age=0
+Connection: Keep-Alive
+Content-Type: application/json;charset=UTF-8
+Date: Thu, 02 Apr 2026 07:01:42 GMT
+Expires: Thu, 02 Apr 2026 07:01:42 GMT
+Pragma: no-cache
+Server: pve-api-daemon/3.0
+
+{"data":"103"}
+2026/04/02 07:01:42 >>>>>>>>>> REQUEST:
+POST /api2/json/nodes/pve/qemu/9000/clone HTTP/1.1
+Host: 192.168.2.150:8006
+User-Agent: Go-http-client/1.1
+Content-Length: 43
+Accept: application/json
+Authorization: PVEAuthCookie=PVE:root@pam:69CE13D5::eKVvWUGVdLRgxkaMlMUPI+Vqjl5Rb6RLk4bqOaFyncDslHg3zhI/qUJmNqRrPDZA3pAaI9Vl+GfAIp1gkqvgwFk+fQ/7PmlXs2hh3x49Z7SqlmJtVn3KzsYy5HEODxKJDwW7Qh5m6ak+uoJ1PcRgu+RRCr8g1imF8HppmvZPolYbP2mX69D+EMLin/7JLpHeWidioP2Ynqs6T3eL9Myg02DhImVRxCPRvSH1OT8Jw16r4wb2AYUxlAKr7xfk/ZT7/tXJVSj2Oi4npEaXe7LnK0+8V2a9EbQyARMRKIQ6eFWq70UGn4oDHCLdGspX1Gg+0oPr5MO196Io+n9DTSLaNA==
+CSRFPreventionToken: 69CE13D5:BKF8hSOtlG6TT8roaVc5DcH6jejUC/9+KCsodFRcMpc
+Content-Type: application/x-www-form-urlencoded
+Accept-Encoding: gzip
+
+full=1&name=VM-WORKER3&newid=103&target=pve
+2026/04/02 07:01:42 <<<<<<<<<< RESULT:
+HTTP/1.1 200 OK
+Connection: close
+Content-Length: 69
+Cache-Control: max-age=0
+Content-Type: application/json;charset=UTF-8
+Date: Thu, 02 Apr 2026 07:01:42 GMT
+Expires: Thu, 02 Apr 2026 07:01:42 GMT
+Pragma: no-cache
+Server: pve-api-daemon/3.0
+
+{"data":"UPID:pve:00008D6B:0011A164:69CE1456:qmclone:9000:root@pam:"}
+2026/04/02 07:01:42 >>>>>>>>>> REQUEST:
+GET /api2/json/nodes/pve/tasks/UPID:pve:00008D6B:0011A164:69CE1456:qmclone:9000:root@pam:/status HTTP/1.1
+Host: 192.168.2.150:8006
+User-Agent: Go-http-client/1.1
+Accept: application/json
+Authorization: PVEAuthCookie=PVE:root@pam:69CE13D5::eKVvWUGVdLRgxkaMlMUPI+Vqjl5Rb6RLk4bqOaFyncDslHg3zhI/qUJmNqRrPDZA3pAaI9Vl+GfAIp1gkqvgwFk+fQ/7PmlXs2hh3x49Z7SqlmJtVn3KzsYy5HEODxKJDwW7Qh5m6ak+uoJ1PcRgu+RRCr8g1imF8HppmvZPolYbP2mX69D+EMLin/7JLpHeWidioP2Ynqs6T3eL9Myg02DhImVRxCPRvSH1OT8Jw16r4wb2AYUxlAKr7xfk/ZT7/tXJVSj2Oi4npEaXe7LnK0+8V2a9EbQyARMRKIQ6eFWq70UGn4oDHCLdGspX1Gg+0oPr5MO196Io+n9DTSLaNA==
+CSRFPreventionToken: 69CE13D5:BKF8hSOtlG6TT8roaVc5DcH6jejUC/9+KCsodFRcMpc
+Accept-Encoding: gzip
+
+2026/04/02 07:01:42 <<<<<<<<<< RESULT:
+HTTP/1.1 200 OK
+Connection: close
+Content-Length: 209
+Cache-Control: max-age=0
+Content-Type: application/json;charset=UTF-8
+Date: Thu, 02 Apr 2026 07:01:42 GMT
+Expires: Thu, 02 Apr 2026 07:01:42 GMT
+Pragma: no-cache
+Server: pve-api-daemon/3.0
+
+{"data":{"pstart":1155428,"id":"9000","starttime":1775113302,"node":"pve","pid":36203,"user":"root@pam","status":"running","type":"qmclone","upid":"UPID:pve:00008D6B:0011A164:69CE1456:qmclone:9000:root@pam:"}}
+2026/04/02 07:01:44 >>>>>>>>>> REQUEST:
+GET /api2/json/nodes/pve/tasks/UPID:pve:00008D6B:0011A164:69CE1456:qmclone:9000:root@pam:/status HTTP/1.1
+Host: 192.168.2.150:8006
+User-Agent: Go-http-client/1.1
+Accept: application/json
+Authorization: PVEAuthCookie=PVE:root@pam:69CE13D5::eKVvWUGVdLRgxkaMlMUPI+Vqjl5Rb6RLk4bqOaFyncDslHg3zhI/qUJmNqRrPDZA3pAaI9Vl+GfAIp1gkqvgwFk+fQ/7PmlXs2hh3x49Z7SqlmJtVn3KzsYy5HEODxKJDwW7Qh5m6ak+uoJ1PcRgu+RRCr8g1imF8HppmvZPolYbP2mX69D+EMLin/7JLpHeWidioP2Ynqs6T3eL9Myg02DhImVRxCPRvSH1OT8Jw16r4wb2AYUxlAKr7xfk/ZT7/tXJVSj2Oi4npEaXe7LnK0+8V2a9EbQyARMRKIQ6eFWq70UGn4oDHCLdGspX1Gg+0oPr5MO196Io+n9DTSLaNA==
+CSRFPreventionToken: 69CE13D5:BKF8hSOtlG6TT8roaVc5DcH6jejUC/9+KCsodFRcMpc
+Accept-Encoding: gzip
+
+2026/04/02 07:01:44 <<<<<<<<<< RESULT:
+HTTP/1.1 200 OK
+Connection: close
+Content-Length: 209
+Cache-Control: max-age=0
+Content-Type: application/json;charset=UTF-8
+Date: Thu, 02 Apr 2026 07:01:44 GMT
+Expires: Thu, 02 Apr 2026 07:01:44 GMT
+Pragma: no-cache
+Server: pve-api-daemon/3.0
+
+{"data":{"pstart":1155428,"starttime":1775113302,"id":"9000","pid":36203,"node":"pve","user":"root@pam","status":"running","type":"qmclone","upid":"UPID:pve:00008D6B:0011A164:69CE1456:qmclone:9000:root@pam:"}}
+2026/04/02 07:01:46 >>>>>>>>>> REQUEST:
+GET /api2/json/nodes/pve/tasks/UPID:pve:00008D6B:0011A164:69CE1456:qmclone:9000:root@pam:/status HTTP/1.1
+Host: 192.168.2.150:8006
+User-Agent: Go-http-client/1.1
+Accept: application/json
+Authorization: PVEAuthCookie=PVE:root@pam:69CE13D5::eKVvWUGVdLRgxkaMlMUPI+Vqjl5Rb6RLk4bqOaFyncDslHg3zhI/qUJmNqRrPDZA3pAaI9Vl+GfAIp1gkqvgwFk+fQ/7PmlXs2hh3x49Z7SqlmJtVn3KzsYy5HEODxKJDwW7Qh5m6ak+uoJ1PcRgu+RRCr8g1imF8HppmvZPolYbP2mX69D+EMLin/7JLpHeWidioP2Ynqs6T3eL9Myg02DhImVRxCPRvSH1OT8Jw16r4wb2AYUxlAKr7xfk/ZT7/tXJVSj2Oi4npEaXe7LnK0+8V2a9EbQyARMRKIQ6eFWq70UGn4oDHCLdGspX1Gg+0oPr5MO196Io+n9DTSLaNA==
+CSRFPreventionToken: 69CE13D5:BKF8hSOtlG6TT8roaVc5DcH6jejUC/9+KCsodFRcMpc
+Accept-Encoding: gzip
+
+2026/04/02 07:01:46 <<<<<<<<<< RESULT:
+HTTP/1.1 200 OK
+Connection: close
+Content-Length: 209
+Cache-Control: max-age=0
+Content-Type: application/json;charset=UTF-8
+Date: Thu, 02 Apr 2026 07:01:46 GMT
+Expires: Thu, 02 Apr 2026 07:01:46 GMT
+Pragma: no-cache
+Server: pve-api-daemon/3.0
+
+{"data":{"pstart":1155428,"id":"9000","starttime":1775113302,"node":"pve","pid":36203,"type":"qmclone","upid":"UPID:pve:00008D6B:0011A164:69CE1456:qmclone:9000:root@pam:","user":"root@pam","status":"running"}}
+2026/04/02 07:01:48 >>>>>>>>>> REQUEST:
+GET /api2/json/nodes/pve/tasks/UPID:pve:00008D6B:0011A164:69CE1456:qmclone:9000:root@pam:/status HTTP/1.1
+Host: 192.168.2.150:8006
+User-Agent: Go-http-client/1.1
+Accept: application/json
+Authorization: PVEAuthCookie=PVE:root@pam:69CE13D5::eKVvWUGVdLRgxkaMlMUPI+Vqjl5Rb6RLk4bqOaFyncDslHg3zhI/qUJmNqRrPDZA3pAaI9Vl+GfAIp1gkqvgwFk+fQ/7PmlXs2hh3x49Z7SqlmJtVn3KzsYy5HEODxKJDwW7Qh5m6ak+uoJ1PcRgu+RRCr8g1imF8HppmvZPolYbP2mX69D+EMLin/7JLpHeWidioP2Ynqs6T3eL9Myg02DhImVRxCPRvSH1OT8Jw16r4wb2AYUxlAKr7xfk/ZT7/tXJVSj2Oi4npEaXe7LnK0+8V2a9EbQyARMRKIQ6eFWq70UGn4oDHCLdGspX1Gg+0oPr5MO196Io+n9DTSLaNA==
+CSRFPreventionToken: 69CE13D5:BKF8hSOtlG6TT8roaVc5DcH6jejUC/9+KCsodFRcMpc
+Accept-Encoding: gzip
+
+2026/04/02 07:01:48 <<<<<<<<<< RESULT:
+HTTP/1.1 200 OK
+Connection: close
+Content-Length: 209
+Cache-Control: max-age=0
+Content-Type: application/json;charset=UTF-8
+Date: Thu, 02 Apr 2026 07:01:48 GMT
+Expires: Thu, 02 Apr 2026 07:01:48 GMT
+Pragma: no-cache
+Server: pve-api-daemon/3.0
+
+{"data":{"node":"pve","pid":36203,"id":"9000","starttime":1775113302,"pstart":1155428,"type":"qmclone","upid":"UPID:pve:00008D6B:0011A164:69CE1456:qmclone:9000:root@pam:","status":"running","user":"root@pam"}}
+2026/04/02 07:01:50 >>>>>>>>>> REQUEST:
+GET /api2/json/nodes/pve/tasks/UPID:pve:00008D6B:0011A164:69CE1456:qmclone:9000:root@pam:/status HTTP/1.1
+Host: 192.168.2.150:8006
+User-Agent: Go-http-client/1.1
+Accept: application/json
+Authorization: PVEAuthCookie=PVE:root@pam:69CE13D5::eKVvWUGVdLRgxkaMlMUPI+Vqjl5Rb6RLk4bqOaFyncDslHg3zhI/qUJmNqRrPDZA3pAaI9Vl+GfAIp1gkqvgwFk+fQ/7PmlXs2hh3x49Z7SqlmJtVn3KzsYy5HEODxKJDwW7Qh5m6ak+uoJ1PcRgu+RRCr8g1imF8HppmvZPolYbP2mX69D+EMLin/7JLpHeWidioP2Ynqs6T3eL9Myg02DhImVRxCPRvSH1OT8Jw16r4wb2AYUxlAKr7xfk/ZT7/tXJVSj2Oi4npEaXe7LnK0+8V2a9EbQyARMRKIQ6eFWq70UGn4oDHCLdGspX1Gg+0oPr5MO196Io+n9DTSLaNA==
+CSRFPreventionToken: 69CE13D5:BKF8hSOtlG6TT8roaVc5DcH6jejUC/9+KCsodFRcMpc
+Accept-Encoding: gzip
+
+2026/04/02 07:01:50 <<<<<<<<<< RESULT:
+HTTP/1.1 200 OK
+Connection: close
+Content-Length: 209
+Cache-Control: max-age=0
+Content-Type: application/json;charset=UTF-8
+Date: Thu, 02 Apr 2026 07:01:50 GMT
+Expires: Thu, 02 Apr 2026 07:01:50 GMT
+Pragma: no-cache
+Server: pve-api-daemon/3.0
+
+{"data":{"pstart":1155428,"id":"9000","starttime":1775113302,"pid":36203,"node":"pve","type":"qmclone","upid":"UPID:pve:00008D6B:0011A164:69CE1456:qmclone:9000:root@pam:","user":"root@pam","status":"running"}}
+2026/04/02 07:01:52 >>>>>>>>>> REQUEST:
+GET /api2/json/nodes/pve/tasks/UPID:pve:00008D6B:0011A164:69CE1456:qmclone:9000:root@pam:/status HTTP/1.1
+Host: 192.168.2.150:8006
+User-Agent: Go-http-client/1.1
+Accept: application/json
+Authorization: PVEAuthCookie=PVE:root@pam:69CE13D5::eKVvWUGVdLRgxkaMlMUPI+Vqjl5Rb6RLk4bqOaFyncDslHg3zhI/qUJmNqRrPDZA3pAaI9Vl+GfAIp1gkqvgwFk+fQ/7PmlXs2hh3x49Z7SqlmJtVn3KzsYy5HEODxKJDwW7Qh5m6ak+uoJ1PcRgu+RRCr8g1imF8HppmvZPolYbP2mX69D+EMLin/7JLpHeWidioP2Ynqs6T3eL9Myg02DhImVRxCPRvSH1OT8Jw16r4wb2AYUxlAKr7xfk/ZT7/tXJVSj2Oi4npEaXe7LnK0+8V2a9EbQyARMRKIQ6eFWq70UGn4oDHCLdGspX1Gg+0oPr5MO196Io+n9DTSLaNA==
+CSRFPreventionToken: 69CE13D5:BKF8hSOtlG6TT8roaVc5DcH6jejUC/9+KCsodFRcMpc
+Accept-Encoding: gzip
+
+2026/04/02 07:01:52 <<<<<<<<<< RESULT:
+HTTP/1.1 200 OK
+Connection: close
+Content-Length: 209
+Cache-Control: max-age=0
+Content-Type: application/json;charset=UTF-8
+Date: Thu, 02 Apr 2026 07:01:52 GMT
+Expires: Thu, 02 Apr 2026 07:01:52 GMT
+Pragma: no-cache
+Server: pve-api-daemon/3.0
+
+{"data":{"pstart":1155428,"id":"9000","starttime":1775113302,"pid":36203,"node":"pve","user":"root@pam","status":"running","type":"qmclone","upid":"UPID:pve:00008D6B:0011A164:69CE1456:qmclone:9000:root@pam:"}}
+2026/04/02 07:01:54 >>>>>>>>>> REQUEST:
+GET /api2/json/nodes/pve/tasks/UPID:pve:00008D6B:0011A164:69CE1456:qmclone:9000:root@pam:/status HTTP/1.1
+Host: 192.168.2.150:8006
+User-Agent: Go-http-client/1.1
+Accept: application/json
+Authorization: PVEAuthCookie=PVE:root@pam:69CE13D5::eKVvWUGVdLRgxkaMlMUPI+Vqjl5Rb6RLk4bqOaFyncDslHg3zhI/qUJmNqRrPDZA3pAaI9Vl+GfAIp1gkqvgwFk+fQ/7PmlXs2hh3x49Z7SqlmJtVn3KzsYy5HEODxKJDwW7Qh5m6ak+uoJ1PcRgu+RRCr8g1imF8HppmvZPolYbP2mX69D+EMLin/7JLpHeWidioP2Ynqs6T3eL9Myg02DhImVRxCPRvSH1OT8Jw16r4wb2AYUxlAKr7xfk/ZT7/tXJVSj2Oi4npEaXe7LnK0+8V2a9EbQyARMRKIQ6eFWq70UGn4oDHCLdGspX1Gg+0oPr5MO196Io+n9DTSLaNA==
+CSRFPreventionToken: 69CE13D5:BKF8hSOtlG6TT8roaVc5DcH6jejUC/9+KCsodFRcMpc
+Accept-Encoding: gzip
+
+2026/04/02 07:01:54 <<<<<<<<<< RESULT:
+HTTP/1.1 200 OK
+Connection: close
+Content-Length: 209
+Cache-Control: max-age=0
+Content-Type: application/json;charset=UTF-8
+Date: Thu, 02 Apr 2026 07:01:54 GMT
+Expires: Thu, 02 Apr 2026 07:01:54 GMT
+Pragma: no-cache
+Server: pve-api-daemon/3.0
+
+{"data":{"user":"root@pam","status":"running","type":"qmclone","upid":"UPID:pve:00008D6B:0011A164:69CE1456:qmclone:9000:root@pam:","starttime":1775113302,"id":"9000","node":"pve","pid":36203,"pstart":1155428}}
+2026/04/02 07:01:56 >>>>>>>>>> REQUEST:
+GET /api2/json/nodes/pve/tasks/UPID:pve:00008D6B:0011A164:69CE1456:qmclone:9000:root@pam:/status HTTP/1.1
+Host: 192.168.2.150:8006
+User-Agent: Go-http-client/1.1
+Accept: application/json
+Authorization: PVEAuthCookie=PVE:root@pam:69CE13D5::eKVvWUGVdLRgxkaMlMUPI+Vqjl5Rb6RLk4bqOaFyncDslHg3zhI/qUJmNqRrPDZA3pAaI9Vl+GfAIp1gkqvgwFk+fQ/7PmlXs2hh3x49Z7SqlmJtVn3KzsYy5HEODxKJDwW7Qh5m6ak+uoJ1PcRgu+RRCr8g1imF8HppmvZPolYbP2mX69D+EMLin/7JLpHeWidioP2Ynqs6T3eL9Myg02DhImVRxCPRvSH1OT8Jw16r4wb2AYUxlAKr7xfk/ZT7/tXJVSj2Oi4npEaXe7LnK0+8V2a9EbQyARMRKIQ6eFWq70UGn4oDHCLdGspX1Gg+0oPr5MO196Io+n9DTSLaNA==
+CSRFPreventionToken: 69CE13D5:BKF8hSOtlG6TT8roaVc5DcH6jejUC/9+KCsodFRcMpc
+Accept-Encoding: gzip
+
+2026/04/02 07:01:56 <<<<<<<<<< RESULT:
+HTTP/1.1 200 OK
+Connection: close
+Content-Length: 209
+Cache-Control: max-age=0
+Content-Type: application/json;charset=UTF-8
+Date: Thu, 02 Apr 2026 07:01:56 GMT
+Expires: Thu, 02 Apr 2026 07:01:56 GMT
+Pragma: no-cache
+Server: pve-api-daemon/3.0
+
+{"data":{"pstart":1155428,"starttime":1775113302,"id":"9000","pid":36203,"node":"pve","upid":"UPID:pve:00008D6B:0011A164:69CE1456:qmclone:9000:root@pam:","type":"qmclone","user":"root@pam","status":"running"}}
+2026/04/02 07:01:58 >>>>>>>>>> REQUEST:
+GET /api2/json/nodes/pve/tasks/UPID:pve:00008D6B:0011A164:69CE1456:qmclone:9000:root@pam:/status HTTP/1.1
+Host: 192.168.2.150:8006
+User-Agent: Go-http-client/1.1
+Accept: application/json
+Authorization: PVEAuthCookie=PVE:root@pam:69CE13D5::eKVvWUGVdLRgxkaMlMUPI+Vqjl5Rb6RLk4bqOaFyncDslHg3zhI/qUJmNqRrPDZA3pAaI9Vl+GfAIp1gkqvgwFk+fQ/7PmlXs2hh3x49Z7SqlmJtVn3KzsYy5HEODxKJDwW7Qh5m6ak+uoJ1PcRgu+RRCr8g1imF8HppmvZPolYbP2mX69D+EMLin/7JLpHeWidioP2Ynqs6T3eL9Myg02DhImVRxCPRvSH1OT8Jw16r4wb2AYUxlAKr7xfk/ZT7/tXJVSj2Oi4npEaXe7LnK0+8V2a9EbQyARMRKIQ6eFWq70UGn4oDHCLdGspX1Gg+0oPr5MO196Io+n9DTSLaNA==
+CSRFPreventionToken: 69CE13D5:BKF8hSOtlG6TT8roaVc5DcH6jejUC/9+KCsodFRcMpc
+Accept-Encoding: gzip
+
+2026/04/02 07:01:58 <<<<<<<<<< RESULT:
+HTTP/1.1 200 OK
+Connection: close
+Content-Length: 209
+Cache-Control: max-age=0
+Content-Type: application/json;charset=UTF-8
+Date: Thu, 02 Apr 2026 07:01:58 GMT
+Expires: Thu, 02 Apr 2026 07:01:58 GMT
+Pragma: no-cache
+Server: pve-api-daemon/3.0
+
+{"data":{"starttime":1775113302,"id":"9000","pid":36203,"node":"pve","pstart":1155428,"user":"root@pam","status":"running","upid":"UPID:pve:00008D6B:0011A164:69CE1456:qmclone:9000:root@pam:","type":"qmclone"}}
+2026/04/02 07:02:00 >>>>>>>>>> REQUEST:
+GET /api2/json/nodes/pve/tasks/UPID:pve:00008D6B:0011A164:69CE1456:qmclone:9000:root@pam:/status HTTP/1.1
+Host: 192.168.2.150:8006
+User-Agent: Go-http-client/1.1
+Accept: application/json
+Authorization: PVEAuthCookie=PVE:root@pam:69CE13D5::eKVvWUGVdLRgxkaMlMUPI+Vqjl5Rb6RLk4bqOaFyncDslHg3zhI/qUJmNqRrPDZA3pAaI9Vl+GfAIp1gkqvgwFk+fQ/7PmlXs2hh3x49Z7SqlmJtVn3KzsYy5HEODxKJDwW7Qh5m6ak+uoJ1PcRgu+RRCr8g1imF8HppmvZPolYbP2mX69D+EMLin/7JLpHeWidioP2Ynqs6T3eL9Myg02DhImVRxCPRvSH1OT8Jw16r4wb2AYUxlAKr7xfk/ZT7/tXJVSj2Oi4npEaXe7LnK0+8V2a9EbQyARMRKIQ6eFWq70UGn4oDHCLdGspX1Gg+0oPr5MO196Io+n9DTSLaNA==
+CSRFPreventionToken: 69CE13D5:BKF8hSOtlG6TT8roaVc5DcH6jejUC/9+KCsodFRcMpc
+Accept-Encoding: gzip
+
+2026/04/02 07:02:00 <<<<<<<<<< RESULT:
+HTTP/1.1 200 OK
+Connection: close
+Content-Length: 209
+Cache-Control: max-age=0
+Content-Type: application/json;charset=UTF-8
+Date: Thu, 02 Apr 2026 07:02:00 GMT
+Expires: Thu, 02 Apr 2026 07:02:00 GMT
+Pragma: no-cache
+Server: pve-api-daemon/3.0
+
+{"data":{"upid":"UPID:pve:00008D6B:0011A164:69CE1456:qmclone:9000:root@pam:","type":"qmclone","user":"root@pam","status":"running","id":"9000","starttime":1775113302,"pid":36203,"node":"pve","pstart":1155428}}
+2026/04/02 07:02:02 >>>>>>>>>> REQUEST:
+GET /api2/json/nodes/pve/tasks/UPID:pve:00008D6B:0011A164:69CE1456:qmclone:9000:root@pam:/status HTTP/1.1
+Host: 192.168.2.150:8006
+User-Agent: Go-http-client/1.1
+Accept: application/json
+Authorization: PVEAuthCookie=PVE:root@pam:69CE13D5::eKVvWUGVdLRgxkaMlMUPI+Vqjl5Rb6RLk4bqOaFyncDslHg3zhI/qUJmNqRrPDZA3pAaI9Vl+GfAIp1gkqvgwFk+fQ/7PmlXs2hh3x49Z7SqlmJtVn3KzsYy5HEODxKJDwW7Qh5m6ak+uoJ1PcRgu+RRCr8g1imF8HppmvZPolYbP2mX69D+EMLin/7JLpHeWidioP2Ynqs6T3eL9Myg02DhImVRxCPRvSH1OT8Jw16r4wb2AYUxlAKr7xfk/ZT7/tXJVSj2Oi4npEaXe7LnK0+8V2a9EbQyARMRKIQ6eFWq70UGn4oDHCLdGspX1Gg+0oPr5MO196Io+n9DTSLaNA==
+CSRFPreventionToken: 69CE13D5:BKF8hSOtlG6TT8roaVc5DcH6jejUC/9+KCsodFRcMpc
+Accept-Encoding: gzip
+
+2026/04/02 07:02:02 <<<<<<<<<< RESULT:
+HTTP/1.1 200 OK
+Connection: close
+Content-Length: 209
+Cache-Control: max-age=0
+Content-Type: application/json;charset=UTF-8
+Date: Thu, 02 Apr 2026 07:02:02 GMT
+Expires: Thu, 02 Apr 2026 07:02:02 GMT
+Pragma: no-cache
+Server: pve-api-daemon/3.0
+
+{"data":{"starttime":1775113302,"id":"9000","pid":36203,"node":"pve","pstart":1155428,"user":"root@pam","status":"running","type":"qmclone","upid":"UPID:pve:00008D6B:0011A164:69CE1456:qmclone:9000:root@pam:"}}
+2026/04/02 07:02:04 >>>>>>>>>> REQUEST:
+GET /api2/json/nodes/pve/tasks/UPID:pve:00008D6B:0011A164:69CE1456:qmclone:9000:root@pam:/status HTTP/1.1
+Host: 192.168.2.150:8006
+User-Agent: Go-http-client/1.1
+Accept: application/json
+Authorization: PVEAuthCookie=PVE:root@pam:69CE13D5::eKVvWUGVdLRgxkaMlMUPI+Vqjl5Rb6RLk4bqOaFyncDslHg3zhI/qUJmNqRrPDZA3pAaI9Vl+GfAIp1gkqvgwFk+fQ/7PmlXs2hh3x49Z7SqlmJtVn3KzsYy5HEODxKJDwW7Qh5m6ak+uoJ1PcRgu+RRCr8g1imF8HppmvZPolYbP2mX69D+EMLin/7JLpHeWidioP2Ynqs6T3eL9Myg02DhImVRxCPRvSH1OT8Jw16r4wb2AYUxlAKr7xfk/ZT7/tXJVSj2Oi4npEaXe7LnK0+8V2a9EbQyARMRKIQ6eFWq70UGn4oDHCLdGspX1Gg+0oPr5MO196Io+n9DTSLaNA==
+CSRFPreventionToken: 69CE13D5:BKF8hSOtlG6TT8roaVc5DcH6jejUC/9+KCsodFRcMpc
+Accept-Encoding: gzip
+
+2026/04/02 07:02:04 <<<<<<<<<< RESULT:
+HTTP/1.1 200 OK
+Connection: close
+Content-Length: 209
+Cache-Control: max-age=0
+Content-Type: application/json;charset=UTF-8
+Date: Thu, 02 Apr 2026 07:02:04 GMT
+Expires: Thu, 02 Apr 2026 07:02:04 GMT
+Pragma: no-cache
+Server: pve-api-daemon/3.0
+
+{"data":{"pstart":1155428,"node":"pve","pid":36203,"id":"9000","starttime":1775113302,"status":"running","user":"root@pam","upid":"UPID:pve:00008D6B:0011A164:69CE1456:qmclone:9000:root@pam:","type":"qmclone"}}
+2026/04/02 07:02:06 >>>>>>>>>> REQUEST:
+GET /api2/json/nodes/pve/tasks/UPID:pve:00008D6B:0011A164:69CE1456:qmclone:9000:root@pam:/status HTTP/1.1
+Host: 192.168.2.150:8006
+User-Agent: Go-http-client/1.1
+Accept: application/json
+Authorization: PVEAuthCookie=PVE:root@pam:69CE13D5::eKVvWUGVdLRgxkaMlMUPI+Vqjl5Rb6RLk4bqOaFyncDslHg3zhI/qUJmNqRrPDZA3pAaI9Vl+GfAIp1gkqvgwFk+fQ/7PmlXs2hh3x49Z7SqlmJtVn3KzsYy5HEODxKJDwW7Qh5m6ak+uoJ1PcRgu+RRCr8g1imF8HppmvZPolYbP2mX69D+EMLin/7JLpHeWidioP2Ynqs6T3eL9Myg02DhImVRxCPRvSH1OT8Jw16r4wb2AYUxlAKr7xfk/ZT7/tXJVSj2Oi4npEaXe7LnK0+8V2a9EbQyARMRKIQ6eFWq70UGn4oDHCLdGspX1Gg+0oPr5MO196Io+n9DTSLaNA==
+CSRFPreventionToken: 69CE13D5:BKF8hSOtlG6TT8roaVc5DcH6jejUC/9+KCsodFRcMpc
+Accept-Encoding: gzip
+
+2026/04/02 07:02:07 <<<<<<<<<< RESULT:
+HTTP/1.1 200 OK
+Connection: close
+Content-Length: 227
+Cache-Control: max-age=0
+Content-Type: application/json;charset=UTF-8
+Date: Thu, 02 Apr 2026 07:02:07 GMT
+Expires: Thu, 02 Apr 2026 07:02:07 GMT
+Pragma: no-cache
+Server: pve-api-daemon/3.0
+
+{"data":{"starttime":1775113302,"id":"9000","pid":36203,"node":"pve","pstart":1155428,"exitstatus":"OK","user":"root@pam","status":"stopped","upid":"UPID:pve:00008D6B:0011A164:69CE1456:qmclone:9000:root@pam:","type":"qmclone"}}
+2026/04/02 07:02:17 [DEBUG][QemuVmCreate] update VM after clone
+2026/04/02 07:02:17 >>>>>>>>>> REQUEST:
+GET /api2/json/nodes/pve/qemu/103/config HTTP/1.1
+Host: 192.168.2.150:8006
+User-Agent: Go-http-client/1.1
+Accept: application/json
+Authorization: PVEAuthCookie=PVE:root@pam:69CE13D5::eKVvWUGVdLRgxkaMlMUPI+Vqjl5Rb6RLk4bqOaFyncDslHg3zhI/qUJmNqRrPDZA3pAaI9Vl+GfAIp1gkqvgwFk+fQ/7PmlXs2hh3x49Z7SqlmJtVn3KzsYy5HEODxKJDwW7Qh5m6ak+uoJ1PcRgu+RRCr8g1imF8HppmvZPolYbP2mX69D+EMLin/7JLpHeWidioP2Ynqs6T3eL9Myg02DhImVRxCPRvSH1OT8Jw16r4wb2AYUxlAKr7xfk/ZT7/tXJVSj2Oi4npEaXe7LnK0+8V2a9EbQyARMRKIQ6eFWq70UGn4oDHCLdGspX1Gg+0oPr5MO196Io+n9DTSLaNA==
+CSRFPreventionToken: 69CE13D5:BKF8hSOtlG6TT8roaVc5DcH6jejUC/9+KCsodFRcMpc
+Accept-Encoding: gzip
+
+2026/04/02 07:02:17 <<<<<<<<<< RESULT:
+HTTP/1.1 200 OK
+Content-Length: 575
+Cache-Control: max-age=0
+Connection: Keep-Alive
+Content-Type: application/json;charset=UTF-8
+Date: Thu, 02 Apr 2026 07:02:17 GMT
+Expires: Thu, 02 Apr 2026 07:02:17 GMT
+Pragma: no-cache
+Server: pve-api-daemon/3.0
+
+{"data":{"ipconfig0":"ip=dhcp","name":"VM-WORKER3","cicustom":"user=local:snippets/custom-cloudinit.yaml","net0":"virtio=BC:24:11:C8:31:40,bridge=vmbr0","ide2":"local-lvm:vm-103-cloudinit,media=cdrom,size=4M","scsihw":"virtio-scsi-pci","bootdisk":"scsi0","meta":"creation-qemu=9.2.0,ctime=1774872190","memory":"1024","serial0":"socket","smbios1":"uuid=1cc5209b-dee6-454b-9768-78864db08f99","vmgenid":"d6c2d1a8-22ea-4aee-bb3b-2080a7339efc","boot":"c","vga":"serial0","digest":"d3e317cf25c039a0631b631e81e74d459af92d18","onboot":1,"scsi0":"local-lvm:vm-103-disk-0,size=2252M"}}
+2026/04/02 07:02:17 >>>>>>>>>> REQUEST:
+GET /api2/json/cluster/resources?type=vm HTTP/1.1
+Host: 192.168.2.150:8006
+User-Agent: Go-http-client/1.1
+Accept: application/json
+Authorization: PVEAuthCookie=PVE:root@pam:69CE13D5::eKVvWUGVdLRgxkaMlMUPI+Vqjl5Rb6RLk4bqOaFyncDslHg3zhI/qUJmNqRrPDZA3pAaI9Vl+GfAIp1gkqvgwFk+fQ/7PmlXs2hh3x49Z7SqlmJtVn3KzsYy5HEODxKJDwW7Qh5m6ak+uoJ1PcRgu+RRCr8g1imF8HppmvZPolYbP2mX69D+EMLin/7JLpHeWidioP2Ynqs6T3eL9Myg02DhImVRxCPRvSH1OT8Jw16r4wb2AYUxlAKr7xfk/ZT7/tXJVSj2Oi4npEaXe7LnK0+8V2a9EbQyARMRKIQ6eFWq70UGn4oDHCLdGspX1Gg+0oPr5MO196Io+n9DTSLaNA==
+CSRFPreventionToken: 69CE13D5:BKF8hSOtlG6TT8roaVc5DcH6jejUC/9+KCsodFRcMpc
+Accept-Encoding: gzip
+
+2026/04/02 07:02:17 <<<<<<<<<< RESULT:
+HTTP/1.1 200 OK
+Content-Length: 1416
+Cache-Control: max-age=0
+Connection: Keep-Alive
+Content-Type: application/json;charset=UTF-8
+Date: Thu, 02 Apr 2026 07:02:17 GMT
+Expires: Thu, 02 Apr 2026 07:02:17 GMT
+Pragma: no-cache
+Server: pve-api-daemon/3.0
+
+{"data":[{"netin":34745,"diskwrite":537917952,"type":"qemu","node":"pve","maxmem":2147483648,"diskread":252429522,"id":"qemu/100","netout":18944,"tags":" ","status":"running","vmid":100,"template":0,"uptime":122,"mem":562742163,"disk":0,"maxcpu":2,"cpu":0.00194961072433154,"maxdisk":21474836480,"name":"VM-MASTER1"},{"cpu":0.331433823136363,"maxcpu":2,"name":"VM-WORKER2","maxdisk":21474836480,"template":0,"disk":0,"uptime":80,"mem":563030332,"id":"qemu/101","netout":15419,"vmid":101,"tags":" ","status":"running","diskwrite":78207488,"type":"qemu","maxmem":2147483648,"node":"pve","netin":28372,"diskread":253248722},{"template":0,"disk":0,"uptime":35,"mem":394156302,"cpu":0.306576286401135,"maxcpu":2,"name":"VM-WORKER1","maxdisk":21474836480,"diskwrite":5609984,"node":"pve","type":"qemu","maxmem":2147483648,"netin":140,"diskread":147428050,"netout":516,"id":"qemu/102","vmid":102,"tags":" ","status":"running"},{"maxdisk":2361393152,"name":"VM-WORKER3","maxcpu":1,"cpu":0,"uptime":0,"mem":0,"disk":0,"template":0,"status":"stopped","vmid":103,"netout":0,"id":"qemu/103","diskread":0,"netin":0,"diskwrite":0,"type":"qemu","node":"pve","maxmem":1073741824},{"diskwrite":0,"type":"qemu","node":"pve","maxmem":1073741824,"netin":0,"diskread":0,"netout":0,"id":"qemu/9000","vmid":9000,"status":"stopped","template":1,"disk":0,"uptime":0,"mem":0,"cpu":0,"maxcpu":1,"maxdisk":2361393152,"name":"ubuntu-template"}]}
+2026/04/02 07:02:17 >>>>>>>>>> REQUEST:
+GET /api2/json/cluster/ha/resources/103 HTTP/1.1
+Host: 192.168.2.150:8006
+User-Agent: Go-http-client/1.1
+Accept: application/json
+Authorization: PVEAuthCookie=PVE:root@pam:69CE13D5::eKVvWUGVdLRgxkaMlMUPI+Vqjl5Rb6RLk4bqOaFyncDslHg3zhI/qUJmNqRrPDZA3pAaI9Vl+GfAIp1gkqvgwFk+fQ/7PmlXs2hh3x49Z7SqlmJtVn3KzsYy5HEODxKJDwW7Qh5m6ak+uoJ1PcRgu+RRCr8g1imF8HppmvZPolYbP2mX69D+EMLin/7JLpHeWidioP2Ynqs6T3eL9Myg02DhImVRxCPRvSH1OT8Jw16r4wb2AYUxlAKr7xfk/ZT7/tXJVSj2Oi4npEaXe7LnK0+8V2a9EbQyARMRKIQ6eFWq70UGn4oDHCLdGspX1Gg+0oPr5MO196Io+n9DTSLaNA==
+CSRFPreventionToken: 69CE13D5:BKF8hSOtlG6TT8roaVc5DcH6jejUC/9+KCsodFRcMpc
+Accept-Encoding: gzip
+
+2026/04/02 07:02:17 <<<<<<<<<< RESULT:
+HTTP/1.1 500 no such resource 'vm:103'
+Connection: close
+Content-Length: 53
+Cache-Control: max-age=0
+Content-Type: application/json;charset=UTF-8
+Date: Thu, 02 Apr 2026 07:02:17 GMT
+Expires: Thu, 02 Apr 2026 07:02:17 GMT
+Pragma: no-cache
+Server: pve-api-daemon/3.0
+
+{"message":"no such resource 'vm:103'\n","data":null}
+2026/04/02 07:02:17 >>>>>>>>>> REQUEST:
+PUT /api2/json/nodes/pve/qemu/103/resize HTTP/1.1
+Host: 192.168.2.150:8006
+User-Agent: Go-http-client/1.1
+Content-Length: 25
+Accept: application/json
+Authorization: PVEAuthCookie=PVE:root@pam:69CE13D5::eKVvWUGVdLRgxkaMlMUPI+Vqjl5Rb6RLk4bqOaFyncDslHg3zhI/qUJmNqRrPDZA3pAaI9Vl+GfAIp1gkqvgwFk+fQ/7PmlXs2hh3x49Z7SqlmJtVn3KzsYy5HEODxKJDwW7Qh5m6ak+uoJ1PcRgu+RRCr8g1imF8HppmvZPolYbP2mX69D+EMLin/7JLpHeWidioP2Ynqs6T3eL9Myg02DhImVRxCPRvSH1OT8Jw16r4wb2AYUxlAKr7xfk/ZT7/tXJVSj2Oi4npEaXe7LnK0+8V2a9EbQyARMRKIQ6eFWq70UGn4oDHCLdGspX1Gg+0oPr5MO196Io+n9DTSLaNA==
+CSRFPreventionToken: 69CE13D5:BKF8hSOtlG6TT8roaVc5DcH6jejUC/9+KCsodFRcMpc
+Content-Type: application/x-www-form-urlencoded
+Accept-Encoding: gzip
+
+disk=scsi0&size=20971520K
+2026/04/02 07:02:17 <<<<<<<<<< RESULT:
+HTTP/1.1 200 OK
+Connection: close
+Content-Length: 67
+Cache-Control: max-age=0
+Content-Type: application/json;charset=UTF-8
+Date: Thu, 02 Apr 2026 07:02:17 GMT
+Expires: Thu, 02 Apr 2026 07:02:17 GMT
+Pragma: no-cache
+Server: pve-api-daemon/3.0
+
+{"data":"UPID:pve:00008E1E:0011AF05:69CE1479:resize:103:root@pam:"}
+2026/04/02 07:02:17 >>>>>>>>>> REQUEST:
+GET /api2/json/nodes/pve/tasks/UPID:pve:00008E1E:0011AF05:69CE1479:resize:103:root@pam:/status HTTP/1.1
+Host: 192.168.2.150:8006
+User-Agent: Go-http-client/1.1
+Accept: application/json
+Authorization: PVEAuthCookie=PVE:root@pam:69CE13D5::eKVvWUGVdLRgxkaMlMUPI+Vqjl5Rb6RLk4bqOaFyncDslHg3zhI/qUJmNqRrPDZA3pAaI9Vl+GfAIp1gkqvgwFk+fQ/7PmlXs2hh3x49Z7SqlmJtVn3KzsYy5HEODxKJDwW7Qh5m6ak+uoJ1PcRgu+RRCr8g1imF8HppmvZPolYbP2mX69D+EMLin/7JLpHeWidioP2Ynqs6T3eL9Myg02DhImVRxCPRvSH1OT8Jw16r4wb2AYUxlAKr7xfk/ZT7/tXJVSj2Oi4npEaXe7LnK0+8V2a9EbQyARMRKIQ6eFWq70UGn4oDHCLdGspX1Gg+0oPr5MO196Io+n9DTSLaNA==
+CSRFPreventionToken: 69CE13D5:BKF8hSOtlG6TT8roaVc5DcH6jejUC/9+KCsodFRcMpc
+Accept-Encoding: gzip
+
+2026/04/02 07:02:17 <<<<<<<<<< RESULT:
+HTTP/1.1 200 OK
+Connection: close
+Content-Length: 205
+Cache-Control: max-age=0
+Content-Type: application/json;charset=UTF-8
+Date: Thu, 02 Apr 2026 07:02:17 GMT
+Expires: Thu, 02 Apr 2026 07:02:17 GMT
+Pragma: no-cache
+Server: pve-api-daemon/3.0
+
+{"data":{"pstart":1158917,"id":"103","starttime":1775113337,"pid":36382,"node":"pve","user":"root@pam","status":"running","type":"resize","upid":"UPID:pve:00008E1E:0011AF05:69CE1479:resize:103:root@pam:"}}
+2026/04/02 07:02:19 >>>>>>>>>> REQUEST:
+GET /api2/json/nodes/pve/tasks/UPID:pve:00008E1E:0011AF05:69CE1479:resize:103:root@pam:/status HTTP/1.1
+Host: 192.168.2.150:8006
+User-Agent: Go-http-client/1.1
+Accept: application/json
+Authorization: PVEAuthCookie=PVE:root@pam:69CE13D5::eKVvWUGVdLRgxkaMlMUPI+Vqjl5Rb6RLk4bqOaFyncDslHg3zhI/qUJmNqRrPDZA3pAaI9Vl+GfAIp1gkqvgwFk+fQ/7PmlXs2hh3x49Z7SqlmJtVn3KzsYy5HEODxKJDwW7Qh5m6ak+uoJ1PcRgu+RRCr8g1imF8HppmvZPolYbP2mX69D+EMLin/7JLpHeWidioP2Ynqs6T3eL9Myg02DhImVRxCPRvSH1OT8Jw16r4wb2AYUxlAKr7xfk/ZT7/tXJVSj2Oi4npEaXe7LnK0+8V2a9EbQyARMRKIQ6eFWq70UGn4oDHCLdGspX1Gg+0oPr5MO196Io+n9DTSLaNA==
+CSRFPreventionToken: 69CE13D5:BKF8hSOtlG6TT8roaVc5DcH6jejUC/9+KCsodFRcMpc
+Accept-Encoding: gzip
+
+2026/04/02 07:02:19 <<<<<<<<<< RESULT:
+HTTP/1.1 200 OK
+Connection: close
+Content-Length: 223
+Cache-Control: max-age=0
+Content-Type: application/json;charset=UTF-8
+Date: Thu, 02 Apr 2026 07:02:19 GMT
+Expires: Thu, 02 Apr 2026 07:02:19 GMT
+Pragma: no-cache
+Server: pve-api-daemon/3.0
+
+{"data":{"id":"103","starttime":1775113337,"pid":36382,"node":"pve","pstart":1158917,"type":"resize","upid":"UPID:pve:00008E1E:0011AF05:69CE1479:resize:103:root@pam:","exitstatus":"OK","user":"root@pam","status":"stopped"}}
+2026/04/02 07:02:19 >>>>>>>>>> REQUEST:
+PUT /api2/json/nodes/pve/qemu/103/config HTTP/1.1
+Host: 192.168.2.150:8006
+User-Agent: Go-http-client/1.1
+Content-Length: 476
+Accept: application/json
+Authorization: PVEAuthCookie=PVE:root@pam:69CE13D5::eKVvWUGVdLRgxkaMlMUPI+Vqjl5Rb6RLk4bqOaFyncDslHg3zhI/qUJmNqRrPDZA3pAaI9Vl+GfAIp1gkqvgwFk+fQ/7PmlXs2hh3x49Z7SqlmJtVn3KzsYy5HEODxKJDwW7Qh5m6ak+uoJ1PcRgu+RRCr8g1imF8HppmvZPolYbP2mX69D+EMLin/7JLpHeWidioP2Ynqs6T3eL9Myg02DhImVRxCPRvSH1OT8Jw16r4wb2AYUxlAKr7xfk/ZT7/tXJVSj2Oi4npEaXe7LnK0+8V2a9EbQyARMRKIQ6eFWq70UGn4oDHCLdGspX1Gg+0oPr5MO196Io+n9DTSLaNA==
+CSRFPreventionToken: 69CE13D5:BKF8hSOtlG6TT8roaVc5DcH6jejUC/9+KCsodFRcMpc
+Content-Type: application/x-www-form-urlencoded
+Accept-Encoding: gzip
+
+agent=0&balloon=0&bios=seabios&cicustom=user%3Dlocal%3Asnippets%2Fcustom-cloudinit.yaml&ciupgrade=0&cores=2&cpu=host&delete=onboot%2Ccpuunits%2Cciuser%2Ccipassword%2Csshkeys%2Cshares&description=Managed+by+Terraform.&hotplug=network%2Cdisk%2Cusb&ipconfig0=ip%3D10.10.0.103%2F24%2Cgw%3D10.10.0.1&kvm=1&memory=2048&net0=virtio%2Cbridge%3Dvmbr0&numa=0&protection=0&scsi0=local-lvm%3Avm-103-disk-0%2Creplicate%3D0&scsihw=virtio-scsi-pci&sockets=1&tablet=1&tags=&vga=type%3Dserial0
+2026/04/02 07:02:19 <<<<<<<<<< RESULT:
+HTTP/1.1 200 OK
+Connection: close
+Content-Length: 13
+Cache-Control: max-age=0
+Content-Type: application/json;charset=UTF-8
+Date: Thu, 02 Apr 2026 07:02:19 GMT
+Expires: Thu, 02 Apr 2026 07:02:19 GMT
+Pragma: no-cache
+Server: pve-api-daemon/3.0
+
+{"data":null}
+2026/04/02 07:02:19 >>>>>>>>>> REQUEST:
+GET /api2/json/nodes/pve/qemu/103/pending HTTP/1.1
+Host: 192.168.2.150:8006
+User-Agent: Go-http-client/1.1
+Accept: application/json
+Authorization: PVEAuthCookie=PVE:root@pam:69CE13D5::eKVvWUGVdLRgxkaMlMUPI+Vqjl5Rb6RLk4bqOaFyncDslHg3zhI/qUJmNqRrPDZA3pAaI9Vl+GfAIp1gkqvgwFk+fQ/7PmlXs2hh3x49Z7SqlmJtVn3KzsYy5HEODxKJDwW7Qh5m6ak+uoJ1PcRgu+RRCr8g1imF8HppmvZPolYbP2mX69D+EMLin/7JLpHeWidioP2Ynqs6T3eL9Myg02DhImVRxCPRvSH1OT8Jw16r4wb2AYUxlAKr7xfk/ZT7/tXJVSj2Oi4npEaXe7LnK0+8V2a9EbQyARMRKIQ6eFWq70UGn4oDHCLdGspX1Gg+0oPr5MO196Io+n9DTSLaNA==
+CSRFPreventionToken: 69CE13D5:BKF8hSOtlG6TT8roaVc5DcH6jejUC/9+KCsodFRcMpc
+Accept-Encoding: gzip
+
+2026/04/02 07:02:19 <<<<<<<<<< RESULT:
+HTTP/1.1 200 OK
+Content-Length: 1293
+Cache-Control: max-age=0
+Connection: Keep-Alive
+Content-Type: application/json;charset=UTF-8
+Date: Thu, 02 Apr 2026 07:02:19 GMT
+Expires: Thu, 02 Apr 2026 07:02:19 GMT
+Pragma: no-cache
+Server: pve-api-daemon/3.0
+
+{"data":[{"key":"numa","value":0},{"value":"Managed by Terraform.","key":"description"},{"key":"boot","value":"c"},{"key":"tablet","value":1},{"key":"bios","value":"seabios"},{"value":"socket","key":"serial0"},{"value":"d6c2d1a8-22ea-4aee-bb3b-2080a7339efc","key":"vmgenid"},{"value":"uuid=1cc5209b-dee6-454b-9768-78864db08f99","key":"smbios1"},{"value":"creation-qemu=9.2.0,ctime=1774872190","key":"meta"},{"value":"scsi0","key":"bootdisk"},{"key":"memory","value":"2048"},{"key":"protection","value":0},{"value":1,"key":"sockets"},{"value":0,"key":"balloon"},{"key":"cpu","value":"host"},{"key":"ipconfig0","value":"ip=10.10.0.103/24,gw=10.10.0.1"},{"value":"local-lvm:vm-103-disk-0,replicate=0,size=20G","key":"scsi0"},{"key":"ciupgrade","value":0},{"key":"hotplug","value":"network,disk,usb"},{"key":"digest","value":"d8c7da5a175fc9faf189a0d819655736714dd5a9"},{"key":"cores","value":2},{"value":"type=serial0","key":"vga"},{"value":" ","key":"tags"},{"key":"scsihw","value":"virtio-scsi-pci"},{"value":"virtio=BC:24:11:CC:99:CB,bridge=vmbr0","key":"net0"},{"value":"0","key":"agent"},{"value":"local-lvm:vm-103-cloudinit,media=cdrom,size=4M","key":"ide2"},{"value":"user=local:snippets/custom-cloudinit.yaml","key":"cicustom"},{"key":"name","value":"VM-WORKER3"},{"key":"kvm","value":1}]}
+[90mThu, 02 Apr 2026 07:02:19 +0000[0m DBG [1mgithub.com/Telmate/terraform-provider-proxmox/v2/proxmox/resource_vm_qemu.go:751[0m[36m >[0m Set this vm (resource Id) to 'pve/qemu/103' [36mloggerName=[0mresource_vm_create [36mvmid=[0m103
+2026/04/02 07:02:24 [DEBUG][QemuVmCreate] starting VM
+2026/04/02 07:02:24 >>>>>>>>>> REQUEST:
+POST /api2/json/nodes/pve/qemu/103/status/start HTTP/1.1
+Host: 192.168.2.150:8006
+User-Agent: Go-http-client/1.1
+Content-Length: 0
+Accept: application/json
+Authorization: PVEAuthCookie=PVE:root@pam:69CE13D5::eKVvWUGVdLRgxkaMlMUPI+Vqjl5Rb6RLk4bqOaFyncDslHg3zhI/qUJmNqRrPDZA3pAaI9Vl+GfAIp1gkqvgwFk+fQ/7PmlXs2hh3x49Z7SqlmJtVn3KzsYy5HEODxKJDwW7Qh5m6ak+uoJ1PcRgu+RRCr8g1imF8HppmvZPolYbP2mX69D+EMLin/7JLpHeWidioP2Ynqs6T3eL9Myg02DhImVRxCPRvSH1OT8Jw16r4wb2AYUxlAKr7xfk/ZT7/tXJVSj2Oi4npEaXe7LnK0+8V2a9EbQyARMRKIQ6eFWq70UGn4oDHCLdGspX1Gg+0oPr5MO196Io+n9DTSLaNA==
+CSRFPreventionToken: 69CE13D5:BKF8hSOtlG6TT8roaVc5DcH6jejUC/9+KCsodFRcMpc
+Content-Type: application/x-www-form-urlencoded
+Accept-Encoding: gzip
+
+2026/04/02 07:02:24 <<<<<<<<<< RESULT:
+HTTP/1.1 200 OK
+Connection: close
+Content-Length: 68
+Cache-Control: max-age=0
+Content-Type: application/json;charset=UTF-8
+Date: Thu, 02 Apr 2026 07:02:24 GMT
+Expires: Thu, 02 Apr 2026 07:02:24 GMT
+Pragma: no-cache
+Server: pve-api-daemon/3.0
+
+{"data":"UPID:pve:00008E54:0011B1E6:69CE1480:qmstart:103:root@pam:"}
+2026/04/02 07:02:24 >>>>>>>>>> REQUEST:
+GET /api2/json/nodes/pve/tasks/UPID:pve:00008E54:0011B1E6:69CE1480:qmstart:103:root@pam:/status HTTP/1.1
+Host: 192.168.2.150:8006
+User-Agent: Go-http-client/1.1
+Accept: application/json
+Authorization: PVEAuthCookie=PVE:root@pam:69CE13D5::eKVvWUGVdLRgxkaMlMUPI+Vqjl5Rb6RLk4bqOaFyncDslHg3zhI/qUJmNqRrPDZA3pAaI9Vl+GfAIp1gkqvgwFk+fQ/7PmlXs2hh3x49Z7SqlmJtVn3KzsYy5HEODxKJDwW7Qh5m6ak+uoJ1PcRgu+RRCr8g1imF8HppmvZPolYbP2mX69D+EMLin/7JLpHeWidioP2Ynqs6T3eL9Myg02DhImVRxCPRvSH1OT8Jw16r4wb2AYUxlAKr7xfk/ZT7/tXJVSj2Oi4npEaXe7LnK0+8V2a9EbQyARMRKIQ6eFWq70UGn4oDHCLdGspX1Gg+0oPr5MO196Io+n9DTSLaNA==
+CSRFPreventionToken: 69CE13D5:BKF8hSOtlG6TT8roaVc5DcH6jejUC/9+KCsodFRcMpc
+Accept-Encoding: gzip
+
+2026/04/02 07:02:24 <<<<<<<<<< RESULT:
+HTTP/1.1 200 OK
+Connection: close
+Content-Length: 207
+Cache-Control: max-age=0
+Content-Type: application/json;charset=UTF-8
+Date: Thu, 02 Apr 2026 07:02:24 GMT
+Expires: Thu, 02 Apr 2026 07:02:24 GMT
+Pragma: no-cache
+Server: pve-api-daemon/3.0
+
+{"data":{"user":"root@pam","status":"running","type":"qmstart","upid":"UPID:pve:00008E54:0011B1E6:69CE1480:qmstart:103:root@pam:","starttime":1775113344,"id":"103","pid":36436,"node":"pve","pstart":1159654}}
+2026/04/02 07:02:26 >>>>>>>>>> REQUEST:
+GET /api2/json/nodes/pve/tasks/UPID:pve:00008E54:0011B1E6:69CE1480:qmstart:103:root@pam:/status HTTP/1.1
+Host: 192.168.2.150:8006
+User-Agent: Go-http-client/1.1
+Accept: application/json
+Authorization: PVEAuthCookie=PVE:root@pam:69CE13D5::eKVvWUGVdLRgxkaMlMUPI+Vqjl5Rb6RLk4bqOaFyncDslHg3zhI/qUJmNqRrPDZA3pAaI9Vl+GfAIp1gkqvgwFk+fQ/7PmlXs2hh3x49Z7SqlmJtVn3KzsYy5HEODxKJDwW7Qh5m6ak+uoJ1PcRgu+RRCr8g1imF8HppmvZPolYbP2mX69D+EMLin/7JLpHeWidioP2Ynqs6T3eL9Myg02DhImVRxCPRvSH1OT8Jw16r4wb2AYUxlAKr7xfk/ZT7/tXJVSj2Oi4npEaXe7LnK0+8V2a9EbQyARMRKIQ6eFWq70UGn4oDHCLdGspX1Gg+0oPr5MO196Io+n9DTSLaNA==
+CSRFPreventionToken: 69CE13D5:BKF8hSOtlG6TT8roaVc5DcH6jejUC/9+KCsodFRcMpc
+Accept-Encoding: gzip
+
+2026/04/02 07:02:26 <<<<<<<<<< RESULT:
+HTTP/1.1 200 OK
+Connection: close
+Content-Length: 225
+Cache-Control: max-age=0
+Content-Type: application/json;charset=UTF-8
+Date: Thu, 02 Apr 2026 07:02:26 GMT
+Expires: Thu, 02 Apr 2026 07:02:26 GMT
+Pragma: no-cache
+Server: pve-api-daemon/3.0
+
+{"data":{"pstart":1159654,"node":"pve","pid":36436,"id":"103","starttime":1775113344,"type":"qmstart","upid":"UPID:pve:00008E54:0011B1E6:69CE1480:qmstart:103:root@pam:","status":"stopped","user":"root@pam","exitstatus":"OK"}}
+2026/04/02 07:02:26 [DEBUG][QemuVmCreate] vm creation done!
+[90mThu, 02 Apr 2026 07:02:26 +0000[0m [32mINF[0m [1mgithub.com/Telmate/terraform-provider-proxmox/v2/proxmox/resource_vm_qemu.go:986[0m[36m >[0m [1mReading configuration for vmid[0m [36mloggerName=[0mresource_vm_read [36mvmid=[0m103
+2026/04/02 07:02:26 >>>>>>>>>> REQUEST:
+GET /api2/json/nodes/pve/qemu/103/pending HTTP/1.1
+Host: 192.168.2.150:8006
+User-Agent: Go-http-client/1.1
+Accept: application/json
+Authorization: PVEAuthCookie=PVE:root@pam:69CE13D5::eKVvWUGVdLRgxkaMlMUPI+Vqjl5Rb6RLk4bqOaFyncDslHg3zhI/qUJmNqRrPDZA3pAaI9Vl+GfAIp1gkqvgwFk+fQ/7PmlXs2hh3x49Z7SqlmJtVn3KzsYy5HEODxKJDwW7Qh5m6ak+uoJ1PcRgu+RRCr8g1imF8HppmvZPolYbP2mX69D+EMLin/7JLpHeWidioP2Ynqs6T3eL9Myg02DhImVRxCPRvSH1OT8Jw16r4wb2AYUxlAKr7xfk/ZT7/tXJVSj2Oi4npEaXe7LnK0+8V2a9EbQyARMRKIQ6eFWq70UGn4oDHCLdGspX1Gg+0oPr5MO196Io+n9DTSLaNA==
+CSRFPreventionToken: 69CE13D5:BKF8hSOtlG6TT8roaVc5DcH6jejUC/9+KCsodFRcMpc
+Accept-Encoding: gzip
+
+2026/04/02 07:02:26 <<<<<<<<<< RESULT:
+HTTP/1.1 200 OK
+Content-Length: 1293
+Cache-Control: max-age=0
+Connection: Keep-Alive
+Content-Type: application/json;charset=UTF-8
+Date: Thu, 02 Apr 2026 07:02:26 GMT
+Expires: Thu, 02 Apr 2026 07:02:26 GMT
+Pragma: no-cache
+Server: pve-api-daemon/3.0
+
+{"data":[{"value":"type=serial0","key":"vga"},{"key":"cores","value":2},{"key":"digest","value":"d8c7da5a175fc9faf189a0d819655736714dd5a9"},{"value":" ","key":"tags"},{"key":"scsi0","value":"local-lvm:vm-103-disk-0,replicate=0,size=20G"},{"value":"network,disk,usb","key":"hotplug"},{"key":"ciupgrade","value":0},{"value":"user=local:snippets/custom-cloudinit.yaml","key":"cicustom"},{"value":1,"key":"kvm"},{"value":"VM-WORKER3","key":"name"},{"key":"scsihw","value":"virtio-scsi-pci"},{"value":"0","key":"agent"},{"key":"ide2","value":"local-lvm:vm-103-cloudinit,media=cdrom,size=4M"},{"key":"net0","value":"virtio=BC:24:11:CC:99:CB,bridge=vmbr0"},{"key":"tablet","value":1},{"value":"c","key":"boot"},{"key":"smbios1","value":"uuid=1cc5209b-dee6-454b-9768-78864db08f99"},{"key":"vmgenid","value":"d6c2d1a8-22ea-4aee-bb3b-2080a7339efc"},{"key":"serial0","value":"socket"},{"value":"seabios","key":"bios"},{"key":"description","value":"Managed by Terraform."},{"value":0,"key":"numa"},{"key":"balloon","value":0},{"value":"host","key":"cpu"},{"key":"ipconfig0","value":"ip=10.10.0.103/24,gw=10.10.0.1"},{"key":"sockets","value":1},{"key":"memory","value":"2048"},{"value":0,"key":"protection"},{"key":"bootdisk","value":"scsi0"},{"key":"meta","value":"creation-qemu=9.2.0,ctime=1774872190"}]}
+2026/04/02 07:02:26 >>>>>>>>>> REQUEST:
+GET /api2/json/nodes/pve/qemu/103/status/current HTTP/1.1
+Host: 192.168.2.150:8006
+User-Agent: Go-http-client/1.1
+Accept: application/json
+Authorization: PVEAuthCookie=PVE:root@pam:69CE13D5::eKVvWUGVdLRgxkaMlMUPI+Vqjl5Rb6RLk4bqOaFyncDslHg3zhI/qUJmNqRrPDZA3pAaI9Vl+GfAIp1gkqvgwFk+fQ/7PmlXs2hh3x49Z7SqlmJtVn3KzsYy5HEODxKJDwW7Qh5m6ak+uoJ1PcRgu+RRCr8g1imF8HppmvZPolYbP2mX69D+EMLin/7JLpHeWidioP2Ynqs6T3eL9Myg02DhImVRxCPRvSH1OT8Jw16r4wb2AYUxlAKr7xfk/ZT7/tXJVSj2Oi4npEaXe7LnK0+8V2a9EbQyARMRKIQ6eFWq70UGn4oDHCLdGspX1Gg+0oPr5MO196Io+n9DTSLaNA==
+CSRFPreventionToken: 69CE13D5:BKF8hSOtlG6TT8roaVc5DcH6jejUC/9+KCsodFRcMpc
+Accept-Encoding: gzip
+
+2026/04/02 07:02:26 <<<<<<<<<< RESULT:
+HTTP/1.1 200 OK
+Connection: close
+Content-Length: 2193
+Cache-Control: max-age=0
+Content-Type: application/json;charset=UTF-8
+Date: Thu, 02 Apr 2026 07:02:26 GMT
+Expires: Thu, 02 Apr 2026 07:02:26 GMT
+Pragma: no-cache
+Server: pve-api-daemon/3.0
+
+{"data":{"qmpstatus":"running","disk":0,"serial":1,"maxmem":2147483648,"proxmox-support":{"backup-access-api":true,"pbs-masterkey":true,"backup-max-workers":true,"backup-fleecing":true,"pbs-dirty-bitmap-migration":true,"pbs-dirty-bitmap-savevm":true,"query-bitmap-info":true,"pbs-dirty-bitmap":true,"pbs-library-version":"1.5.1 (UNKNOWN)"},"clipboard":null,"cpus":2,"netin":42,"uptime":1,"vmid":103,"running-qemu":"9.2.0","running-machine":"pc-i440fx-9.2+pve1","nics":{"tap103i0":{"netout":0,"netin":42}},"pid":36459,"blockstat":{"scsi0":{"failed_flush_operations":0,"rd_operations":0,"zone_append_merged":0,"flush_total_time_ns":0,"zone_append_bytes":0,"unmap_total_time_ns":0,"wr_bytes":0,"invalid_rd_operations":0,"unmap_merged":0,"invalid_wr_operations":0,"wr_total_time_ns":0,"rd_merged":0,"failed_unmap_operations":0,"wr_highest_offset":0,"invalid_zone_append_operations":0,"failed_zone_append_operations":0,"zone_append_operations":0,"zone_append_total_time_ns":0,"invalid_flush_operations":0,"unmap_operations":0,"failed_rd_operations":0,"flush_operations":0,"account_failed":true,"rd_total_time_ns":0,"wr_merged":0,"failed_wr_operations":0,"rd_bytes":0,"unmap_bytes":0,"invalid_unmap_operations":0,"account_invalid":true,"wr_operations":0,"timed_stats":[]},"ide2":{"wr_bytes":0,"unmap_total_time_ns":0,"zone_append_bytes":0,"invalid_rd_operations":0,"zone_append_merged":0,"rd_operations":1,"failed_flush_operations":0,"flush_total_time_ns":0,"failed_zone_append_operations":0,"zone_append_operations":0,"unmap_merged":0,"invalid_wr_operations":0,"invalid_zone_append_operations":0,"wr_highest_offset":0,"failed_unmap_operations":0,"rd_merged":0,"wr_total_time_ns":0,"account_failed":true,"rd_total_time_ns":1171448,"wr_merged":0,"flush_operations":0,"failed_rd_operations":0,"idle_time_ns":1379932584,"invalid_flush_operations":0,"zone_append_total_time_ns":0,"unmap_operations":0,"wr_operations":0,"account_invalid":true,"timed_stats":[],"failed_wr_operations":0,"invalid_unmap_operations":0,"unmap_bytes":0,"rd_bytes":2048}},"diskread":2048,"netout":0,"status":"running","mem":30327393,"tags":" ","ha":{"managed":0},"maxdisk":21474836480,"name":"VM-WORKER3","diskwrite":0,"cpu":0}}
+2026/04/02 07:02:26 [DEBUG] Getting VM staterunning
+2026/04/02 07:02:26 [DEBUG] VM is running, checking the IP
+2026/04/02 07:02:26 [INFO][initConnInfo] trying to get vm ip address for provisioner
+[90mThu, 02 Apr 2026 07:02:26 +0000[0m [32mINF[0m [1mgithub.com/Telmate/terraform-provider-proxmox/v2/proxmox/resource_vm_qemu.go:1340[0m[36m >[0m [1mtrying to get vm ip address for provisioner[0m [36mloggerName=[0minitConnInfo [36mvmid=[0m103
+2026/04/02 07:02:26 [INFO][getPrimaryIP] vm has a cloud-init configuration
+[90mThu, 02 Apr 2026 07:02:26 +0000[0m DBG [1mgithub.com/Telmate/terraform-provider-proxmox/v2/proxmox/resource_vm_qemu.go:1401[0m[36m >[0m  vm has a cloud-init configuration [36mloggerName=[0mgetPrimaryIP [36mvmid=[0m103
+2026/04/02 07:02:26 [DEBUG][initConnInfo] this is the vm configuration: 10.10.0.103 22
+[90mThu, 02 Apr 2026 07:02:26 +0000[0m DBG [1mgithub.com/Telmate/terraform-provider-proxmox/v2/proxmox/resource_vm_qemu.go:1366[0m[36m >[0m this is the vm configuration: 10.10.0.103 22 [36mloggerName=[0minitConnInfo [36mvmid=[0m103
+[90mThu, 02 Apr 2026 07:02:26 +0000[0m DBG [1mgithub.com/Telmate/terraform-provider-proxmox/v2/proxmox/resource_vm_qemu.go:1028[0m[36m >[0m [READ] Received Config from Proxmox API: {"id":103,"node":"pve","agent":{"enable":false},"bios":"seabios","boot":"c","bootdisk":"scsi0","cpu":{"cores":2,"numa":false,"sockets":1,"type":"host"},"cloudinit":{"cicustom":{"user":{"path":"snippets/custom-cloudinit.yaml","storage":"local"}},"ipconfig":{"0":{"ip4":{"address":"10.10.0.103/24","gateway":"10.10.0.1"}}},"ciupgrade":false},"description":"Managed by Terraform.","disks":{"ide":{"2":{"cloudinit":{"format":"raw","storage":"local-lvm"}}},"scsi":{"0":{"disk":{"bandwidth":{"mbps":{"read":{},"write":{}},"iops":{"read":{},"write":{}}},"format":"raw","id":0,"linked":null,"size":20971520,"storage":"local-lvm","wwn":"","backup":true,"discard":false,"emulatessd":false,"iothread":false,"readonly":false,"replicate":false}}}},"hotplug":"network,disk,usb","memory":{"capacity":2048,"balloon":0},"name":"VM-WORKER3","networks":{"0":{"bridge":"vmbr0","connected":true,"firewall":false,"mac":"vCQRzJnL","model":"virtio","tagged_vlans":[]}},"protection":false,"kvm":true,"ostype":"other","vga":{"type":"serial0"},"scsihw":"virtio-scsi-pci","serials":{"0":{"socket":true}},"smbios1":"uuid=1cc5209b-dee6-454b-9768-78864db08f99","start_at_node_boot":false,"tablet":true,"tags":[" "]} [36mloggerName=[0mresource_vm_read [36mvmid=[0m103
+[90mThu, 02 Apr 2026 07:02:26 +0000[0m DBG [1mgithub.com/Telmate/terraform-provider-proxmox/v2/proxmox/resource_vm_qemu.go:1087[0m[36m >[0m key 'force_create' is set to false [36mloggerName=[0mresource_vm_read [36mvmid=[0m103
+[90mThu, 02 Apr 2026 07:02:26 +0000[0m DBG [1mgithub.com/Telmate/terraform-provider-proxmox/v2/proxmox/resource_vm_qemu.go:1087[0m[36m >[0m key 'define_connection_info' is set to true [36mloggerName=[0mresource_vm_read [36mvmid=[0m103
+[90mThu, 02 Apr 2026 07:02:26 +0000[0m DBG [1mgithub.com/Telmate/terraform-provider-proxmox/v2/proxmox/resource_vm_qemu.go:1097[0m[36m >[0m Unused Disk Block Processed 'map[]' [36mloggerName=[0mresource_vm_read [36mvmid=[0m103
+2026/04/02 07:02:26 [ERROR] setting state: Invalid address to set: []string{"features"}
+[90mThu, 02 Apr 2026 07:02:26 +0000[0m DBG [1mgithub.com/Telmate/terraform-provider-proxmox/v2/proxmox/resource_vm_qemu.go:1113[0m[36m >[0m Finished VM read resulting in data: '' [36mloggerName=[0mresource_vm_read [36mvmid=[0m103
