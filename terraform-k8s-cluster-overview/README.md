@@ -235,3 +235,7 @@ terraform apply -parallelism=1
 ```
 <img width="2558" height="1394" alt="image" src="https://github.com/user-attachments/assets/477e656b-c12c-42b0-ba06-e317d9c3f3d5" />
 
+<img width="1430" height="1382" alt="image" src="https://github.com/user-attachments/assets/6d2f94aa-1c93-459d-ba5e-dd0efaa889c4" />
+
+<img width="1418" height="1275" alt="image" src="https://github.com/user-attachments/assets/1e062d04-b2ea-4981-bbd0-6232934bdee9" />
+
