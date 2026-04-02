@@ -1,0 +1,2 @@
+pod_network_cidr: "192.168.0.0/16"
+CNI_URL: "https://raw.githubusercontent.com/projectcalico/calico/v3.27.0/manifests/calico.yaml"

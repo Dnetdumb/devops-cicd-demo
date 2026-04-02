@@ -1,0 +1,36 @@
+---
+- name: Get Kubernetes Cluster State
+  hosts: master-cp1
+  become: yes
+  tasks:
+    - name: Get Nodes status
+      command: kubectl get nodes -o wide
+      register: nodes_out
+
+    - name: Get All Pods status
+      command: kubectl get pods -A
+      register: pods_out
+
+    - name: Get Services status
+      command: kubectl get svc -A
+      register: svc_out
+
+    - name: Create Cluster State Report locally on Master
+      copy:
+        content: |
+          ============= KUBERNETES CLUSTER STATE REPORT ===============
+          [ NODES ]
+          {{ nodes_out.stdout }}
+
+          [ PODS ]
+          {{ pods_out.stdout }}
+
+          [ SERVICES ]
+          {{ svc_out.stdout }}
+        dest: /tmp/k8s-state.txt
+
+    - name: Fetch report back to control node
+      fetch:
+        src: /tmp/k8s-state.txt
+        dest: "./k8s-cluster-output.txt"
+        flat: yes

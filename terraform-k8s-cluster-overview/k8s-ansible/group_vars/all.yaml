@@ -1,0 +1,5 @@
+k8s_version: "1.29"
+container_runtime: "containerd"
+control_plane_endpoint: "10.10.0.199:6443"
+timezone: "Asia/Ho_Chi_Minh"
+k8s_key_url: "https://pkgs.k8s.io/core:/stable:/v1.29/deb"

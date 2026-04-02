@@ -1,0 +1,11 @@
+---
+- name: Join Workers to K8s Cluster
+  command: "{{ hostvars[groups['masters'][0]].join_cmd }}"
+  args:
+    creates: /etc/kubernetes/kubelet.conf
+  register: worker_join_result
+
+- name: Print join result
+  debug:
+    msg: "Node joined successfully or joined already in cluster!"
+  when: worker_join_result.skipped is not defined

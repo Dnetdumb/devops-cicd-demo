@@ -1,0 +1,122 @@
+---
+- name: Set hostname based on inventory name
+  hostname:
+    name: "{{ inventory_hostname }}"
+
+- name: Update /etc/hosts with all nodes
+  lineinfile:
+    path: /etc/hosts
+    regexp: ".*{{ item }}$"
+    line: "{{ hostvars[item]['ansible_host'] }} {{ item }}"
+    state: present
+  loop: "{{ groups['all'] }}"
+
+- name: Change timezone
+  community.general.timezone:
+    name: "{{ timezone }}"
+  register: timezone_change
+
+- name: Restart cron service
+  ansible.builtin.service:
+    name: crond
+    state: restarted
+  when: timezone_change.changed
+
+- name: Install dependencies for all nodes
+  ansible.builtin.apt:
+    name:
+      - apt-transport-https
+      - ca-certificates
+      - curl
+      - gpg
+    state: present
+    update_cache: yes
+
+- name: Disable swap
+  shell: |
+    swapoff -a
+    sed -i '/ swap / s/^\(.*\)$/#\1/g' /etc/fstab
+
+- name: Load kernel modules for K8s
+  community.general.modprobe:
+    name: "{{ item }}"
+    state: present
+  loop:
+    - overlay
+    - br_netfilter
+
+- name: Config Sysctl network settings
+  ansible.posix.sysctl:
+    name: "{{ item }}"
+    value: '1'
+    state: present
+    sysctl_file: /etc/sysctl.d/k8s.conf
+    reload: yes
+  loop:
+    - net.bridge.bridge-nf-call-iptables
+    - net.bridge.bridge-nf-call-ip6tables
+    - net.ipv4.ip_forward
+
+- name: Install container runtime
+  ansible.builtin.apt:
+    name: "{{ container_runtime }}"
+    state: present
+    update_cache: yes
+
+- name: Create default containerd config file
+  shell: |
+    mkdir /etc/containerd
+    containerd config default > /etc/containerd/config.toml
+
+- name: Config containerd use SystemdCgroup
+  replace:
+    path: /etc/containerd/config.toml
+    regexp: 'SystemdCgroup = false'
+    replace: 'SystemdCgroup = true'
+
+- name: Restart containerd to apply config
+  systemd:
+    name: "{{ container_runtime }}"
+    state: restarted
+    enabled: yes
+
+- name: Download and dearmor Kubernetes GPG key
+  ansible.builtin.shell: |
+    curl -fsSL {{ k8s_key_url }}/Release.key | gpg --dearmor -o /etc/apt/keyrings/kubernetes-apt-keyring.gpg
+  args:
+    creates: /etc/apt/keyrings/kubernetes-apt-keyring.gpg
+
+- name: Add Kubernetes repo
+  ansible.builtin.apt_repository:
+    repo: "deb [signed-by=/etc/apt/keyrings/kubernetes-apt-keyring.gpg] {{ k8s_key_url }} /"
+    filename: kubernetes
+    state: present
+    update_cache: yes
+
+- name: Install k8s tools
+  ansible.builtin.apt:
+    name:
+      - kubelet
+      - kubectl
+      - kubeadm
+    state: present
+
+- name: Prevent K8s from being update
+  ansible.builtin.dpkg_selections:
+    name: "{{ item }}"
+    selection: hold
+  loop:
+    - kubelet
+    - kubectl
+    - kubeadm
+    - containerd
+
+# references source :
+# https://docs.ansible.com/projects/ansible/latest/collections/ansible/posix/sysctl_module.html
+# https://docs.ansible.com/projects/ansible/latest/collections/ansible/builtin/lineinfile_module.html
+# https://docs.ansible.com/projects/ansible/latest/collections/community/general/modprobe_module.html
+# https://docs.ansible.com/projects/ansible/latest/collections/community/general/timezone_module.html
+# https://docs.ansible.com/projects/ansible/latest/collections/ansible/builtin/apt_module.html
+# https://docs.ansible.com/projects/ansible/latest/collections/ansible/builtin/get_url_module.html
+# https://docs.ansible.com/projects/ansible/latest/collections/ansible/builtin/apt_repository_module.html
+# https://docs.ansible.com/projects/ansible/latest/collections/ansible/builtin/dpkg_selections_module.html
