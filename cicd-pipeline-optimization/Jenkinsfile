@@ -30,7 +30,7 @@ pipeline{
 			}
 		}
 	
-		stage('Dockerhub login')
+		stage('Dockerhub login') {
 			steps {
 				withCredentials([usernamePassword(
 					credentialsId: 'docker-hub',
