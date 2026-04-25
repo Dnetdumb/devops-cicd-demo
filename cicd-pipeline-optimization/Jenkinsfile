@@ -62,7 +62,7 @@ pipeline{
 					steps {
 						sh """
 							docker run --rm \
-							-v $PWD:/project \ 
+							-v $PWD:/project \
 							-w /project \
 							aquasec/trivy:0.50.1 \
 							fs \
