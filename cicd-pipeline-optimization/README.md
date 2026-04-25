@@ -239,7 +239,7 @@ trivy image:	OS CVE, dependency, secret, layer
 - Layer (copy Dockerfile -> expose layer and secret)
 
 # Scan fs with Trivy
-docker run --rm -v "$PWD:/project" -w /project aquasec/trivy:0.50.1 fs --scanners secret,misconfig,vuln /project
+docker run --rm -v "$PWD:/project" -w /project aquasec/trivy:0.50.1 fs --skip-dirs node_modules --scanners secret,misconfig,vuln /project
 
 
 # Scan image with Trivy
