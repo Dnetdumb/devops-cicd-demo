@@ -9,14 +9,6 @@ pipeline{
 
 	stages {
 		
-		stage('Clean workspace') {
-			steps {
-				sh """
-					sudo rm -rf $WORKSPACE/*
-				"""
-			}
-		}		
-
 		stage('Checkout code') {
 			steps {
 				git branch: 'master', 
