@@ -104,7 +104,8 @@ pipeline{
 				--load \
 				--cache-from=type=local,src=.buildx-cache \
 				--cache-to=type=registry,ref=$DOCKER_HUB/nodejs-app:buildcache,mode=max \
-				-f cicd-pipeline-optimization/Dockerfile .
+				-f cicd-pipeline-optimization/Dockerfile \
+				cicd-pipeline-optimization
 				"""
 			}		
 		}
