@@ -15,7 +15,7 @@ FROM node:20.11.1-bookworm-slim
 WORKDIR /app
 
 #Create non-root user
-RUN addgroup -S nodeapp && adduser -S nodeapp -G nodeapp
+RUN groupadd -r nodeapp && useradd -r -g nodeapp nodeapp
 
 ## Copy only needed files from stage builder
 COPY --from=builder /app/package*.json ./
