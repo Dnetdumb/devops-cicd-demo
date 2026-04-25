@@ -58,7 +58,7 @@ pipeline{
 							/project
 						"""
 
-						archiveArtifacts artifacts: '$WORKSPACE/cicd-pipeline-optimization/trivy-secret.json', fingerprint: true
+						archiveArtifacts artifacts: 'cicd-pipeline-optimization/trivy-secret.json', fingerprint: true
 					}
 				
 				}
