@@ -8,6 +8,12 @@ pipeline{
 	}
 
 	stages {
+		
+		stage('Clean workspace') {
+			steps {
+				cleanWs()
+			}
+		}		
 
 		stage('Checkout code') {
 			steps {
