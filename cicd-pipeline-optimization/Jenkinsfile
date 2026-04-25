@@ -53,7 +53,7 @@ pipeline{
 							--skip-dirs node_modules \
 							--scanners secret \
 							--format json \
-							-o trivy-secret.json \
+							-o $WORKSPACE/trivy-secret.json \
 							--exit-code 0 \
 							/project
 						"""
