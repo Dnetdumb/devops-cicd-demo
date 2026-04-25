@@ -29,20 +29,6 @@ pipeline{
 				}	
 			}
 		}
-	
-		stage('Dockerhub login') {
-			steps {
-				withCredentials([usernamePassword(
-					credentialsId: 'docker-hub',
-					usernameVariable: 'DOCKER_USER',
-					passwordVariable: 'DOCKER_PASS'
-				)]) {
-					sh """
-						echo $DOCKER_PASS | docker login -u $DOCKER_USER --password-stdin
-					"""
-				}
-			}
-		}
 
 		stage('Unit test and Secret scan') {
 			parallel {
@@ -50,8 +36,8 @@ pipeline{
 				stage('Unit test with Jest') {
 					steps {
 						sh """
-                					#docker run --rm -v $PWD:/app -w /app node:20.11.1-bookworm sh -c "npm ci && npm test"
-							docker run --rm -v $PWD:/app -w /app nodejs-testimg-node:20.11.1-bookworm npm test
+							docker run --rm -v $WORKSPACE/cicd-pipeline-optimization:/app -w /app node:20.11.1-bookworm sh -c "npm ci && npm test"
+							#docker run --rm -v $WORKSPACE/cicd-pipeline-optimization:/app -w /app nodejs-testimg-node:20.11.1-bookworm npm test
 						"""
 					}
 		                }		
@@ -60,7 +46,7 @@ pipeline{
 					steps {
 						sh """
 							docker run --rm \
-							-v $PWD:/project \
+							-v $WORKSPACE/cicd-pipeline-optimization:/project \
 							-w /project \
 							aquasec/trivy:0.50.1 \
 							fs \
@@ -83,7 +69,7 @@ pipeline{
 			steps {
 				sh """
 					docker run --rm \
-					-v $PWD:/project \
+					-v $WORKSPACE/cicd-pipeline-optimization:/project \
 					-w /project \
 					aquasec/trivy:0.50.1 \
 					fs \
@@ -95,6 +81,20 @@ pipeline{
                                 """
 			}
 		}
+
+		stage('Dockerhub login') {
+                        steps {
+                                withCredentials([usernamePassword(
+                                        credentialsId: 'docker-hub',
+                                        usernameVariable: 'DOCKER_USER',
+                                        passwordVariable: 'DOCKER_PASS'
+                                )]) {
+                                        sh """
+                                                echo $DOCKER_PASS | docker login -u $DOCKER_USER --password-stdin
+                                        """
+                                }
+                        }
+                }		
 
 		stage('Build Docker Images') {
 			steps {
