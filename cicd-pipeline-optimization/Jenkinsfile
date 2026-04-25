@@ -6,9 +6,9 @@ pipeline{
 		IMAGE_VER = "v1"
 
 	}
-	
+
 	stages {
-		
+
 		stage('Checkout code') {
 			steps {
 				git branch: 'master', 
@@ -16,7 +16,7 @@ pipeline{
 				url: 'https://github.com/Dnetdumb/devops-cicd-demo.git'
 			}
 		}
-		
+	
 		stage('Get commit tag') {
 			steps {
 				script {
@@ -24,27 +24,25 @@ pipeline{
 						script: "git rev-parse --short HEAD",
 						returnStdout: true
 					).trim()
-	
+
 					env.TAG_VER = "${IMAGE_VER}-${BUILD_NUMBER}-${GIT_COMMIT_SHORT}"
 				}	
 			}
-
 		}
-		
-		stage('Dockerhub login') {
-                        steps {
-                                withCredentials([usernamePassword(
-                                        credentialsId: 'docker-hub',
-                                        usernameVariable: 'DOCKER_USER',
-                                        passwordVariable: 'DOCKER_PASS'
-                                )]) {
-                                        sh """
-                                        echo $DOCKER_PASS | docker login -u $DOCKER_USER --password-stdin
-                                        """
-                                }
-                        }
-                }
-
+	
+		stage('Dockerhub login')
+			steps {
+				withCredentials([usernamePassword(
+					credentialsId: 'docker-hub',
+					usernameVariable: 'DOCKER_USER',
+					passwordVariable: 'DOCKER_PASS'
+				)]) {
+					sh """
+						echo $DOCKER_PASS | docker login -u $DOCKER_USER --password-stdin
+					"""
+				}
+			}
+		}
 
 		stage('Unit test and Secret scan') {
 			parallel {
@@ -131,8 +129,8 @@ pipeline{
 				"""
 			}
 		}
-
-			
+	}
+	
 	post {
 		success {
 			echo "Pipeline completed successfully"
