@@ -14,9 +14,18 @@ FROM node:20.11.1-bookworm-slim
 
 WORKDIR /app
 
-## Copy node_modules from stage builder
+#Create non-root user
+RUN addgroup -S nodeapp && adduser -S nodeapp -G nodeapp
+
+## Copy only needed files from stage builder
+COPY --from=builder /app/package*.json ./
 COPY --from=builder /app/node_modules ./node_modules
-COPY . .
+COPY --from=builder /app .
+
+#Fix ownership
+RUN chown -R nodeapp:nodeapp /app
+
+USER nodeapp
 
 EXPOSE 3000
 
