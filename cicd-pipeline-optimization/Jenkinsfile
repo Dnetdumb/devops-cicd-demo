@@ -59,12 +59,12 @@ pipeline{
 							--skip-dirs node_modules \
 							--scanners secret \
 							--format json \
-							-o $WORKSPACE/trivy-secret.json \
+							-o trivy-secret.json \
 							--exit-code 0 \
 							/project
 						"""
 
-						archiveArtifacts artifacts: 'trivy-secret.json', fingerprint: true
+						archiveArtifacts artifacts: '$WORKSPACE/cicd-pipeline-optimization/trivy-secret.json', fingerprint: true
 					}
 				
 				}
