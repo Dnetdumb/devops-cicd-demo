@@ -52,8 +52,8 @@ pipeline{
 				stage('Unit test with Jest') {
 					steps {
 						sh """
-                					#docker run --rm -v "$PWD":/app -w /app node:20.11.1-bookworm sh -c "npm ci && npm test"
-							docker run --rm -v "$PWD":/app -w /app nodejs-testimg-node:20.11.1-bookworm npm test
+                					#docker run --rm -v $PWD:/app -w /app node:20.11.1-bookworm sh -c "npm ci && npm test"
+							docker run --rm -v $PWD:/app -w /app nodejs-testimg-node:20.11.1-bookworm npm test
 						"""
 					}
 		                }		
@@ -62,7 +62,7 @@ pipeline{
 					steps {
 						sh """
 							docker run --rm \
-							-v "$PWD":/project \ 
+							-v $PWD:/project \ 
 							-w /project \
 							aquasec/trivy:0.50.1 \
 							fs \
@@ -85,7 +85,7 @@ pipeline{
 			steps {
 				sh """
 					docker run --rm \
-					-v "$PWD":/project \
+					-v $PWD:/project \
 					-w /project \
 					aquasec/trivy:0.50.1 \
 					fs \
