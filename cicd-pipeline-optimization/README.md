@@ -2,11 +2,15 @@
 
 #### Enable BuildKit 
 ```bash
-# Install:
+# Install for root user:
 mkdir -p ~/.docker/cli-plugins/
 curl -L -o ~/.docker/cli-plugins/docker-buildx https://github.com/docker/buildx/releases/download/v0.14.0/buildx-v0.14.0.linux-amd64 
-
 chmod +x ~/.docker/cli-plugins/docker-buildx
+
+# Install for system wide:
+sudo mkdir -p /usr/lib/docker/cli-plugins
+sudo cp ~/.docker/cli-plugins/docker-buildx /usr/lib/docker/cli-plugins/
+sudo chmod +x /usr/lib/docker/cli-plugins/docker-buildx
 
 # Check:
 docker buildx version
