@@ -1,0 +1,23 @@
+# --- STAGE 1: Build Stage ---
+FROM node:20.11.1-bookworm AS builder
+
+WORKDIR /app
+
+# Copy package files to reuse Docker Layer Cache for node_modules
+COPY package*.json ./
+
+# Install dependencies (include build-essential and C++ lib)
+RUN npm install
+
+# --- STAGE 2: Runtime Stage ---
+FROM node:20.11.1-bookworm-slim
+
+WORKDIR /app
+
+## Copy node_modules from stage builder
+COPY --from=builder /app/node_modules ./node_modules
+COPY . .
+
+EXPOSE 3000
+
+CMD ["node", "app.js"]

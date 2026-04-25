@@ -1,0 +1,12 @@
+Dockerfile
+Jenkinsfile
+*.log
+.git
+.gitignore
+.env
+node_modules
+npm-debug.log
+coverage
+dist
+npm-debug.log
+README.md

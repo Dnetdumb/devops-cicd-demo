@@ -1,0 +1,113 @@
+pipeline{
+	agent any
+	
+	environment {
+		DOCKER_HUB = "peidhhn"
+		IMAGE_VER = "v1"
+
+	}
+	
+	stages {
+		
+		stage('Checkout code') {
+			steps {
+				git branch: 'master', 
+				credentialsId: 'github-token',
+				url: 'https://github.com/Dnetdumb/devops-cicd-demo.git'
+			}
+		}
+		
+		stage('Get commit tag') {
+			steps {
+				script {
+					env.GIT_COMMIT_SHORT = sh(
+						script: "git rev-parse --short HEAD",
+						returnStdout: true
+					).trim()
+	
+					env.TAG_VER = "${IMAGE_VER}-${BUILD_NUMBER}-${GIT_COMMIT_SHORT}"
+				}	
+			}
+
+		}
+		
+		stage('Dockerhub login') {
+                        steps {
+                                withCredentials([usernamePassword(
+                                        credentialsId: 'docker-hub',
+                                        usernameVariable: 'DOCKER_USER',
+                                        passwordVariable: 'DOCKER_PASS'
+                                )]) {
+                                        sh """
+                                        echo $DOCKER_PASS | docker login -u $DOCKER_USER --password-stdin
+                                        """
+                                }
+                        }
+                }		
+
+		stage('Unit Test and scan FS with Trivy') {
+			parallel {
+				stage('Scan code with Trivy') {
+					steps {
+						sh """
+							docker run --rm -v "$PWD:/project" -w /project aquasec/trivy:0.50.1 fs --scanners secret,misconfig,vuln /project
+						"""
+					}
+				}
+
+				stage('Run unit test with Jest') {
+					steps {
+						sh """
+							#docker run --rm -v "$PWD":/app -w /app node:20.11.1-bookworm sh -c "npm ci && npm test"
+							docker run --rm -v "$PWD":/app -w /app nodejs-testimg-node:20.11.1-bookworm npm test
+						"""
+					}
+				}
+			}
+		}
+
+		stage('Build Docker Images') {
+			steps {
+				sh """
+				docker buildx build \
+				-t $DOCKER_HUB/nodejs-app:$TAG_VER \
+				--load \
+				--cache-from=type=local,src=.buildx-cache \
+				--cache-to=type=registry,ref=$DOCKER_HUB/nodejs-app:buildcache,mode=max \
+				-f cicd-pipeline-optimization/Dockerfile .
+				"""
+			}		
+		}
+		
+		stage('Security scan image with trivy') {
+			steps {
+				sh """
+					docker run --rm \
+					-v /var/run/docker.sock:/var/run/docker.sock \
+					aquasec/trivy:0.50.1 image \
+					--exit-code 1 \
+					--severity HIGH,CRITICAL \
+					$DOCKER_HUB/nodejs-app:$TAG_VER				
+				"""
+			}
+		}
+
+		stage('Push to Docker Registry') {
+			steps {
+				sh """
+					docker push $DOCKER_HUB/nodejs-app:$TAG_VER
+				"""
+			}
+		}
+
+			
+	post {
+		success {
+			echo "Pipeline completed successfully"
+		}
+		
+		failure {
+			echo "Pipeline failed"
+		}
+	}
+}
