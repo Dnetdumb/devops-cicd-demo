@@ -1,0 +1,10 @@
+apiVersion: postgresql.cnpg.io/v1
+kind: ScheduledBackup
+metadata:
+  name: pg-backup-daily
+  namespace: demo
+spec:
+  schedule: "0 0 0 * * *" # Backup tự động lúc 00:00 mỗi ngày
+  cluster:
+    name: pg-cluster
+  backupOwnerReference: cluster

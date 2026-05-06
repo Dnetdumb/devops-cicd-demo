@@ -1,0 +1,23 @@
+{
+  "name": "nodejs-devops-demo",
+  "version": "1.0.0",
+  "description": "Demo optimize CI/CD",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "jest --verbose"
+  },
+  "dependencies": {
+    "bcrypt": "^6.0.0",
+    "express": "^4.19.2",
+    "pg": "^8.11.5",
+    "axios": "^1.15.2",
+    "@opentelemetry/auto-instrumentations-node": "^0.73.0",
+    "@opentelemetry/exporter-metrics-otlp-http": "^0.215.0",
+    "@opentelemetry/exporter-trace-otlp-http": "^0.215.0",
+    "@opentelemetry/sdk-node": "^0.215.0"
+  },
+  "devDependencies": {
+    "jest": "^30.3.0"
+  }
+}

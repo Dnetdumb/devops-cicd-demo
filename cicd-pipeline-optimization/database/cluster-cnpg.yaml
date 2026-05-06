@@ -1,0 +1,28 @@
+apiVersion: postgresql.cnpg.io/v1
+kind: Cluster
+metadata:
+  name: pg-cluster # Pods: pg-cluster-[1;2;3], Services: pg-cluster-[r,ro,rw]
+  namespace: demo
+spec:
+  instances: 3           # 1 Primary + 2 Replicas
+  imageName: ghcr.io/cloudnative-pg/postgresql:15
+  storage:
+    size: 1Gi
+    pvcTemplate:
+      accessModes:
+        - ReadWriteOnce
+  backup:
+    barmanObjectStore:
+      destinationPath: s3://cnpg-bucket/
+      endpointURL: http://svc-minio:9000
+      s3Credentials:
+        accessKeyId:
+          name: backup-secret # Dùng user backup
+          key: ACCESS_KEY_ID
+        secretAccessKey:
+          name: backup-secret
+          key: ACCESS_SECRET_KEY
+      wal:
+        compression: gzip
+      data:
+        compression: gzip

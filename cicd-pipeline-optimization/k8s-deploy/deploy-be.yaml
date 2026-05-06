@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    reloader.stakater.com/auto: "true"
+  name: backend-deploy
+  namespace: demo
+  labels:
+    app: be
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: be
+  template:
+    metadata:
+      labels:
+        app: be
+    spec:
+      containers:
+        - name: backend-container
+          image: peidhhn/backend-nodejs:latest
+          ports:
+            - containerPort: 5000
+          env:
+            - name: DB_HOST_RO
+              value: "pg-cluster-new-ro"
+            - name: DB_HOST_RW
+              value: "pg-cluster-new-rw"
+            - name: DB_NAME
+              value: "mydb"
+            - name: DB_USER
+              valueFrom:
+                secretKeyRef:
+                  name: postgres-secret
+                  key: POSTGRES_USER
+            - name: DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: postgres-secret
+                  key: POSTGRES_PASSWORD

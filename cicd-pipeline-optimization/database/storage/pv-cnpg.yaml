@@ -1,0 +1,53 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: pg-pv-pri
+spec:
+  capacity:
+    storage: 1Gi
+  volumeMode: Filesystem
+  accessModes:
+   - ReadWriteOnce
+  storageClassName: manual
+  persistentVolumeReclaimPolicy: Retain
+  hostPath:
+    path: "/mnt/data/pg-pv-pri"
+  claimRef:
+    name: pg-cluster-1
+    namespace: demo
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: pg-pv-rep1
+spec:
+  capacity:
+    storage: 1Gi
+  volumeMode: Filesystem
+  accessModes:
+   - ReadWriteOnce
+  storageClassName: manual
+  persistentVolumeReclaimPolicy: Retain
+  hostPath:
+    path: "/mnt/data/pg-pv-rep1"
+  claimRef:
+    name: pg-cluster-2
+    namespace: demo
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: pg-pv-rep2
+spec:
+  capacity:
+    storage: 1Gi
+  volumeMode: Filesystem
+  accessModes:
+   - ReadWriteOnce
+  storageClassName: manual
+  persistentVolumeReclaimPolicy: Retain
+  hostPath:
+    path: "/mnt/data/pg-pv-rep2"
+  claimRef:
+    name: pg-cluster-3
+    namespace: demo
