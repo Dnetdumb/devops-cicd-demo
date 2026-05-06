@@ -9,5 +9,3 @@ npm-debug.log
 coverage
 dist
 README.md
-k8s-deploy
-database

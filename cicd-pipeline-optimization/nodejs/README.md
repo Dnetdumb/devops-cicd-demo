@@ -78,17 +78,15 @@ CMD ["node", "app.js"]
  => [stage-1 3/4] COPY --from=builder /app/node_modules ./node_modules                                                               0.9s
  => [stae-1 4/4] COPY . .                                                                                                           2.7s
     ...
-```
+
 #Note:  => [builder 4/4] RUN npm install:	15.0s (Total: 27.6s include pull image node:20.11.1-bookworm)
 ```
 #### Second build:
+
 ```bash
-# Edit some code but not change any dependencies
-echo "//Edit some code"  >> app.js
-
-# Build again:
-
 docker build -t peidhhn/nodejs-app:v2 .
+
+
 [+] Building 4.7s (15/15) FINISHED                                                                                         docker:default
  => [internal] load build definition from Dockerfile                                                                                 0.0s
  => => transferring dockerfile: 546B                                                                                                 0.0s
@@ -161,7 +159,7 @@ docker buildx build -t peidhhn/nodejs-app:v1 --cache-from type=registry,ref=peid
 ### 4. Unit Test
 
 ```bash
-docker run --rm -v "$PWD":/app node:20.11.1-bookworm npm test
+docker run --rm -v "$PWD":/app node:20.11.1-bookworm sh -c "npm ci && npm test"
 
 > nodejs-devops-demo@1.0.0 test
 > jest --verbose
