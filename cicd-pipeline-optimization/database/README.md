@@ -1,4 +1,4 @@
-# CloudNativePG (cnpg operator) with Object Storage (MinIO)
+# CloudNativePG (cnpg operator)
 
 ## Architect:
 ```bash

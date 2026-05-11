@@ -23,6 +23,10 @@ spec:
           ports:
             - containerPort: 5000
           env:
+            - name: OTEL_EXPORTER_OTLP_ENDPOINT
+              value: "http://otel-collector.monitoring:4318"
+            - name: OTEL_SERVICE_NAME
+              value: "backend-nodejs"
             - name: DB_HOST_RO
               value: "pg-cluster-new-ro"
             - name: DB_HOST_RW

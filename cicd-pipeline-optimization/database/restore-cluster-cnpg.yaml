@@ -5,6 +5,8 @@ metadata:
   namespace: demo
 spec:
   instances: 3           # 1 Primary + 2 Replicas
+  monitoring:
+    enablePodMonitor: true
   imageName: ghcr.io/cloudnative-pg/postgresql:15
 
   storage:

@@ -1,0 +1,73 @@
+deploymentMode: SimpleScalable
+
+minio:
+  enabled: false
+
+loki:
+  auth_enabled: false # Tắt multi-tenancy
+
+  extraEnvFrom:
+    - name: AWS_ACCESS_KEY_ID
+      valueFrom:
+        secretKeyRef:
+          name: loki-minio-secret
+          key: AWS_ACCESS_KEY_ID
+
+    - name: AWS_SECRET_ACCESS_KEY
+      valueFrom:
+        secretKeyRef:
+          name: loki-minio-secret
+          key: AWS_SECRET_ACCESS_KEY
+
+  # Ép Loki không dùng PVC cho storage cục bộ (vì đã có S3)
+  commonConfig:
+    replication_factor: 1
+
+  # Cấu hình storage trỏ về S3 MinIO
+  storage:
+    filesystem:
+      enabled: false
+    type: "s3"
+    bucketNames:
+      chunks: loki-chunks
+      index: loki-index
+      ruler: loki-ruler
+      admin: loki-admin
+    s3:
+      endpoint: svc-minio.demo.svc.cluster.local:9000
+      s3ForcePathStyle: true
+      insecure: true
+      region: "us-east-1"
+      #accessKeyId: loki
+      #secretAccessKey: loki12345
+
+  # Cấu hình Schema v13 cho TSDB (chuẩn mới nhất, lưu cả index và chunks vào S3)
+  schemaConfig:
+    configs:
+      - from: "2024-01-01"
+        store: tsdb
+        object_store: s3
+        schema: v13
+        index:
+          prefix: index_
+          period: 24h
+
+# Define các thành phần cơ bản Read, Write, Backend
+write:
+  replicas: 1
+  persistence: # Không tạo pvc, lưu tạm disk local vì đã có MinIO
+    size: 1Gi
+
+read:
+  replicas: 1
+
+backend:
+  replicas: 1
+  persistence:    # Không tạo pvc, lưu tạm disk local vì đã có MinIO
+    size: 1Gi
+
+chunksCache:      # Cache log chunk đã đọc từ MinIO, giữ lại trong RAM/Disk query sau sẽ nhanh hơn
+  enabled: false
+
+resultsCache:     # Cache kết quả query, query giống hệt lặp lại trả cache luôn
+  enabled: false

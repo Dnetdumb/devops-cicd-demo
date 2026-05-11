@@ -1,0 +1,35 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: pv-loki-write
+spec:
+  capacity:
+    storage: 1Gi
+  volumeMode: Filesystem
+  accessModes:
+   - ReadWriteOnce
+  storageClassName: manual
+  persistentVolumeReclaimPolicy: Retain
+  hostPath:
+    path: "/mnt/data/loki-pv-write"
+  claimRef:
+    name: data-loki-write-0
+    namespace: monitoring
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: pv-loki-backend
+spec:
+  capacity:
+    storage: 1Gi
+  volumeMode: Filesystem
+  accessModes:
+   - ReadWriteOnce
+  storageClassName: manual
+  persistentVolumeReclaimPolicy: Retain
+  hostPath:
+    path: "/mnt/data/loki-pv-backend"
+  claimRef:
+    name: data-loki-backend-0
+    namespace: monitoring

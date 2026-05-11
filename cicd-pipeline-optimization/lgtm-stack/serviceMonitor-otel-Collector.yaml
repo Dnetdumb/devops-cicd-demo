@@ -1,0 +1,15 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: otel-collector-monitor
+  namespace: monitoring
+  labels:
+    release: prometheus # Label này phải khớp với cái Prometheus Operator đang chạy
+spec:
+  selector:
+    matchLabels:
+      app: otel-collector # Tìm đúng Service có nhãn này
+  endpoints:
+  - port: metrics # Tên port đã đặt ở Service trên
+    interval: 15s # Tần suất Prometheus tới lấy dữ liệu
+    path: /metrics

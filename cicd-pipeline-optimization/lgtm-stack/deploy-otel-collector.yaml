@@ -1,0 +1,56 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: otel-collector
+  namespace: monitoring
+spec:
+  selector:
+    matchLabels:
+      app: otel-collector
+  template:
+    metadata:
+      labels:
+        app: otel-collector
+    spec:
+      containers:
+      - name: otel-collector
+        image: otel/opentelemetry-collector-contrib:0.90.0
+
+        resources:
+          limits:
+            cpu: 100m
+            memory: 256Mi
+
+        ports:
+          - containerPort: 4318 # OTLP HTTP
+          - containerPort: 8889 # Prometheus exporter
+
+        args:
+          - "--config=/etc/otel/config/otel-collector-config.yaml" # match với data: otel-collector-config.yaml: |
+
+        volumeMounts:
+          - name: otel-config
+            mountPath: /etc/otel/config
+
+      volumes:
+        - name: otel-config
+          configMap:
+            name: otel-collector-conf
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: otel-collector
+  namespace: monitoring
+  labels:
+    app: otel-collector
+spec:
+  ports:
+  - name: otlp-http
+    port: 4318
+    targetPort: 4318
+  - name: metrics
+    port: 8889
+    targetPort: 8889
+  selector:
+    app: otel-collector
