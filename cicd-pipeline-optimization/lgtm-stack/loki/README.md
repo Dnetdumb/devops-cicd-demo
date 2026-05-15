@@ -90,4 +90,5 @@ enabled    backup                backup-custom-policy
 enabled    loki                  loki-custom-policy
 ```
 
-attach6.png
+<img width="2553" height="1387" alt="attach6" src="https://github.com/user-attachments/assets/f9e6d353-c1ba-463e-b225-15d48a5d3548" />
+
