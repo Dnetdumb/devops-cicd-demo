@@ -19,10 +19,6 @@ WORKDIR /app
 ## Copy needed files from stage builder
 COPY --from=builder /app .
 
-#Define env
-ENV NODE_ENV=production
-ENV OTLP_ENDPOINT=http://otel-collector:4318
-
 USER node
 
 EXPOSE 5000

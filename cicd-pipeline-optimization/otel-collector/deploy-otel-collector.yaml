@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: otel-collector
-        image: otel/opentelemetry-collector-contrib:0.90.0
+        image: otel/opentelemetry-collector-contrib:0.119.0
 
         resources:
           limits:
@@ -22,6 +22,7 @@ spec:
             memory: 256Mi
 
         ports:
+          - containerPort: 4317 # OTLP GRPC
           - containerPort: 4318 # OTLP HTTP
           - containerPort: 8889 # Prometheus exporter
 
@@ -31,11 +32,16 @@ spec:
         volumeMounts:
           - name: otel-config
             mountPath: /etc/otel/config
+          - name: varlogpods
+            mountPath: /var/log/pods
 
       volumes:
         - name: otel-config
           configMap:
             name: otel-collector-conf
+        - name: varlogpods
+          hostPath:
+            path: /var/log/pods
 ---
 apiVersion: v1
 kind: Service
@@ -46,6 +52,9 @@ metadata:
     app: otel-collector
 spec:
   ports:
+  - name: otlp-grpc
+    port: 4317
+    targetPort: 4317
   - name: otlp-http
     port: 4318
     targetPort: 4318

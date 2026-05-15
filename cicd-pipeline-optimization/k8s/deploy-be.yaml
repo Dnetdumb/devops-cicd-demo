@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   annotations:
     reloader.stakater.com/auto: "true"
-  name: backend-deploy
+  name: backend
   namespace: demo
   labels:
     app: be
@@ -19,18 +19,20 @@ spec:
     spec:
       containers:
         - name: backend-container
-          image: peidhhn/backend-nodejs:latest
+          image: peidhhn/backend-nodejs:v2
           ports:
             - containerPort: 5000
           env:
             - name: OTEL_EXPORTER_OTLP_ENDPOINT
-              value: "http://otel-collector.monitoring:4318"
+              value: "http://otel-collector.monitoring.svc.cluster.local:4318"
+            - name: OTEL_EXPORTER_OTLP_PROTOCOL
+              value: "http/protobuf"
             - name: OTEL_SERVICE_NAME
               value: "backend-nodejs"
             - name: DB_HOST_RO
-              value: "pg-cluster-new-ro"
+              value: "pg-cluster-ro"
             - name: DB_HOST_RW
-              value: "pg-cluster-new-rw"
+              value: "pg-cluster-rw"
             - name: DB_NAME
               value: "mydb"
             - name: DB_USER

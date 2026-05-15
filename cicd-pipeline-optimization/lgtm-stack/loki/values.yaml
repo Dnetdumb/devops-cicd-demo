@@ -6,19 +6,6 @@ minio:
 loki:
   auth_enabled: false # Tắt multi-tenancy
 
-  extraEnvFrom:
-    - name: AWS_ACCESS_KEY_ID
-      valueFrom:
-        secretKeyRef:
-          name: loki-minio-secret
-          key: AWS_ACCESS_KEY_ID
-
-    - name: AWS_SECRET_ACCESS_KEY
-      valueFrom:
-        secretKeyRef:
-          name: loki-minio-secret
-          key: AWS_SECRET_ACCESS_KEY
-
   # Ép Loki không dùng PVC cho storage cục bộ (vì đã có S3)
   commonConfig:
     replication_factor: 1
@@ -30,7 +17,6 @@ loki:
     type: "s3"
     bucketNames:
       chunks: loki-chunks
-      index: loki-index
       ruler: loki-ruler
       admin: loki-admin
     s3:
@@ -49,21 +35,30 @@ loki:
         object_store: s3
         schema: v13
         index:
-          prefix: index_
+          prefix: loki_index_
           period: 24h
 
 # Define các thành phần cơ bản Read, Write, Backend
 write:
+  extraEnvFrom:
+    - secretRef:
+        name: loki-minio-secret
   replicas: 1
-  persistence: # Không tạo pvc, lưu tạm disk local vì đã có MinIO
+  persistence:
     size: 1Gi
 
 read:
+  extraEnvFrom:
+    - secretRef:
+        name: loki-minio-secret
   replicas: 1
 
 backend:
+  extraEnvFrom:
+    - secretRef:
+        name: loki-minio-secret
   replicas: 1
-  persistence:    # Không tạo pvc, lưu tạm disk local vì đã có MinIO
+  persistence:
     size: 1Gi
 
 chunksCache:      # Cache log chunk đã đọc từ MinIO, giữ lại trong RAM/Disk query sau sẽ nhanh hơn

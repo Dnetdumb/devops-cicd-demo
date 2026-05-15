@@ -1,9 +1,9 @@
 apiVersion: postgresql.cnpg.io/v1
 kind: Backup
 metadata:
-  name: pg-backup-new-now
+  name: pg-backup-now
   namespace: demo
 spec:
   cluster:
-    name: pg-cluster-new
+    name: pg-cluster
   method: barmanObjectStore

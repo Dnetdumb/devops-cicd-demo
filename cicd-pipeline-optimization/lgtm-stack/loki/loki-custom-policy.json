@@ -13,8 +13,6 @@
     "Resource": [
      "arn:aws:s3:::loki-chunks/*",
      "arn:aws:s3:::loki-chunks",
-     "arn:aws:s3:::loki-index/*",
-     "arn:aws:s3:::loki-index",
      "arn:aws:s3:::loki-ruler/*",
      "arn:aws:s3:::loki-ruler",
      "arn:aws:s3:::loki-admin/*",

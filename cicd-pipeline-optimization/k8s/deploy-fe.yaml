@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: frontend-deploy
+  name: frontend
   namespace: demo
   labels:
     app: fe
@@ -16,14 +16,16 @@ spec:
         app: fe
     spec:
       containers:
-        - name: frontend-container
-          image: peidhhn/frontend-nodejs:latest
+        - name: frontend
+          image: peidhhn/frontend-nodejs:v2
           ports:
             - containerPort: 3000
           env:
             - name: BACKEND_URL
               value: "http://backend-service:5000"
             - name: OTEL_EXPORTER_OTLP_ENDPOINT
-              value: "http://otel-collector.monitoring:4318"
+              value: "http://otel-collector.monitoring.svc.cluster.local:4318"
+            - name: OTEL_EXPORTER_OTLP_PROTOCOL
+              value: "http/protobuf"
             - name: OTEL_SERVICE_NAME
-              value: "backend-nodejs"
+              value: "frontend-nodejs"
