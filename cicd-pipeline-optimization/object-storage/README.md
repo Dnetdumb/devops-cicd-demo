@@ -47,6 +47,9 @@ mc alias set minio-admin http://192.168.180.198:9000 minio minio123
 
 ### Login web UI on "http://minio.lab.local" with credentials "minio-secret"
 
-attach1.png
+<img width="2557" height="1381" alt="attach1" src="https://github.com/user-attachments/assets/5f131026-7a6a-49c3-8e4a-8466f029e10f" />
 
-attach2.png
+
+<img width="2557" height="1393" alt="attach2" src="https://github.com/user-attachments/assets/8da07c08-fd78-45e8-a06b-662bc687acf2" />
+
+
