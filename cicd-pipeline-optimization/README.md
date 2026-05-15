@@ -1,15 +1,26 @@
+# 1. Optimize Code and Pipeline
 ```bash
-# 1. Optimize Code and Pipeline 				                      -> nodejs/
-
-# 2. Install and config Object Storage (MinIO)			          -> object-storage/
-
-# 3. Install and config cluster CNPG Operator (CloudNativePG)	-> database/
-
-# 4. Add LGTM stack						                                -> lgtm-stack/
-
-# 5. Deploy app on K8s (Otel inject already)  			          -> k8s/
-
-# 6. Install otel-collector 					                        -> otel-collector/
+nodejs/
+```
+# 2. Install and config Object Storage (MinIO)
+```bash
+object-storage/
+```
+# 3. Install and config cluster CNPG Operator (CloudNativePG)
+```bash
+database/
+```
+# 4. Add LGTM stack
+```bash
+lgtm-stack/
+```
+# 5. Deploy app on K8s (Otel inject already)
+```bash
+k8s/
+```
+# 6. Install otel-collecto
+```bash
+otel-collector/
 ```
 # 7. Observability Stack Overview
 
