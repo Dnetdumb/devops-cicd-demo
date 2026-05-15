@@ -3,19 +3,19 @@
 ## Workflow:
 ```bash
 			App (Otel SDK injected)
-				| 	Metrics / Logs / Traces
-				▼
+						| 	Metrics / Logs / Traces
+						▼
 		-------	Otel collector-----------
-		|		|		|
-		▼		▼		▼
-	   Prometheus	       Loki 	      Tempo
-	   (metrics)          (Logs)	     (Traces)
-		|				|
-		|				|
+		|				|				|
+		▼				▼				▼
+	   Prometheus	   Loki 	      Tempo
+	   (metrics)        (Logs)	     (Traces)
+		|				|				|
+		|				|				|
 		--------------------------------
-				|
-				▼
-			    Grafana
+						|
+						▼
+			   		 Grafana
 		(Dashboard, Metrics, Logs, TraceID)
 ```
 
