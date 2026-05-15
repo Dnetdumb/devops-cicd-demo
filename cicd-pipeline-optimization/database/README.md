@@ -146,6 +146,5 @@ kubectl get backup -n demo
 NAME            AGE   CLUSTER      METHOD              PHASE       ERROR
 pg-backup-now   7s    pg-cluster   barmanObjectStore   completed
 ```
-attach4.png
 
-attach5.png
+<img width="2553" height="1391" alt="attach5" src="https://github.com/user-attachments/assets/1ece130f-0fcb-47f3-9b22-66f816a62357" />
