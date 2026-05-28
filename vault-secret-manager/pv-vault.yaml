@@ -1,0 +1,53 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: pv-data-vault-0
+spec:
+  capacity:
+    storage: 1Gi
+  volumeMode: Filesystem
+  accessModes:
+   - ReadWriteOnce
+  storageClassName: manual
+  persistentVolumeReclaimPolicy: Retain
+  hostPath:
+    path: "/mnt/data/vault-0"
+  claimRef:
+    name: data-vault-0
+    namespace: vault
+---
+#apiVersion: v1
+#kind: PersistentVolume
+#metadata:
+#  name: pv-data-vault-1
+#spec:
+#  capacity:
+#    storage: 1Gi
+#  volumeMode: Filesystem
+#  accessModes:
+#   - ReadWriteOnce
+#  storageClassName: manual
+#  persistentVolumeReclaimPolicy: Retain
+#  hostPath:
+#    path: "/mnt/data/vault-1"
+#  claimRef:
+#    name: data-vault-1
+#    namespace: vault
+#---
+#apiVersion: v1
+#kind: PersistentVolume
+#metadata:
+#  name: pv-data-vault-2
+#spec:
+#  capacity:
+#    storage: 1Gi
+#  volumeMode: Filesystem
+#  accessModes:
+#   - ReadWriteOnce
+#  storageClassName: manual
+#  persistentVolumeReclaimPolicy: Retain
+#  hostPath:
+#    path: "/mnt/data/vault-2"
+#  claimRef:
+#    name: data-vault-2
+#    namespace: vault
