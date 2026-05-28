@@ -1,22 +1,22 @@
 # Workflow:
 
 ```bash
+	Postgres (CNPG)
+	  |	Dynamic users
+	  ▼
 	ESO
-	  |	- Send request to Vault and every "Refresh Interval" with auth method Kubernetes
+	  |	Sennd request to Vault and every "Refresh Interval" with auth method Kubernetes
 	  ▼
 	Vault
-	  |	- Grant ESO a Token with specific policy and role
+	  |	- Grant ESO a "Token" with specific policy and role
 	  ▼
-	ESO
-	  |	- Use this "Token" to request a username/password of Postgres
+	ESO (External Secret Operator on K8s)
+	  |	- Use this "Token" to request a user/password
+	  |	Sync to K8s secret
 	  ▼
-        Vault
-	  |	- Use "vaultadmin" to create role on CloudNativePG (primary Pod) with special interval and Grant to ESO
-	  ▼
-	ESO
-	  |	- Sync this username/password to K8s
-	  ▼
-	Pod	- Reload secret by restarting with reloader:true
+	
+ 	Create user with dynamic secret (secret have inte
+	Pod (load secret or restart with reloader:true )
 ```
 # VAULT SECRET MANAGER
 
