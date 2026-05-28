@@ -302,4 +302,32 @@ mydb=> \du
  streaming_replica                                   | Replication                                                | {}
  v-kubernet-webapp-r-kRjUrNXPiOIp9vkUqIVm-1779967565 | Password valid until 2026-05-28 12:26:10+00                | {db_app_role}
  vaultadmin                                          | Superuser, Create role, Create DB                          | {db_app_role}
-```
+
+
+# Force External Secret Sync now:
+
+kubectl annotate externalsecret db-sync -n demo force-sync=$(date +%s) --overwrite
+
+# Check database:
+
+mydb=> \du
+                                                          List of roles
+                      Role name                      |                         Attributes                         |   Member of
+-----------------------------------------------------+------------------------------------------------------------+---------------
+ app                                                 |                                                            | {}
+ db_app_role                                         | Cannot login                                               | {}
+ postgres                                            | Superuser, Create role, Create DB, Replication, Bypass RLS | {}
+ streaming_replica                                   | Replication                                                | {}
+ v-kubernet-webapp-r-EUkoXw0Dr3pHQRTs2IEs-1779972473 | Password valid until 2026-05-28 13:47:58+00                | {db_app_role}
+ v-kubernet-webapp-r-mBPiALoSQj2SceWV2MWX-1779972349 | Password valid until 2026-05-28 13:45:54+00                | {db_app_role}
+ v-kubernet-webapp-r-rtAFxbDC4jBefZo3iDQU-1779971718 | Password valid until 2026-05-28 13:35:23+00                | {db_app_role}
+ vaultadmin                                          | Superuser, Create role, Create DB                          | {db_app_role}
+
+
+# Check logs reloader:
+
+kubectl logs -n kube-system reloader-reloader-54c988d968-hgd29 -f
+...
+...
+time="2026-05-28T12:45:49Z" level=info msg="Changes detected in 'postgres-secret' of type 'SECRET' in namespace 'demo'; updated 'backend' of type 'Deployment' in namespace 'demo'"
+time="2026-05-28T12:47:54Z" level=info msg="Changes detected in 'postgres-secret' of type 'SECRET' in namespace 'demo'; updated 'backend' of type 'Deployment' in namespace 'demo'"
